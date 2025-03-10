@@ -1,0 +1,32 @@
+@mixin align-center {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.taskbar-base-wrapper {
+  background-color: grey;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+
+  .left-side {
+    @include align-center();
+    width: 25%;
+    height: 100%;
+  }
+
+  .middle {
+    @include align-center();
+    width: 50%;
+    height: 100%;
+  }
+
+  .right-side {
+    @include align-center();
+    width: 25%;
+    height: 100%;
+  }
+}
+
