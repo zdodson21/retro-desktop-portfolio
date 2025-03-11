@@ -1,0 +1,5 @@
+/.angular
+.vercel
+.vscode
+node_modules
+.editorconfig
