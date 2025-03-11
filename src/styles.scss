@@ -1,3 +1,14 @@
+@font-face {
+  font-family: W95FA;
+  src: url('/fonts/w95fa.woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+* {
+  font-family: W95FA;
+}
+
 html, body {
   margin: 0;
   padding: 0;
