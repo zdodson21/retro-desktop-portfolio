@@ -1,9 +1,14 @@
-// Taskbar
+// ! Desktop Environment
+
+
+// ! Taskbar
 $taskbar-item-border-black: #7f7f7f;
 $taskbar-item-border-white: #e6e6e6;
 
 @mixin taskbar-item-common {
-  
+  display: block;
+  border-width: 2px;
+  height: 24px;
 }
 
 @mixin taskbar-item-text {
@@ -25,6 +30,8 @@ $taskbar-item-border-white: #e6e6e6;
   font-style: normal;
 }
 
+
+// ! HTML
 * {
   font-family: W95FA;
 }

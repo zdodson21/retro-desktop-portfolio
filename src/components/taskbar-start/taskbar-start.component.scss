@@ -1,12 +1,10 @@
 @use '../../styles.scss' as *;
 
 .taskbar-start-wrapper {
-  display: block;
+  @include taskbar-item-common();
   border-style: outset;
   border-color: $taskbar-item-border-white $taskbar-item-border-black $taskbar-item-border-black $taskbar-item-border-white;
-  border-width: 2px;
   padding: 2px 6px;
-  height: 24px;
   align-content: center;
 
   p {
