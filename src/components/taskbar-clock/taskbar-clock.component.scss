@@ -1,24 +1,15 @@
-$border-black: #7f7f7f;
-$border-white: #e6e6e6;
+@use '../../styles.scss' as *;
 
 .clock-wrapper {
   display: block;
   border-style: inset;
-  border-color: $border-black $border-white $border-white $border-black;
+  border-color: $taskbar-item-border-black $taskbar-item-border-white $taskbar-item-border-white $taskbar-item-border-black;
   border-width: 2px;
   padding: 2px 12px;
   height: 24px;
   align-content: center;
 
   p {
-    font-size: 18px;
-    font-smooth: never;
-    -webkit-font-smoothing: none;
-    color: black;
-    user-select: none;
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
+    @include taskbar-item-text();
   }
 }

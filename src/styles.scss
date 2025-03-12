@@ -1,3 +1,23 @@
+// Taskbar
+$taskbar-item-border-black: #7f7f7f;
+$taskbar-item-border-white: #e6e6e6;
+
+@mixin taskbar-item-common {
+  
+}
+
+@mixin taskbar-item-text {
+  font-size: 18px;
+  font-smooth: never;
+  -webkit-font-smoothing: none;
+  color: black;
+  user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+}
+
 @font-face {
   font-family: W95FA;
   src: url('/fonts/w95fa.woff');

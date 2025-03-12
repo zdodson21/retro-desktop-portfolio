@@ -1,5 +1,11 @@
 # RetroDesktopPortfolio
 
+## Description
+
+An alternative portfolio designed by Zach Dodson. The idea was that I already had a portfolio, but that one is basic and uses a content management system. This one is completely personalized and designed from the ground up using Vite + Lit. Both portfolio websites will be maintained for the sake of accessibility, and both will link to each other.
+
+## Angular Stuff
+
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.1.
 
 ## Development server

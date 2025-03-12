@@ -19,7 +19,12 @@
 
   .left-side {
     @include align-center();
-    @include sides
+    @include sides();
+
+    taskbar-start {
+      position: absolute;
+      left: 8px;
+    }
   }
 
   .middle {

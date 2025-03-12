@@ -1,0 +1,30 @@
+@use '../../styles.scss' as *;
+
+.taskbar-start-wrapper {
+  display: block;
+  border-style: outset;
+  border-color: $taskbar-item-border-white $taskbar-item-border-black $taskbar-item-border-black $taskbar-item-border-white;
+  border-width: 2px;
+  padding: 2px 6px;
+  height: 24px;
+  align-content: center;
+
+  p {
+    @include taskbar-item-text();
+    font-weight: bold;
+  }
+}
+
+.clicked {
+  display: block;
+  border-style: solid inset solid solid;
+  border-color: #000 $taskbar-item-border-white $taskbar-item-border-white #000;
+  border-width: 2px;
+  padding: 2px 6px;
+  height: 24px;
+  align-content: center;
+
+  .contents {
+    border: 1px dotted #000;
+  }
+}
