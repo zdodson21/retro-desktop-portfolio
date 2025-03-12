@@ -1,16 +1,20 @@
-$border-black: #353535;
+$border-black: #7f7f7f;
 $border-white: #e6e6e6;
 
-:host
-
 .clock-wrapper {
+  display: block;
   border-style: inset;
   border-color: $border-black $border-white $border-white $border-black;
   border-width: 2px;
-  padding: 2px 4px;
+  padding: 2px 12px;
+  height: 24px;
+  align-content: center;
 
   p {
-    color: white;
+    font-size: 18px;
+    font-smooth: never;
+    -webkit-font-smoothing: none;
+    color: black;
     user-select: none;
     -webkit-touch-callout: none;
     -webkit-user-select: none;

@@ -4,29 +4,38 @@
   align-items: center;
 }
 
-.taskbar-base-wrapper {
-  background-color: grey;
+@mixin sides {
+  width: 10%;
   height: 100%;
+}
+
+.taskbar-base-wrapper {
+  border-top: 3px solid #fff;
+  background-color: #c0c0c0;
+  height: 40px;
   width: 100%;
   display: flex;
   flex-direction: row;
 
   .left-side {
     @include align-center();
-    width: 25%;
-    height: 100%;
+    @include sides
   }
 
   .middle {
     @include align-center();
-    width: 50%;
+    width: 80%;
     height: 100%;
   }
 
   .right-side {
     @include align-center();
-    width: 25%;
-    height: 100%;
+    @include sides();
+
+    taskbar-clock {
+      position: absolute;
+      right: 8px;
+    }
   }
 }
 
