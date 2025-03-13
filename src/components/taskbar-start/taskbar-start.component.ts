@@ -7,5 +7,7 @@ import { Component } from '@angular/core';
   styleUrl: './taskbar-start.component.scss'
 })
 export class TaskbarStartComponent {
-
+  startClicked() {
+    console.log("test");
+  }
 }

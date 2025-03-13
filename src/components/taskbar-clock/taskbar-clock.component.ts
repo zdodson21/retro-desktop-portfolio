@@ -11,7 +11,6 @@ export class TaskbarClockComponent {
   clock: string = "";
 
   constructor() {
-
     setInterval(() => {
       let time = new Date();
       let halfOfDay: string = "AM";
@@ -28,6 +27,6 @@ export class TaskbarClockComponent {
       let second: number = time.getSeconds();
 
       this.clock = `${hour.toString()}:${minute} ${halfOfDay}`;
-    }, 1000)
+    }, 100);
   }
 }
