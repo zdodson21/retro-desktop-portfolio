@@ -6,6 +6,7 @@
   padding: 2px 12px;
   align-content: center;
   margin-left: 8px;
+  height: 24px;
 
   p {
     @include taskbar-item-text();

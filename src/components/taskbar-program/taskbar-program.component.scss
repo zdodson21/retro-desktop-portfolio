@@ -12,7 +12,7 @@
   width: 200px;
 
   img {
-    height: 22px;
+    @include taskbar-item-icon();
   }
 
   p {
