@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { TaskbarBaseComponent } from "../components/taskbar-base/taskbar-base.component";
+import { DesktopEnvironmentComponent } from '../components/desktop-environment/desktop-environment.component';
 
 @Component({
   selector: 'app-root',
-  imports: [TaskbarBaseComponent],
+  imports: [TaskbarBaseComponent, DesktopEnvironmentComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })

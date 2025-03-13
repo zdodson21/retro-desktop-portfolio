@@ -2,12 +2,26 @@
   background-color: #007d80;
   height: 100%;
   width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+desktop-environment {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: calc(100% - 43px);
 }
 
 taskbar-base {
+  display: block;
   position: absolute;
   bottom: 0px;
   width: 100%;
+  height: 40px;
+  border-top: 3px solid #fff;
 }
 
 p {
