@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild, } from '@angular/core';
 
 @Component({
   selector: 'taskbar-start',
@@ -7,7 +7,22 @@ import { Component } from '@angular/core';
   styleUrl: './taskbar-start.component.scss'
 })
 export class TaskbarStartComponent {
-  startClicked() {
-    console.log("test");
+  @ViewChild('startButton') startButtonRef!: ElementRef;
+  clicked: boolean = false;
+
+  /**
+   * @description Handles changing styles and other functionality of the start button.
+   */
+  startButtonHandler() {
+    const button = this.startButtonRef.nativeElement;
+
+    if (!this.clicked) {
+      button.classList.add('active');
+    }
+    else {
+      button.classList.remove('active');
+    }
+
+    this.clicked = !this.clicked;
   }
 }

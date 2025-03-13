@@ -1,0 +1,32 @@
+@use '../../styles.scss' as *;
+
+.taskbar-program-wrapper {
+  @include taskbar-item-common();
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-style: outset;
+  border-color: $taskbar-item-border-white $taskbar-item-border-black $taskbar-item-border-black $taskbar-item-border-white;
+  padding: 2px 6px;
+  gap: 6px;
+  width: 200px;
+
+  img {
+    height: 22px;
+  }
+
+  p {
+    @include taskbar-item-text();
+  }
+
+  &.active {
+    border-style: solid inset solid solid;
+    border-color: black $taskbar-item-border-white $taskbar-item-border-white black;
+    border-width: 2px;
+
+    p {
+      font-weight: bold;
+      font-size: 19px;
+    }
+  }
+}

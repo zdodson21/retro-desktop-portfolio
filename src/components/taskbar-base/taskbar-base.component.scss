@@ -4,11 +4,6 @@
   align-items: center;
 }
 
-@mixin sides {
-  width: 10%;
-  height: 100%;
-}
-
 .taskbar-base-wrapper {
   background-color: #c0c0c0;
   height: 100%;
@@ -18,7 +13,8 @@
 
   .left-side {
     @include align-center();
-    @include sides();
+    height: 100%;
+    width: 90px;
 
     taskbar-start {
       position: absolute;
@@ -28,13 +24,15 @@
 
   .middle {
     @include align-center();
-    width: 80%;
+    width: calc(100% - 194px);
     height: 100%;
+    gap: 4px;
   }
 
   .right-side {
     @include align-center();
-    @include sides();
+    height: 100%;
+    width: 104px;
 
     taskbar-clock {
       position: absolute;
