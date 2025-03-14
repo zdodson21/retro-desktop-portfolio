@@ -9,7 +9,7 @@
   border-color: $taskbar-item-border-white $taskbar-item-border-black $taskbar-item-border-black $taskbar-item-border-white;
   padding: 2px 6px;
   gap: 6px;
-  width: 200px;
+  overflow: hidden; // TODO needs changed to be elipsies or something like that
 
   img {
     @include taskbar-item-icon();

@@ -27,6 +27,11 @@
     width: calc(100% - 194px);
     height: 100%;
     gap: 4px;
+    overflow: hidden;
+
+    taskbar-program {
+      width: min(200px, 33%);
+    }
   }
 
   .right-side {
