@@ -2,9 +2,34 @@
 
 ## Description
 
-An alternative portfolio designed by Zach Dodson. The idea was that I already had a portfolio, but that one is basic and uses a content management system. This one is completely personalized and designed from the ground up using Vite + Lit. Both portfolio websites will be maintained for the sake of accessibility, and both will link to each other.
+My personal website project that serves both as my portfolio and an online toolbox with a retro theme.
 
-## Angular Stuff
+## Tech Stack / Development Tools
+
+| Tool | Purpose & Description |
+| ---- | --------------------- |
+| ![Angular](https://img.shields.io/badge/angular-%23DD0031.svg?style=for-the-badge&logo=angular&logoColor=white) | **[Angular](https://angular.dev/)**: Front-end framework used to handle the building, routing, and numerous other aspects of this web app. |
+| ![Lit](https://img.shields.io/badge/lit-4c64ff.svg?style=for-the-badge&logo=lit&logoColor=white) | **[Lit](https://lit.dev/docs/)**: Web-component library used for creation of some individual "programs" in the website that don't need to interact with the rest of the system. Creating web components helps to keep these "programs" containerized so they are less likely to introduce any bugs anywhere else. Programs that use Lit will be listed here when they are added. |
+| ![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white) | **[Typescript](https://www.typescriptlang.org/)**: Language used by Angular to handle all logic related tasks. |
+| ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E) | **[JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)**: Utilized in some Lit web-components, mainly for any where utilizing TypeScript was not necessary. |
+| ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white) | **[HTML](https://developer.mozilla.org/en-US/docs/Web/HTML)**: Structure of overall web app, individual "web pages" in the browser, and structure of web components |
+| ![SCSS](https://img.shields.io/badge/scss-%23cf649a.svg?style=for-the-badge&logo=sass&logoColor=white) | **[SCSS](https://sass-lang.com/documentation/syntax/)**: Used in Angular for styling, enabling better developer experience than using plain CSS across the entire web app. |
+| ![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white) | **[CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)**: Utilized in Lit web components to handle containerized styling of the web components. |
+| ![Vercel](https://img.shields.io/badge/vercel-%23000000.svg?style=for-the-badge&logo=vercel&logoColor=white) | **[Vercel](https://vercel.com/)**: Web hosting services. |
+| ![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white) | **[GitHub](https://github.com/zdodson21/retro-desktop-portfolio)**: Git repository cloud service. |
+
+## Web Component Repos
+
+Some aspects of this web application are created using external web-components, hosted in other repositories. Those will be listed here.
+
+
+## Don't Portfolios with this theming already exist?
+
+Yes, but it's the theme I liked, thought it would challenge me the most to recreate (it did), and I wanted to aim for a more "authentic" experience than I saw from any other Windows 95 themed portfolio.
+
+---
+
+# Angular
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.1.
 
