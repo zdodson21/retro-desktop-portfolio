@@ -1,4 +1,8 @@
-# RetroDesktopPortfolio
+# Zach's Retro Desktop Portfolio
+
+## Accessibility
+
+I also maintain my old portfolio, created using the HAXCMS open source content management system. This portfolio is maintained for ease of use, accessibility, and better readability. If you wish to view this portfolio, click here (when the URL is updated that is).
 
 ## Description
 
@@ -29,7 +33,8 @@ Yes, but it's the theme I liked, and I thought it would challenge me the most to
 
 ## Project Goals:
 
-* Ensure web app is easy to expand in the future, such as adding new HTML pages documenting new projects, or adding new interactive "programs".
+* Prioritize developer experience combined with expansiveness to ensure expanding upon this web application is simple in the future.
+  * Say I need to add another "web page" to document a project I have completed. I want it to be simple to incorporate a way to access that page into this web application.
 * Replicate the Windows 95 look & feel as much as possible, not just the look. A lot of time was put in to making this web app feel authentic. Obviously the speed in which "programs" and "web pages" load will certainly be faster here.
 
 ---
