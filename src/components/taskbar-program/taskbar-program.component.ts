@@ -1,4 +1,4 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, ElementRef, Input, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'taskbar-program',
@@ -7,6 +7,9 @@ import { Component, ElementRef, ViewChild } from '@angular/core';
   styleUrl: './taskbar-program.component.scss'
 })
 export class TaskbarProgramComponent {
+  @Input({alias: 'icon'}) src: string;
+  @Input({alias: 'text'}) text: string;
+
   @ViewChild('program') programRef!: ElementRef;
   clicked: boolean = false;
 
