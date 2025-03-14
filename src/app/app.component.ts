@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { TaskbarBaseComponent } from "../components/taskbar-base/taskbar-base.component";
-import { DesktopEnvironmentComponent } from '../components/desktop-environment/desktop-environment.component';
+import { TaskbarBaseComponent } from "../components/taskbar/taskbar-base/taskbar-base.component";
+import { DesktopEnvironmentComponent } from '../components/desktop/desktop-environment/desktop-environment.component';
 
 @Component({
   selector: 'app-root',
