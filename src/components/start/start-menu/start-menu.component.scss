@@ -1,6 +1,7 @@
 @use '../../../styles.scss' as *;
 
 .start-menu-wrapper {
+  display: hidden;
   background-color: #bec3c6;
   width: 100%;
   height: 100%;

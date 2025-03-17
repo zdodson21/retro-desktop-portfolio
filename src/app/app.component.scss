@@ -24,6 +24,11 @@ start-menu {
   z-index: 999999;
   width: 300px;
   height: 500px;
+  visibility: hidden;
+
+  &.visible {
+    visibility: visible;
+  }
 }
 
 taskbar-base {
