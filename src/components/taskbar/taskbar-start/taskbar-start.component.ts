@@ -9,7 +9,6 @@ import { AppService } from '../../../app/app.service';
 })
 export class TaskbarStartComponent {
   @ViewChild('startButton') startButtonRef!: ElementRef;
-  clicked: boolean = false;
 
   private store = inject(AppService);
 
@@ -19,7 +18,7 @@ export class TaskbarStartComponent {
   startButtonHandler() {
     const button = this.startButtonRef.nativeElement;
 
-    if (!this.clicked) {
+    if (!this.store.isStartMenuOpen()) {
       button.classList.add('active');
       this.store.isStartMenuOpen.set(true);
       console.log(this.store.isStartMenuOpen());
@@ -29,7 +28,5 @@ export class TaskbarStartComponent {
       this.store.isStartMenuOpen.set(false);
       console.log(this.store.isStartMenuOpen());
     }
-
-    this.clicked = !this.clicked;
   }
 }

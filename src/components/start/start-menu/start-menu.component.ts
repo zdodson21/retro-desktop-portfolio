@@ -1,4 +1,4 @@
-import { Component, effect, ElementRef, inject, Renderer2, Signal } from '@angular/core';
+import { Component, effect, ElementRef, inject, Renderer2 } from '@angular/core';
 import { AppService } from '../../../app/app.service';
 
 @Component({

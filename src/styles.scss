@@ -1,3 +1,20 @@
+// ! Common
+@mixin icon-common {
+  pointer-events: none;
+  user-select: none;
+}
+
+@mixin text-common {
+  user-select: none;
+  -webkit-font-smoothing: subpixel-antialiased;
+  user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  font-smooth: never;
+}
+
 // ! Desktop Environment
 
 
@@ -12,20 +29,14 @@ $taskbar-item-border-white: #e6e6e6;
 }
 
 @mixin taskbar-item-text {
+  @include text-common();
   font-size: 18px;
-  font-smooth: never;
-  -webkit-font-smoothing: subpixel-antialiased;
   color: black;
-  user-select: none;
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
 }
 
 @mixin taskbar-item-icon {
+  @include icon-common();
   height: 22px;
-  user-select: none;
 }
 
 @font-face {

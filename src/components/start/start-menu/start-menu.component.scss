@@ -16,9 +16,9 @@
     flex-direction: column-reverse;
 
     p {
+      @include text-common();
       padding: 8px;
       font-weight: bold;
-      user-select: none;
       transform: rotate(-90deg);
       font-size: 32px;
 

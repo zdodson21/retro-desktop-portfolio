@@ -1,3 +1,5 @@
+@use '../../../styles.scss' as *;
+
 .desktop-icon-wrapper {
   display: flex;
   align-items: center;
@@ -6,16 +8,16 @@
   width: 100%;
   height: 100%;
   gap: 8px;
+  image-rendering: crisp-edges;
   // border: 1px pink solid; // TODO remove, just for visualizing things
 
   img {
-    user-select: none;
+    @include icon-common();
     height: 45px;
-    image-rendering: crisp-edges;
   }
 
   p {
-    user-select: none;
+    @include text-common();
     text-wrap: balance;
     text-align: center;
     font-size: 16px;
