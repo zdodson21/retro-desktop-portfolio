@@ -6,6 +6,8 @@
   height: 100%;
   border-style: outset solid solid outset;
   border-color: $taskbar-item-border-white #131818 #131818 $taskbar-item-border-white;
+  display: flex;
+  flex-direction: row;
 
   .win-95-bar {
     background-color: #82878b;
@@ -29,5 +31,11 @@
         color: #fcfcfc;
       }
     }
+  }
+
+  .right-side {
+    width: 85%;
+    display: flex;
+    flex-direction: column;
   }
 }
