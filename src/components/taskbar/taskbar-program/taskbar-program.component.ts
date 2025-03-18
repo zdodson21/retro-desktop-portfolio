@@ -1,4 +1,5 @@
-import { Component, ElementRef, Input, ViewChild } from '@angular/core';
+import { Component, effect, ElementRef, inject, Input, ViewChild } from '@angular/core';
+import { AppService } from '../../../app/app.service';
 
 @Component({
   selector: 'taskbar-program',
@@ -11,18 +12,35 @@ export class TaskbarProgramComponent {
   @Input({alias: 'text'}) text: string;
 
   @ViewChild('program') programRef!: ElementRef;
-  clicked: boolean = false;
 
-  programHandler() {
-    const program = this.programRef.nativeElement;
+  private store = inject(AppService);
+  private item: any;
 
-    if (!this.clicked) {
-      program.classList.add('active');
+  ngAfterViewInit() {
+    this.item = this.programRef.nativeElement;
+  }
+
+  constructor() {
+    effect(() => {
+      if (this.store.focus() == this.item) {
+        this.item.classList.add('active');
+      }
+      else {
+        this.item.classList.remove('active');
+      }
+    })
+  }
+
+  clickHandler(event: MouseEvent) {
+    event?.stopPropagation();
+
+    if (this.store.focus() == this.item) {
+      this.store.focus.set('');
     }
     else {
-      program.classList.remove('active');
+      this.store.focus.set(this.item);
     }
 
-    this.clicked = !this.clicked;
+    this.store.isStartMenuOpen.set(false);
   }
 }

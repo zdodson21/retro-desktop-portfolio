@@ -13,9 +13,15 @@ export class DesktopEnvironmentComponent {
   @ViewChild('desktopEnvironment') desktopEnvironmentRef!: ElementRef;
 
   private store = inject(AppService);
+  private item: any;
 
-  clickHandler() {
-    const item = this.desktopEnvironmentRef.nativeElement;
-    this.store.focus.set(item);
+  ngAfterViewInit() {
+    this.item = this.desktopEnvironmentRef.nativeElement;
+  }
+
+  clickHandler(event: MouseEvent) {
+    event?.stopPropagation();
+    this.store.focus.set(this.item);
+    this.store.isStartMenuOpen.set(false);
   }
 }

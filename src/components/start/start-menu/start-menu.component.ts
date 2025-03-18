@@ -1,4 +1,4 @@
-import { Component, effect, ElementRef, inject, Renderer2 } from '@angular/core';
+import { Component, effect, ElementRef, inject, Renderer2, ViewChild } from '@angular/core';
 import { AppService } from '../../../app/app.service';
 
 @Component({
@@ -8,9 +8,12 @@ import { AppService } from '../../../app/app.service';
   styleUrl: './start-menu.component.scss'
 })
 export class StartMenuComponent {
+  @ViewChild('startMenu') startMenuRef!: ElementRef;
+
   private store = inject(AppService);
   private renderer = inject(Renderer2);
   private elementRef = inject(ElementRef);
+  private item: any;
 
   constructor() {
     effect(() => {
@@ -20,5 +23,14 @@ export class StartMenuComponent {
         this.renderer.removeClass(this.elementRef.nativeElement, 'visible');
       }
     });
+  }
+
+  ngAfterViewInit() {
+    this.item = this.startMenuRef.nativeElement
+  }
+
+  clickHandler(event: MouseEvent) {
+    event?.stopPropagation();
+    this.store.focus.set(this.item);
   }
 }

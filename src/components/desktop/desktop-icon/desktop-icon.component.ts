@@ -23,21 +23,22 @@ export class DesktopIconComponent {
   constructor() {
     effect(() => {
       if (this.store.focus() == this.item) {
-        console.log('adding active')
-        this.item.classList.add('active')
+        this.item.classList.add('active');
       }
       else {
-        console.log('remove active')
         this.item.classList.remove('active');
       }
-      console.log(this.store.focus())
     });
   }
 
   singleClickHandler(event: MouseEvent) {
     event?.stopPropagation();
-    console.log('applying focus')
-    const item = this.desktopIconRef.nativeElement;
-    this.store.focus.set(item);
+    this.store.focus.set(this.item);
+    this.store.isStartMenuOpen.set(false);
+  }
+
+  dblClickHandler(event: MouseEvent) {
+    event?.stopPropagation();
+    console.log('double click');
   }
 }

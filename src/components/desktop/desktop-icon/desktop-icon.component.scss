@@ -9,7 +9,6 @@
   height: 100%;
   gap: 8px;
   image-rendering: crisp-edges;
-  // border: 1px pink solid; // TODO remove, just for visualizing things
 
   img {
     @include icon-common();

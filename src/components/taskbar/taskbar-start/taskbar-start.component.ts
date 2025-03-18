@@ -1,4 +1,4 @@
-import { Component, ElementRef, inject, ViewChild, } from '@angular/core';
+import { Component, effect, ElementRef, inject, ViewChild, } from '@angular/core';
 import { AppService } from '../../../app/app.service';
 
 @Component({
@@ -11,22 +11,35 @@ export class TaskbarStartComponent {
   @ViewChild('startButton') startButtonRef!: ElementRef;
 
   private store = inject(AppService);
+  private item: any;
+
+  ngAfterViewInit() {
+    this.item = this.startButtonRef.nativeElement;
+  }
+
+  constructor() {
+    effect(() => {
+      if (this.store.isStartMenuOpen()) {
+        this.item.classList.add('active');
+      }
+      else {
+        this.item.classList.remove('active');
+      }
+    })
+  }
 
   /**
    * @description Handles changing styles and other functionality of the start button.
    */
-  startButtonHandler() {
-    const button = this.startButtonRef.nativeElement;
-
+  startButtonHandler(event: MouseEvent) {
+    event?.stopPropagation();
     if (!this.store.isStartMenuOpen()) {
-      button.classList.add('active');
       this.store.isStartMenuOpen.set(true);
-      console.log(this.store.isStartMenuOpen());
     }
     else {
-      button.classList.remove('active');
       this.store.isStartMenuOpen.set(false);
-      console.log(this.store.isStartMenuOpen());
     }
+    const item = this.startButtonRef.nativeElement;
+    this.store.focus.set(item)
   }
 }
