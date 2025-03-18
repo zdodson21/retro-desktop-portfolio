@@ -1,4 +1,4 @@
-<div class="desktop-icon-wrapper">
+<div #desktopIcon class="desktop-icon-wrapper" (click)="singleClickHandler($event)">
   <img src="{{ src }}" alt="{{ text }} Icon">
   <p>{{ text }}</p>
 </div>
