@@ -8,6 +8,7 @@ import { AppService } from '../../../app/app.service';
   styleUrl: './taskbar-program.component.scss'
 })
 export class TaskbarProgramComponent {
+  @Input({alias: 'focus-name'}) focusName: string;
   @Input({alias: 'icon'}) src: string;
   @Input({alias: 'text'}) text: string;
 
@@ -22,7 +23,7 @@ export class TaskbarProgramComponent {
 
   constructor() {
     effect(() => {
-      if (this.store.focus() == this.item) {
+      if (this.store.focus() == this.focusName) {
         this.item.classList.add('active');
       }
       else {
@@ -34,11 +35,11 @@ export class TaskbarProgramComponent {
   clickHandler(event: MouseEvent) {
     event?.stopPropagation();
 
-    if (this.store.focus() == this.item) {
+    if (this.store.focus() == this.focusName) {
       this.store.focus.set('');
     }
     else {
-      this.store.focus.set(this.item);
+      this.store.focus.set(this.focusName);
     }
 
     this.store.isStartMenuOpen.set(false);
