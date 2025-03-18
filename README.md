@@ -29,7 +29,7 @@ Some aspects of this web application are created using external web-components, 
 
 ## Don't Portfolios with this theming already exist?
 
-Yes, but it's the theme I liked, and I thought it would challenge me the most to recreate (it did). I also wanted to aim for a more "authentic" experience than I saw from any other Windows 95 themed portfolio.
+Yes, but it's the theme I liked, and I thought it would challenge me the most to recreate (it did). I also wanted to aim for a more "authentic" experience than I saw from any other Windows 95 themed portfolio. This was also a good chance to learn how to use a modern framework such as Angular.
 
 ## Project Goals:
 

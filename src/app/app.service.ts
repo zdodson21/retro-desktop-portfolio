@@ -6,9 +6,11 @@ import { Injectable, signal } from '@angular/core';
   providedIn: 'root'
 })
 export class AppService {
+  // ! Common
+  focus = signal('');
+
   // ! Start Menu
   isStartMenuOpen = signal(false);
-  focus = signal('none');
 
   // ! Window Management
 
