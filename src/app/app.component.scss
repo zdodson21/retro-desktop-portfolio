@@ -23,7 +23,7 @@ start-menu {
   left: 10px;
   z-index: 999999;
   width: 300px;
-  height: 500px;
+  height: auto;
   visibility: hidden;
 
   &.visible {

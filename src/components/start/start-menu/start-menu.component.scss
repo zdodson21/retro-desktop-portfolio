@@ -12,7 +12,7 @@
   .win-95-bar {
     background-color: #82878b;
     width: 15%;
-    height: 100%;
+    height: auto;
     display: flex;
     flex-direction: column-reverse;
 
@@ -23,11 +23,11 @@
       transform: rotate(-90deg);
       font-size: 32px;
 
-      :nth-child(1) {
+      :first-child {
         color: #bec3c6;
       }
 
-      :nth-child(2) {
+      :last-child {
         color: #fcfcfc;
       }
     }
@@ -37,5 +37,23 @@
     width: 85%;
     display: flex;
     flex-direction: column;
+    overflow: hidden;
+    height: 100%;
+
+    start-item, start-dropdown, .power-options {
+      display: block;
+      width: 100%;
+      height: 70px;
+    }
+
+    .programs {
+      border-bottom: 2px #8a8a8a solid;
+    }
+
+    .power-options {
+      height: 70px;
+      padding-top: 4px;
+      border-top: 2px #f1f1f1 solid;
+    }
   }
 }

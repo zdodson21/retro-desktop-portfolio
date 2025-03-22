@@ -18,6 +18,32 @@
 // ! Desktop Environment
 
 
+// ! Start Menu
+@mixin start-menu-object {
+  display: flex;
+  align-items: center;
+  padding-left: 12px;
+  gap: 12px;
+  height: 100%;
+
+  img {
+    @include icon-common();
+    width: 32px;
+  }
+
+  p {
+    @include text-common();
+  }
+
+  &:hover {
+    background-color: #000c79; // TODO change to actual color
+
+    p {
+      color: white;
+    }
+  }
+}
+
 // ! Taskbar
 $taskbar-item-border-black: #7f7f7f;
 $taskbar-item-border-white: #e6e6e6;

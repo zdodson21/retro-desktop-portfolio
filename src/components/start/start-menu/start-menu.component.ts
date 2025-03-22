@@ -1,10 +1,12 @@
 import { Component, effect, ElementRef, inject, Renderer2, ViewChild } from '@angular/core';
 import { AppService } from '../../../app/app.service';
 import { StartItemComponent } from '../start-item/start-item.component';
+import { StartDropdownComponent } from '../start-dropdown/start-dropdown.component';
+import { StartShutdownComponent } from '../start-shutdown/start-shutdown.component';
 
 @Component({
   selector: 'start-menu',
-  imports: [StartItemComponent],
+  imports: [StartDropdownComponent ,StartItemComponent, StartShutdownComponent],
   templateUrl: './start-menu.component.html',
   styleUrl: './start-menu.component.scss'
 })
