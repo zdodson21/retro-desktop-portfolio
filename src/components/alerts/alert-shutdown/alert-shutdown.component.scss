@@ -1,0 +1,56 @@
+@use "../../../styles.scss" as *;
+
+.alert-shutdown-wrapper {
+  width: auto;
+  max-width: 75%;
+  height: auto;
+  max-height: 75%;
+
+  .frame-contents {
+    background-color: #bfbfbf;
+    display: flex;
+    flex-direction: row;
+    width: 500px;
+    max-width: 100%;
+
+    .left-side {
+      width: 15%;
+      display: flex;
+      justify-content: center;
+    }
+
+    form {
+      width: 85%;
+
+      p {
+        @include text-common();
+      }
+
+      .options {
+        input[type="radio"] {
+          accent-color: black; // need to make dot smaller, other modifications
+        }
+
+        label {
+          @include text-common();
+          border: 1px transparent dotted;
+        }
+
+        input[type="radio"]:checked + label {
+          border-color: black;
+        }
+
+      }
+
+      .controls {
+        display: flex;
+        justify-content: flex-end;
+
+        .underline {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+
+}

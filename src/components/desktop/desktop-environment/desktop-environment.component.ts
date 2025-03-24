@@ -5,7 +5,7 @@ import { AppService } from '../../../app/app.service';
 
 @Component({
   selector: 'desktop-environment',
-  imports: [DesktopIconComponent, WindowFrameComponent],
+  imports: [DesktopIconComponent],
   templateUrl: './desktop-environment.component.html',
   styleUrl: './desktop-environment.component.scss'
 })

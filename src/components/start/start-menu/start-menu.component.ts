@@ -29,7 +29,7 @@ export class StartMenuComponent {
   }
 
   ngAfterViewInit() {
-    this.item = this.startMenuRef.nativeElement
+    this.item = this.startMenuRef.nativeElement;
   }
 
   clickHandler(event: MouseEvent) {

@@ -15,8 +15,15 @@
   font-smooth: never;
 }
 
-// ! Desktop Environment
+@mixin control-button-common {
+  
+}
 
+// ! Desktop Environment
+@mixin window-frame-common {
+  // Used in program windows and alerts
+
+}
 
 // ! Start Menu
 @mixin start-menu-object {

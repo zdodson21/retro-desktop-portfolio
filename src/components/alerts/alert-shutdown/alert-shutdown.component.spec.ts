@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DesktopAlertComponent } from './desktop-alert.component';
+import { AlertShutdownComponent } from './alert-shutdown.component';
 
-describe('DesktopAlertComponent', () => {
-  let component: DesktopAlertComponent;
-  let fixture: ComponentFixture<DesktopAlertComponent>;
+describe('AlertShutdownComponent', () => {
+  let component: AlertShutdownComponent;
+  let fixture: ComponentFixture<AlertShutdownComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [DesktopAlertComponent]
+      imports: [AlertShutdownComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(DesktopAlertComponent);
+    fixture = TestBed.createComponent(AlertShutdownComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

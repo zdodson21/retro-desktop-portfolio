@@ -1,10 +1,13 @@
 <div class="window-frame-wrapper">
   <div class="top-panel">
+    <p>{{ title }}</p>
     <div class="controls">
-      
+      <button #minimizeButton>-</button>
+      <button #viewButton>[]</button>
+      <button>X</button>
     </div>
   </div>
   <div class="window-body">
-
+    <ng-content></ng-content>
   </div>
 </div>

@@ -12,6 +12,9 @@ export class AppService {
   // ! Start Menu
   isStartMenuOpen = signal(false);
 
+  // ! Alerts
+  showShutdownAlert = signal(false);
+
   // ! Window Management
 
 

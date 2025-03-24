@@ -1,0 +1,34 @@
+<div class="alert-shutdown-wrapper">
+  <window-frame window-title="Shut Down Windows" focus-name="shutdown-alert">
+    <!-- TODO add [alert]="true" to window frame above -->
+    <div class="frame-contents">
+      <div class="left-side">
+        <img src="/assets/icons/shutdown.ico" alt="Shutdown Icon">
+        <!-- TODO change icon above to be correct icon -->
+      </div>
+      <form (submit)="formSubmit($event)">
+        <p>Are you sure you want to:</p>
+
+        <div class="options">
+          <div class="option">
+            <input type="radio" name="option" id="shutdown" checked="checked">
+            <label for="shutdown">Shut down the computer?</label>
+          </div>
+          <div class="option">
+            <input type="radio" name="option" id="restart">
+            <label for="restart">Restart the computer?</label>
+          </div>
+        </div>
+
+        <div class="controls">
+          <button type="submit">
+            <span class="underline">Y</span>es
+          </button>
+          <button>
+            <span class="underline">N</span>o
+          </button>
+        </div>
+      </form>
+    </div>
+  </window-frame>
+</div>

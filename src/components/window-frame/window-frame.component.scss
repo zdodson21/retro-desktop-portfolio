@@ -1,1 +1,41 @@
+@use '../../styles.scss' as *;
 
+.window-frame-wrapper {
+  border: 3px outset white; // TODO finalize border color
+  display: flex;
+  flex-direction: column;
+
+  &.focus {
+    .top-panel {
+      background-color: red;
+    }
+  }
+
+  .top-panel {
+    padding: 2px 4px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: #00027d; // TODO change for .focus option
+
+    .controls {
+      display: flex;
+      flex-direction: row;
+      gap: 2px;
+
+      .hide-button {
+        display: none;
+      }
+    }
+
+    p {
+      @include text-common();
+      color: white;
+      font-weight: bold;
+    }
+  }
+
+  .window-body {
+
+  }
+}
