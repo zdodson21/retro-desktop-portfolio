@@ -1,29 +1,38 @@
-import { Component, ElementRef, inject, ViewChild } from '@angular/core';
+import { Component, effect, ElementRef, inject, ViewChild } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { AppService } from '../../../app/app.service';
 import { WindowFrameComponent } from '../../window-frame/window-frame.component';
 
 @Component({
   selector: 'alert-shutdown',
-  imports: [WindowFrameComponent],
+  imports: [WindowFrameComponent, FormsModule],
   templateUrl: './alert-shutdown.component.html',
   styleUrl: './alert-shutdown.component.scss'
 })
 export class AlertShutdownComponent {
-  @ViewChild('alertShutdown') alertShutdownRef!: ElementRef;
 
   private store = inject(AppService);
-  private item: any;
-
-  ngAfterViewInit() {
-    this.item = this.alertShutdownRef.nativeElement;
-  }
+  formValue: number = 0; // 0 = shutdown, 1 = restart
 
   constructor() {
-
+    effect(() => {
+      if (this.store.showShutdownAlert() === true) this.formValue = 0
+    })
   }
 
-  formSubmit(event: any) {
+  formSubmit(event: SubmitEvent) {
     event.preventDefault();
 
+    if (this.formValue === 0) {
+      globalThis.location.href = "https://github.com/zdodson21?tab=repositories"
+    } else {
+      // TODO navigate to root of project (without using set URL, get URL then navigate)
+    }
+
+    this.store.showShutdownAlert.set(false);
+  }
+
+  noButtonPressed() {
+    this.store.showShutdownAlert.set(false);
   }
 }

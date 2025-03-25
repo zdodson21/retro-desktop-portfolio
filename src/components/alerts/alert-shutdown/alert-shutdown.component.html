@@ -1,21 +1,21 @@
 <div class="alert-shutdown-wrapper">
-  <window-frame window-title="Shut Down Windows" focus-name="shutdown-alert">
+  <window-frame window-title="Shut Down Windows" focus-name="shutdown-alert" [alert]="true">
     <!-- TODO add [alert]="true" to window frame above -->
     <div class="frame-contents">
       <div class="left-side">
         <img src="/assets/icons/shutdown.ico" alt="Shutdown Icon">
         <!-- TODO change icon above to be correct icon -->
       </div>
-      <form (submit)="formSubmit($event)">
+      <form (submit)="formSubmit($event)" #controlForm>
         <p>Are you sure you want to:</p>
 
         <div class="options">
           <div class="option">
-            <input type="radio" name="option" id="shutdown" checked="checked">
+            <input type="radio" name="option" id="shutdown" [value]="0" [(ngModel)]="formValue">
             <label for="shutdown">Shut down the computer?</label>
           </div>
           <div class="option">
-            <input type="radio" name="option" id="restart">
+            <input type="radio" name="option" id="restart" [value]="1" [(ngModel)]="formValue">
             <label for="restart">Restart the computer?</label>
           </div>
         </div>
@@ -24,7 +24,7 @@
           <button type="submit">
             <span class="underline">Y</span>es
           </button>
-          <button>
+          <button type="button" (click)="noButtonPressed()">
             <span class="underline">N</span>o
           </button>
         </div>

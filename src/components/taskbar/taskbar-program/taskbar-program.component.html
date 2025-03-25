@@ -1,4 +1,4 @@
-<div #program class="taskbar-program-wrapper" (click)="clickHandler($event)">
+<div #program class="taskbar-program-wrapper" [class.active]="isProgramFocused()" (click)="clickHandler($event)">
   <img src="{{ src }}" alt="{{ text }} Icon">
   <p>{{ text }}</p>
 </div>

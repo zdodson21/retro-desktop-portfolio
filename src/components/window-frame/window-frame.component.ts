@@ -10,7 +10,7 @@ export class WindowFrameComponent {
   // TODO add support for removing movability and resizeability, mainly for alerts (lock attribute)
   // Use start menu renderer as reference, along with taskbar-program for attribute setting
 
-  @Input({alias: 'alert'}) isAlert = false; // will hide the minimize and view buttons, also prevents movement
+  @Input() alert = false; // will hide the minimize and view buttons, also prevents movement
   @Input({alias: 'focus-name'}) focusName: string;
   @Input({alias: 'window-title'}) title: string;
 
@@ -27,7 +27,7 @@ export class WindowFrameComponent {
     this.viewItem = this.viewButtonRef.nativeElement;
     this.minimizeItem = this.minimizeButtonRef.nativeElement;
 
-    if (this.isAlert) {
+    if (this.alert) {
       console.log('Alert is true')
       this.viewItem.classList.add('hide-button');
       this.minimizeItem.classList.add('hide-button')

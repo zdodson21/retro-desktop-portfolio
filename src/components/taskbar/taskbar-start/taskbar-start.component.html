@@ -1,4 +1,4 @@
-<div #startButton class="taskbar-start-wrapper" (click)="startButtonHandler($event)">
+<div #startButton [class.active]="isStartClicked()" class="taskbar-start-wrapper" (click)="startButtonHandler($event)">
   <div class="contents">
     <img src="/assets/icons/start.ico" alt="">
     <p>Start</p>

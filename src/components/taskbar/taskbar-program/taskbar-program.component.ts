@@ -1,4 +1,4 @@
-import { Component, effect, ElementRef, inject, Input, ViewChild } from '@angular/core';
+import { Component, effect, ElementRef, inject, Input, ViewChild, signal } from '@angular/core';
 import { AppService } from '../../../app/app.service';
 
 @Component({
@@ -21,13 +21,15 @@ export class TaskbarProgramComponent {
     this.item = this.programRef.nativeElement;
   }
 
+  isProgramFocused = signal(false);
+
   constructor() {
     effect(() => {
       if (this.store.focus() == this.focusName) {
-        this.item.classList.add('active');
+        this.isProgramFocused.set(true);
       }
       else {
-        this.item.classList.remove('active');
+        this.isProgramFocused.set(false);
       }
     })
   }

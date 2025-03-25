@@ -1,4 +1,4 @@
-import { Component, effect, ElementRef, inject, ViewChild, } from '@angular/core';
+import { Component, effect, ElementRef, inject, ViewChild, signal} from '@angular/core';
 import { AppService } from '../../../app/app.service';
 
 @Component({
@@ -13,18 +13,15 @@ export class TaskbarStartComponent {
   private store = inject(AppService);
   private item: any;
 
+  isStartClicked = signal(false);
+
   ngAfterViewInit() {
     this.item = this.startButtonRef.nativeElement;
   }
 
   constructor() {
     effect(() => {
-      if (this.store.isStartMenuOpen()) {
-        this.item.classList.add('active');
-      }
-      else {
-        this.item.classList.remove('active');
-      }
+      this.isStartClicked.set(this.store.isStartMenuOpen());
     })
   }
 
@@ -39,7 +36,6 @@ export class TaskbarStartComponent {
     else {
       this.store.isStartMenuOpen.set(false);
     }
-    const item = this.startButtonRef.nativeElement;
-    this.store.focus.set(item)
+    this.store.focus.set(this.item)
   }
 }

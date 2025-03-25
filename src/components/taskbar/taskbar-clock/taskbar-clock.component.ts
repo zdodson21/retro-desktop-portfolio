@@ -24,8 +24,6 @@ export class TaskbarClockComponent {
       let minute: any = time.getMinutes();
       if (minute < 10) minute = `0${minute}`;
 
-      let second: number = time.getSeconds();
-
       this.clock = `${hour.toString()}:${minute} ${halfOfDay}`;
     }, 100);
   }

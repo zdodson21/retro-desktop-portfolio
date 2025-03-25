@@ -1,4 +1,4 @@
-import { Component, Input, ViewChild, ElementRef, inject, effect } from '@angular/core';
+import { Component, Input, ViewChild, ElementRef, inject, effect, signal } from '@angular/core';
 import { AppService } from '../../../app/app.service';
 
 @Component({
@@ -20,13 +20,15 @@ export class DesktopIconComponent {
     this.item = this.desktopIconRef.nativeElement;
   }
 
+  isElementFocused = signal(false);
+
   constructor() {
     effect(() => {
       if (this.store.focus() == this.item) {
-        this.item.classList.add('active');
+        this.isElementFocused.set(true)
       }
       else {
-        this.item.classList.remove('active');
+        this.isElementFocused.set(false);
       }
     });
   }
