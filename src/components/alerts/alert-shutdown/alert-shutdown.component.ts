@@ -26,7 +26,7 @@ export class AlertShutdownComponent {
     if (this.formValue === 0) {
       globalThis.location.href = "https://github.com/zdodson21?tab=repositories"
     } else {
-      // TODO navigate to root of project (without using set URL, get URL then navigate)
+      globalThis.location.href = `${globalThis.location.protocol}//${globalThis.location.host}`
     }
 
     this.store.showShutdownAlert.set(false);

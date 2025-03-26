@@ -12,21 +12,33 @@
     flex-direction: row;
     width: 500px;
     max-width: 100%;
+    padding: 12px 0px;
 
     .left-side {
       width: 15%;
       display: flex;
       justify-content: center;
+      align-items: baseline;
+
+      img {
+        @include icon-common();
+        width: 48px;
+        image-rendering: pixelated;
+      }
     }
 
     form {
       width: 85%;
-
-      p {
-        @include text-common();
-      }
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
 
       .options {
+        p {
+          @include text-common();
+          margin-bottom: 8px;
+        }
+
         input[type="radio"] {
           accent-color: black; // need to make dot smaller, other modifications
         }
@@ -39,15 +51,36 @@
         input[type="radio"]:checked + label {
           border-color: black;
         }
-
       }
 
       .controls {
         display: flex;
         justify-content: flex-end;
+        gap: 6px;
+        margin-right: 12px;
 
-        .underline {
-          text-decoration: underline;
+        button {
+          @include control-button-common();
+          @include text-common();
+          font-size: 13px;
+          width: 110px;
+          padding: 4px 0px;
+
+          .border {
+            width: 90%;
+            height: 100%;
+            align-content: center;
+            border: 1px transparent dotted;
+
+            &:active {
+              border-color: black;
+            }
+
+            .underline {
+              text-decoration: underline;
+              border: none;
+            }
+          }
         }
       }
     }

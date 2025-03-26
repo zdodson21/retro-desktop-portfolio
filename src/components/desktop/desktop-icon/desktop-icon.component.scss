@@ -8,11 +8,11 @@
   width: 100%;
   height: 100%;
   gap: 8px;
-  image-rendering: crisp-edges;
 
   img {
     @include icon-common();
     height: 45px;
+    image-rendering: pixelated;
   }
 
   p {

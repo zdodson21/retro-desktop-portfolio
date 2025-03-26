@@ -3,8 +3,12 @@
     <p>{{ title }}</p>
     <div class="controls">
       <button #minimizeButton>-</button>
-      <button #viewButton>[]</button>
-      <button>X</button>
+      <button #viewButton>
+        <img src="/assets/icons/view-maximize.svg" alt="">
+      </button>
+      <button (click)="closeButtonHandler()">
+        <img src="/assets/icons/close-button.svg" alt="">
+      </button>
     </div>
   </div>
   <div class="window-body">

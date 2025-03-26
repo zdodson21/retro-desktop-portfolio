@@ -7,9 +7,8 @@
         <!-- TODO change icon above to be correct icon -->
       </div>
       <form (submit)="formSubmit($event)" #controlForm>
-        <p>Are you sure you want to:</p>
-
         <div class="options">
+          <p>Are you sure you want to:</p>
           <div class="option">
             <input type="radio" name="option" id="shutdown" [value]="0" [(ngModel)]="formValue">
             <label for="shutdown">Shut down the computer?</label>
@@ -22,10 +21,14 @@
 
         <div class="controls">
           <button type="submit">
-            <span class="underline">Y</span>es
+            <span class="border">
+              <span class="underline">Y</span>es
+            </span>
           </button>
           <button type="button" (click)="noButtonPressed()">
-            <span class="underline">N</span>o
+            <span class="border">
+              <span class="underline">N</span>o
+            </span>
           </button>
         </div>
       </form>

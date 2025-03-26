@@ -16,7 +16,18 @@
 }
 
 @mixin control-button-common {
-  
+  background-color: #c0c0c0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0;
+  border-style: outset;
+  border-color: white black black white;
+
+  &:active {
+    border-style: inset;
+    border-color: black white white black;
+  }
 }
 
 // ! Desktop Environment

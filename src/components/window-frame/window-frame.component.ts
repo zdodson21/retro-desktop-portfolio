@@ -1,4 +1,5 @@
 import { Component, ElementRef, inject, Input, Renderer2, effect, ViewChild } from '@angular/core';
+import { AppService } from '../../app/app.service';
 
 @Component({
   selector: 'window-frame',
@@ -17,6 +18,7 @@ export class WindowFrameComponent {
   @ViewChild('viewButton') viewButtonRef!: ElementRef;
   @ViewChild('minimizeButton') minimizeButtonRef!: ElementRef;
 
+  private store = inject(AppService);
   private renderer = inject(Renderer2);
   private elementRef = inject(ElementRef);
 
@@ -47,7 +49,13 @@ export class WindowFrameComponent {
   }
 
   closeButtonHandler() {
-
+    switch (this.focusName) {
+      case "shutdown-alert":
+        this.store.showShutdownAlert.set(false);
+        break;
+      default:
+        console.error(`Cannot close focus-name: ${this.focusName}`);
+    }
   }
 
 }
