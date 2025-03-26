@@ -1,5 +1,7 @@
 # Zach's Retro Desktop Portfolio
 
+**THIS IS A WORK IN PROGRESS!!!**
+
 ## Accessibility
 
 I also maintain my old portfolio, created using the HAXCMS open source content management system. This portfolio is maintained for ease of use, accessibility, and better readability. If you wish to view this portfolio, click here (when the URL is updated that is).
