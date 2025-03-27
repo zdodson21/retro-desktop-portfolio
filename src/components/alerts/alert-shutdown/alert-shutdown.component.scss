@@ -10,12 +10,12 @@
     background-color: #bfbfbf;
     display: flex;
     flex-direction: row;
-    width: 500px;
+    width: 400px;
     max-width: 100%;
-    padding: 12px 0px;
+    padding: 24px 0px 12px;
 
     .left-side {
-      width: 15%;
+      width: 20%;
       display: flex;
       justify-content: center;
       align-items: baseline;
@@ -28,7 +28,7 @@
     }
 
     form {
-      width: 85%;
+      width: 80%;
       display: flex;
       flex-direction: column;
       gap: 32px;
