@@ -2,4 +2,8 @@ name: test
 on: push
 jobs:
   test:
+    # https://resources.github.com/learn/pathways/automation/essentials/application-testing-with-github-actions/
     runs-on: ubuntu-latest
+    steps:
+      - run: npm install
+      - run: ng test
