@@ -1,17 +1,19 @@
-name: test
+name: build
 
 on:
   push:
     branches: [main]
     paths:
         - 'src/**'
+        - 'public/**'
   pull_request:
     branches: [main]
     paths:
         - 'src/**'
-        
+        - 'public/**'
+
 jobs:
-  test:
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: checkout repo
@@ -23,4 +25,4 @@ jobs:
           node-version: 18
 
       - run: npm install
-      - run: npm run test:ci
+      - run: npm run build
