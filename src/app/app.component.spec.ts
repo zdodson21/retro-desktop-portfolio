@@ -1,29 +1,56 @@
-import { TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 
 describe('AppComponent', () => {
+  let component: AppComponent;
+  let fixture: ComponentFixture<AppComponent>;
+  let compiled: HTMLElement;
+
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [AppComponent],
     }).compileComponents();
+
+    fixture = TestBed.createComponent(AppComponent);
+    component = fixture.componentInstance;
+    compiled = fixture.nativeElement as HTMLElement;
+    fixture.detectChanges();
   });
 
   it('should create the app', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app).toBeTruthy();
+    expect(component).toBeTruthy();
   });
 
-  it(`should have the 'retro-desktop-portfolio' title`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app.title).toEqual('retro-desktop-portfolio');
+  describe('<alert-shutdown>', () => {
+    it('should contain <alert-shutdown> component', () => {
+      expect(compiled.querySelector('alert-shutdown')).toBeTruthy();
+    });
+
+    it('isAlertVisible should be false by default', () => {
+      expect(component.isAlertVisible()).toBeFalsy();
+    });
+
+    it('does not contain class .visible by default', () => {
+      expect(compiled.querySelector('alert-shutdown')?.classList.contains('visible')).toBeFalsy();
+    })
   });
 
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, retro-desktop-portfolio');
+  describe('<desktop-environment>', () => {
+    it('Should contain Desktop-Environment Component', () => {
+      expect(compiled.querySelector('desktop-environment')).toBeTruthy();
+    });
   });
+
+  describe('<start-menu>', () => {
+    it('Should Contain Start-Menu Component', () => {
+      expect(compiled.querySelector('start-menu')).toBeTruthy();
+    });
+  });
+
+  describe('taskbar-base', () => {
+    it('Should Contain Taskbar-Base Component', () => {
+      expect(compiled.querySelector('taskbar-base')).toBeTruthy();
+    });
+  });
+
 });
