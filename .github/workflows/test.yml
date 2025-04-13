@@ -2,6 +2,7 @@ name: test
 on:
   push:
     branches: [main]
+    # TODO Add support for specific path, only run tests if files in src/ path changed
   pull_request:
     branches: [main]
 jobs:

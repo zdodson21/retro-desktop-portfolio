@@ -1,10 +1,12 @@
-/.angular
+.angular
+.github
 .vercel
 .vscode
+coverage
 node_modules
 .editorconfig
+.env
 .gitignore
 README.md
-.env
 karma.conf.js
 *.spec.ts
