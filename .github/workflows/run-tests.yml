@@ -1,9 +1,20 @@
 name: test
-on: push
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
 jobs:
   test:
     # https://resources.github.com/learn/pathways/automation/essentials/application-testing-with-github-actions/
     runs-on: ubuntu-latest
     steps:
+      - name: checkout repo
+        uses: actions/checkout@v3
+
+      - name: use node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
       - run: npm install
       - run: ng test
