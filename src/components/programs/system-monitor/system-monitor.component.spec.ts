@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { SystemMonitorComponent } from './system-monitor.component';
 
 describe('SystemMonitorComponent', () => {
@@ -17,7 +16,7 @@ describe('SystemMonitorComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create component', () => {
     expect(component).toBeTruthy();
   });
 });

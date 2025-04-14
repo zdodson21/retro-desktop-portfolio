@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { StartSubmenuComponent } from './start-submenu.component';
 
 describe('StartSubmenuComponent', () => {
@@ -17,7 +16,7 @@ describe('StartSubmenuComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create component', () => {
     expect(component).toBeTruthy();
   });
 });

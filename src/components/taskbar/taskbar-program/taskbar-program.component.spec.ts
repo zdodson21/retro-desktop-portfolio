@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { TaskbarProgramComponent } from './taskbar-program.component';
 
 describe('TaskbarProgramComponent', () => {
@@ -17,7 +16,11 @@ describe('TaskbarProgramComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create component', () => {
     expect(component).toBeTruthy();
   });
+
+  it('shoudl not be focused by default', () => {
+    expect(component.isProgramFocused()).toBeFalsy();
+  })
 });

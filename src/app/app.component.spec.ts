@@ -1,24 +1,42 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+import { AppService } from './app.service';
 
 describe('AppComponent', () => {
-  let component: AppComponent;
+  let app: AppComponent;
+  let service: AppService;
   let fixture: ComponentFixture<AppComponent>;
   let compiled: HTMLElement;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [AppComponent],
+      providers: [AppService]
     }).compileComponents();
 
     fixture = TestBed.createComponent(AppComponent);
-    component = fixture.componentInstance;
+    app = fixture.componentInstance;
+    service = TestBed.inject(AppService);
     compiled = fixture.nativeElement as HTMLElement;
     fixture.detectChanges();
   });
 
   it('should create the app', () => {
-    expect(component).toBeTruthy();
+    expect(app).toBeTruthy();
+  });
+
+  describe('Service', () => {
+    it('should contain blank focus by default', () => {
+      expect(service.focus()).toBe('');
+    });
+
+    it('isStartMenuOpen should be false by default', () => {
+      expect(service.isStartMenuOpen()).toBeFalsy();
+    });
+
+    it('showShutdownAlert should be false by default', () => {
+      expect(service.showShutdownAlert()).toBeFalsy();
+    })
   });
 
   describe('<alert-shutdown>', () => {
@@ -27,7 +45,7 @@ describe('AppComponent', () => {
     });
 
     it('isAlertVisible should be false by default', () => {
-      expect(component.isAlertVisible()).toBeFalsy();
+      expect(app.isAlertVisible()).toBeFalsy();
     });
 
     it('does not contain class .visible by default', () => {

@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { DesktopEnvironmentComponent } from './desktop-environment.component';
 
 describe('DesktopEnvironmentComponent', () => {
@@ -17,7 +16,7 @@ describe('DesktopEnvironmentComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create component', () => {
     expect(component).toBeTruthy();
   });
 });

@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { TaskbarClockComponent } from './taskbar-clock.component';
 
 describe('TaskbarClockComponent', () => {
@@ -17,7 +16,7 @@ describe('TaskbarClockComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create component', () => {
     expect(component).toBeTruthy();
   });
 });

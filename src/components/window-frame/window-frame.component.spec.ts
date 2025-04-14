@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { WindowFrameComponent } from './window-frame.component';
 
 describe('WindowFrameComponent', () => {
@@ -20,4 +19,10 @@ describe('WindowFrameComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  // TODO ensure proper assets for buttons
+
+  // TODO ensure buttons hide when classes applied
+
+  // TODO ensure .window-body contains <ng-content>
 });
