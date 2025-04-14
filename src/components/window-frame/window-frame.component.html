@@ -2,12 +2,15 @@
   <div class="top-panel">
     <p>{{ title }}</p>
     <div class="controls">
-      <button #minimizeButton>-</button>
-      <button #viewButton>
-        <img src="/assets/icons/view-maximize.svg" alt="">
+      <button #minimizeButton class="minimize-button">
+        -
       </button>
-      <button (click)="closeButtonHandler()">
-        <img src="/assets/icons/close-button.svg" alt="">
+      <!-- TODO add test when asset added above -->
+      <button #viewButton class="view-button">
+        <img src="/assets/icons/view-maximize.svg" alt="maximize icon">
+      </button>
+      <button #closeButton class="close-button" (click)="closeButtonHandler()">
+        <img src="/assets/icons/close-button.svg" alt="close icon">
       </button>
     </div>
   </div>

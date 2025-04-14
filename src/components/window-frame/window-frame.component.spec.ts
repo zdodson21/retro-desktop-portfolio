@@ -4,6 +4,7 @@ import { WindowFrameComponent } from './window-frame.component';
 describe('WindowFrameComponent', () => {
   let component: WindowFrameComponent;
   let fixture: ComponentFixture<WindowFrameComponent>;
+  let compiled: HTMLElement;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -13,16 +14,43 @@ describe('WindowFrameComponent', () => {
 
     fixture = TestBed.createComponent(WindowFrameComponent);
     component = fixture.componentInstance;
+    compiled = fixture.nativeElement as HTMLElement;
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create component', () => {
     expect(component).toBeTruthy();
   });
 
-  // TODO ensure proper assets for buttons
+  describe("Buttons", () => {
+    describe("Assets", () => {
+      // TODO add test for minimize button
 
-  // TODO ensure buttons hide when classes applied
+      it("should have proper starting view button icon", () => {
+        expect(compiled.querySelector(".view-button > img")?.getAttribute("src")?.split('.')[0]).toBe("/assets/icons/view-maximize");
+      });
 
-  // TODO ensure .window-body contains <ng-content>
+      // TODO add test for changing view button icon
+
+      it("should have proper close button icon", () => {
+        expect(compiled.querySelector(".close-button > img")?.getAttribute("src")?.split('.')[0]).toBe("/assets/icons/close-button")
+      });
+    });
+
+    describe("Hiding", () => {
+      it("should not display minimize button on .hide-button", () => {
+        const minimizeButton = compiled.querySelector(".minimize-button");
+        minimizeButton?.classList.add("hide-button");
+
+        expect(globalThis.getComputedStyle(minimizeButton as Element).display).toBe('none');
+      });
+
+      it("should not display view change button on .hide-button", () => {
+        const viewButton = compiled.querySelector(".view-button");
+        viewButton?.classList.add("hide-button")
+
+        expect(globalThis.getComputedStyle(viewButton as Element).display).toBe('none');
+      });
+    });
+  });
 });
