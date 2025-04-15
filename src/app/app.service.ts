@@ -8,6 +8,9 @@ import { Injectable, signal } from '@angular/core';
 export class AppService {
   // ! Common
   focus = signal('');
+  openPrograms = signal([
+
+  ]);
 
   // ! Start Menu
   isStartMenuOpen = signal(false);

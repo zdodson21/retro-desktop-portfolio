@@ -6,6 +6,7 @@ import { StartMenuComponent } from '../components/start/start-menu/start-menu.co
 import { TaskbarBaseComponent } from "../components/taskbar/taskbar-base/taskbar-base.component";
 import { AlertShutdownComponent } from '../components/alerts/alert-shutdown/alert-shutdown.component';
 import { AppService } from './app.service';
+import { SystemMonitorComponent } from '../components/programs/system-monitor/system-monitor.component';
 
 vercelAnalytics();
 injectSpeedInsights();
@@ -17,6 +18,7 @@ injectSpeedInsights();
     TaskbarBaseComponent,
     DesktopEnvironmentComponent,
     StartMenuComponent,
+    SystemMonitorComponent
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'

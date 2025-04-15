@@ -1,0 +1,7 @@
+@use "../../../styles.scss" as *;
+
+.system-monitor-wrapper {
+  .frame-contents {
+    background-color: $win-95-grey;
+  }
+}

@@ -1,4 +1,7 @@
 // ! Common
+
+$win-95-grey: #c0c0c0;
+
 @mixin icon-common {
   pointer-events: none;
   user-select: none;
@@ -28,12 +31,6 @@
     border-style: inset;
     border-color: black white white black;
   }
-}
-
-// ! Desktop Environment
-@mixin window-frame-common {
-  // Used in program windows and alerts
-
 }
 
 // ! Start Menu

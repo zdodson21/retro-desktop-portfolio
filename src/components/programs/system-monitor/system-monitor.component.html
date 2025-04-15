@@ -1,1 +1,9 @@
-<p>system-monitor works!</p>
+<div class="system-monitor-wrapper">
+  <window-frame window-title="System Monitor" focus-name="system-monitor">
+    <div class="frame-contents">
+      <p>Current focus: {{this.store.focus()}}</p>
+      <p>isStartMenuOpen: {{this.store.isStartMenuOpen()}}</p>
+      <p>showShutdownAlert: {{this.store.showShutdownAlert()}}</p>
+    </div>
+  </window-frame>
+</div>
