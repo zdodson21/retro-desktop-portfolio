@@ -1,5 +1,4 @@
 // ! Common
-
 $win-95-grey: #c0c0c0;
 
 @mixin icon-common {
@@ -31,6 +30,15 @@ $win-95-grey: #c0c0c0;
     border-style: inset;
     border-color: black white white black;
   }
+}
+
+// ! Window Frame
+@mixin window-frame-common-alert {
+  display: block;
+}
+
+@mixin window-frame-common-standard {
+  @include window-frame-common-alert();
 }
 
 // ! Start Menu

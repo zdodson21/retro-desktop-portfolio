@@ -4,6 +4,8 @@
   border: 3px outset white; // TODO finalize border color
   display: flex;
   flex-direction: column;
+  width: 100%;
+  height: 100%;
 
   &.focus {
     .top-panel {
@@ -45,5 +47,9 @@
       color: white;
       font-weight: bold;
     }
+  }
+
+  .window-body {
+    height: calc(100% - 28px);
   }
 }

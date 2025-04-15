@@ -8,6 +8,7 @@
   justify-content: center;
 
   window-frame {
+    @include window-frame-common-alert();
     display: block;
     width: min(400px, 75%);
   }
