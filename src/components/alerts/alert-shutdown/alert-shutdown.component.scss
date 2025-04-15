@@ -1,17 +1,22 @@
 @use "../../../styles.scss" as *;
 
 .alert-shutdown-wrapper {
-  width: auto;
-  max-width: 75%;
-  height: auto;
-  max-height: 75%;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  window-frame {
+    display: block;
+    width: min(400px, 75%);
+  }
 
   .frame-contents {
     background-color: #bfbfbf;
     display: flex;
     flex-direction: row;
-    width: 400px;
-    max-width: 100%;
+    width: 100%;
     padding: 24px 0px 12px;
 
     .left-side {
