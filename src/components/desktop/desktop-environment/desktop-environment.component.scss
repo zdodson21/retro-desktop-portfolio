@@ -11,9 +11,9 @@
     z-index: 2;
     pointer-events: none;
 
-    // p {
-    //   pointer-events: all;
-    // }
+    ::ng-deep * {
+      pointer-events: all;
+    }
   }
 
   .icons {
@@ -30,9 +30,11 @@
     align-content: flex-start;
     overflow-x: hidden;
     z-index: 1;
+    pointer-events: all;
 
     desktop-icon {
       width: 90px;
+      pointer-events: all;
     }
   }
 }
