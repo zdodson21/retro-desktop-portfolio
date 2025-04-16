@@ -1,4 +1,4 @@
-<div class="window-frame-wrapper">
+<div class="window-frame-wrapper" [class.focus]="isElementFocused()" (click)="setFocus($event)">
   <div class="top-panel">
     <div class="left-side">
       <img *ngIf="icon" src="{{ icon }}" alt="{{ title }}">

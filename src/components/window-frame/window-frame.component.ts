@@ -1,4 +1,4 @@
-import { Component, ElementRef, inject, Input, Renderer2, effect, ViewChild } from '@angular/core';
+import { Component, ElementRef, inject, Input, Renderer2, effect, ViewChild, signal } from '@angular/core';
 import { AppService } from '../../app/app.service';
 import { NgIf } from '@angular/common';
 
@@ -27,19 +27,27 @@ export class WindowFrameComponent {
   private viewItem: any;
   private minimizeItem: any;
 
+  isElementFocused = signal(false);
+
   ngAfterViewInit() {
     this.viewItem = this.viewButtonRef.nativeElement;
     this.minimizeItem = this.minimizeButtonRef.nativeElement;
 
     if (this.alert) {
-      console.log('Alert is true')
       this.viewItem.classList.add('hide-button');
       this.minimizeItem.classList.add('hide-button')
     }
   }
 
   constructor() {
-
+    effect(() => {
+      if (this.store.focus() == this.focusName) {
+        this.isElementFocused.set(true);
+      }
+      else {
+        this.isElementFocused.set(false);
+      }
+    })
   }
 
   minimizeButtonHandler() {
@@ -60,4 +68,9 @@ export class WindowFrameComponent {
     }
   }
 
+  setFocus(event: MouseEvent) {
+    event?.stopPropagation();
+    this.store.focus.set(this.focusName);
+    this.store.isStartMenuOpen.set(false);
+  }
 }

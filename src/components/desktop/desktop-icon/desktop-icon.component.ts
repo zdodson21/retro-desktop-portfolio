@@ -26,7 +26,7 @@ export class DesktopIconComponent {
   constructor() {
     effect(() => {
       if (this.store.focus() == this.focusName) {
-        this.isElementFocused.set(true)
+        this.isElementFocused.set(true);
       }
       else {
         this.isElementFocused.set(false);

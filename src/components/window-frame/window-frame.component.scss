@@ -9,7 +9,11 @@
 
   &.focus {
     .top-panel {
-      background-color: red;
+      background-color: #00027d;
+
+      p {
+        color: #fff;
+      }
     }
   }
 
@@ -29,7 +33,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    background-color: #00027d; // TODO change for .focus option
+    background-color: #7f7f7f;
 
     .controls {
       // TODO spacing is different, little spacing between min and view, more spacing between view and close
@@ -56,7 +60,7 @@
 
     p {
       @include text-common();
-      color: white;
+      color: #bfbfbf;
       font-weight: bold;
     }
   }
