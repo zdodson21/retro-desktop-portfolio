@@ -6,13 +6,15 @@
       <p>{{ title }}</p>
     </div>
     <div class="controls">
-      <button #minimizeButton class="minimize-button">
-        -
-      </button>
-      <!-- TODO add test when asset added above -->
-      <button #viewButton class="view-button">
-        <img src="/assets/icons/view-maximize.svg" alt="maximize icon">
-      </button>
+      <div class="no-gap">
+        <button #minimizeButton class="minimize-button">
+          -
+        </button>
+        <!-- TODO add test when asset added above -->
+        <button #viewButton class="view-button">
+          <img src="/assets/icons/view-maximize.svg" alt="maximize icon">
+        </button>
+      </div>
       <button #closeButton class="close-button" (click)="closeButtonHandler()">
         <img src="/assets/icons/close-button.svg" alt="close icon">
       </button>

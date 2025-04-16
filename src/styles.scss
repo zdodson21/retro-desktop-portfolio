@@ -23,11 +23,11 @@ $win-95-grey: #c0c0c0;
   justify-content: center;
   align-items: center;
   border-radius: 0;
-  border-style: outset;
+  border-style: outset solid solid outset;
   border-color: white black black white;
 
   &:active {
-    border-style: inset;
+    border-style: solid inset inset solid;
     border-color: black white white black;
   }
 }
