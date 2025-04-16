@@ -10,6 +10,7 @@ import { AppService } from '../../../app/app.service';
 export class DesktopIconComponent {
   @Input({alias: 'icon-src'}) src: string;
   @Input({alias: 'icon-text'}) text: string;
+  @Input({alias: 'focus-name'}) focusName: string;
 
   @ViewChild('desktopIcon') desktopIconRef!: ElementRef;
 
@@ -24,7 +25,7 @@ export class DesktopIconComponent {
 
   constructor() {
     effect(() => {
-      if (this.store.focus() == this.item) {
+      if (this.store.focus() == this.focusName) {
         this.isElementFocused.set(true)
       }
       else {
@@ -35,7 +36,7 @@ export class DesktopIconComponent {
 
   singleClickHandler(event: MouseEvent) {
     event?.stopPropagation();
-    this.store.focus.set(this.item);
+    this.store.focus.set(this.focusName);
     this.store.isStartMenuOpen.set(false);
   }
 

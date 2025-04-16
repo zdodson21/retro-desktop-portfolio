@@ -20,10 +20,9 @@ export class TaskbarBaseComponent {
     this.item = this.taskbarBaseRef.nativeElement;
   }
 
-  // TODO why does this take priority over start button but desktop icon takes priority over desktop environment???
   clickHandler(event: MouseEvent) {
     event?.stopPropagation();
-    this.store.focus.set(this.item);
+    this.store.focus.set("taskbar-base");
     this.store.isStartMenuOpen.set(false);
   }
 }

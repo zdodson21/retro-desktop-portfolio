@@ -16,7 +16,7 @@ export class TaskbarStartComponent {
   isStartClicked = signal(false);
 
   ngAfterViewInit() {
-    this.item = this.startButtonRef.nativeElement;
+    this.item = this.startButtonRef.nativeElement.classList;
   }
 
   constructor() {
@@ -36,6 +36,6 @@ export class TaskbarStartComponent {
     else {
       this.store.isStartMenuOpen.set(false);
     }
-    this.store.focus.set(this.item)
+    this.store.focus.set("start")
   }
 }

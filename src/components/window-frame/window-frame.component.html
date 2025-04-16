@@ -1,6 +1,10 @@
 <div class="window-frame-wrapper">
   <div class="top-panel">
-    <p>{{ title }}</p>
+    <div class="left-side">
+      <img *ngIf="icon" src="{{ icon }}" alt="{{ title }}">
+      <!-- TODO if src is empty, then set display none -->
+      <p>{{ title }}</p>
+    </div>
     <div class="controls">
       <button #minimizeButton class="minimize-button">
         -

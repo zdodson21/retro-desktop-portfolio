@@ -1,5 +1,4 @@
 import { Component, ElementRef, inject, ViewChild } from '@angular/core';
-import { WindowFrameComponent } from '../../window-frame/window-frame.component';
 import { DesktopIconComponent } from '../desktop-icon/desktop-icon.component';
 import { AppService } from '../../../app/app.service';
 
@@ -21,7 +20,7 @@ export class DesktopEnvironmentComponent {
 
   clickHandler(event: MouseEvent) {
     event?.stopPropagation();
-    this.store.focus.set(this.item);
+    this.store.focus.set("desktop-environment");
     this.store.isStartMenuOpen.set(false);
   }
 }
