@@ -27,6 +27,10 @@ export class WindowFrameComponent {
   private viewItem: any;
   private minimizeItem: any;
 
+  private isDragging = false;
+  private isResizing = false;
+  private offset = { x: 0, y: 0};
+
   isElementFocused = signal(false);
 
   ngAfterViewInit() {
@@ -37,6 +41,9 @@ export class WindowFrameComponent {
       this.viewItem.classList.add('hide-button');
       this.minimizeItem.classList.add('hide-button');
       this.isElementFocused.set(true);
+    }
+    else {
+      this.setupDraggable();
     }
   }
 
@@ -50,7 +57,7 @@ export class WindowFrameComponent {
           this.isElementFocused.set(false);
         }
       }
-    })
+    });
   }
 
   minimizeButtonHandler() {
@@ -62,18 +69,50 @@ export class WindowFrameComponent {
   }
 
   closeButtonHandler() {
-    switch (this.focusName) {
-      case "shutdown-alert":
-        this.store.showShutdownAlert.set(false);
-        break;
-      default:
-        console.error(`Cannot close focus-name: ${this.focusName}`);
+    if (this.focusName === "shutdown-alert") {
+      this.store.showShutdownAlert.set(false);
+    }
+    else {
+      console.error(`Cannot close focus-name: ${this.focusName}`);
     }
   }
 
-  setFocus(event: MouseEvent) {
+  /**
+   * @description Sets focus to clicked window
+   * @param event MouseEvent
+   */
+  setFocus(event?: MouseEvent) {
     event?.stopPropagation();
     this.store.focus.set(this.focusName);
     this.store.isStartMenuOpen.set(false);
+  }
+
+  /**
+   * @description handles dragging events to move window around
+   */
+  private setupDraggable() {
+    const TOP_PANEL = this.elementRef.nativeElement.querySelector('.top-panel');
+
+    TOP_PANEL.addEventListener('mousedown', (e: MouseEvent) => {
+      this.setFocus();
+      this.isDragging = true;
+      this.offset = {
+        x: e.clientX - this.elementRef.nativeElement.offsetLeft,
+        y: e.clientY - this.elementRef.nativeElement.offsetTop
+      }
+    });
+
+    document.addEventListener('mousemove', (e: MouseEvent) => {
+      if (this.isDragging) {
+        this.elementRef.nativeElement.style.left = `${e.clientX - this.offset.x}px`;
+        this.elementRef.nativeElement.style.top = `${e.clientY - this.offset.y}px`;
+      }
+    });
+
+    document.addEventListener('mouseup', () => {
+      if (this.isDragging) {
+        this.isDragging = false;
+      }
+    });
   }
 }
