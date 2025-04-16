@@ -52,5 +52,14 @@ describe('WindowFrameComponent', () => {
         expect(globalThis.getComputedStyle(viewButton as Element).display).toBe('none');
       });
     });
+
+    // TODO make something like this work
+    // describe("Alerts", () => {
+    //   it("should always be focused", () => {
+    //     component.alert = true;
+
+    //     expect(component.isElementFocused()).toBeTruthy();
+    //   })
+    // })
   });
 });

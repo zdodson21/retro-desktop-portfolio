@@ -35,17 +35,20 @@ export class WindowFrameComponent {
 
     if (this.alert) {
       this.viewItem.classList.add('hide-button');
-      this.minimizeItem.classList.add('hide-button')
+      this.minimizeItem.classList.add('hide-button');
+      this.isElementFocused.set(true);
     }
   }
 
   constructor() {
     effect(() => {
-      if (this.store.focus() == this.focusName) {
-        this.isElementFocused.set(true);
-      }
-      else {
-        this.isElementFocused.set(false);
+      if (!this.alert) {
+        if (this.store.focus() == this.focusName) {
+          this.isElementFocused.set(true);
+        }
+        else {
+          this.isElementFocused.set(false);
+        }
       }
     })
   }
