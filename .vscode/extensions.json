@@ -1,3 +1,13 @@
 {
-  "recommendations": ["angular.ng-template"]
+  "recommendations": [
+    "angular.ng-template",
+    "formulahendry.auto-rename-tag",
+    "aaron-bond.better-comments",
+    "wix.vscode-import-cost",
+    "christian-kohler.npm-intellisense",
+    "christian-kohler.path-intellisense",
+    "mrmlnc.vscode-scss",
+    "jock.svg",
+    "gruntfuggly.todo-tree",
+  ]
 }
