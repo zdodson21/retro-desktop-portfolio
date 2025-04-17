@@ -30,7 +30,6 @@ export class AppService {
   ]);
 
   // ! Start Menu
-  isStartMenuOpen: WritableSignal<boolean> = signal(false);
 
   // ! Alerts
   showShutdownAlert: WritableSignal<boolean> = signal(false);

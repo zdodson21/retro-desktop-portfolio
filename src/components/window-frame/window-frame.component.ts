@@ -9,10 +9,12 @@ import { NgIf } from '@angular/common';
   styleUrl: './window-frame.component.scss'
 })
 export class WindowFrameComponent {
-  // TODO add support for removing movability and resizeability, mainly for alerts (lock attribute)
-  // Use start menu renderer as reference, along with taskbar-program for attribute setting
 
-  @Input() alert: boolean = false; // will hide the minimize and view buttons, also prevents movement
+  /**
+   * @description prevents movement, resizing, and hides minimize & view buttons
+   */
+  @Input() alert: boolean = false;
+
   @Input({alias: 'focus-name'}) focusName: string;
   @Input({alias: 'window-title'}) title: string;
   @Input({alias: 'window-icon'}) icon: string;
@@ -120,7 +122,6 @@ export class WindowFrameComponent {
   setFocus(event?: MouseEvent) {
     event?.stopPropagation();
     this.store.focus.set(this.focusName);
-    this.store.isStartMenuOpen.set(false);
   }
 
   /**

@@ -20,7 +20,7 @@ export class StartMenuComponent {
 
   constructor() {
     effect(() => {
-      if (this.store.isStartMenuOpen()) {
+      if (this.store.focus() === "start-menu") {
         this.renderer.addClass(this.elementRef.nativeElement, 'visible');
       } else {
         this.renderer.removeClass(this.elementRef.nativeElement, 'visible');
@@ -32,6 +32,9 @@ export class StartMenuComponent {
     this.item = this.startMenuRef.nativeElement;
   }
 
+  /**
+   * @description sets focus to "start-menu"
+   */
   clickHandler(event: MouseEvent) {
     event?.stopPropagation();
     this.store.focus.set("start-menu");

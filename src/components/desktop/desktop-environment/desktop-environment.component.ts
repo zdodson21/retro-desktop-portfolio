@@ -21,6 +21,5 @@ export class DesktopEnvironmentComponent {
   clickHandler(event: MouseEvent) {
     event?.stopPropagation();
     this.store.focus.set("desktop-environment");
-    this.store.isStartMenuOpen.set(false);
   }
 }

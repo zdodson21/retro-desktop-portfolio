@@ -21,10 +21,12 @@ export class StartShutdownComponent {
 
   }
 
+  /**
+   * @description shows shutdown alert
+   */
   clickHandler(event: MouseEvent) {
     event?.stopPropagation();
-    this.store.isStartMenuOpen.set(false);
     this.store.showShutdownAlert.set(true);
-    this.store.focus.set('shutdown-alert')
+    this.store.focus.set('shutdown-alert');
   }
 }

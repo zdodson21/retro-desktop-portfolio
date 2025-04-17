@@ -24,9 +24,10 @@ export class StartItemComponent {
 
   }
 
+  /**
+   * @description opens applications with routes
+   */
   clickHandler(event: MouseEvent) {
     event?.stopPropagation();
-
-    this.store.isStartMenuOpen.set(false);
   }
 }

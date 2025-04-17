@@ -24,6 +24,9 @@ export class StartDropdownComponent {
 
   }
 
+  /**
+   * @description start-dropdown hover handler
+   */
   hoverHandler() {
 
   }

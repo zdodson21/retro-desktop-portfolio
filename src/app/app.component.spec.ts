@@ -30,10 +30,6 @@ describe('AppComponent', () => {
       expect(service.focus()).toBe('');
     });
 
-    it('isStartMenuOpen should be false by default', () => {
-      expect(service.isStartMenuOpen()).toBeFalsy();
-    });
-
     it('showShutdownAlert should be false by default', () => {
       expect(service.showShutdownAlert()).toBeFalsy();
     })

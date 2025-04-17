@@ -34,6 +34,9 @@ export class TaskbarProgramComponent {
     })
   }
 
+  /**
+   * @description taskbar-program click handling
+   */
   clickHandler(event: MouseEvent) {
     event?.stopPropagation();
 
@@ -43,7 +46,5 @@ export class TaskbarProgramComponent {
     else {
       this.store.focus.set(this.focusName);
     }
-
-    this.store.isStartMenuOpen.set(false);
   }
 }

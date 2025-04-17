@@ -13,6 +13,8 @@ export class TaskbarStartComponent {
   private store: AppService = inject(AppService);
   private item: HTMLElement;
 
+  // TODO change to be set based on
+  previousFocus: string = this.store.focus();
   isStartClicked: WritableSignal<boolean> = signal(false);
 
   ngAfterViewInit() {
@@ -21,7 +23,7 @@ export class TaskbarStartComponent {
 
   constructor() {
     effect(() => {
-      this.isStartClicked.set(this.store.isStartMenuOpen());
+      this.isStartClicked.set(this.store.focus() === "start-menu");
     })
   }
 
@@ -30,12 +32,13 @@ export class TaskbarStartComponent {
    */
   startButtonHandler(event: MouseEvent) {
     event?.stopPropagation();
-    if (!this.store.isStartMenuOpen()) {
-      this.store.isStartMenuOpen.set(true);
+    
+    if (!this.isStartClicked()) {
+      this.previousFocus = this.store.focus();
+      this.store.focus.set("start-menu");
     }
     else {
-      this.store.isStartMenuOpen.set(false);
+      this.store.focus.set(this.previousFocus);
     }
-    this.store.focus.set("taskbar-start");
   }
 }

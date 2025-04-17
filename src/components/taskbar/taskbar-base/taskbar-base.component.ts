@@ -20,9 +20,11 @@ export class TaskbarBaseComponent {
     this.item = this.taskbarBaseRef.nativeElement;
   }
 
+  /**
+   * @description sets focus to taskbar base
+   */
   clickHandler(event: MouseEvent) {
     event?.stopPropagation();
     this.store.focus.set("taskbar-base");
-    this.store.isStartMenuOpen.set(false);
   }
 }

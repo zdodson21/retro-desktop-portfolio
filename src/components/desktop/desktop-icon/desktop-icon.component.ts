@@ -34,12 +34,17 @@ export class DesktopIconComponent {
     });
   }
 
+  /**
+   * @description sets focus on desktop icon
+   */
   singleClickHandler(event: MouseEvent) {
     event?.stopPropagation();
     this.store.focus.set(this.focusName);
-    this.store.isStartMenuOpen.set(false);
   }
 
+  /**
+   * @description opens applicable program / site / file
+   */
   dblClickHandler(event: MouseEvent) {
     event?.stopPropagation();
     console.log('double click');

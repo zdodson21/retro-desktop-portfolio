@@ -34,5 +34,6 @@ export class AlertShutdownComponent {
 
   noButtonPressed() {
     this.store.showShutdownAlert.set(false);
+    // TODO update to work based on focus
   }
 }
