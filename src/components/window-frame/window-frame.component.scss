@@ -6,6 +6,10 @@
   flex-direction: column;
   width: 100%;
   height: 100%;
+  // ! TODO position absolute causes issues with alerts!!!
+  // position: absolute;
+  // min-width: 200px;
+  // min-height: 150px;
 
   &.focus {
     .top-panel {
@@ -16,6 +20,16 @@
       }
     }
   }
+
+  // .resize-handle {
+  //   position: absolute;
+  //   bottom: 0;
+  //   right: 0;
+  //   width: 15px;
+  //   height: 15px;
+  //   cursor: se-resize;
+  //   background-image: linear-gradient(135deg, transparent 50%, #000 50%)
+  // }
 
   .top-panel {
     .left-side {
@@ -56,11 +70,12 @@
       .no-gap {
         display: flex;
         flex-direction: row;
+
+        .hide-button {
+          display: none;
+        }
       }
 
-      .hide-button {
-        display: none;
-      }
     }
 
     p {

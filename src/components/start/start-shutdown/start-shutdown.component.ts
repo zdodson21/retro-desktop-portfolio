@@ -25,5 +25,6 @@ export class StartShutdownComponent {
     event?.stopPropagation();
     this.store.isStartMenuOpen.set(false);
     this.store.showShutdownAlert.set(true);
+    this.store.focus.set('shutdown-alert')
   }
 }

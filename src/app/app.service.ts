@@ -1,13 +1,13 @@
 // State management
 
-import { Injectable, signal } from '@angular/core';
+import { Injectable, signal, WritableSignal } from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AppService {
   // ! Common
-  focus = signal('');
+  focus: WritableSignal<string> = signal('');
   openPrograms = signal([
     {
       programName: "System Monitor",
@@ -30,10 +30,10 @@ export class AppService {
   ]);
 
   // ! Start Menu
-  isStartMenuOpen = signal(false);
+  isStartMenuOpen: WritableSignal<boolean> = signal(false);
 
   // ! Alerts
-  showShutdownAlert = signal(false);
+  showShutdownAlert: WritableSignal<boolean> = signal(false);
 
   // ! Window Management
 

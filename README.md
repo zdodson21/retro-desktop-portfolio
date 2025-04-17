@@ -45,7 +45,7 @@ Yes, but it's the theme I liked, and I thought it would challenge me the most to
 
 ---
 
-# Angular
+## Angular Development
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.1.
 

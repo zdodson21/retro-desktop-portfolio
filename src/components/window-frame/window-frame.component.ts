@@ -1,4 +1,4 @@
-import { Component, ElementRef, inject, Input, Renderer2, effect, ViewChild, signal } from '@angular/core';
+import { Component, ElementRef, inject, Input, Renderer2, effect, ViewChild, signal, WritableSignal } from '@angular/core';
 import { AppService } from '../../app/app.service';
 import { NgIf } from '@angular/common';
 
@@ -12,7 +12,7 @@ export class WindowFrameComponent {
   // TODO add support for removing movability and resizeability, mainly for alerts (lock attribute)
   // Use start menu renderer as reference, along with taskbar-program for attribute setting
 
-  @Input() alert = false; // will hide the minimize and view buttons, also prevents movement
+  @Input() alert: boolean = false; // will hide the minimize and view buttons, also prevents movement
   @Input({alias: 'focus-name'}) focusName: string;
   @Input({alias: 'window-title'}) title: string;
   @Input({alias: 'window-icon'}) icon: string;
@@ -20,18 +20,33 @@ export class WindowFrameComponent {
   @ViewChild('viewButton') viewButtonRef!: ElementRef;
   @ViewChild('minimizeButton') minimizeButtonRef!: ElementRef;
 
-  private store = inject(AppService);
-  private renderer = inject(Renderer2);
-  private elementRef = inject(ElementRef);
+  // Element control
+  private store: AppService = inject(AppService);
+  private renderer: Renderer2 = inject(Renderer2);
+  private elementRef: ElementRef = inject(ElementRef);
 
-  private viewItem: any;
-  private minimizeItem: any;
+  // Buttons
+  private viewItem: HTMLElement;
+  private minimizeItem: HTMLElement;
 
-  private isDragging = false;
-  private isResizing = false;
-  private offset = { x: 0, y: 0};
+  // Logic checks
+  private isFullSize: boolean = false;
+  private isDragging: boolean = false;
+  private isResizing: boolean = false;
 
-  isElementFocused = signal(false);
+  // Size & placement
+  private offset = { x: 0, y: 0 };
+  private dimensions = {
+    width: this.elementRef.nativeElement.offsetWidth,
+    height: this.elementRef.nativeElement.offsetHeight,
+  }
+
+  private coordinates = { // TODO this may not be needed
+    top: this.elementRef.nativeElement.offsetTop,
+    left: this.elementRef.nativeElement.offsetLeft
+  }
+
+  public isElementFocused: WritableSignal<boolean> = signal(false);
 
   ngAfterViewInit() {
     this.viewItem = this.viewButtonRef.nativeElement;
@@ -44,6 +59,7 @@ export class WindowFrameComponent {
     }
     else {
       this.setupDraggable();
+      this.setupResizable();
     }
   }
 
@@ -60,14 +76,34 @@ export class WindowFrameComponent {
     });
   }
 
+  /**
+   * @description handle minimizing program
+   */
   minimizeButtonHandler() {
 
   }
 
+  /**
+   * @description handle changing between window & full screen mode
+   */
   viewButtonHandler() {
+    if (!this.isFullSize) {
+      // TODO fix for border calculations
+      console.debug(this.dimensions) // TODO remove when done
+      this.elementRef.nativeElement.style.width = '100%';
+      this.elementRef.nativeElement.style.height = '100%';
+    }
+    else {
+      this.elementRef.nativeElement.style.width = `${this.dimensions.width}px`;
+      this.elementRef.nativeElement.style.height = `${this.dimensions.height}px`;
+    }
 
+    this.isFullSize = !this.isFullSize;
   }
 
+  /**
+   * @description handles close button functionality
+   */
   closeButtonHandler() {
     if (this.focusName === "shutdown-alert") {
       this.store.showShutdownAlert.set(false);
@@ -113,6 +149,31 @@ export class WindowFrameComponent {
       if (this.isDragging) {
         this.isDragging = false;
       }
+    });
+  }
+
+  /**
+   * @description handles resizing of window-frame
+   */
+  private setupResizable() {
+    const resizeHandle = this.renderer.createElement('div');
+    this.renderer.addClass(resizeHandle, 'resize-handle');
+    this.renderer.appendChild(this.elementRef.nativeElement, resizeHandle);
+
+    resizeHandle.addEventListener('mousedown', (e: MouseEvent) => {
+      this.isResizing = true;
+      e.stopPropagation();
+    });
+
+    document.addEventListener('mousemove', (e: MouseEvent) => {
+      if (this.isResizing) {
+        this.elementRef.nativeElement.style.width = `${e.clientX - this.elementRef.nativeElement.offsetLeft}px`
+        this.elementRef.nativeElement.style.height = `${e.clientY - this.elementRef.nativeElement.offsetTop}px`
+      }
+    });
+
+    document.addEventListener('mouseup', () => {
+      this.isResizing = false;
     });
   }
 }
