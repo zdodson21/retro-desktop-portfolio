@@ -1,4 +1,4 @@
-import { Component, effect, ElementRef, inject, ViewChild, signal} from '@angular/core';
+import { Component, effect, ElementRef, inject, ViewChild, signal, WritableSignal} from '@angular/core';
 import { AppService } from '../../../app/app.service';
 
 @Component({
@@ -10,10 +10,10 @@ import { AppService } from '../../../app/app.service';
 export class TaskbarStartComponent {
   @ViewChild('startButton') startButtonRef!: ElementRef;
 
-  private store = inject(AppService);
-  private item: any;
+  private store: AppService = inject(AppService);
+  private item: HTMLElement;
 
-  isStartClicked = signal(false);
+  isStartClicked: WritableSignal<boolean> = signal(false);
 
   ngAfterViewInit() {
     this.item = this.startButtonRef.nativeElement.classList;
@@ -36,6 +36,6 @@ export class TaskbarStartComponent {
     else {
       this.store.isStartMenuOpen.set(false);
     }
-    this.store.focus.set("start")
+    this.store.focus.set("taskbar-start");
   }
 }

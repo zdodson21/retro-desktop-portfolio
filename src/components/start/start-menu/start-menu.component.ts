@@ -13,10 +13,10 @@ import { StartShutdownComponent } from '../start-shutdown/start-shutdown.compone
 export class StartMenuComponent {
   @ViewChild('startMenu') startMenuRef!: ElementRef;
 
-  private store = inject(AppService);
-  private renderer = inject(Renderer2);
-  private elementRef = inject(ElementRef);
-  private item: any;
+  private store: AppService = inject(AppService);
+  private renderer: Renderer2 = inject(Renderer2);
+  private elementRef: ElementRef = inject(ElementRef);
+  private item: HTMLElement;
 
   constructor() {
     effect(() => {
@@ -34,6 +34,6 @@ export class StartMenuComponent {
 
   clickHandler(event: MouseEvent) {
     event?.stopPropagation();
-    this.store.focus.set(this.item);
+    this.store.focus.set("start-menu");
   }
 }

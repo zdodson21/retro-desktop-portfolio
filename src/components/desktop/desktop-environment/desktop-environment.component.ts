@@ -11,8 +11,8 @@ import { AppService } from '../../../app/app.service';
 export class DesktopEnvironmentComponent {
   @ViewChild('desktopEnvironment') desktopEnvironmentRef!: ElementRef;
 
-  private store = inject(AppService);
-  private item: any;
+  private store: AppService = inject(AppService);
+  private item: HTMLElement;
 
   ngAfterViewInit() {
     this.item = this.desktopEnvironmentRef.nativeElement;

@@ -13,8 +13,8 @@ import { AppService } from '../../../app/app.service';
 export class TaskbarBaseComponent {
   @ViewChild('taskbarBase') taskbarBaseRef!: ElementRef;
 
-  private store = inject(AppService);
-  private item: any;
+  private store: AppService = inject(AppService);
+  private item: HTMLElement;
 
   ngAfterViewInit() {
     this.item = this.taskbarBaseRef.nativeElement;

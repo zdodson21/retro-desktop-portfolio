@@ -1,4 +1,4 @@
-import { Component, ElementRef, ViewChild, inject, effect, signal } from '@angular/core';
+import { Component, ElementRef, ViewChild, inject, effect, signal, WritableSignal } from '@angular/core';
 import { inject as vercelAnalytics } from '@vercel/analytics';
 import { injectSpeedInsights } from '@vercel/speed-insights';
 import { DesktopEnvironmentComponent } from '../components/desktop/desktop-environment/desktop-environment.component';
@@ -24,9 +24,9 @@ injectSpeedInsights();
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  private store = inject(AppService);
+  private store: AppService = inject(AppService);
 
-  isAlertVisible = signal(false);
+  isAlertVisible: WritableSignal<boolean> = signal(false);
 
   constructor() {
     effect(() => {

@@ -11,7 +11,7 @@ import { NgFor } from '@angular/common';
 })
 export class SystemMonitorComponent {
   // TODO need to implement routes for this being open, then can replicate for other programs
-  public store = inject(AppService);
+  public store: AppService = inject(AppService);
 
   openPrograms: any = this.store.openPrograms();
 }

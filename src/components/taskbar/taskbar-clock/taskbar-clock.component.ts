@@ -12,7 +12,7 @@ export class TaskbarClockComponent {
 
   constructor() {
     setInterval(() => {
-      let time = new Date();
+      let time: Date = new Date();
       let halfOfDay: string = "AM";
 
       let hour: number = time.getHours();

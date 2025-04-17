@@ -11,7 +11,7 @@ import { WindowFrameComponent } from '../../window-frame/window-frame.component'
 })
 export class AlertShutdownComponent {
 
-  private store = inject(AppService);
+  private store: AppService = inject(AppService);
   formValue: number = 0; // 0 = shutdown, 1 = restart
 
   constructor() {

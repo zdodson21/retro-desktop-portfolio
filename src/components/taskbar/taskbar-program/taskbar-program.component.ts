@@ -1,4 +1,4 @@
-import { Component, effect, ElementRef, inject, Input, ViewChild, signal } from '@angular/core';
+import { Component, effect, ElementRef, inject, Input, ViewChild, signal, WritableSignal } from '@angular/core';
 import { AppService } from '../../../app/app.service';
 
 @Component({
@@ -14,14 +14,14 @@ export class TaskbarProgramComponent {
 
   @ViewChild('program') programRef!: ElementRef;
 
-  private store = inject(AppService);
-  private item: any;
+  private store: AppService = inject(AppService);
+  private item: HTMLElement;
 
   ngAfterViewInit() {
     this.item = this.programRef.nativeElement;
   }
 
-  isProgramFocused = signal(false);
+  isProgramFocused: WritableSignal<boolean> = signal(false);
 
   constructor() {
     effect(() => {

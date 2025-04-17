@@ -10,8 +10,8 @@ import { AppService } from '../../../app/app.service';
 export class StartShutdownComponent {
   @ViewChild('startShutdown') startShutdownRef!: ElementRef;
 
-  private store = inject(AppService);
-  private item: any;
+  private store: AppService = inject(AppService);
+  private item: HTMLElement;
 
   ngAfterViewInit() {
     this.item = this.startShutdownRef.nativeElement;

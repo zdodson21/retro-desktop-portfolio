@@ -1,4 +1,4 @@
-import { Component, Input, ViewChild, ElementRef, inject, effect, signal } from '@angular/core';
+import { Component, Input, ViewChild, ElementRef, inject, effect, signal, WritableSignal } from '@angular/core';
 import { AppService } from '../../../app/app.service';
 
 @Component({
@@ -14,14 +14,14 @@ export class DesktopIconComponent {
 
   @ViewChild('desktopIcon') desktopIconRef!: ElementRef;
 
-  private store = inject(AppService);
-  private item: any;
+  private store: AppService = inject(AppService);
+  private item: HTMLElement;
 
   ngAfterViewInit() {
     this.item = this.desktopIconRef.nativeElement;
   }
 
-  isElementFocused = signal(false);
+  isElementFocused: WritableSignal<boolean> = signal(false);
 
   constructor() {
     effect(() => {

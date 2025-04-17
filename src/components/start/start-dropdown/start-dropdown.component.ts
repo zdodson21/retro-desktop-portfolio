@@ -13,8 +13,8 @@ export class StartDropdownComponent {
 
   @ViewChild('startDropdown') startDropdownRef!: ElementRef;
 
-  private store = inject(AppService);
-  private item: any;
+  private store: AppService = inject(AppService);
+  private item: HTMLElement;
 
   ngAfterViewInit() {
     this.item = this.startDropdownRef.nativeElement;
@@ -25,6 +25,6 @@ export class StartDropdownComponent {
   }
 
   hoverHandler() {
-    
+
   }
 }
