@@ -31,8 +31,10 @@ export class WindowFrameComponent {
   private viewItem: HTMLElement;
   private minimizeItem: HTMLElement;
 
-  // Logic checks
+  private isMinimized: boolean = false;
   private isFullSize: boolean = false;
+
+  // Window management checks
   private isDragging: boolean = false;
   private isResizing: boolean = false;
 
@@ -43,10 +45,10 @@ export class WindowFrameComponent {
     height: this.elementRef.nativeElement.offsetHeight,
   }
 
-  private coordinates = { // TODO this may not be needed
-    top: this.elementRef.nativeElement.offsetTop,
-    left: this.elementRef.nativeElement.offsetLeft
-  }
+  // private coordinates = { // TODO this may not be needed
+  //   top: this.elementRef.nativeElement.offsetTop,
+  //   left: this.elementRef.nativeElement.offsetLeft
+  // }
 
   public isElementFocused: WritableSignal<boolean> = signal(false);
 
@@ -81,14 +83,14 @@ export class WindowFrameComponent {
   /**
    * @description handle minimizing program
    */
-  minimizeButtonHandler() {
-
+  public minimizeButtonHandler() {
+    // TODO use `this.isMinimized` variable
   }
 
   /**
    * @description handle changing between window & full screen mode
    */
-  viewButtonHandler() {
+  public viewButtonHandler() {
     if (!this.isFullSize) {
       // TODO fix for border calculations
       console.debug(this.dimensions) // TODO remove when done
@@ -106,7 +108,7 @@ export class WindowFrameComponent {
   /**
    * @description handles close button functionality
    */
-  closeButtonHandler() {
+  public closeButtonHandler() {
     if (this.focusName === "shutdown-alert") {
       this.store.showShutdownAlert.set(false);
     }
@@ -119,7 +121,7 @@ export class WindowFrameComponent {
    * @description Sets focus to clicked window
    * @param event MouseEvent
    */
-  setFocus(event?: MouseEvent) {
+  public setFocus(event?: MouseEvent) {
     event?.stopPropagation();
     this.store.focus.set(this.focusName);
   }
@@ -156,7 +158,7 @@ export class WindowFrameComponent {
   /**
    * @description handles resizing of window-frame
    */
-  private setupResizable() {
+  private setupResizable() { // TODO FINSIH THIS
     const resizeHandle = this.renderer.createElement('div');
     this.renderer.addClass(resizeHandle, 'resize-handle');
     this.renderer.appendChild(this.elementRef.nativeElement, resizeHandle);
