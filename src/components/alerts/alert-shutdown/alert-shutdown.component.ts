@@ -12,7 +12,7 @@ import { WindowFrameComponent } from '../../window-frame/window-frame.component'
 export class AlertShutdownComponent {
 
   private store: AppService = inject(AppService);
-  formValue: number = 0; // 0 = shutdown, 1 = restart
+  public formValue: number = 0; // 0 = shutdown, 1 = restart
 
   constructor() {
     effect(() => {
@@ -20,7 +20,7 @@ export class AlertShutdownComponent {
     })
   }
 
-  formSubmit(event: SubmitEvent) {
+  public formSubmit(event: SubmitEvent) {
     event.preventDefault();
 
     if (this.formValue === 0) {
@@ -29,10 +29,10 @@ export class AlertShutdownComponent {
       globalThis.location.href = `${globalThis.location.protocol}//${globalThis.location.host}`
     }
 
-    this.store.showShutdownAlert.set(false);
+    this.dismissAlert();
   }
 
-  noButtonPressed() {
+  public dismissAlert() {
     this.store.showShutdownAlert.set(false);
     // TODO update to work based on focus
   }

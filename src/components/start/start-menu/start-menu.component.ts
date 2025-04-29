@@ -11,7 +11,7 @@ import { StartShutdownComponent } from '../start-shutdown/start-shutdown.compone
   styleUrl: './start-menu.component.scss'
 })
 export class StartMenuComponent {
-  @ViewChild('startMenu') startMenuRef!: ElementRef;
+  @ViewChild('startMenu') private startMenuRef!: ElementRef;
 
   private store: AppService = inject(AppService);
   private renderer: Renderer2 = inject(Renderer2);
@@ -35,7 +35,7 @@ export class StartMenuComponent {
   /**
    * @description sets focus to "start-menu"
    */
-  clickHandler(event: MouseEvent) {
+  public clickHandler(event: MouseEvent) {
     event?.stopPropagation();
     this.store.focus.set("start-menu");
   }

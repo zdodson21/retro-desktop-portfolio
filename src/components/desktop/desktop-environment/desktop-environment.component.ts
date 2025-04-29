@@ -9,7 +9,7 @@ import { AppService } from '../../../app/app.service';
   styleUrl: './desktop-environment.component.scss'
 })
 export class DesktopEnvironmentComponent {
-  @ViewChild('desktopEnvironment') desktopEnvironmentRef!: ElementRef;
+  @ViewChild('desktopEnvironment') private desktopEnvironmentRef!: ElementRef;
 
   private store: AppService = inject(AppService);
   private item: HTMLElement;
@@ -18,7 +18,7 @@ export class DesktopEnvironmentComponent {
     this.item = this.desktopEnvironmentRef.nativeElement;
   }
 
-  clickHandler(event: MouseEvent) {
+  public clickHandler(event: MouseEvent) {
     event?.stopPropagation();
     this.store.focus.set("desktop-environment");
   }

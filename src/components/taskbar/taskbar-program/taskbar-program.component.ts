@@ -8,11 +8,11 @@ import { AppService } from '../../../app/app.service';
   styleUrl: './taskbar-program.component.scss'
 })
 export class TaskbarProgramComponent {
-  @Input({alias: 'focus-name'}) focusName: string;
-  @Input({alias: 'icon'}) src: string;
-  @Input({alias: 'text'}) text: string;
+  @Input({alias: 'focus-name'}) public focusName: string;
+  @Input({alias: 'icon'}) public src: string;
+  @Input({alias: 'text'}) public text: string;
 
-  @ViewChild('program') programRef!: ElementRef;
+  @ViewChild('program') private programRef!: ElementRef;
 
   private store: AppService = inject(AppService);
   private item: HTMLElement;
@@ -37,7 +37,7 @@ export class TaskbarProgramComponent {
   /**
    * @description taskbar-program click handling
    */
-  clickHandler(event: MouseEvent) {
+  public clickHandler(event: MouseEvent) {
     event?.stopPropagation();
 
     if (this.store.focus() == this.focusName) {

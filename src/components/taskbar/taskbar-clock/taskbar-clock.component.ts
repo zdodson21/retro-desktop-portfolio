@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
   styleUrl: './taskbar-clock.component.scss'
 })
 export class TaskbarClockComponent {
-  clock: string = "";
+  public clock: string = "";
 
   constructor() {
     setInterval(() => {

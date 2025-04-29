@@ -1,6 +1,6 @@
-import { Component, ElementRef, inject, Input, Renderer2, effect, ViewChild, signal, WritableSignal } from '@angular/core';
-import { AppService } from '../../app/app.service';
 import { NgIf } from '@angular/common';
+import { Component, effect, ElementRef, inject, Input, Renderer2, signal, ViewChild, WritableSignal } from '@angular/core';
+import { AppService } from '../../app/app.service';
 
 @Component({
   selector: 'window-frame',
@@ -13,14 +13,15 @@ export class WindowFrameComponent {
   /**
    * @description prevents movement, resizing, and hides minimize & view buttons
    */
-  @Input() alert: boolean = false;
+  @Input() public alert: boolean = false;
 
-  @Input({alias: 'focus-name'}) focusName: string;
-  @Input({alias: 'window-title'}) title: string;
-  @Input({alias: 'window-icon'}) icon: string;
+  @Input({alias: 'focus-name'}) public focusName: string;
+  @Input({alias: 'window-title'}) public title: string;
+  @Input({alias: 'window-icon'}) public icon: string;
 
-  @ViewChild('viewButton') viewButtonRef!: ElementRef;
-  @ViewChild('minimizeButton') minimizeButtonRef!: ElementRef;
+  @ViewChild('viewButton') private viewButtonRef!: ElementRef;
+  @ViewChild('minimizeButton') private minimizeButtonRef!: ElementRef;
+  @ViewChild('wrapper') private wrapperRef!: ElementRef;
 
   // Element control
   private store: AppService = inject(AppService);
@@ -91,13 +92,18 @@ export class WindowFrameComponent {
    * @description handle changing between window & full screen mode
    */
   public viewButtonHandler() {
+    // TODO fix for border calculations
+    /*
+      * save position before going full screen for when it needs to go back to a draggable view
+    */
     if (!this.isFullSize) {
-      // TODO fix for border calculations
       console.debug(this.dimensions) // TODO remove when done
+      this.wrapperRef.nativeElement.classList.add('full-view');
       this.elementRef.nativeElement.style.width = '100%';
       this.elementRef.nativeElement.style.height = '100%';
     }
     else {
+      this.wrapperRef.nativeElement.classList.remove('full-view');
       this.elementRef.nativeElement.style.width = `${this.dimensions.width}px`;
       this.elementRef.nativeElement.style.height = `${this.dimensions.height}px`;
     }
@@ -134,7 +140,9 @@ export class WindowFrameComponent {
 
     TOP_PANEL.addEventListener('mousedown', (e: MouseEvent) => {
       this.setFocus();
-      this.isDragging = true;
+
+      if (!this.isFullSize) this.isDragging = true;
+
       this.offset = {
         x: e.clientX - this.elementRef.nativeElement.offsetLeft,
         y: e.clientY - this.elementRef.nativeElement.offsetTop

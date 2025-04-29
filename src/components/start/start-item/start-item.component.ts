@@ -8,10 +8,10 @@ import { AppService } from '../../../app/app.service';
   styleUrl: './start-item.component.scss'
 })
 export class StartItemComponent {
-  @Input({alias: 'icon'}) src: string;
-  @Input({alias: 'text'}) text: string;
+  @Input({alias: 'icon'}) public src: string;
+  @Input({alias: 'text'}) public text: string;
 
-  @ViewChild('startItem') startItemRef!: ElementRef;
+  @ViewChild('startItem') private startItemRef!: ElementRef;
 
   private store: AppService = inject(AppService);
   private item: HTMLElement;
@@ -27,7 +27,7 @@ export class StartItemComponent {
   /**
    * @description opens applications with routes
    */
-  clickHandler(event: MouseEvent) {
+  public clickHandler(event: MouseEvent) {
     event?.stopPropagation();
   }
 }

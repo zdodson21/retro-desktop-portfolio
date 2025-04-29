@@ -8,10 +8,10 @@ import { AppService } from '../../../app/app.service';
   styleUrl: './start-dropdown.component.scss'
 })
 export class StartDropdownComponent {
-  @Input({alias: 'icon'}) src: string;
-  @Input({alias: 'text'}) text: string;
+  @Input({alias: 'icon'}) public src: string;
+  @Input({alias: 'text'}) public text: string;
 
-  @ViewChild('startDropdown') startDropdownRef!: ElementRef;
+  @ViewChild('startDropdown') private startDropdownRef!: ElementRef;
 
   private store: AppService = inject(AppService);
   private item: HTMLElement;
@@ -27,7 +27,7 @@ export class StartDropdownComponent {
   /**
    * @description start-dropdown hover handler
    */
-  hoverHandler() {
+  public hoverHandler() {
 
   }
 }

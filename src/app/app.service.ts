@@ -29,6 +29,9 @@ export class AppService {
     */
   ]);
 
+  viewportX: WritableSignal<number> = signal(globalThis.innerWidth);
+  viewportY: WritableSignal<number> = signal(globalThis.innerHeight);
+
   // ! Start Menu
 
   // ! Alerts

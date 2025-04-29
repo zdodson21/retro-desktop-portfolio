@@ -8,7 +8,7 @@ import { AppService } from '../../../app/app.service';
   styleUrl: './start-shutdown.component.scss'
 })
 export class StartShutdownComponent {
-  @ViewChild('startShutdown') startShutdownRef!: ElementRef;
+  @ViewChild('startShutdown') private startShutdownRef!: ElementRef;
 
   private store: AppService = inject(AppService);
   private item: HTMLElement;
@@ -24,7 +24,7 @@ export class StartShutdownComponent {
   /**
    * @description shows shutdown alert
    */
-  clickHandler(event: MouseEvent) {
+  public clickHandler(event: MouseEvent) {
     event?.stopPropagation();
     this.store.showShutdownAlert.set(true);
     this.store.focus.set('shutdown-alert');

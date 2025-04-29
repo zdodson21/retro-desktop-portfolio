@@ -8,11 +8,11 @@ import { AppService } from '../../../app/app.service';
   styleUrl: './desktop-icon.component.scss'
 })
 export class DesktopIconComponent {
-  @Input({alias: 'icon-src'}) src: string;
-  @Input({alias: 'icon-text'}) text: string;
-  @Input({alias: 'focus-name'}) focusName: string;
+  @Input({alias: 'icon-src'}) public src: string;
+  @Input({alias: 'icon-text'}) public text: string;
+  @Input({alias: 'focus-name'}) public focusName: string;
 
-  @ViewChild('desktopIcon') desktopIconRef!: ElementRef;
+  @ViewChild('desktopIcon') private desktopIconRef!: ElementRef;
 
   private store: AppService = inject(AppService);
   private item: HTMLElement;
@@ -21,7 +21,7 @@ export class DesktopIconComponent {
     this.item = this.desktopIconRef.nativeElement;
   }
 
-  isElementFocused: WritableSignal<boolean> = signal(false);
+  public isElementFocused: WritableSignal<boolean> = signal(false);
 
   constructor() {
     effect(() => {
@@ -37,7 +37,7 @@ export class DesktopIconComponent {
   /**
    * @description sets focus on desktop icon
    */
-  singleClickHandler(event: MouseEvent) {
+  public singleClickHandler(event: MouseEvent) {
     event?.stopPropagation();
     this.store.focus.set(this.focusName);
   }
@@ -45,7 +45,7 @@ export class DesktopIconComponent {
   /**
    * @description opens applicable program / site / file
    */
-  dblClickHandler(event: MouseEvent) {
+  public dblClickHandler(event: MouseEvent) {
     event?.stopPropagation();
     console.log('double click');
   }

@@ -13,5 +13,5 @@ export class SystemMonitorComponent {
   // TODO need to implement routes for this being open, then can replicate for other programs
   public store: AppService = inject(AppService);
 
-  openPrograms: any = this.store.openPrograms();
+  public openPrograms: any = this.store.openPrograms();
 }

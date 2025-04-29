@@ -8,14 +8,14 @@ import { AppService } from '../../../app/app.service';
   styleUrl: './taskbar-start.component.scss'
 })
 export class TaskbarStartComponent {
-  @ViewChild('startButton') startButtonRef!: ElementRef;
+  @ViewChild('startButton') private startButtonRef!: ElementRef;
 
   private store: AppService = inject(AppService);
   private item: HTMLElement;
 
   // TODO change to be set based on
-  previousFocus: string = this.store.focus();
-  isStartClicked: WritableSignal<boolean> = signal(false);
+  private previousFocus: string = this.store.focus();
+  public isStartClicked: WritableSignal<boolean> = signal(false);
 
   ngAfterViewInit() {
     this.item = this.startButtonRef.nativeElement.classList;
@@ -30,9 +30,9 @@ export class TaskbarStartComponent {
   /**
    * @description Handles changing styles and other functionality of the start button.
    */
-  startButtonHandler(event: MouseEvent) {
+  public startButtonHandler(event: MouseEvent) {
     event?.stopPropagation();
-    
+
     if (!this.isStartClicked()) {
       this.previousFocus = this.store.focus();
       this.store.focus.set("start-menu");
