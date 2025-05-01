@@ -3,10 +3,11 @@
 .vercel
 .vscode
 coverage
+dist
 node_modules
 .editorconfig
 .env
 .gitignore
-README.md
 karma.conf.js
+README.md
 *.spec.ts
