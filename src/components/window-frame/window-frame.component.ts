@@ -11,7 +11,7 @@ import { AppService } from '../../app/app.service';
 export class WindowFrameComponent {
 
   /**
-   * @description prevents movement, resizing, and hides minimize & view buttons
+   * @description prevents movement, resizing, and hides minimize & view buttons when true
    */
   @Input() public alert: boolean = false;
 
@@ -27,6 +27,8 @@ export class WindowFrameComponent {
   private store: AppService = inject(AppService);
   private renderer: Renderer2 = inject(Renderer2);
   private elementRef: ElementRef = inject(ElementRef);
+
+  public isElementFocused: WritableSignal<boolean> = signal(false);
 
   // Buttons
   private viewItem: HTMLElement;
@@ -49,17 +51,10 @@ export class WindowFrameComponent {
     height: this.elementRef.nativeElement.offsetHeight,
   }
 
-  private savedPosition = {
+  private windowCoordinates = {
     top: 0,
     left: 0
   }
-
-  // private coordinates = { // TODO this may not be needed
-  //   top: this.elementRef.nativeElement.offsetTop,
-  //   left: this.elementRef.nativeElement.offsetLeft
-  // }
-
-  public isElementFocused: WritableSignal<boolean> = signal(false);
 
   ngAfterViewInit() {
     this.viewItem = this.viewButtonRef.nativeElement;
@@ -100,7 +95,7 @@ export class WindowFrameComponent {
    */
   public viewButtonHandler() {
     if (!this.isFullSize) {
-      this.savedPosition = {
+      this.windowCoordinates = {
         top: this.elementRef.nativeElement.offsetTop,
         left: this.elementRef.nativeElement.offsetLeft
       }
@@ -121,8 +116,8 @@ export class WindowFrameComponent {
 
       this.elementRef.nativeElement.style.width = `${this.dimensions.width}px`;
       this.elementRef.nativeElement.style.height = `${this.dimensions.height}px`;
-      this.elementRef.nativeElement.style.top = `${this.savedPosition.top}px`;
-      this.elementRef.nativeElement.style.left = `${this.savedPosition.left}px`;
+      this.elementRef.nativeElement.style.top = `${this.windowCoordinates.top}px`;
+      this.elementRef.nativeElement.style.left = `${this.windowCoordinates.left}px`;
     }
 
     this.isFullSize = !this.isFullSize;
