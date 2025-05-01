@@ -1,5 +1,5 @@
 import { NgIf } from '@angular/common';
-import { Component, effect, ElementRef, inject, Input, Renderer2, signal, ViewChild, WritableSignal } from '@angular/core';
+import { Component, effect, ElementRef, inject, Input, Renderer2, signal, ViewChild, WritableSignal, HostListener } from '@angular/core';
 import { AppService } from '../../app/app.service';
 
 @Component({
@@ -35,15 +35,23 @@ export class WindowFrameComponent {
   private isMinimized: boolean = false;
   private isFullSize: boolean = false;
 
+  public viewIcon = "/assets/icons/view-maximize.svg"
+
   // Window management checks
   private isDragging: boolean = false;
   private isResizing: boolean = false;
 
   // Size & placement
   private offset = { x: 0, y: 0 };
+
   private dimensions = {
     width: this.elementRef.nativeElement.offsetWidth,
     height: this.elementRef.nativeElement.offsetHeight,
+  }
+
+  private savedPosition = {
+    top: 0,
+    left: 0
   }
 
   // private coordinates = { // TODO this may not be needed
@@ -64,7 +72,6 @@ export class WindowFrameComponent {
     }
     else {
       this.setupDraggable();
-      this.setupResizable();
     }
   }
 
@@ -92,23 +99,46 @@ export class WindowFrameComponent {
    * @description handle changing between window & full screen mode
    */
   public viewButtonHandler() {
-    // TODO fix for border calculations
-    /*
-      * save position before going full screen for when it needs to go back to a draggable view
-    */
     if (!this.isFullSize) {
-      console.debug(this.dimensions) // TODO remove when done
+      this.savedPosition = {
+        top: this.elementRef.nativeElement.offsetTop,
+        left: this.elementRef.nativeElement.offsetLeft
+      }
+
+      this.viewIcon = "/assets/icons/close-button.svg" // TODO placeholder
+
       this.wrapperRef.nativeElement.classList.add('full-view');
-      this.elementRef.nativeElement.style.width = '100%';
-      this.elementRef.nativeElement.style.height = '100%';
+
+      this.elementRef.nativeElement.style.width = '100.01%'; // ! 100.01% removes slivers of background in some browsers
+      this.elementRef.nativeElement.style.height = `100.01%`;
+      this.elementRef.nativeElement.style.top = `${(this.store.viewportHeight() / 2) - 22}px`;
+      this.elementRef.nativeElement.style.left = `${this.store.viewportWidth() / 2}px`;
     }
     else {
+      this.viewIcon = "/assets/icons/view-maximize.svg";
+
       this.wrapperRef.nativeElement.classList.remove('full-view');
+
       this.elementRef.nativeElement.style.width = `${this.dimensions.width}px`;
       this.elementRef.nativeElement.style.height = `${this.dimensions.height}px`;
+      this.elementRef.nativeElement.style.top = `${this.savedPosition.top}px`;
+      this.elementRef.nativeElement.style.left = `${this.savedPosition.left}px`;
     }
 
     this.isFullSize = !this.isFullSize;
+  }
+
+  /**
+   * @description maintains a full size program window even when browser size is changed
+   */
+  @HostListener('window:resize')
+  private helpMaintainFullSize() {
+    if (this.isFullSize) {
+      this.elementRef.nativeElement.style.width = '100.01%'; // ! 100.01% removes slivers of background in some browsers
+      this.elementRef.nativeElement.style.height = `100.01%`;
+      this.elementRef.nativeElement.style.top = `${(this.store.viewportHeight() / 2) - 22}px`;
+      this.elementRef.nativeElement.style.left = `${this.store.viewportWidth() / 2}px`;
+    }
   }
 
   /**
@@ -136,9 +166,10 @@ export class WindowFrameComponent {
    * @description handles dragging events to move window around
    */
   private setupDraggable() {
-    const TOP_PANEL = this.elementRef.nativeElement.querySelector('.top-panel');
+    const PANEL_LEFT_SIDE = this.elementRef.nativeElement.querySelector('.left-side');
 
-    TOP_PANEL.addEventListener('mousedown', (e: MouseEvent) => {
+
+    PANEL_LEFT_SIDE.addEventListener('mousedown', (e: MouseEvent) => {
       this.setFocus();
 
       if (!this.isFullSize) this.isDragging = true;
@@ -160,31 +191,6 @@ export class WindowFrameComponent {
       if (this.isDragging) {
         this.isDragging = false;
       }
-    });
-  }
-
-  /**
-   * @description handles resizing of window-frame
-   */
-  private setupResizable() { // TODO FINSIH THIS
-    const resizeHandle = this.renderer.createElement('div');
-    this.renderer.addClass(resizeHandle, 'resize-handle');
-    this.renderer.appendChild(this.elementRef.nativeElement, resizeHandle);
-
-    resizeHandle.addEventListener('mousedown', (e: MouseEvent) => {
-      this.isResizing = true;
-      e.stopPropagation();
-    });
-
-    document.addEventListener('mousemove', (e: MouseEvent) => {
-      if (this.isResizing) {
-        this.elementRef.nativeElement.style.width = `${e.clientX - this.elementRef.nativeElement.offsetLeft}px`
-        this.elementRef.nativeElement.style.height = `${e.clientY - this.elementRef.nativeElement.offsetTop}px`
-      }
-    });
-
-    document.addEventListener('mouseup', () => {
-      this.isResizing = false;
     });
   }
 }
