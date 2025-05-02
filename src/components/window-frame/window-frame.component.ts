@@ -51,6 +51,14 @@ export class WindowFrameComponent {
     height: this.elementRef.nativeElement.offsetHeight,
   }
 
+  /**
+    @description dimensions recorded when entering full screen for comparison when exiting full screen
+  */
+  private viewportRecorder = {
+    width: this.store.viewportWidth(),
+    height: this.store.viewportHeight()
+  }
+
   private windowCoordinates = {
     top: 0,
     left: 0
@@ -94,10 +102,23 @@ export class WindowFrameComponent {
    * @description handle changing between window & full screen mode
    */
   public viewButtonHandler() {
-    if (!this.isFullSize) {
+
+
+      // TODO:
+      // // * Record viewport width and height when going into full screen
+      // * If not the same when exiting full screen, calculate the window width & height percentage compared to viewport
+      // * Set new width and height based on the new viewport size to same percentage
+      // * Planned always-on-screen safety system should be able to make sure the item stays on screen, this should be its own function
+
+    if (!this.isFullSize) { // going into full screen
       this.windowCoordinates = {
         top: this.elementRef.nativeElement.offsetTop,
         left: this.elementRef.nativeElement.offsetLeft
+      }
+
+      this.viewportRecorder = {
+        width: this.store.viewportWidth(),
+        height: this.store.viewportHeight()
       }
 
       this.viewIcon = "/assets/icons/close-button.svg" // TODO placeholder
@@ -109,10 +130,20 @@ export class WindowFrameComponent {
       this.elementRef.nativeElement.style.top = `${(this.store.viewportHeight() / 2) - 22}px`;
       this.elementRef.nativeElement.style.left = `${this.store.viewportWidth() / 2}px`;
     }
-    else {
+    else { // exiting full screen
       this.viewIcon = "/assets/icons/view-maximize.svg";
 
       this.wrapperRef.nativeElement.classList.remove('full-view');
+
+      if (this.store.viewportWidth() !== this.viewportRecorder.width || this.store.viewportHeight() !== this.viewportRecorder.height) {
+        // * Calculate window width as a percentage (I think it should be window width / recorded viewport width = % of screen taken)
+        // * Calculate window height as a percentage (same as above)
+
+        // * Calculate what the new window width should be (current viewport width * %)
+        // * Calculate what the new window height should be (same as above)
+
+        // * set this.dimensions to new width & height, should be all set below at CSS setting
+      }
 
       this.elementRef.nativeElement.style.width = `${this.dimensions.width}px`;
       this.elementRef.nativeElement.style.height = `${this.dimensions.height}px`;
@@ -134,6 +165,8 @@ export class WindowFrameComponent {
       this.elementRef.nativeElement.style.top = `${(this.store.viewportHeight() / 2) - 22}px`;
       this.elementRef.nativeElement.style.left = `${this.store.viewportWidth() / 2}px`;
     }
+
+    // TODO resize window when viewport changes
   }
 
   /**

@@ -1,4 +1,7 @@
 {
   "vsicons.presets.angular": true,
   "svg.preview.background": "editor",
+  "prettier.useEditorConfig": true,
+  "prettier.configPath": ".prettierrc",
+  "prettier.ignorePath": ".prettierignore"
 }

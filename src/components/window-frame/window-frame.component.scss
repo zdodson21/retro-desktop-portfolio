@@ -24,17 +24,13 @@
     }
   }
 
-  // .resize-handle {
-  //   position: absolute;
-  //   bottom: 0;
-  //   right: 0;
-  //   width: 15px;
-  //   height: 15px;
-  //   cursor: se-resize;
-  //   background-image: linear-gradient(135deg, transparent 50%, #000 50%)
-  // }
-
   .top-panel {
+    padding: 4px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: #7f7f7f;
+
     .left-side {
       display: flex;
       flex-direction: row;
@@ -46,12 +42,6 @@
         height: 20px;
       }
     }
-
-    padding: 4px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    background-color: #7f7f7f;
 
     .controls {
       // TODO spacing is different, little spacing between min and view, more spacing between view and close
