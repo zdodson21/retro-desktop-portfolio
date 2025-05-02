@@ -4,15 +4,19 @@ on:
   push:
     branches: [main]
     paths:
-        - 'src/**'
-        - 'public/**'
-        - 'package.json'
-        - 'package-lock.json'
+      - 'src/**'
+      - 'public/**'
+      - 'package.json'
+      - 'package-lock.json'
+      - '.github'
   pull_request:
     branches: [main]
     paths:
-        - 'src/**'
-        - 'public/**'
+      - 'src/**'
+      - 'public/**'
+      - 'package.json'
+      - 'package-lock.json'
+      - '.github'
 
 jobs:
   build:
