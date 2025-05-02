@@ -4,12 +4,18 @@ on:
   push:
     branches: [main]
     paths:
-        - 'src/**'
+      - 'src/**'
+      - 'public/**'
+      - 'package.json'
+      - 'package-lock.json'
   pull_request:
     branches: [main]
     paths:
-        - 'src/**'
-        
+      - 'src/**'
+      - 'public/**'
+      - 'package.json'
+      - 'package-lock.json'
+
 jobs:
   test:
     runs-on: ubuntu-latest
