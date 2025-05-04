@@ -11,7 +11,7 @@ describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [AppComponent],
-      providers: [AppService]
+      providers: [AppService],
     }).compileComponents();
 
     fixture = TestBed.createComponent(AppComponent);
@@ -32,7 +32,7 @@ describe('AppComponent', () => {
 
     it('showShutdownAlert should be false by default', () => {
       expect(service.showShutdownAlert()).toBeFalsy();
-    })
+    });
   });
 
   describe('<alert-shutdown>', () => {
@@ -45,8 +45,10 @@ describe('AppComponent', () => {
     });
 
     it('does not contain class .visible by default', () => {
-      expect(compiled.querySelector('alert-shutdown')?.classList.contains('visible')).toBeFalsy();
-    })
+      expect(
+        compiled.querySelector('alert-shutdown')?.classList.contains('visible'),
+      ).toBeFalsy();
+    });
   });
 
   describe('<desktop-environment>', () => {
@@ -66,5 +68,4 @@ describe('AppComponent', () => {
       expect(compiled.querySelector('taskbar-base')).toBeTruthy();
     });
   });
-
 });

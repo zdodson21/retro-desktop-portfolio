@@ -3,5 +3,6 @@
   "svg.preview.background": "editor",
   "prettier.useEditorConfig": true,
   "prettier.configPath": ".prettierrc",
-  "prettier.ignorePath": ".prettierignore"
+  "prettier.ignorePath": ".prettierignore",
+  "editor.formatOnSave": true
 }

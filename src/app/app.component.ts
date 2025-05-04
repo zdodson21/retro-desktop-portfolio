@@ -1,11 +1,18 @@
-import { Component, effect, HostListener, inject, signal, WritableSignal } from '@angular/core';
+import {
+  Component,
+  effect,
+  HostListener,
+  inject,
+  signal,
+  WritableSignal,
+} from '@angular/core';
 import { inject as vercelAnalytics } from '@vercel/analytics';
 import { injectSpeedInsights as vercelSpeedInsights } from '@vercel/speed-insights';
 import { AlertShutdownComponent } from '../components/alerts/alert-shutdown/alert-shutdown.component';
 import { DesktopEnvironmentComponent } from '../components/desktop/desktop-environment/desktop-environment.component';
 import { SystemMonitorComponent } from '../components/programs/system-monitor/system-monitor.component';
 import { StartMenuComponent } from '../components/start/start-menu/start-menu.component';
-import { TaskbarBaseComponent } from "../components/taskbar/taskbar-base/taskbar-base.component";
+import { TaskbarBaseComponent } from '../components/taskbar/taskbar-base/taskbar-base.component';
 import { AppService } from './app.service';
 
 vercelAnalytics();
@@ -18,10 +25,10 @@ vercelSpeedInsights();
     TaskbarBaseComponent,
     DesktopEnvironmentComponent,
     StartMenuComponent,
-    SystemMonitorComponent
+    SystemMonitorComponent,
   ],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  styleUrl: './app.component.scss',
 })
 export class AppComponent {
   private store: AppService = inject(AppService);
@@ -30,8 +37,8 @@ export class AppComponent {
 
   constructor() {
     effect(() => {
-      this.isAlertVisible.set(this.store.showShutdownAlert())
-    })
+      this.isAlertVisible.set(this.store.showShutdownAlert());
+    });
   }
 
   /**
