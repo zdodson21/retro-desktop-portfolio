@@ -8,7 +8,8 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "test:hl": "ng test --browsers=ChromeHeadless",
-    "test:ci": "ng test --karma-config=.github/configurations/karma.conf.js"
+    "test:ci": "ng test --karma-config=.github/configurations/karma.conf.js",
+    "prettier": "prettier . --write"
   },
   "private": true,
   "dependencies": {

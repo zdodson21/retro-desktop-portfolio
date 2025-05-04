@@ -2,5 +2,21 @@
   "semi": true,
   "tabWidth": 2,
   "singleQuote": true,
-  "trailingComma": "all"
+  "trailingComma": "all",
+  "overrides": [
+    {
+      "files": ["*.html", "*.component.html"],
+      "options": {
+        "printWidth": 500,
+        "htmlWhitespaceSensitivity": "ignore",
+        "singleAttributePerLine": false
+      }
+    },
+    {
+      "files": ["*.scss", "*.component.scss"],
+      "options": {
+        "singleQuote": false
+      }
+    }
+  ]
 }
