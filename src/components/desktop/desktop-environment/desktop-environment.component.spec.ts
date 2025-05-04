@@ -7,9 +7,8 @@ describe('DesktopEnvironmentComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [DesktopEnvironmentComponent]
-    })
-    .compileComponents();
+      imports: [DesktopEnvironmentComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(DesktopEnvironmentComponent);
     component = fixture.componentInstance;

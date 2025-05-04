@@ -1,8 +1,9 @@
-@use '../../../styles.scss' as *;
+@use "../../../styles.scss" as *;
 
 .clock-wrapper {
   border-style: inset;
-  border-color: $taskbar-item-border-black $taskbar-item-border-white $taskbar-item-border-white $taskbar-item-border-black;
+  border-color: $taskbar-item-border-black $taskbar-item-border-white
+    $taskbar-item-border-white $taskbar-item-border-black;
   padding: 2px 12px;
   align-content: center;
   margin-left: 8px;

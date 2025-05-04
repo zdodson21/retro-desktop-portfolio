@@ -8,9 +8,8 @@ describe('StartDropdownComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [StartDropdownComponent]
-    })
-    .compileComponents();
+      imports: [StartDropdownComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(StartDropdownComponent);
     component = fixture.componentInstance;
@@ -23,6 +22,6 @@ describe('StartDropdownComponent', () => {
   });
 
   it('should have the proper arrow icon', () => {
-    expect(compiled.querySelector(".arrow")?.getAttribute("src")?.split('.')[0]).toBe("/assets/icons/submenu-arrow");
+    expect(compiled.querySelector('.arrow')?.getAttribute('src')?.split('.')[0]).toBe('/assets/icons/submenu-arrow');
   });
 });

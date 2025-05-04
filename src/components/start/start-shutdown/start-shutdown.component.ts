@@ -5,7 +5,7 @@ import { AppService } from '../../../app/app.service';
   selector: 'start-shutdown',
   imports: [],
   templateUrl: './start-shutdown.component.html',
-  styleUrl: './start-shutdown.component.scss'
+  styleUrl: './start-shutdown.component.scss',
 })
 export class StartShutdownComponent {
   @ViewChild('startShutdown') private startShutdownRef!: ElementRef;
@@ -17,9 +17,7 @@ export class StartShutdownComponent {
     this.item = this.startShutdownRef.nativeElement;
   }
 
-  constructor() {
-
-  }
+  constructor() {}
 
   /**
    * @description shows shutdown alert

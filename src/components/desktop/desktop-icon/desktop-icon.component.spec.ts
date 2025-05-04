@@ -8,9 +8,8 @@ describe('DesktopIconComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [DesktopIconComponent]
-    })
-    .compileComponents();
+      imports: [DesktopIconComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(DesktopIconComponent);
     component = fixture.componentInstance;
@@ -28,7 +27,7 @@ describe('DesktopIconComponent', () => {
     });
 
     it('wrapper should not have .active by default', () => {
-      expect(compiled.querySelector(".desktop-icon-wrapper")?.classList.contains("active")).toBeFalsy();
-    })
+      expect(compiled.querySelector('.desktop-icon-wrapper')?.classList.contains('active')).toBeFalsy();
+    });
   });
 });

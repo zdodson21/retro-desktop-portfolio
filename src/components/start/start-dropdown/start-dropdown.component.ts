@@ -5,11 +5,11 @@ import { AppService } from '../../../app/app.service';
   selector: 'start-dropdown',
   imports: [],
   templateUrl: './start-dropdown.component.html',
-  styleUrl: './start-dropdown.component.scss'
+  styleUrl: './start-dropdown.component.scss',
 })
 export class StartDropdownComponent {
-  @Input({alias: 'icon'}) public src: string;
-  @Input({alias: 'text'}) public text: string;
+  @Input({ alias: 'icon' }) public src: string;
+  @Input({ alias: 'text' }) public text: string;
 
   @ViewChild('startDropdown') private startDropdownRef!: ElementRef;
 
@@ -20,14 +20,10 @@ export class StartDropdownComponent {
     this.item = this.startDropdownRef.nativeElement;
   }
 
-  constructor() {
-
-  }
+  constructor() {}
 
   /**
    * @description start-dropdown hover handler
    */
-  public hoverHandler() {
-
-  }
+  public hoverHandler() {}
 }

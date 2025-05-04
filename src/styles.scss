@@ -116,7 +116,7 @@ $taskbar-item-border-white: #e6e6e6;
 
 @font-face {
   font-family: W95FA;
-  src: url('/fonts/w95fa.woff');
+  src: url("/fonts/w95fa.woff");
   font-weight: normal;
   font-style: normal;
 }
@@ -126,7 +126,8 @@ $taskbar-item-border-white: #e6e6e6;
   font-family: W95FA;
 }
 
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
   width: 100%;

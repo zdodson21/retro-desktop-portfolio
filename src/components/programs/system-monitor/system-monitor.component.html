@@ -4,18 +4,32 @@
       <figure class="variables">
         <figcaption>Variables</figcaption>
         <ul>
-          <li><em>focus:</em> {{this.store.focus()}}</li>
-          <li><em>showShutdownAlert:</em> {{this.store.showShutdownAlert()}}</li>
-          <li><em>viewportWidth:</em> {{this.store.viewportWidth()}}</li>
-          <li><em>viewportHeight:</em> {{this.store.viewportHeight()}}</li>
+          <li>
+            <em>focus:</em>
+            {{ this.store.focus() }}
+          </li>
+          <li>
+            <em>showShutdownAlert:</em>
+            {{ this.store.showShutdownAlert() }}
+          </li>
+          <li>
+            <em>viewportWidth:</em>
+            {{ this.store.viewportWidth() }}
+          </li>
+          <li>
+            <em>viewportHeight:</em>
+            {{ this.store.viewportHeight() }}
+          </li>
         </ul>
       </figure>
       <figure class="open-programs">
         <figcaption>Open Programs</figcaption>
         <ul *ngFor="let program of openPrograms">
-          <li><em>{{program.programName}}</em></li>
+          <li>
+            <em>{{ program.programName }}</em>
+          </li>
           <ul>
-            <li>Focus Name: {{program.focusName}}</li>
+            <li>Focus Name: {{ program.focusName }}</li>
           </ul>
         </ul>
       </figure>

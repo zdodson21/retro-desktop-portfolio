@@ -6,9 +6,13 @@ import { AppService } from '../../../app/app.service';
 
 @Component({
   selector: 'taskbar-base',
-  imports: [TaskbarClockComponent, TaskbarProgramComponent, TaskbarStartComponent],
+  imports: [
+    TaskbarClockComponent,
+    TaskbarProgramComponent,
+    TaskbarStartComponent,
+  ],
   templateUrl: './taskbar-base.component.html',
-  styleUrl: './taskbar-base.component.scss'
+  styleUrl: './taskbar-base.component.scss',
 })
 export class TaskbarBaseComponent {
   @ViewChild('taskbarBase') taskbarBaseRef!: ElementRef;
@@ -25,6 +29,6 @@ export class TaskbarBaseComponent {
    */
   clickHandler(event: MouseEvent) {
     event?.stopPropagation();
-    this.store.focus.set("taskbar-base");
+    this.store.focus.set('taskbar-base');
   }
 }

@@ -8,9 +8,8 @@ describe('StartShutdownComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [StartShutdownComponent]
-    })
-    .compileComponents();
+      imports: [StartShutdownComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(StartShutdownComponent);
     component = fixture.componentInstance;
@@ -23,12 +22,12 @@ describe('StartShutdownComponent', () => {
   });
 
   it('should have the proper icon', () => {
-    expect(compiled.querySelector(".start-shutdown-wrapper > img")?.getAttribute("src")?.split('.')[0]).toBe("/assets/icons/shutdown")
-  })
+    expect(compiled.querySelector('.start-shutdown-wrapper > img')?.getAttribute('src')?.split('.')[0]).toBe('/assets/icons/shutdown');
+  });
 
   it('should have text "Shutdown"', () => {
-    expect(compiled.querySelector(".start-shutdown-wrapper > p")?.textContent).toBe("Shutdown");
-  })
+    expect(compiled.querySelector('.start-shutdown-wrapper > p')?.textContent).toBe('Shutdown');
+  });
 
   // TODO figure out if I can click the component in test then check to ensure variables in service were set properly
 });

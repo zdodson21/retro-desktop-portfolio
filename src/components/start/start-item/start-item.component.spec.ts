@@ -7,9 +7,8 @@ describe('StartItemComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [StartItemComponent]
-    })
-    .compileComponents();
+      imports: [StartItemComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(StartItemComponent);
     component = fixture.componentInstance;

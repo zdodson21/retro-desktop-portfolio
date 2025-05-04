@@ -8,11 +8,8 @@ describe('AlertShutdownComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [
-        AlertShutdownComponent,
-      ]
-    })
-    .compileComponents();
+      imports: [AlertShutdownComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(AlertShutdownComponent);
     component = fixture.componentInstance;
@@ -26,24 +23,23 @@ describe('AlertShutdownComponent', () => {
 
   describe('<window-frame>', () => {
     it('window-title should be "Shut Down Windows"', () => {
-      expect(compiled.querySelector('window-frame')?.getAttribute('window-title')).toBe("Shut Down Windows");
+      expect(compiled.querySelector('window-frame')?.getAttribute('window-title')).toBe('Shut Down Windows');
     });
 
     it('focus-name should be "shutdown-alert"', () => {
-      expect(compiled.querySelector('window-frame')?.getAttribute('focus-name')).toBe("shutdown-alert");
+      expect(compiled.querySelector('window-frame')?.getAttribute('focus-name')).toBe('shutdown-alert');
     });
   });
 
   describe('Frame Contents', () => {
     it('should have correct file path and name for img', () => {
-      expect(compiled.querySelector('.left-side > img')?.getAttribute('src')?.split(".")[0]).toBe("/assets/icons/shutdown-alert");
+      expect(compiled.querySelector('.left-side > img')?.getAttribute('src')?.split('.')[0]).toBe('/assets/icons/shutdown-alert');
     });
   });
 
   describe('Logic', () => {
     it('starts with formValue = 0', () => {
       expect(component.formValue).toBe(0);
-    })
-  })
-
+    });
+  });
 });

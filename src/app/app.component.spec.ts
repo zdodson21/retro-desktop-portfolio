@@ -45,9 +45,7 @@ describe('AppComponent', () => {
     });
 
     it('does not contain class .visible by default', () => {
-      expect(
-        compiled.querySelector('alert-shutdown')?.classList.contains('visible'),
-      ).toBeFalsy();
+      expect(compiled.querySelector('alert-shutdown')?.classList.contains('visible')).toBeFalsy();
     });
   });
 

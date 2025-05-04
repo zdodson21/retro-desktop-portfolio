@@ -2,17 +2,17 @@
   <window-frame window-title="Shut Down Windows" focus-name="shutdown-alert" [alert]="true">
     <div class="frame-contents">
       <div class="left-side">
-        <img src="/assets/icons/shutdown-alert.ico" alt="Shutdown Icon">
+        <img src="/assets/icons/shutdown-alert.ico" alt="Shutdown Icon" />
       </div>
       <form (submit)="formSubmit($event)" #controlForm>
         <div class="options">
           <p>Are you sure you want to:</p>
           <div class="option">
-            <input type="radio" name="option" id="shutdown" [value]="0" [(ngModel)]="formValue">
+            <input type="radio" name="option" id="shutdown" [value]="0" [(ngModel)]="formValue" />
             <label for="shutdown">Shut down the computer?</label>
           </div>
           <div class="option">
-            <input type="radio" name="option" id="restart" [value]="1" [(ngModel)]="formValue">
+            <input type="radio" name="option" id="restart" [value]="1" [(ngModel)]="formValue" />
             <label for="restart">Restart the computer?</label>
           </div>
         </div>
@@ -20,12 +20,14 @@
         <div class="controls">
           <button type="submit">
             <span class="border">
-              <span class="underline">Y</span>es
+              <span class="underline">Y</span>
+              es
             </span>
           </button>
           <button type="button" (click)="dismissAlert()">
             <span class="border">
-              <span class="underline">N</span>o
+              <span class="underline">N</span>
+              o
             </span>
           </button>
         </div>

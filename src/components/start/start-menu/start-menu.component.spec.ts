@@ -8,9 +8,8 @@ describe('StartMenuComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [StartMenuComponent]
-    })
-    .compileComponents();
+      imports: [StartMenuComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(StartMenuComponent);
     component = fixture.componentInstance;
@@ -22,7 +21,7 @@ describe('StartMenuComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it("should contain start-shutdown component", () => {
-    expect(compiled.querySelector("start-shutdown")).toBeTruthy();
-  })
+  it('should contain start-shutdown component', () => {
+    expect(compiled.querySelector('start-shutdown')).toBeTruthy();
+  });
 });

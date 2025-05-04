@@ -1,23 +1,33 @@
 import { NgIf } from '@angular/common';
-import { Component, effect, ElementRef, inject, Input, Renderer2, signal, ViewChild, WritableSignal, HostListener } from '@angular/core';
+import {
+  Component,
+  effect,
+  ElementRef,
+  inject,
+  Input,
+  Renderer2,
+  signal,
+  ViewChild,
+  WritableSignal,
+  HostListener,
+} from '@angular/core';
 import { AppService } from '../../app/app.service';
 
 @Component({
   selector: 'window-frame',
   imports: [NgIf],
   templateUrl: './window-frame.component.html',
-  styleUrl: './window-frame.component.scss'
+  styleUrl: './window-frame.component.scss',
 })
 export class WindowFrameComponent {
-
   /**
    * @description prevents movement, resizing, and hides minimize & view buttons when true
    */
   @Input() public alert: boolean = false;
 
-  @Input({alias: 'focus-name'}) public focusName: string;
-  @Input({alias: 'window-title'}) public title: string;
-  @Input({alias: 'window-icon'}) public icon: string;
+  @Input({ alias: 'focus-name' }) public focusName: string;
+  @Input({ alias: 'window-title' }) public title: string;
+  @Input({ alias: 'window-icon' }) public icon: string;
 
   @ViewChild('viewButton') private viewButtonRef!: ElementRef;
   @ViewChild('minimizeButton') private minimizeButtonRef!: ElementRef;
@@ -37,7 +47,7 @@ export class WindowFrameComponent {
   private isMinimized: boolean = false;
   private isFullSize: boolean = false;
 
-  public viewIcon = "/assets/icons/view-maximize.svg"
+  public viewIcon = '/assets/icons/view-maximize.svg';
 
   // Window management checks
   private isDragging: boolean = false;
@@ -49,20 +59,20 @@ export class WindowFrameComponent {
   private dimensions = {
     width: this.elementRef.nativeElement.offsetWidth,
     height: this.elementRef.nativeElement.offsetHeight,
-  }
+  };
 
   /**
     @description dimensions recorded when entering full screen for comparison when exiting full screen
   */
   private viewportRecorder = {
     width: this.store.viewportWidth(),
-    height: this.store.viewportHeight()
-  }
+    height: this.store.viewportHeight(),
+  };
 
   private windowCoordinates = {
     top: 0,
-    left: 0
-  }
+    left: 0,
+  };
 
   ngAfterViewInit() {
     this.viewItem = this.viewButtonRef.nativeElement;
@@ -72,8 +82,7 @@ export class WindowFrameComponent {
       this.viewItem.classList.add('hide-button');
       this.minimizeItem.classList.add('hide-button');
       this.isElementFocused.set(true);
-    }
-    else {
+    } else {
       this.setupDraggable();
     }
   }
@@ -83,8 +92,7 @@ export class WindowFrameComponent {
       if (!this.alert) {
         if (this.store.focus() == this.focusName) {
           this.isElementFocused.set(true);
-        }
-        else {
+        } else {
           this.isElementFocused.set(false);
         }
       }
@@ -102,46 +110,46 @@ export class WindowFrameComponent {
    * @description handle changing between window & full screen mode
    */
   public viewButtonHandler() {
+    // TODO:
+    // // * Record viewport width and height when going into full screen
+    // * If not the same when exiting full screen, calculate the window width & height percentage compared to viewport
+    // * Set new width and height based on the new viewport size to same percentage
+    // * Planned always-on-screen safety system should be able to make sure the item stays on screen, this should be its own function
 
-
-      // TODO:
-      // // * Record viewport width and height when going into full screen
-      // * If not the same when exiting full screen, calculate the window width & height percentage compared to viewport
-      // * Set new width and height based on the new viewport size to same percentage
-      // * Planned always-on-screen safety system should be able to make sure the item stays on screen, this should be its own function
-
-    if (!this.isFullSize) { // going into full screen
+    if (!this.isFullSize) {
+      // going into full screen
       this.windowCoordinates = {
         top: this.elementRef.nativeElement.offsetTop,
-        left: this.elementRef.nativeElement.offsetLeft
-      }
+        left: this.elementRef.nativeElement.offsetLeft,
+      };
 
       this.viewportRecorder = {
         width: this.store.viewportWidth(),
-        height: this.store.viewportHeight()
-      }
+        height: this.store.viewportHeight(),
+      };
 
-      this.viewIcon = "/assets/icons/close-button.svg" // TODO placeholder
+      this.viewIcon = '/assets/icons/close-button.svg'; // TODO placeholder
 
       this.wrapperRef.nativeElement.classList.add('full-view');
 
       this.elementRef.nativeElement.style.width = '100.01%'; // ! 100.01% removes slivers of background in some browsers
       this.elementRef.nativeElement.style.height = `100.01%`;
-      this.elementRef.nativeElement.style.top = `${(this.store.viewportHeight() / 2) - 22}px`;
+      this.elementRef.nativeElement.style.top = `${this.store.viewportHeight() / 2 - 22}px`;
       this.elementRef.nativeElement.style.left = `${this.store.viewportWidth() / 2}px`;
-    }
-    else { // exiting full screen
-      this.viewIcon = "/assets/icons/view-maximize.svg";
+    } else {
+      // exiting full screen
+      this.viewIcon = '/assets/icons/view-maximize.svg';
 
       this.wrapperRef.nativeElement.classList.remove('full-view');
 
-      if (this.store.viewportWidth() !== this.viewportRecorder.width || this.store.viewportHeight() !== this.viewportRecorder.height) {
+      if (
+        this.store.viewportWidth() !== this.viewportRecorder.width ||
+        this.store.viewportHeight() !== this.viewportRecorder.height
+      ) {
         // * Calculate window width as a percentage (I think it should be window width / recorded viewport width = % of screen taken)
         // * Calculate window height as a percentage (same as above)
-
         // * Calculate what the new window width should be (current viewport width * %)
         // * Calculate what the new window height should be (same as above)
-
         // * set this.dimensions to new width & height, should be all set below at CSS setting
       }
 
@@ -162,7 +170,7 @@ export class WindowFrameComponent {
     if (this.isFullSize) {
       this.elementRef.nativeElement.style.width = '100.01%'; // ! 100.01% removes slivers of background in some browsers
       this.elementRef.nativeElement.style.height = `100.01%`;
-      this.elementRef.nativeElement.style.top = `${(this.store.viewportHeight() / 2) - 22}px`;
+      this.elementRef.nativeElement.style.top = `${this.store.viewportHeight() / 2 - 22}px`;
       this.elementRef.nativeElement.style.left = `${this.store.viewportWidth() / 2}px`;
     }
 
@@ -173,10 +181,9 @@ export class WindowFrameComponent {
    * @description handles close button functionality
    */
   public closeButtonHandler() {
-    if (this.focusName === "shutdown-alert") {
+    if (this.focusName === 'shutdown-alert') {
       this.store.showShutdownAlert.set(false);
-    }
-    else {
+    } else {
       console.error(`Cannot close focus-name: ${this.focusName}`);
     }
   }
@@ -194,8 +201,8 @@ export class WindowFrameComponent {
    * @description handles dragging events to move window around
    */
   private setupDraggable() {
-    const PANEL_LEFT_SIDE = this.elementRef.nativeElement.querySelector('.left-side');
-
+    const PANEL_LEFT_SIDE =
+      this.elementRef.nativeElement.querySelector('.left-side');
 
     PANEL_LEFT_SIDE.addEventListener('mousedown', (e: MouseEvent) => {
       this.setFocus();
@@ -204,8 +211,8 @@ export class WindowFrameComponent {
 
       this.offset = {
         x: e.clientX - this.elementRef.nativeElement.offsetLeft,
-        y: e.clientY - this.elementRef.nativeElement.offsetTop
-      }
+        y: e.clientY - this.elementRef.nativeElement.offsetTop,
+      };
     });
 
     document.addEventListener('mousemove', (e: MouseEvent) => {

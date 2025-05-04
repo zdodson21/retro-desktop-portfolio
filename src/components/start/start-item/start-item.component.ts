@@ -5,11 +5,11 @@ import { AppService } from '../../../app/app.service';
   selector: 'start-item',
   imports: [],
   templateUrl: './start-item.component.html',
-  styleUrl: './start-item.component.scss'
+  styleUrl: './start-item.component.scss',
 })
 export class StartItemComponent {
-  @Input({alias: 'icon'}) public src: string;
-  @Input({alias: 'text'}) public text: string;
+  @Input({ alias: 'icon' }) public src: string;
+  @Input({ alias: 'text' }) public text: string;
 
   @ViewChild('startItem') private startItemRef!: ElementRef;
 
@@ -20,9 +20,7 @@ export class StartItemComponent {
     this.item = this.startItemRef.nativeElement;
   }
 
-  constructor() {
-
-  }
+  constructor() {}
 
   /**
    * @description opens applications with routes

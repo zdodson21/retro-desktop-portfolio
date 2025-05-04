@@ -5,20 +5,20 @@ import { Component } from '@angular/core';
   standalone: true,
   imports: [],
   templateUrl: './taskbar-clock.component.html',
-  styleUrl: './taskbar-clock.component.scss'
+  styleUrl: './taskbar-clock.component.scss',
 })
 export class TaskbarClockComponent {
-  public clock: string = "";
+  public clock: string = '';
 
   constructor() {
     setInterval(() => {
       let time: Date = new Date();
-      let halfOfDay: string = "AM";
+      let halfOfDay: string = 'AM';
 
       let hour: number = time.getHours();
       if (hour > 12) {
         hour -= 12;
-        halfOfDay = "PM";
+        halfOfDay = 'PM';
       }
 
       let minute: any = time.getMinutes();

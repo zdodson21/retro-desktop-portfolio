@@ -1,4 +1,4 @@
-@use '../../styles.scss' as *;
+@use "../../styles.scss" as *;
 
 .window-frame-wrapper {
   border: 3px outset white; // TODO finalize border color
@@ -69,7 +69,6 @@
           display: none;
         }
       }
-
     }
 
     p {

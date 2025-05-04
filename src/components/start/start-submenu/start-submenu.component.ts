@@ -4,8 +4,6 @@ import { Component } from '@angular/core';
   selector: 'app-start-submenu',
   imports: [],
   templateUrl: './start-submenu.component.html',
-  styleUrl: './start-submenu.component.scss'
+  styleUrl: './start-submenu.component.scss',
 })
-export class StartSubmenuComponent {
-
-}
+export class StartSubmenuComponent {}

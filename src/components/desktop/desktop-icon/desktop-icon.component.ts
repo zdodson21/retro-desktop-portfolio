@@ -1,16 +1,25 @@
-import { Component, Input, ViewChild, ElementRef, inject, effect, signal, WritableSignal } from '@angular/core';
+import {
+  Component,
+  Input,
+  ViewChild,
+  ElementRef,
+  inject,
+  effect,
+  signal,
+  WritableSignal,
+} from '@angular/core';
 import { AppService } from '../../../app/app.service';
 
 @Component({
   selector: 'desktop-icon',
   imports: [],
   templateUrl: './desktop-icon.component.html',
-  styleUrl: './desktop-icon.component.scss'
+  styleUrl: './desktop-icon.component.scss',
 })
 export class DesktopIconComponent {
-  @Input({alias: 'icon-src'}) public src: string;
-  @Input({alias: 'icon-text'}) public text: string;
-  @Input({alias: 'focus-name'}) public focusName: string;
+  @Input({ alias: 'icon-src' }) public src: string;
+  @Input({ alias: 'icon-text' }) public text: string;
+  @Input({ alias: 'focus-name' }) public focusName: string;
 
   @ViewChild('desktopIcon') private desktopIconRef!: ElementRef;
 
@@ -27,8 +36,7 @@ export class DesktopIconComponent {
     effect(() => {
       if (this.store.focus() == this.focusName) {
         this.isElementFocused.set(true);
-      }
-      else {
+      } else {
         this.isElementFocused.set(false);
       }
     });

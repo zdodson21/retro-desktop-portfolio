@@ -7,9 +7,8 @@ describe('TaskbarProgramComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [TaskbarProgramComponent]
-    })
-    .compileComponents();
+      imports: [TaskbarProgramComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(TaskbarProgramComponent);
     component = fixture.componentInstance;
@@ -22,5 +21,5 @@ describe('TaskbarProgramComponent', () => {
 
   it('shoudl not be focused by default', () => {
     expect(component.isProgramFocused()).toBeFalsy();
-  })
+  });
 });

@@ -3,6 +3,7 @@
   "tabWidth": 2,
   "singleQuote": true,
   "trailingComma": "all",
+  "bracketSameLine": false,
   "overrides": [
     {
       "files": ["*.html", "*.component.html"],
@@ -16,6 +17,18 @@
       "files": ["*.scss", "*.component.scss"],
       "options": {
         "singleQuote": false
+      }
+    },
+    {
+      "files": ["*.spec.ts"],
+      "options": {
+        "printWidth": 256
+      }
+    },
+    {
+      "files": ["*.ts", "*.spec.ts"],
+      "options": {
+        "bracketSameLine": false
       }
     }
   ]

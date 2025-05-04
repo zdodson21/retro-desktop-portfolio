@@ -1,11 +1,19 @@
-import { Component, effect, ElementRef, inject, ViewChild, signal, WritableSignal} from '@angular/core';
+import {
+  Component,
+  effect,
+  ElementRef,
+  inject,
+  ViewChild,
+  signal,
+  WritableSignal,
+} from '@angular/core';
 import { AppService } from '../../../app/app.service';
 
 @Component({
   selector: 'taskbar-start',
   imports: [],
   templateUrl: './taskbar-start.component.html',
-  styleUrl: './taskbar-start.component.scss'
+  styleUrl: './taskbar-start.component.scss',
 })
 export class TaskbarStartComponent {
   @ViewChild('startButton') private startButtonRef!: ElementRef;
@@ -23,8 +31,8 @@ export class TaskbarStartComponent {
 
   constructor() {
     effect(() => {
-      this.isStartClicked.set(this.store.focus() === "start-menu");
-    })
+      this.isStartClicked.set(this.store.focus() === 'start-menu');
+    });
   }
 
   /**
@@ -35,9 +43,8 @@ export class TaskbarStartComponent {
 
     if (!this.isStartClicked()) {
       this.previousFocus = this.store.focus();
-      this.store.focus.set("start-menu");
-    }
-    else {
+      this.store.focus.set('start-menu');
+    } else {
       this.store.focus.set(this.previousFocus);
     }
   }

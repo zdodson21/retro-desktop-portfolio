@@ -8,9 +8,8 @@ describe('TaskbarStartComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [TaskbarStartComponent]
-    })
-    .compileComponents();
+      imports: [TaskbarStartComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(TaskbarStartComponent);
     component = fixture.componentInstance;
@@ -22,19 +21,19 @@ describe('TaskbarStartComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  describe("Design", () => {
+  describe('Design', () => {
     it('should hae the proper icon', () => {
-      expect(compiled.querySelector(".contents > img")?.getAttribute("src")?.split('.')[0]).toBe("/assets/icons/start");
-    })
+      expect(compiled.querySelector('.contents > img')?.getAttribute('src')?.split('.')[0]).toBe('/assets/icons/start');
+    });
 
     it('should have proper text', () => {
-      expect(compiled.querySelector(".contents > p")?.textContent).toBe("Start");
-    })
-  })
+      expect(compiled.querySelector('.contents > p')?.textContent).toBe('Start');
+    });
+  });
 
-  describe("Logic", () => {
+  describe('Logic', () => {
     it('should not be clicked by default', () => {
       expect(component.isStartClicked()).toBeFalsy();
-    })
-  })
+    });
+  });
 });

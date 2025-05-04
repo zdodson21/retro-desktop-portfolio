@@ -8,9 +8,8 @@ describe('WindowFrameComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [WindowFrameComponent]
-    })
-    .compileComponents();
+      imports: [WindowFrameComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(WindowFrameComponent);
     component = fixture.componentInstance;
@@ -22,32 +21,32 @@ describe('WindowFrameComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  describe("Buttons", () => {
-    describe("Assets", () => {
+  describe('Buttons', () => {
+    describe('Assets', () => {
       // TODO add test for minimize button
 
-      it("should have proper starting view button icon", () => {
-        expect(compiled.querySelector(".view-button > img")?.getAttribute("src")?.split('.')[0]).toBe("/assets/icons/view-maximize");
+      it('should have proper starting view button icon', () => {
+        expect(compiled.querySelector('.view-button > img')?.getAttribute('src')?.split('.')[0]).toBe('/assets/icons/view-maximize');
       });
 
       // TODO add test for changing view button icon
 
-      it("should have proper close button icon", () => {
-        expect(compiled.querySelector(".close-button > img")?.getAttribute("src")?.split('.')[0]).toBe("/assets/icons/close-button")
+      it('should have proper close button icon', () => {
+        expect(compiled.querySelector('.close-button > img')?.getAttribute('src')?.split('.')[0]).toBe('/assets/icons/close-button');
       });
     });
 
-    describe("Hiding", () => {
-      it("should not display minimize button on .hide-button", () => {
-        const minimizeButton = compiled.querySelector(".minimize-button");
-        minimizeButton?.classList.add("hide-button");
+    describe('Hiding', () => {
+      it('should not display minimize button on .hide-button', () => {
+        const minimizeButton = compiled.querySelector('.minimize-button');
+        minimizeButton?.classList.add('hide-button');
 
         expect(globalThis.getComputedStyle(minimizeButton as Element).display).toBe('none');
       });
 
-      it("should not display view change button on .hide-button", () => {
-        const viewButton = compiled.querySelector(".view-button");
-        viewButton?.classList.add("hide-button")
+      it('should not display view change button on .hide-button', () => {
+        const viewButton = compiled.querySelector('.view-button');
+        viewButton?.classList.add('hide-button');
 
         expect(globalThis.getComputedStyle(viewButton as Element).display).toBe('none');
       });

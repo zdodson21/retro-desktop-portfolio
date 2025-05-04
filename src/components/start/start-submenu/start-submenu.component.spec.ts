@@ -7,9 +7,8 @@ describe('StartSubmenuComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [StartSubmenuComponent]
-    })
-    .compileComponents();
+      imports: [StartSubmenuComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(StartSubmenuComponent);
     component = fixture.componentInstance;

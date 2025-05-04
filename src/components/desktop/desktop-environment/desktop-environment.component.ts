@@ -6,7 +6,7 @@ import { AppService } from '../../../app/app.service';
   selector: 'desktop-environment',
   imports: [DesktopIconComponent],
   templateUrl: './desktop-environment.component.html',
-  styleUrl: './desktop-environment.component.scss'
+  styleUrl: './desktop-environment.component.scss',
 })
 export class DesktopEnvironmentComponent {
   @ViewChild('desktopEnvironment') private desktopEnvironmentRef!: ElementRef;
@@ -20,6 +20,6 @@ export class DesktopEnvironmentComponent {
 
   public clickHandler(event: MouseEvent) {
     event?.stopPropagation();
-    this.store.focus.set("desktop-environment");
+    this.store.focus.set('desktop-environment');
   }
 }

@@ -7,9 +7,8 @@ describe('TaskbarClockComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [TaskbarClockComponent]
-    })
-    .compileComponents();
+      imports: [TaskbarClockComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(TaskbarClockComponent);
     component = fixture.componentInstance;

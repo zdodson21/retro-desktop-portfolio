@@ -1,22 +1,20 @@
 <div #wrapper class="window-frame-wrapper" [class.focus]="isElementFocused()" (click)="setFocus($event)">
   <div class="top-panel">
     <div class="left-side">
-      <img *ngIf="icon" src="{{ icon }}" alt="{{ title }}">
+      <img *ngIf="icon" src="{{ icon }}" alt="{{ title }}" />
       <!-- TODO if src is empty, then set display none -->
       <p>{{ title }}</p>
     </div>
     <div class="controls">
       <div class="no-gap">
-        <button #minimizeButton class="minimize-button" (click)="minimizeButtonHandler()">
-          -
-        </button>
+        <button #minimizeButton class="minimize-button" (click)="minimizeButtonHandler()">-</button>
         <!-- TODO add test when asset added above -->
         <button #viewButton class="view-button" (click)="viewButtonHandler()">
-          <img src="{{ viewIcon }}" alt="maximize icon">
+          <img src="{{ viewIcon }}" alt="maximize icon" />
         </button>
       </div>
       <button class="close-button" (click)="closeButtonHandler()">
-        <img src="/assets/icons/close-button.svg" alt="close icon">
+        <img src="/assets/icons/close-button.svg" alt="close icon" />
       </button>
     </div>
   </div>

@@ -7,9 +7,8 @@ describe('SystemMonitorComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [SystemMonitorComponent]
-    })
-    .compileComponents();
+      imports: [SystemMonitorComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(SystemMonitorComponent);
     component = fixture.componentInstance;

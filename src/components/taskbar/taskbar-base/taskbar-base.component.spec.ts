@@ -8,9 +8,8 @@ describe('TaskbarBaseComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [TaskbarBaseComponent]
-    })
-    .compileComponents();
+      imports: [TaskbarBaseComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(TaskbarBaseComponent);
     component = fixture.componentInstance;
@@ -22,25 +21,25 @@ describe('TaskbarBaseComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  describe("Left Side Class", () => {
+  describe('Left Side Class', () => {
     // TODO make sure left side has taskbar start
-    it("should contain <taskbar-start>", () => {
+    it('should contain <taskbar-start>', () => {
       expect(compiled.querySelector('.left-side > taskbar-start')).toBeTruthy();
     });
 
     // TODO make sure left side only has one child
-    it("should only contain one child", () => {
-      expect(compiled.querySelectorAll(".left-side > *").length).toBe(1);
-    })
+    it('should only contain one child', () => {
+      expect(compiled.querySelectorAll('.left-side > *').length).toBe(1);
+    });
   });
 
-  describe("Right Side Class", () => {
-    it("should contain <taskbar-clock>", () => {
+  describe('Right Side Class', () => {
+    it('should contain <taskbar-clock>', () => {
       expect(compiled.querySelector('.right-side > taskbar-clock')).toBeTruthy();
     });
 
-    it("should only contain one child", () => {
-      expect(compiled.querySelectorAll(".right-side > *").length).toBe(1);
+    it('should only contain one child', () => {
+      expect(compiled.querySelectorAll('.right-side > *').length).toBe(1);
     });
   });
 });

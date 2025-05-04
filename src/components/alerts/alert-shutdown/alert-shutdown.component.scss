@@ -3,7 +3,6 @@
 .alert-shutdown-wrapper {
   @include alert-common();
 
-
   .frame-contents {
     background-color: #bfbfbf;
     display: flex;
@@ -82,5 +81,4 @@
       }
     }
   }
-
 }

@@ -1,11 +1,12 @@
-@use '../../../styles.scss' as *;
+@use "../../../styles.scss" as *;
 
 .start-menu-wrapper {
   background-color: #bec3c6;
   width: 100%;
   height: 100%;
   border-style: outset solid solid outset;
-  border-color: $taskbar-item-border-white #131818 #131818 $taskbar-item-border-white;
+  border-color: $taskbar-item-border-white #131818 #131818
+    $taskbar-item-border-white;
   display: flex;
   flex-direction: row;
 
@@ -16,7 +17,8 @@
     display: flex;
     flex-direction: column-reverse;
 
-    p { // TODO font needs to be corrected
+    p {
+      // TODO font needs to be corrected
       @include text-common();
       padding: 8px;
       font-weight: bold;
@@ -40,7 +42,9 @@
     overflow: hidden;
     height: 100%;
 
-    start-item, start-dropdown, .power-options {
+    start-item,
+    start-dropdown,
+    .power-options {
       display: block;
       width: 100%;
       height: 70px;

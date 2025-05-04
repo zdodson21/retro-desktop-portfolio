@@ -1,4 +1,11 @@
-import { Component, effect, ElementRef, inject, Renderer2, ViewChild } from '@angular/core';
+import {
+  Component,
+  effect,
+  ElementRef,
+  inject,
+  Renderer2,
+  ViewChild,
+} from '@angular/core';
 import { AppService } from '../../../app/app.service';
 import { StartItemComponent } from '../start-item/start-item.component';
 import { StartDropdownComponent } from '../start-dropdown/start-dropdown.component';
@@ -6,9 +13,9 @@ import { StartShutdownComponent } from '../start-shutdown/start-shutdown.compone
 
 @Component({
   selector: 'start-menu',
-  imports: [StartDropdownComponent ,StartItemComponent, StartShutdownComponent],
+  imports: [StartDropdownComponent, StartItemComponent, StartShutdownComponent],
   templateUrl: './start-menu.component.html',
-  styleUrl: './start-menu.component.scss'
+  styleUrl: './start-menu.component.scss',
 })
 export class StartMenuComponent {
   @ViewChild('startMenu') private startMenuRef!: ElementRef;
@@ -20,7 +27,7 @@ export class StartMenuComponent {
 
   constructor() {
     effect(() => {
-      if (this.store.focus() === "start-menu") {
+      if (this.store.focus() === 'start-menu') {
         this.renderer.addClass(this.elementRef.nativeElement, 'visible');
       } else {
         this.renderer.removeClass(this.elementRef.nativeElement, 'visible');
@@ -37,6 +44,6 @@ export class StartMenuComponent {
    */
   public clickHandler(event: MouseEvent) {
     event?.stopPropagation();
-    this.store.focus.set("start-menu");
+    this.store.focus.set('start-menu');
   }
 }

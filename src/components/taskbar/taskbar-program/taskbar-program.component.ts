@@ -1,16 +1,25 @@
-import { Component, effect, ElementRef, inject, Input, ViewChild, signal, WritableSignal } from '@angular/core';
+import {
+  Component,
+  effect,
+  ElementRef,
+  inject,
+  Input,
+  ViewChild,
+  signal,
+  WritableSignal,
+} from '@angular/core';
 import { AppService } from '../../../app/app.service';
 
 @Component({
   selector: 'taskbar-program',
   imports: [],
   templateUrl: './taskbar-program.component.html',
-  styleUrl: './taskbar-program.component.scss'
+  styleUrl: './taskbar-program.component.scss',
 })
 export class TaskbarProgramComponent {
-  @Input({alias: 'focus-name'}) public focusName: string;
-  @Input({alias: 'icon'}) public src: string;
-  @Input({alias: 'text'}) public text: string;
+  @Input({ alias: 'focus-name' }) public focusName: string;
+  @Input({ alias: 'icon' }) public src: string;
+  @Input({ alias: 'text' }) public text: string;
 
   @ViewChild('program') private programRef!: ElementRef;
 
@@ -27,11 +36,10 @@ export class TaskbarProgramComponent {
     effect(() => {
       if (this.store.focus() == this.focusName) {
         this.isProgramFocused.set(true);
-      }
-      else {
+      } else {
         this.isProgramFocused.set(false);
       }
-    })
+    });
   }
 
   /**
@@ -42,8 +50,7 @@ export class TaskbarProgramComponent {
 
     if (this.store.focus() == this.focusName) {
       this.store.focus.set('');
-    }
-    else {
+    } else {
       this.store.focus.set(this.focusName);
     }
   }
