@@ -21,7 +21,8 @@ My personal website project that serves both as my portfolio and an online toolb
 | ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white) | **[HTML](https://developer.mozilla.org/en-US/docs/Web/HTML)**: Structure of overall web app, individual "web pages" in the browser, and structure of web components. |
 | ![SCSS](https://img.shields.io/badge/scss-%23cf649a.svg?style=for-the-badge&logo=sass&logoColor=white) | **[SCSS](https://sass-lang.com/documentation/syntax/)**: Used in Angular for styling, enabling better developer experience than using plain CSS across the entire web app. |
 | ![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white) | **[CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)**: Utilized in Lit web components to handle containerized styling of the web components. |
-| ![Jasmine](https://img.shields.io/badge/jasmine-%238A4182.svg?style=for-the-badge&logo=jasmine&logoColor=white) | **[Jasmine](https://jasmine.github.io/)**: TypeScript testing |
+| ![Jasmine](https://img.shields.io/badge/jasmine-%238A4182.svg?style=for-the-badge&logo=jasmine&logoColor=white) | **[Jasmine](https://jasmine.github.io/)**: TypeScript testing. |
+| ![Prettier](https://img.shields.io/badge/prettier-%23F7B93E.svg?style=for-the-badge&logo=prettier&logoColor=black) | **[Prettier](https://prettier.io/)**: Code formatting.|
 | ![GitHub Actions](https://img.shields.io/badge/github%20actions-%232671E5.svg?style=for-the-badge&logo=githubactions&logoColor=white) | **[GitHub Actions](https://docs.github.com/en/actions)**: CI/CD |
 | ![Vercel](https://img.shields.io/badge/vercel-%23000000.svg?style=for-the-badge&logo=vercel&logoColor=white) | **[Vercel](https://vercel.com/)**: Web hosting, speed analytics, usage insights. |
 | ![Cloudflare](https://img.shields.io/badge/Cloudflare-F38020?style=for-the-badge&logo=Cloudflare&logoColor=white) | **[CloudFlare](https://www.cloudflare.com/)**: Domain name services. |
@@ -31,13 +32,9 @@ My personal website project that serves both as my portfolio and an online toolb
 
 ## Web Component Repos
 
-Some aspects of this web application are created using external web-components, hosted in other repositories. Those will be listed here.
+Some aspects of this web application are created using external web-components, hosted in other repositories. Those will be listed here when they are created.
 
-## Don't Portfolios with this theming already exist?
-
-Yes, but it's the theme I liked, and I thought it would challenge me the most to recreate (it did). I also wanted to aim for a more "authentic" experience than I saw from any other Windows 95 themed portfolio. This was also a good chance to learn how to use a modern framework such as Angular.
-
-## Project Goals:
+## Project Goals
 
 * Prioritize developer experience combined with expansiveness to ensure expanding upon this web application is simple in the future.
   * Say I need to add another "web page" to document a project I have completed. I want it to be simple to incorporate a way to access that page into this web application.
@@ -91,15 +88,8 @@ To execute unit tests with the [Karma](https://karma-runner.github.io) test runn
 ng test
 ```
 
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+## More commands
+More commands can be viewed in the `package.json` file.
 
 ## Additional Resources
 
