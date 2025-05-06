@@ -166,15 +166,22 @@ export class WindowFrameComponent {
    * @description maintains a full size program window even when browser size is changed
    */
   @HostListener('window:resize')
-  private helpMaintainFullSize() {
+  private helpMaintainSize() {
     if (this.isFullSize) {
       this.elementRef.nativeElement.style.width = '100.01%'; // ! 100.01% removes slivers of background in some browsers
       this.elementRef.nativeElement.style.height = `100.01%`;
       this.elementRef.nativeElement.style.top = `${this.store.viewportHeight() / 2 - 22}px`;
       this.elementRef.nativeElement.style.left = `${this.store.viewportWidth() / 2}px`;
+    } else {
+      // TODO resize window when viewport changes; should be similar math to above exiting full screen adapted for constant change
+      // Calculate width and height to figure out percent of screen taken compared to viewportRecorder
+      // Figure out pixel value based on current viewport and percentage
     }
 
-    // TODO resize window when viewport changes
+    this.viewportRecorder =  {
+      width: this.store.viewportWidth(),
+      height: this.store.viewportHeight()
+    }
   }
 
   /**

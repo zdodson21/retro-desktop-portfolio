@@ -21,7 +21,7 @@ export class AlertShutdownComponent {
 
   constructor() {
     effect(() => {
-      if (this.store.showShutdownAlert() === true) this.formValue = 0;
+      if (this.store.showShutdownAlert()) this.formValue = 0;
     });
   }
 
