@@ -9,7 +9,9 @@
     "test": "ng test",
     "test:hl": "ng test --browsers=ChromeHeadless",
     "test:ci": "ng test --karma-config=.github/configurations/karma.conf.js",
-    "prettier": "prettier . --write"
+    "prettier": "prettier . --write",
+    "docker:build": "docker build -t zdodson/portfolio .",
+    "docker:run": "docker run -p 5200:4200 zdodson/portfolio:latest"
   },
   "private": true,
   "dependencies": {

@@ -1,0 +1,6 @@
+.angular
+node_modules
+.idea
+.vercel
+coverage
+dist

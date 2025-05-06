@@ -120,12 +120,26 @@ act --job test
 
 ---
 
+## Docker
+
+This project can be built and run locally as a docker container!
+
+Run the following command to easily build and run the docker container locally:
+
+```bash
+# Build container
+npm run docker:build
+
+# Run container
+npm run docker:run
+```
+
+From there you can either access this project in your browser at either the network address provided by the container or at [localhost:5200](http://localhost:5200)
+
+---
+
 ## Electron
 
 Documentation for Electron support will be added here
 
----
 
-## Docker
-
-Documentation for Docker support will be added here
