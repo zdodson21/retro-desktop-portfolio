@@ -1,8 +1,8 @@
-# Zach's Retro Desktop Portfolio
+# Zach's Website
 
 ## Description
 
-This website is my personal website that serves the purpose of being my portfolio as well as a sandbox to try new things. Some aspects of this codebase (such as Electron) are unneccessary for this website, but were incorporated to learn how to utilize them. If something seems out of place, it is likely there so I could learn how to utilize it.
+This website  serves the purpose of being my portfolio as well as a sandbox to try new skills. Some aspects of this codebase (such as Electron) are unneccessary for this website, but were incorporated to learn how to utilize them. If something seems out of place, it is likely there so I could learn how to utilize it.
 
 ---
 
@@ -23,8 +23,11 @@ This website is my personal website that serves the purpose of being my portfoli
 | ![Vercel](https://img.shields.io/badge/vercel-%23000000.svg?style=for-the-badge&logo=vercel&logoColor=white) | **[Vercel](https://vercel.com/)**: Web hosting, speed analytics, usage insights. |
 | ![Cloudflare](https://img.shields.io/badge/Cloudflare-F38020?style=for-the-badge&logo=Cloudflare&logoColor=white) | **[CloudFlare](https://www.cloudflare.com/)**: Domain name services. |
 | ![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white) | **[GitHub](https://github.com/zdodson21/retro-desktop-portfolio)**: Git repository cloud service. |
+| ![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white) | **[Docker*](https://www.docker.com/)**: Containerization| 
 | ![Aseprite](https://img.shields.io/badge/Aseprite-FFFFFF?style=for-the-badge&logo=Aseprite&logoColor=#7D929E) | **[Aseprite](https://www.aseprite.org/)**: Icon recreation. |
 | ![Gimp Gnu Image Manipulation Program](https://img.shields.io/badge/Gimp-657D8B?style=for-the-badge&logo=gimp&logoColor=FFFFFF) | **[GIMP](https://www.gimp.org/)**: Icon recreation / file type conversion. |
+
+\* - Feature not required for typical website development / operation (added solely to learn how they work)
 
 ### Web Component Repos
 
