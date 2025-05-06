@@ -1,6 +1,17 @@
+# Directories
 .angular
-node_modules
+.github
 .idea
 .vercel
+.vscode
 coverage
 dist
+node_modules
+
+# Files
+.editorconfig
+.gitignore
+.prettierignore
+.prettierrc
+.vercelignore
+README.md
