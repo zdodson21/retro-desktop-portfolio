@@ -7,8 +7,8 @@ import {
   ViewChild,
 } from '@angular/core';
 import { AppService } from '../../../app/app.service';
-import { StartItemComponent } from '../start-item/start-item.component';
 import { StartDropdownComponent } from '../start-dropdown/start-dropdown.component';
+import { StartItemComponent } from '../start-item/start-item.component';
 import { StartShutdownComponent } from '../start-shutdown/start-shutdown.component';
 
 @Component({

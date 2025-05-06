@@ -36,6 +36,13 @@ Some aspects of this web application are created using external web-components, 
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.1.
 
+### Installing Dependencies
+To install dependencies (including Angular CLI), run:
+
+```bash
+npm run install
+```
+
 ### Development server
 
 To start a local development server, run:

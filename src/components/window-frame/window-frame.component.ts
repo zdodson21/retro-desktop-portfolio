@@ -3,13 +3,13 @@ import {
   Component,
   effect,
   ElementRef,
+  HostListener,
   inject,
   Input,
   Renderer2,
   signal,
   ViewChild,
   WritableSignal,
-  HostListener,
 } from '@angular/core';
 import { AppService } from '../../app/app.service';
 
@@ -178,10 +178,10 @@ export class WindowFrameComponent {
       // Figure out pixel value based on current viewport and percentage
     }
 
-    this.viewportRecorder =  {
+    this.viewportRecorder = {
       width: this.store.viewportWidth(),
-      height: this.store.viewportHeight()
-    }
+      height: this.store.viewportHeight(),
+    };
   }
 
   /**

@@ -4,8 +4,8 @@ import {
   ElementRef,
   inject,
   Input,
-  ViewChild,
   signal,
+  ViewChild,
   WritableSignal,
 } from '@angular/core';
 import { AppService } from '../../../app/app.service';

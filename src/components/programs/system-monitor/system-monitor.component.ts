@@ -1,7 +1,7 @@
+import { NgFor } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { AppService } from '../../../app/app.service';
 import { WindowFrameComponent } from '../../window-frame/window-frame.component';
-import { NgFor } from '@angular/common';
 
 @Component({
   selector: 'system-monitor',

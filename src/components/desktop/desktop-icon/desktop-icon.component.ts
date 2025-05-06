@@ -1,11 +1,11 @@
 import {
   Component,
-  Input,
-  ViewChild,
+  effect,
   ElementRef,
   inject,
-  effect,
+  Input,
   signal,
+  ViewChild,
   WritableSignal,
 } from '@angular/core';
 import { AppService } from '../../../app/app.service';

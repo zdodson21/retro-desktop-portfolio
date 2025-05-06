@@ -1,8 +1,8 @@
 import { Component, ElementRef, inject, ViewChild } from '@angular/core';
+import { AppService } from '../../../app/app.service';
 import { TaskbarClockComponent } from '../taskbar-clock/taskbar-clock.component';
 import { TaskbarProgramComponent } from '../taskbar-program/taskbar-program.component';
 import { TaskbarStartComponent } from '../taskbar-start/taskbar-start.component';
-import { AppService } from '../../../app/app.service';
 
 @Component({
   selector: 'taskbar-base',
