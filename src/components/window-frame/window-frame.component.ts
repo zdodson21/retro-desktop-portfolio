@@ -47,7 +47,7 @@ export class WindowFrameComponent {
   private isMinimized: boolean = false;
   private isFullSize: boolean = false;
 
-  public viewIcon = '/assets/icons/view-maximize.svg';
+  public viewIcon = 'assets/icons/view-maximize.svg';
 
   // Window management checks
   private isDragging: boolean = false;
@@ -128,7 +128,7 @@ export class WindowFrameComponent {
         height: this.store.viewportHeight(),
       };
 
-      this.viewIcon = '/assets/icons/close-button.svg'; // TODO placeholder
+      this.viewIcon = 'assets/icons/close-button.svg'; // TODO placeholder
 
       this.wrapperRef.nativeElement.classList.add('full-view');
 
@@ -138,7 +138,7 @@ export class WindowFrameComponent {
       this.elementRef.nativeElement.style.left = `${this.store.viewportWidth() / 2}px`;
     } else {
       // exiting full screen
-      this.viewIcon = '/assets/icons/view-maximize.svg';
+      this.viewIcon = 'assets/icons/view-maximize.svg';
 
       this.wrapperRef.nativeElement.classList.remove('full-view');
 
