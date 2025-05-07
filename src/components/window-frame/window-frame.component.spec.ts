@@ -26,13 +26,13 @@ describe('WindowFrameComponent', () => {
       // TODO add test for minimize button
 
       it('should have proper starting view button icon', () => {
-        expect(compiled.querySelector('.view-button > img')?.getAttribute('src')?.split('.')[0]).toBe('/assets/icons/view-maximize');
+        expect(compiled.querySelector('.view-button > img')?.getAttribute('src')?.split('.')[0]).toBe('assets/icons/view-maximize');
       });
 
       // TODO add test for changing view button icon
 
       it('should have proper close button icon', () => {
-        expect(compiled.querySelector('.close-button > img')?.getAttribute('src')?.split('.')[0]).toBe('/assets/icons/close-button');
+        expect(compiled.querySelector('.close-button > img')?.getAttribute('src')?.split('.')[0]).toBe('assets/icons/close-button');
       });
     });
 

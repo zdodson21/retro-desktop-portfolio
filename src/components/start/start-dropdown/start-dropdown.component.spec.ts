@@ -22,6 +22,6 @@ describe('StartDropdownComponent', () => {
   });
 
   it('should have the proper arrow icon', () => {
-    expect(compiled.querySelector('.arrow')?.getAttribute('src')?.split('.')[0]).toBe('/assets/icons/submenu-arrow');
+    expect(compiled.querySelector('.arrow')?.getAttribute('src')?.split('.')[0]).toBe('assets/icons/submenu-arrow');
   });
 });

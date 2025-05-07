@@ -22,7 +22,7 @@ describe('StartShutdownComponent', () => {
   });
 
   it('should have the proper icon', () => {
-    expect(compiled.querySelector('.start-shutdown-wrapper > img')?.getAttribute('src')?.split('.')[0]).toBe('/assets/icons/shutdown');
+    expect(compiled.querySelector('.start-shutdown-wrapper > img')?.getAttribute('src')?.split('.')[0]).toBe('assets/icons/shutdown');
   });
 
   it('should have text "Shutdown"', () => {
