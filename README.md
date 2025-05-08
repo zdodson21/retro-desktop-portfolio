@@ -1,5 +1,7 @@
 # Zach's Website
 
+[Website URL](https://retro-desktop-portfolio.vercel.app)
+
 ## Description
 
 This website  serves the purpose of being my portfolio as well as a sandbox to try new skills. Some aspects of this codebase (such as Electron) are unneccessary for this website, but were incorporated to learn how to utilize them. If something seems out of place, it is likely there so I could learn how to utilize it.
@@ -24,11 +26,11 @@ This website  serves the purpose of being my portfolio as well as a sandbox to t
 | ![Cloudflare](https://img.shields.io/badge/Cloudflare-F38020?style=for-the-badge&logo=Cloudflare&logoColor=white) | **[CloudFlare](https://www.cloudflare.com/)**: Domain name services. |
 | ![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white) | **[GitHub](https://github.com/zdodson21/retro-desktop-portfolio)**: Git repository cloud service. |
 | ![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white) | **[Docker*](https://www.docker.com/)**: Containerization|
-| ![Electron.js](https://img.shields.io/badge/Electron-191970?style=for-the-badge&logo=Electron&logoColor=white) | **[Electron](https://www.electronjs.org/)**: Desktop App|
+| ![Electron.js](https://img.shields.io/badge/Electron-191970?style=for-the-badge&logo=Electron&logoColor=white) | **[Electron*](https://www.electronjs.org/)**: Desktop App|
 | ![Aseprite](https://img.shields.io/badge/Aseprite-FFFFFF?style=for-the-badge&logo=Aseprite&logoColor=#7D929E) | **[Aseprite](https://www.aseprite.org/)**: Icon recreation. |
 | ![Gimp Gnu Image Manipulation Program](https://img.shields.io/badge/Gimp-657D8B?style=for-the-badge&logo=gimp&logoColor=FFFFFF) | **[GIMP](https://www.gimp.org/)**: Icon recreation / file type conversion. |
 
-\* - Feature not required for typical website development / operation (added solely to learn how they work)
+\* - Feature not required for typical website development / operation (added solely to learn how they work).
 
 ### Web Component Repos
 
@@ -41,7 +43,8 @@ Some aspects of this web application are created using external web-components, 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.1.
 
 ### Installing Dependencies
-To install dependencies (including Angular CLI), run:
+
+To install dependencies run the following:
 
 ```bash
 npm run install
@@ -55,7 +58,7 @@ To start a local development server, run:
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Once the server is running, open your browser and navigate to `http://localhost:4200/` (or the provided localhost URL provided by Angular if port 4200 is currently in use). The application will automatically reload whenever you modify any of the source files.
 
 ### Code scaffolding
 
@@ -147,11 +150,13 @@ npm run docker:run
 
 From there you can either access this project in your browser at either the network address provided by the container or at [localhost:5200](http://localhost:5200)
 
-**Note:** Docker container serves as an offline only method of accessing this web application, so any features that require a connection to a server will not function.
+**Note:** Any self built container serves as an offline only method of accessing this web application, so any features that require a connection to a server will not function.
 
 ---
 
 ## Electron
+
+**Note:** If you complete any local builds of this project as an Electron application, you will be missing any environment variables required for signing and live server / database features. Local builds of this project not provided through an official source (such as GitHub) should be considered "offline-only" builds.
 
 ### Development
 
@@ -162,3 +167,37 @@ npm run electron:start
 ```
 
 ### Build for Various Systems
+
+#### Linux
+
+To build for Linux based systems, run the following:
+
+```bash
+npm run forge:linux
+```
+
+This will build the program into `.deb` and `.rpm` based installers
+
+#### Windows
+
+To build for Windows based systems, run the following:
+
+```powershell
+npm run forge:windows
+```
+
+There is a known issue where you may need to run the following command, then re-run the above command:
+
+```powershell
+npm run forge:start
+```
+
+A fix is being researched for this bug to ensure the installer works properly in the future
+
+#### macOS
+
+To build for macOS systems, run the following:
+
+```bash
+npm run forge:mac
+```
