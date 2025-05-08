@@ -8,6 +8,7 @@ node_modules
 .editorconfig
 .env
 .gitignore
+electron.js
 karma.conf.js
 *.spec.ts
 *.md
