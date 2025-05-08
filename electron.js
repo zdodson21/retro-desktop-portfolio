@@ -6,15 +6,15 @@ const createWindow = () => {
     height: 600,
     autoHideMenuBar: true,
     webPreferences: {
-      devTools: false
-    }
+      devTools: false,
+    },
   });
 
-  win.loadFile('dist/retro-desktop-portfolio/browser/index.html')
-}
+  win.loadFile('dist/retro-desktop-portfolio/browser/index.html');
+};
 
 app.whenReady().then(() => {
-  createWindow()
+  createWindow();
 
   app.on('activate', () => {
     if (BrowserWindow.getAllWindows().length === 0) createWindow();
