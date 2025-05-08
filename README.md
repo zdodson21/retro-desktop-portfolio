@@ -24,6 +24,7 @@ This website  serves the purpose of being my portfolio as well as a sandbox to t
 | ![Cloudflare](https://img.shields.io/badge/Cloudflare-F38020?style=for-the-badge&logo=Cloudflare&logoColor=white) | **[CloudFlare](https://www.cloudflare.com/)**: Domain name services. |
 | ![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white) | **[GitHub](https://github.com/zdodson21/retro-desktop-portfolio)**: Git repository cloud service. |
 | ![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white) | **[Docker*](https://www.docker.com/)**: Containerization|
+| ![Electron.js](https://img.shields.io/badge/Electron-191970?style=for-the-badge&logo=Electron&logoColor=white) | **[Electron](https://www.electronjs.org/)**: Desktop App|
 | ![Aseprite](https://img.shields.io/badge/Aseprite-FFFFFF?style=for-the-badge&logo=Aseprite&logoColor=#7D929E) | **[Aseprite](https://www.aseprite.org/)**: Icon recreation. |
 | ![Gimp Gnu Image Manipulation Program](https://img.shields.io/badge/Gimp-657D8B?style=for-the-badge&logo=gimp&logoColor=FFFFFF) | **[GIMP](https://www.gimp.org/)**: Icon recreation / file type conversion. |
 
@@ -152,6 +153,12 @@ From there you can either access this project in your browser at either the netw
 
 ## Electron
 
-Documentation for Electron support will be added here
+### Development
 
+To build and run this project as an electron app, run the following command:
 
+```bash
+npm run electron:start
+```
+
+### Build for Various Systems
