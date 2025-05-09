@@ -110,10 +110,6 @@ export class WindowFrameComponent {
    * @description handle changing between window & full screen mode
    */
   public viewButtonHandler() {
-    // TODO:
-    // * Set new width and height based on the new viewport size to same percentage
-    // * Planned always-on-screen safety system should be able to make sure the item stays on screen, this should be its own function
-
     if (!this.isFullSize) {
       // going into full screen
       this.windowCoordinates = {
@@ -205,8 +201,8 @@ export class WindowFrameComponent {
 
   private helpStayInViewport() {
     const FRAME = {
-      x: + this.elementRef.nativeElement.style.left.split('p')[0],
-      y: + this.elementRef.nativeElement.style.top.split('p')[0],
+      x: +this.elementRef.nativeElement.style.left.split('p')[0],
+      y: +this.elementRef.nativeElement.style.top.split('p')[0],
       width: this.elementRef.nativeElement.offsetWidth,
       height: this.elementRef.nativeElement.offsetHeight,
     };
@@ -214,20 +210,24 @@ export class WindowFrameComponent {
     // TODO bug causes window-frame to move to top left corner on first click, avoided if clicked and dragged
     // Caused when window-frame is positioned using percentages, causing x & y to = '';
 
-    if ((FRAME.x + FRAME.width / 2) > this.store.viewportWidth()) { // Right
+    // Right
+    if (FRAME.x + FRAME.width / 2 > this.store.viewportWidth()) {
       this.elementRef.nativeElement.style.left = `${this.store.viewportWidth() - FRAME.width / 2}px`;
     }
 
-    if ((FRAME.x - FRAME.width / 2) < 0) { // Left
-      this.elementRef.nativeElement.style.left = `${0 + FRAME.width / 2}px`
+    // Left
+    if (FRAME.x - FRAME.width / 2 < 0) {
+      this.elementRef.nativeElement.style.left = `${0 + FRAME.width / 2}px`;
     }
 
-    if ((FRAME.y + FRAME.height / 2 + 44) > this.store.viewportHeight()) { // Bottom
-      this.elementRef.nativeElement.style.top = `${this.store.viewportHeight() - FRAME.height / 2 - 44}px`
+    // Bottom
+    if (FRAME.y + FRAME.height / 2 + 44 > this.store.viewportHeight()) {
+      this.elementRef.nativeElement.style.top = `${this.store.viewportHeight() - FRAME.height / 2 - 44}px`;
     }
 
-    if (FRAME.y - FRAME.height / 2 < 0) { // Top
-      this.elementRef.nativeElement.style.top = `${0 + FRAME.height / 2}px`
+    // Top
+    if (FRAME.y - FRAME.height / 2 < 0) {
+      this.elementRef.nativeElement.style.top = `${0 + FRAME.height / 2}px`;
     }
   }
 
