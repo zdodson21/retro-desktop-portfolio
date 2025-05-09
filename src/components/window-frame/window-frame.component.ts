@@ -111,8 +111,6 @@ export class WindowFrameComponent {
    */
   public viewButtonHandler() {
     // TODO:
-    // // * Record viewport width and height when going into full screen
-    // * If not the same when exiting full screen, calculate the window width & height percentage compared to viewport
     // * Set new width and height based on the new viewport size to same percentage
     // * Planned always-on-screen safety system should be able to make sure the item stays on screen, this should be its own function
 
@@ -132,10 +130,7 @@ export class WindowFrameComponent {
 
       this.wrapperRef.nativeElement.classList.add('full-view');
 
-      this.elementRef.nativeElement.style.width = '100.01%'; // ! 100.01% removes slivers of background in some browsers
-      this.elementRef.nativeElement.style.height = `100.01%`;
-      this.elementRef.nativeElement.style.top = `${this.store.viewportHeight() / 2 - 22}px`;
-      this.elementRef.nativeElement.style.left = `${this.store.viewportWidth() / 2}px`;
+      this.helpSetFullSize();
     } else {
       // exiting full screen
       this.viewIcon = 'assets/icons/view-maximize.svg';
@@ -168,20 +163,22 @@ export class WindowFrameComponent {
   @HostListener('window:resize')
   private helpMaintainSize() {
     if (this.isFullSize) {
-      this.elementRef.nativeElement.style.width = '100.01%'; // ! 100.01% removes slivers of background in some browsers
-      this.elementRef.nativeElement.style.height = `100.01%`;
-      this.elementRef.nativeElement.style.top = `${this.store.viewportHeight() / 2 - 22}px`;
-      this.elementRef.nativeElement.style.left = `${this.store.viewportWidth() / 2}px`;
+      this.helpSetFullSize();
     } else {
       // TODO resize window when viewport changes; should be similar math to above exiting full screen adapted for constant change
       // Calculate width and height to figure out percent of screen taken compared to viewportRecorder
       // Figure out pixel value based on current viewport and percentage
     }
+  }
 
-    this.viewportRecorder = {
-      width: this.store.viewportWidth(),
-      height: this.store.viewportHeight(),
-    };
+  /**
+   * @description sets window to full size
+   */
+  private helpSetFullSize() {
+    this.elementRef.nativeElement.style.width = '100.01%'; // ! 100.01% removes slivers of background in some browsers (Firefox)
+    this.elementRef.nativeElement.style.height = `100.01%`;
+    this.elementRef.nativeElement.style.top = `${this.store.viewportHeight() / 2 - 22}px`;
+    this.elementRef.nativeElement.style.left = `${this.store.viewportWidth() / 2}px`;
   }
 
   /**
@@ -231,6 +228,30 @@ export class WindowFrameComponent {
 
     document.addEventListener('mouseup', () => {
       if (this.isDragging) {
+        const FRAME = {
+          x: + this.elementRef.nativeElement.style.left.split('p')[0],
+          y: + this.elementRef.nativeElement.style.top.split('p')[0],
+          width: this.elementRef.nativeElement.offsetWidth,
+          height: this.elementRef.nativeElement.offsetHeight,
+        };
+
+        if ((FRAME.x + FRAME.width / 2) > this.store.viewportWidth()) { // Right
+          console.log(FRAME.x + FRAME.width / 2);
+          this.elementRef.nativeElement.style.left = `${this.store.viewportWidth() - FRAME.width / 2}px`;
+        }
+
+        if ((FRAME.x - FRAME.width / 2) < 0) { // Left
+          this.elementRef.nativeElement.style.left = `${0 + FRAME.width / 2}px`
+        }
+
+        if ((FRAME.y + FRAME.height / 2 + 44) > this.store.viewportHeight()) { // Bottom
+          this.elementRef.nativeElement.style.top = `${this.store.viewportHeight() - FRAME.height / 2 - 44}px`
+        }
+
+        if (FRAME.y - FRAME.height / 2 < 0) { // Top
+          this.elementRef.nativeElement.style.top = `${0 + FRAME.height / 2}px`
+        }
+
         this.isDragging = false;
       }
     });
