@@ -169,6 +169,8 @@ export class WindowFrameComponent {
       // Calculate width and height to figure out percent of screen taken compared to viewportRecorder
       // Figure out pixel value based on current viewport and percentage
     }
+
+    this.helpStayInViewport();
   }
 
   /**
@@ -201,6 +203,34 @@ export class WindowFrameComponent {
     this.store.focus.set(this.focusName);
   }
 
+  private helpStayInViewport() {
+    const FRAME = {
+      x: + this.elementRef.nativeElement.style.left.split('p')[0],
+      y: + this.elementRef.nativeElement.style.top.split('p')[0],
+      width: this.elementRef.nativeElement.offsetWidth,
+      height: this.elementRef.nativeElement.offsetHeight,
+    };
+
+    // TODO bug causes window-frame to move to top left corner on first click, avoided if clicked and dragged
+    // Caused when window-frame is positioned using percentages, causing x & y to = '';
+
+    if ((FRAME.x + FRAME.width / 2) > this.store.viewportWidth()) { // Right
+      this.elementRef.nativeElement.style.left = `${this.store.viewportWidth() - FRAME.width / 2}px`;
+    }
+
+    if ((FRAME.x - FRAME.width / 2) < 0) { // Left
+      this.elementRef.nativeElement.style.left = `${0 + FRAME.width / 2}px`
+    }
+
+    if ((FRAME.y + FRAME.height / 2 + 44) > this.store.viewportHeight()) { // Bottom
+      this.elementRef.nativeElement.style.top = `${this.store.viewportHeight() - FRAME.height / 2 - 44}px`
+    }
+
+    if (FRAME.y - FRAME.height / 2 < 0) { // Top
+      this.elementRef.nativeElement.style.top = `${0 + FRAME.height / 2}px`
+    }
+  }
+
   /**
    * @description handles dragging events to move window around
    */
@@ -228,29 +258,7 @@ export class WindowFrameComponent {
 
     document.addEventListener('mouseup', () => {
       if (this.isDragging) {
-        const FRAME = {
-          x: + this.elementRef.nativeElement.style.left.split('p')[0],
-          y: + this.elementRef.nativeElement.style.top.split('p')[0],
-          width: this.elementRef.nativeElement.offsetWidth,
-          height: this.elementRef.nativeElement.offsetHeight,
-        };
-
-        if ((FRAME.x + FRAME.width / 2) > this.store.viewportWidth()) { // Right
-          console.log(FRAME.x + FRAME.width / 2);
-          this.elementRef.nativeElement.style.left = `${this.store.viewportWidth() - FRAME.width / 2}px`;
-        }
-
-        if ((FRAME.x - FRAME.width / 2) < 0) { // Left
-          this.elementRef.nativeElement.style.left = `${0 + FRAME.width / 2}px`
-        }
-
-        if ((FRAME.y + FRAME.height / 2 + 44) > this.store.viewportHeight()) { // Bottom
-          this.elementRef.nativeElement.style.top = `${this.store.viewportHeight() - FRAME.height / 2 - 44}px`
-        }
-
-        if (FRAME.y - FRAME.height / 2 < 0) { // Top
-          this.elementRef.nativeElement.style.top = `${0 + FRAME.height / 2}px`
-        }
+        this.helpStayInViewport();
 
         this.isDragging = false;
       }
