@@ -1,6 +1,7 @@
 // State management
 
 import { Injectable, signal, WritableSignal } from '@angular/core';
+import { OpenPrograms } from '../interfaces/open-programs.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -8,13 +9,7 @@ import { Injectable, signal, WritableSignal } from '@angular/core';
 export class AppService {
   // ! Common
   focus: WritableSignal<string> = signal('');
-  openPrograms = signal([
-    // TODO look into custom TS types and how they work, + Angular specifications
-    /*
-      Applicable States:
-        * 0: minimized
-        * 1: opened
-    */
+  openPrograms: OpenPrograms = signal([
     {
       programName: 'System Monitor',
       focusName: 'system-monitor',
