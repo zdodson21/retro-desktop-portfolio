@@ -1,7 +1,9 @@
 <div #wrapper class="window-frame-wrapper" [class.focus]="isElementFocused()" (click)="setFocus($event)">
   <div class="top-panel">
     <div class="left-side">
-      <img *ngIf="icon" src="{{ icon }}" alt="{{ title }}" />
+      @if (icon) {
+        <img src="{{ icon }}" alt="{{ title }}" />
+      }
       <!-- TODO if src is empty, then set display none -->
       <p>{{ title }}</p>
     </div>

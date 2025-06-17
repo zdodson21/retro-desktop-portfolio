@@ -1,4 +1,4 @@
-import { NgIf } from '@angular/common';
+
 import {
   Component,
   effect,
@@ -15,7 +15,7 @@ import { AppService } from '../../app/app.service';
 
 @Component({
   selector: 'window-frame',
-  imports: [NgIf],
+  imports: [],
   templateUrl: './window-frame.component.html',
   styleUrl: './window-frame.component.scss',
 })

@@ -24,14 +24,16 @@
       </figure>
       <figure class="open-programs">
         <figcaption>Open Programs</figcaption>
-        <ul *ngFor="let program of openPrograms">
-          <li>
-            <em>{{ program.programName }}</em>
-          </li>
+        @for (program of openPrograms; track program) {
           <ul>
-            <li>Focus Name: {{ program.focusName }}</li>
+            <li>
+              <em>{{ program.programName }}</em>
+            </li>
+            <ul>
+              <li>Focus Name: {{ program.focusName }}</li>
+            </ul>
           </ul>
-        </ul>
+        }
       </figure>
     </div>
   </window-frame>
