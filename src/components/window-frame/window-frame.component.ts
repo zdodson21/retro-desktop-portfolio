@@ -1,4 +1,3 @@
-
 import {
   Component,
   effect,
@@ -89,8 +88,6 @@ export class WindowFrameComponent {
 
   constructor() {
     effect(() => {
-      if (this.focusName == null || this.focusName == '') console.error("Warning: missing focus name on an element!"); // TODO try moving out of constructor
-
       if (!this.alert) {
         if (this.store.focus() == this.focusName) {
           this.isElementFocused.set(true);
@@ -106,6 +103,12 @@ export class WindowFrameComponent {
    */
   public minimizeButtonHandler() {
     // TODO use `this.isMinimized` variable
+
+    // Set this.isMinimized = true, push this.focusName to a store.minimizedPrograms array.
+    // Minimized array needs to be rendered in system-monitor
+    // All application buttons (such as in start menu and taskbar when program is open) need to check if program is minimized
+    // If program IS minimized, then it needs to be removed from the minimized array, which should cascade to window-frame setting this.isMinimized = false
+    // Else program should open (using routing hopefully).
   }
 
   /**
