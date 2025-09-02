@@ -188,6 +188,8 @@ export class WindowFrameComponent {
     } else {
       console.error(`Cannot close focus-name: ${this.focusName}`);
     }
+    // focus global variable should function as a stack, go backwards through stack and remove first instance of this.focusName
+    // going backwards should be more efficient because if closing the most recently focused item, then it should be first in the stack
   }
 
   /**
