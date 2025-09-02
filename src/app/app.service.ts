@@ -22,6 +22,8 @@ export class AppService {
   showShutdownAlert: WritableSignal<boolean> = signal(false);
 
   // ! Window Management
+  minimizedPrograms: WritableSignal<string[]> = signal([]);
+
   viewportWidth: WritableSignal<number> = signal(globalThis.innerWidth);
   viewportHeight: WritableSignal<number> = signal(globalThis.innerHeight);
 

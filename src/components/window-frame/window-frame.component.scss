@@ -24,6 +24,10 @@
     }
   }
 
+  &.minimized {
+    display: none;
+  }
+
   .top-panel {
     padding: 4px;
     display: flex;

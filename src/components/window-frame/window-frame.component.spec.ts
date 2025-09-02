@@ -23,13 +23,17 @@ describe('WindowFrameComponent', () => {
 
   describe('Buttons', () => {
     describe('Assets', () => {
-      // TODO add test for minimize button
+      // TODO add test for minimize button when icon added
+      // it('should have proper minimize button icon', () => {
+      //   expect(compiled.querySelector('.minimize-button > img')?.getAttribute('src')?.split('.')[0]).toBe('assets/icons/minimize-button');
+      // });
 
       it('should have proper starting view button icon', () => {
         expect(compiled.querySelector('.view-button > img')?.getAttribute('src')?.split('.')[0]).toBe('assets/icons/view-maximize');
       });
 
       // TODO add test for changing view button icon
+      // test presses button, tests for icon
 
       it('should have proper close button icon', () => {
         expect(compiled.querySelector('.close-button > img')?.getAttribute('src')?.split('.')[0]).toBe('assets/icons/close-button');
@@ -58,6 +62,17 @@ describe('WindowFrameComponent', () => {
     //     component.alert = true;
 
     //     expect(component.isElementFocused()).toBeTruthy();
+    //   })
+    // })
+
+    // TODO add functionality tests
+    // describe("Functionality", () => {
+    //   it("should minimize on button press", () => {
+
+    //   })
+
+    //   it("should close on button press", () => {
+
     //   })
     // })
   });

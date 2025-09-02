@@ -8,6 +8,7 @@ import { AppService } from '../../../app/app.service';
   styleUrl: './start-item.component.scss',
 })
 export class StartItemComponent {
+  @Input({ alias: 'focus-name' }) public focusName: string;
   @Input({ alias: 'icon' }) public src: string;
   @Input({ alias: 'text' }) public text: string;
 
@@ -27,5 +28,6 @@ export class StartItemComponent {
    */
   public clickHandler(event: MouseEvent) {
     event?.stopPropagation();
+    this.store.focus.set(this.focusName);
   }
 }

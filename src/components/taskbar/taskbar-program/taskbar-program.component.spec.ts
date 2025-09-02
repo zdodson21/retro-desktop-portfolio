@@ -19,7 +19,7 @@ describe('TaskbarProgramComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('shoudl not be focused by default', () => {
+  it('should not be focused by default', () => {
     expect(component.isProgramFocused()).toBeFalsy();
   });
 });

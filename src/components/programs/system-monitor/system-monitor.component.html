@@ -22,18 +22,29 @@
           </li>
         </ul>
       </figure>
-      <figure class="open-programs">
-        <figcaption>Open Programs</figcaption>
-        @for (program of openPrograms; track program) {
-          <ul>
-            <li>
-              <em>{{ program.programName }}</em>
-            </li>
+      <figure class="program-states">
+        <div class="open-programs">
+          <figcaption>Open Programs</figcaption>
+          @for (program of this.store.openPrograms(); track program) {
             <ul>
-              <li>Focus Name: {{ program.focusName }}</li>
+              <li>
+                <em>{{ program.programName }}</em>
+              </li>
+              <ul>
+                <li>Focus Name: {{ program.focusName }}</li>
+              </ul>
             </ul>
-          </ul>
-        }
+          }
+        </div>
+
+        <div class="minimized-programs">
+          <figcaption>Minimized Programs</figcaption>
+          @for (program of this.store.minimizedPrograms(); track program) {
+            <ul>
+              <li> {{ program }} </li>
+            </ul>
+          }
+        </div>
       </figure>
     </div>
   </window-frame>

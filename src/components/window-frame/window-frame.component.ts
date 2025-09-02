@@ -38,6 +38,7 @@ export class WindowFrameComponent {
   private elementRef: ElementRef = inject(ElementRef);
 
   public isElementFocused: WritableSignal<boolean> = signal(false);
+  public isElementMinimized: WritableSignal<boolean> = signal(false);
 
   // Buttons
   private viewItem: HTMLElement;
@@ -91,6 +92,11 @@ export class WindowFrameComponent {
       if (!this.alert) {
         if (this.store.focus() == this.focusName) {
           this.isElementFocused.set(true);
+
+          if (this.store.minimizedPrograms().includes(this.focusName)) {
+            this.store.minimizedPrograms().splice(this.store.minimizedPrograms().indexOf(this.focusName), 1);
+            this.isElementMinimized.set(false);
+          }
         } else {
           this.isElementFocused.set(false);
         }
@@ -101,14 +107,23 @@ export class WindowFrameComponent {
   /**
    * @description handle minimizing program
    */
-  public minimizeButtonHandler() {
-    // TODO use `this.isMinimized` variable
+  public minimizeButtonHandler(event?: MouseEvent) {
+    event?.stopPropagation();
 
-    // Set this.isMinimized = true, push this.focusName to a store.minimizedPrograms array.
-    // Minimized array needs to be rendered in system-monitor
+    if (!this.store.minimizedPrograms().includes(this.focusName)) {
+      this.isMinimized = true;
+      // this.store.minimizedPrograms.update((arr) => [...arr, this.focusName]);
+      this.store.minimizedPrograms().push(this.focusName); // TODO might need to change to work with update instead, depends if system-monitor updates correctly when other programs exist.
+    }
+
+    if (this.store.minimizedPrograms().includes(this.focusName)) {
+      this.store.focus.set('');
+      this.isElementMinimized.set(true);
+    }
+
     // All application buttons (such as in start menu and taskbar when program is open) need to check if program is minimized
     // If program IS minimized, then it needs to be removed from the minimized array, which should cascade to window-frame setting this.isMinimized = false
-    // Else program should open (using routing hopefully).
+    // Else program should open (using routing in the end hopefully).
   }
 
   /**
@@ -207,6 +222,9 @@ export class WindowFrameComponent {
     this.store.focus.set(this.focusName);
   }
 
+  /**
+   * @description Prevents program window from being placed outside of viewport area
+   */
   private helpStayInViewport() {
     const FRAME = {
       x: +this.elementRef.nativeElement.style.left.split('p')[0],
