@@ -20,14 +20,7 @@ module.exports = function (config) {
       random: false
     },
     reporters: ['progress', 'kjhtml'],
-    browsers: ['ChromeHeadlessNoSandbox'],
-    customLaunchers: {
-      ChromeHeadlessNoSandbox: {
-        base: 'ChromeHeadless',
-        flags: ['--no-sandbox']
-      }
-    },
-    restartOnFileChange: true,
+    browsers: ['ChromeHeadless'],
     singleRun: true
   });
 };
