@@ -85,6 +85,14 @@ export class WindowFrameComponent {
     } else {
       this.setupDraggable();
     }
+
+    this.windowCoordinates = {
+      top: this.elementRef.nativeElement.offsetTop,
+      left: this.elementRef.nativeElement.offsetLeft,
+    };
+
+    this.elementRef.nativeElement.style.top = `${this.windowCoordinates.top}px`;
+    this.elementRef.nativeElement.style.left = `${this.windowCoordinates.left}px`;
   }
 
   constructor() {
@@ -120,10 +128,6 @@ export class WindowFrameComponent {
       this.store.focus.set('');
       this.isElementMinimized.set(true);
     }
-
-    // All application buttons (such as in start menu and taskbar when program is open) need to check if program is minimized
-    // If program IS minimized, then it needs to be removed from the minimized array, which should cascade to window-frame setting this.isMinimized = false
-    // Else program should open (using routing in the end hopefully).
   }
 
   /**
@@ -232,9 +236,6 @@ export class WindowFrameComponent {
       width: this.elementRef.nativeElement.offsetWidth,
       height: this.elementRef.nativeElement.offsetHeight,
     };
-
-    // TODO bug causes window-frame to move to top left corner on first click, avoided if clicked and dragged
-    // Caused when window-frame is positioned using percentages, causing x & y to = '';
 
     // Right
     if (FRAME.x + FRAME.width / 2 > this.store.viewportWidth()) {
