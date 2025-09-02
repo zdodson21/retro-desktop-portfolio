@@ -89,6 +89,8 @@ export class WindowFrameComponent {
 
   constructor() {
     effect(() => {
+      if (this.focusName == null || this.focusName == '') console.error("Warning: missing focus name on an element!"); // TODO try moving out of constructor
+
       if (!this.alert) {
         if (this.store.focus() == this.focusName) {
           this.isElementFocused.set(true);
@@ -185,11 +187,12 @@ export class WindowFrameComponent {
   public closeButtonHandler() {
     if (this.focusName === 'shutdown-alert') {
       this.store.showShutdownAlert.set(false);
+      // TODO can change to no conditional statement once shutdown operates based on focus value instead of boolean.
     } else {
+      // TODO will have to remove item from router (which should close it?), then set focus to desktop-environment.
+      this.store.focus.set('desktop-environment'); // TODO setting but not changing (check system monitor)
       console.error(`Cannot close focus-name: ${this.focusName}`);
     }
-    // focus global variable should function as a stack, go backwards through stack and remove first instance of this.focusName
-    // going backwards should be more efficient because if closing the most recently focused item, then it should be first in the stack
   }
 
   /**
