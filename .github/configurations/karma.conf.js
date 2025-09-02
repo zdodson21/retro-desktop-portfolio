@@ -20,13 +20,8 @@ module.exports = function (config) {
       random: false
     },
     reporters: ['progress', 'kjhtml'],
-    browsers: ['ChromeHeadlessNoSandbox'],
-    customLaunchers: {
-      ChromeHeadlessNoSandbox: {
-        base: 'ChromeHeadless',
-        flags: ['--no-sandbox']
-      }
-    },
+    browsers: ['ChromeHeadless'],
+    restartOnFileChange: true,
     singleRun: true
   });
 };

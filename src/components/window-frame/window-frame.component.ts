@@ -18,7 +18,7 @@ import { AppService } from '../../app/app.service';
   templateUrl: './window-frame.component.html',
   styleUrl: './window-frame.component.scss',
 })
-export class WindowFrameComponent { // test again...
+export class WindowFrameComponent { // test again
   /**
    * @description prevents movement, resizing, and hides minimize & view buttons when true
    */
