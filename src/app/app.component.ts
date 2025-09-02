@@ -14,9 +14,15 @@ import { SystemMonitorComponent } from '../components/programs/system-monitor/sy
 import { StartMenuComponent } from '../components/start/start-menu/start-menu.component';
 import { TaskbarBaseComponent } from '../components/taskbar/taskbar-base/taskbar-base.component';
 import { AppService } from './app.service';
+import { environment } from '../environments/environment';
 
-vercelAnalytics();
-vercelSpeedInsights();
+if (environment.production) {
+  vercelAnalytics();
+  vercelSpeedInsights();
+  // TODO these might need fixed, should monitor. This is needed for testing though.
+  // Mainly just need to monitor if it is being build properly for production.
+  // Might need to tell vercel to use a different build command such as ng build --prod
+}
 
 @Component({
   selector: 'app-root',
