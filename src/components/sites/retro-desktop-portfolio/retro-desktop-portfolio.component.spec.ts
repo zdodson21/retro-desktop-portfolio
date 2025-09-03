@@ -8,9 +8,8 @@ describe('RetroDesktopPortfolioComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [RetroDesktopPortfolioComponent]
-    })
-    .compileComponents();
+      imports: [RetroDesktopPortfolioComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(RetroDesktopPortfolioComponent);
     component = fixture.componentInstance;

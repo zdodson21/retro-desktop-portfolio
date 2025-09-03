@@ -102,7 +102,12 @@ export class WindowFrameComponent {
           this.isElementFocused.set(true);
 
           if (this.store.minimizedPrograms().includes(this.focusName)) {
-            this.store.minimizedPrograms().splice(this.store.minimizedPrograms().indexOf(this.focusName), 1);
+            this.store
+              .minimizedPrograms()
+              .splice(
+                this.store.minimizedPrograms().indexOf(this.focusName),
+                1,
+              );
             this.isElementMinimized.set(false);
           }
         } else {

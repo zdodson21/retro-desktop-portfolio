@@ -4,8 +4,6 @@ import { Component } from '@angular/core';
   selector: 'app-hax-audit',
   imports: [],
   templateUrl: './hax-audit.component.html',
-  styleUrl: './hax-audit.component.scss'
+  styleUrl: './hax-audit.component.scss',
 })
-export class HaxAuditComponent {
-
-}
+export class HaxAuditComponent {}

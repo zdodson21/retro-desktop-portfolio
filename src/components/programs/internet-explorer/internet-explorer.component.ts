@@ -4,8 +4,6 @@ import { Component } from '@angular/core';
   selector: 'app-internet-explorer',
   imports: [],
   templateUrl: './internet-explorer.component.html',
-  styleUrl: './internet-explorer.component.scss'
+  styleUrl: './internet-explorer.component.scss',
 })
-export class InternetExplorerComponent {
-
-}
+export class InternetExplorerComponent {}

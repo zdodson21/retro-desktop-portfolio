@@ -8,9 +8,8 @@ describe('ZachDodsonComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ZachDodsonComponent]
-    })
-    .compileComponents();
+      imports: [ZachDodsonComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(ZachDodsonComponent);
     component = fixture.componentInstance;

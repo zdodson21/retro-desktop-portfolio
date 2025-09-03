@@ -8,9 +8,8 @@ describe('InternetExplorerComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [InternetExplorerComponent]
-    })
-    .compileComponents();
+      imports: [InternetExplorerComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(InternetExplorerComponent);
     component = fixture.componentInstance;

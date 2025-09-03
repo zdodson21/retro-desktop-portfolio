@@ -28,8 +28,8 @@ describe('StartMenuComponent', () => {
   it('should have a focus-name set on every <start-item>', () => {
     const START_ITEMS = compiled.querySelectorAll('start-item');
 
-    START_ITEMS.forEach(startItem => {
+    START_ITEMS.forEach((startItem) => {
       expect(startItem.getAttribute('focus-name')).toBeTruthy();
-    })
-  })
+    });
+  });
 });

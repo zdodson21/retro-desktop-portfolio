@@ -4,8 +4,6 @@ import { Component } from '@angular/core';
   selector: 'app-hax-chat-agent',
   imports: [],
   templateUrl: './hax-chat-agent.component.html',
-  styleUrl: './hax-chat-agent.component.scss'
+  styleUrl: './hax-chat-agent.component.scss',
 })
-export class HaxChatAgentComponent {
-
-}
+export class HaxChatAgentComponent {}

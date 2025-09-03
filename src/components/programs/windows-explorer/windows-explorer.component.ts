@@ -4,8 +4,6 @@ import { Component } from '@angular/core';
   selector: 'app-windows-explorer',
   imports: [],
   templateUrl: './windows-explorer.component.html',
-  styleUrl: './windows-explorer.component.scss'
+  styleUrl: './windows-explorer.component.scss',
 })
-export class WindowsExplorerComponent {
-
-}
+export class WindowsExplorerComponent {}

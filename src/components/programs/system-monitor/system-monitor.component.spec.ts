@@ -23,5 +23,5 @@ describe('SystemMonitorComponent', () => {
 
   it('should have <window-frame focus-name="system-monitor>', () => {
     expect(compiled.querySelector('window-frame')?.getAttribute('focus-name')).toBe('system-monitor');
-  })
+  });
 });

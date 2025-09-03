@@ -4,8 +4,6 @@ import { Component } from '@angular/core';
   selector: 'app-replace-text',
   imports: [],
   templateUrl: './replace-text.component.html',
-  styleUrl: './replace-text.component.scss'
+  styleUrl: './replace-text.component.scss',
 })
-export class ReplaceTextComponent {
-
-}
+export class ReplaceTextComponent {}

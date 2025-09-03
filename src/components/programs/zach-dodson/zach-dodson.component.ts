@@ -4,8 +4,6 @@ import { Component } from '@angular/core';
   selector: 'app-zach-dodson',
   imports: [],
   templateUrl: './zach-dodson.component.html',
-  styleUrl: './zach-dodson.component.scss'
+  styleUrl: './zach-dodson.component.scss',
 })
-export class ZachDodsonComponent {
-
-}
+export class ZachDodsonComponent {}

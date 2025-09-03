@@ -8,9 +8,8 @@ describe('ReplaceTextComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ReplaceTextComponent]
-    })
-    .compileComponents();
+      imports: [ReplaceTextComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(ReplaceTextComponent);
     component = fixture.componentInstance;

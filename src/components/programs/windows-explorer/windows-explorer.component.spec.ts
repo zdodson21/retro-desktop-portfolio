@@ -8,9 +8,8 @@ describe('WindowsExplorerComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [WindowsExplorerComponent]
-    })
-    .compileComponents();
+      imports: [WindowsExplorerComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(WindowsExplorerComponent);
     component = fixture.componentInstance;

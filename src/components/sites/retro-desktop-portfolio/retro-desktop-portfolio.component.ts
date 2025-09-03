@@ -4,8 +4,6 @@ import { Component } from '@angular/core';
   selector: 'app-retro-desktop-portfolio',
   imports: [],
   templateUrl: './retro-desktop-portfolio.component.html',
-  styleUrl: './retro-desktop-portfolio.component.scss'
+  styleUrl: './retro-desktop-portfolio.component.scss',
 })
-export class RetroDesktopPortfolioComponent {
-
-}
+export class RetroDesktopPortfolioComponent {}

@@ -8,9 +8,8 @@ describe('HaxChatAgentComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [HaxChatAgentComponent]
-    })
-    .compileComponents();
+      imports: [HaxChatAgentComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(HaxChatAgentComponent);
     component = fixture.componentInstance;
