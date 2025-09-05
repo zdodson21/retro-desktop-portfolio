@@ -22,7 +22,7 @@ export class WindowFrameComponent {
   /**
    * @description prevents movement, resizing, and hides minimize & view buttons when true
    */
-  @Input() public alert: boolean = false;
+  @Input({ alias: 'alert'} ) public isAlert: boolean = false;
 
   @Input({ alias: 'focus-name' }) public focusName: string;
   @Input({ alias: 'window-title' }) public title: string;
@@ -78,7 +78,7 @@ export class WindowFrameComponent {
     this.viewItem = this.viewButtonRef.nativeElement;
     this.minimizeItem = this.minimizeButtonRef.nativeElement;
 
-    if (this.alert) {
+    if (this.isAlert) {
       this.viewItem.classList.add('hide-button');
       this.minimizeItem.classList.add('hide-button');
       this.isElementFocused.set(true);
@@ -97,7 +97,7 @@ export class WindowFrameComponent {
 
   constructor() {
     effect(() => {
-      if (!this.alert) {
+      if (!this.isAlert) {
         if (this.store.focus() == this.focusName) {
           this.isElementFocused.set(true);
 
@@ -119,6 +119,7 @@ export class WindowFrameComponent {
 
   /**
    * @description handle minimizing program
+   * @param event MouseEvent
    */
   public minimizeButtonHandler(event?: MouseEvent) {
     event?.stopPropagation();
@@ -166,6 +167,7 @@ export class WindowFrameComponent {
         this.store.viewportWidth() !== this.viewportRecorder.width ||
         this.store.viewportHeight() !== this.viewportRecorder.height
       ) {
+        // TODO figure out what exactly I need to do here again, then adjust / make new comments clarifying what needs to be done.
         // * Calculate window width as a percentage (I think it should be window width / recorded viewport width = % of screen taken)
         // * Calculate window height as a percentage (same as above)
         // * Calculate what the new window width should be (current viewport width * %)
@@ -193,6 +195,8 @@ export class WindowFrameComponent {
       // TODO resize window when viewport changes; should be similar math to above exiting full screen adapted for constant change
       // Calculate width and height to figure out percent of screen taken compared to viewportRecorder
       // Figure out pixel value based on current viewport and percentage
+      // TODO Try changing viewport height and width and see how it modifies the window-frame component. If no change, change
+      // window-frame to full screen, resize viewport, then un-fullscreen. Play with it and figure out what exactly needs to happen.
     }
 
     this.helpStayInViewport();
@@ -232,32 +236,33 @@ export class WindowFrameComponent {
   }
 
   /**
-   * @description Prevents program window from being placed outside of viewport area
+   * @description Prevents program window from being placed outside of viewport area by repositioning
+   * it back within the viewport if placed outside of it.
    */
   private helpStayInViewport() {
     const FRAME = {
-      x: +this.elementRef.nativeElement.style.left.split('p')[0],
+      x: +this.elementRef.nativeElement.style.left.split('p')[0], // gets the CSS value, then splits and gets the px value (without the px)
       y: +this.elementRef.nativeElement.style.top.split('p')[0],
       width: this.elementRef.nativeElement.offsetWidth,
       height: this.elementRef.nativeElement.offsetHeight,
     };
 
-    // Right
+    // Right side of viewport
     if (FRAME.x + FRAME.width / 2 > this.store.viewportWidth()) {
       this.elementRef.nativeElement.style.left = `${this.store.viewportWidth() - FRAME.width / 2}px`;
     }
 
-    // Left
+    // Left side of viewport
     if (FRAME.x - FRAME.width / 2 < 0) {
       this.elementRef.nativeElement.style.left = `${0 + FRAME.width / 2}px`;
     }
 
-    // Bottom
+    // Bottom of viewport
     if (FRAME.y + FRAME.height / 2 + 44 > this.store.viewportHeight()) {
       this.elementRef.nativeElement.style.top = `${this.store.viewportHeight() - FRAME.height / 2 - 44}px`;
     }
 
-    // Top
+    // Top of viewport
     if (FRAME.y - FRAME.height / 2 < 0) {
       this.elementRef.nativeElement.style.top = `${0 + FRAME.height / 2}px`;
     }
