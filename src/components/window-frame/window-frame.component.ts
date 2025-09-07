@@ -193,6 +193,16 @@ export class WindowFrameComponent {
     if (this.isFullSize) {
       this.helpSetFullSize();
     } else {
+      /*
+        ! To replicate issue:
+          1. Change viewport height and width when page loads.
+            Take note that the program window will change height and width as well
+          2. Make program window-frame maximized, then minimized.
+          3. Notice the window no longer changes size. I want it to change size.
+
+          Good luck future me :D
+      */
+
       // TODO resize window when viewport changes; should be similar math to above exiting full screen adapted for constant change
       // Calculate width and height to figure out percent of screen taken compared to viewportRecorder
       // Figure out pixel value based on current viewport and percentage
@@ -222,9 +232,6 @@ export class WindowFrameComponent {
     // Removing item from router will make it disappear
     this.store.focus.set('');
     // TODO remove item from "openPrograms" array in the service. Maybe wait to see if this can be done via routing instead.
-    if (this.store.focus() === this.focusName)
-      console.error(`Cannot close focus-name: ${this.focusName}`);
-
   }
 
   /**
