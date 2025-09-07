@@ -22,12 +22,10 @@ describe('TaskbarBaseComponent', () => {
   });
 
   describe('Left Side Class', () => {
-    // TODO make sure left side has taskbar start
     it('should contain <taskbar-start>', () => {
       expect(compiled.querySelector('.left-side > taskbar-start')).toBeTruthy();
     });
 
-    // TODO make sure left side only has one child
     it('should only contain one child', () => {
       expect(compiled.querySelectorAll('.left-side > *').length).toBe(1);
     });
