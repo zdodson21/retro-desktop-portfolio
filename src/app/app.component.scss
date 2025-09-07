@@ -1,7 +1,7 @@
-@use "../styles.scss";
+@use "../styles.scss" as *;
 
 .app-wrapper {
-  background-color: #007d80;
+  background-color: $win-95-dark-cyan;
   height: 100%;
   width: 100%;
   display: flex;
