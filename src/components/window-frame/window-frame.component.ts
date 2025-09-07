@@ -22,7 +22,7 @@ export class WindowFrameComponent {
   /**
    * @description prevents movement, resizing, and hides minimize & view buttons when true
    */
-  @Input({ alias: 'alert'} ) public isAlert: boolean = false;
+  @Input({ alias: 'alert' }) public isAlert: boolean = false;
 
   @Input({ alias: 'focus-name' }) public focusName: string;
   @Input({ alias: 'window-title' }) public title: string;
@@ -167,6 +167,7 @@ export class WindowFrameComponent {
         this.store.viewportWidth() !== this.viewportRecorder.width ||
         this.store.viewportHeight() !== this.viewportRecorder.height
       ) {
+        // TODO finish all other important TODO items before this, that way irrelevant functions can be hidden in VSCode
         // TODO figure out what exactly I need to do here again, then adjust / make new comments clarifying what needs to be done.
         // * Calculate window width as a percentage (I think it should be window width / recorded viewport width = % of screen taken)
         // * Calculate window height as a percentage (same as above)
@@ -215,14 +216,18 @@ export class WindowFrameComponent {
   /**
    * @description handles close button functionality
    */
-  public closeButtonHandler() {
+  public closeButtonHandler(event?: MouseEvent) {
+    event?.stopPropagation();
+
     if (this.focusName === 'shutdown-alert') {
       this.store.showShutdownAlert.set(false);
       // TODO can change to no conditional statement once shutdown operates based on focus value instead of boolean.
     } else {
       // TODO will have to remove item from router (which should close it?), then set focus to desktop-environment.
-      this.store.focus.set('desktop-environment'); // TODO setting but not changing (check system monitor)
-      console.error(`Cannot close focus-name: ${this.focusName}`);
+      this.store.focus.set('');
+      // TODO remove item from "openPrograms" array in the service. Maybe wait to see if this can be done via routing instead.
+      if (this.store.focus() === this.focusName)
+        console.error(`Cannot close focus-name: ${this.focusName}`);
     }
   }
 
