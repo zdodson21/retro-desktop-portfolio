@@ -25,6 +25,9 @@ export class AlertShutdownComponent {
     });
   }
 
+  /**
+   * @description handles form submission, overriding default behavior
+   */
   public formSubmit(event: SubmitEvent) {
     event.preventDefault();
 
@@ -38,11 +41,17 @@ export class AlertShutdownComponent {
     this.dismissAlert();
   }
 
+  /**
+   * @description provides functionality to "no" button
+   */
   public noButtonHelper(event: MouseEvent) {
     event?.stopPropagation();
     this.dismissAlert();
   }
 
+  /**
+   * @description dismisses alert by removing focus
+   */
   public dismissAlert() {
     this.store.focus.set('');
   }

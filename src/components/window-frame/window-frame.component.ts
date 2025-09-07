@@ -86,6 +86,8 @@ export class WindowFrameComponent {
       this.setupDraggable();
     }
 
+    // Immediately sets offset, preventing a bug when clicking on a window-frame after the page loads,
+    // which would cause it to jump into the top left corner of the viewport.
     this.windowCoordinates = {
       top: this.elementRef.nativeElement.offsetTop,
       left: this.elementRef.nativeElement.offsetLeft,
@@ -168,7 +170,15 @@ export class WindowFrameComponent {
         this.store.viewportHeight() !== this.viewportRecorder.height
       ) {
         // TODO finish all other important TODO items before this, that way irrelevant functions can be hidden in VSCode
-        // TODO figure out what exactly I need to do here again, then adjust / make new comments clarifying what needs to be done.
+        /*
+          ! To replicate issue:
+            1. Change viewport height and width when page loads.
+              Take note that the program window will change height and width as well
+            2. Make program window-frame maximized, then minimized.
+            3. Notice the window no longer changes size. I want it to change size.
+
+            Good luck future me :D
+        */
         // * Calculate window width as a percentage (I think it should be window width / recorded viewport width = % of screen taken)
         // * Calculate window height as a percentage (same as above)
         // * Calculate what the new window width should be (current viewport width * %)
@@ -193,16 +203,6 @@ export class WindowFrameComponent {
     if (this.isFullSize) {
       this.helpSetFullSize();
     } else {
-      /*
-        ! To replicate issue:
-          1. Change viewport height and width when page loads.
-            Take note that the program window will change height and width as well
-          2. Make program window-frame maximized, then minimized.
-          3. Notice the window no longer changes size. I want it to change size.
-
-          Good luck future me :D
-      */
-
       // TODO resize window when viewport changes; should be similar math to above exiting full screen adapted for constant change
       // Calculate width and height to figure out percent of screen taken compared to viewportRecorder
       // Figure out pixel value based on current viewport and percentage
@@ -225,6 +225,7 @@ export class WindowFrameComponent {
 
   /**
    * @description handles close button functionality
+   * @param event MouseEvent
    */
   public closeButtonHandler(event?: MouseEvent) {
     event?.stopPropagation();

@@ -18,6 +18,9 @@ export class DesktopEnvironmentComponent {
     this.item = this.desktopEnvironmentRef.nativeElement;
   }
 
+  /**
+   * @description sets focus through click events
+   */
   public clickHandler(event: MouseEvent) {
     event?.stopPropagation();
     this.store.focus.set('desktop-environment');
