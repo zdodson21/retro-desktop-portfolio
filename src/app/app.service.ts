@@ -19,7 +19,6 @@ export class AppService {
   // ! Start Menu
 
   // ! Alerts
-  showShutdownAlert: WritableSignal<boolean> = signal(false);
 
   // ! Window Management
   minimizedPrograms: WritableSignal<string[]> = signal([]);

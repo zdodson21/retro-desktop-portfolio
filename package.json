@@ -14,6 +14,7 @@
     "test:hl": "ng test --browsers=ChromeHeadless",
     "test:ci": "ng test --watch=false --karma-config=.github/configurations/karma.conf.js",
     "actions": "act",
+    "actions:native": "npm run build; npm run test:ci",
     "prettier": "prettier . --write",
     "docker:build": "docker build -t zdodson/portfolio .",
     "docker:run": "docker run -p 5200:4200 zdodson/portfolio:latest",

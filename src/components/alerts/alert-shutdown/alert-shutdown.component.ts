@@ -21,7 +21,7 @@ export class AlertShutdownComponent {
 
   constructor() {
     effect(() => {
-      if (this.store.showShutdownAlert()) this.formValue = 0;
+      if (this.store.focus() === 'shutdown-alert') this.formValue = 0;
     });
   }
 
@@ -38,8 +38,12 @@ export class AlertShutdownComponent {
     this.dismissAlert();
   }
 
+  public noButtonHelper(event: MouseEvent) {
+    event?.stopPropagation();
+    this.dismissAlert();
+  }
+
   public dismissAlert() {
-    this.store.showShutdownAlert.set(false);
-    // TODO update to work based on focus
+    this.store.focus.set('');
   }
 }

@@ -218,17 +218,13 @@ export class WindowFrameComponent {
    */
   public closeButtonHandler(event?: MouseEvent) {
     event?.stopPropagation();
+    // TODO will have to remove item from router (which should close it?), then set focus to desktop-environment.
+    // Removing item from router will make it disappear
+    this.store.focus.set('');
+    // TODO remove item from "openPrograms" array in the service. Maybe wait to see if this can be done via routing instead.
+    if (this.store.focus() === this.focusName)
+      console.error(`Cannot close focus-name: ${this.focusName}`);
 
-    if (this.focusName === 'shutdown-alert') {
-      this.store.showShutdownAlert.set(false);
-      // TODO can change to no conditional statement once shutdown operates based on focus value instead of boolean.
-    } else {
-      // TODO will have to remove item from router (which should close it?), then set focus to desktop-environment.
-      this.store.focus.set('');
-      // TODO remove item from "openPrograms" array in the service. Maybe wait to see if this can be done via routing instead.
-      if (this.store.focus() === this.focusName)
-        console.error(`Cannot close focus-name: ${this.focusName}`);
-    }
   }
 
   /**

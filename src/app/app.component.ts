@@ -32,7 +32,7 @@ export class AppComponent {
 
   constructor() {
     effect(() => {
-      this.isAlertVisible.set(this.store.showShutdownAlert());
+      this.isAlertVisible.set(this.store.focus() === 'shutdown-alert');
     });
   }
 

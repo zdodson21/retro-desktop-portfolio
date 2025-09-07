@@ -30,9 +30,9 @@ describe('AppComponent', () => {
       expect(service.focus()).toBe('');
     });
 
-    it('showShutdownAlert should be false by default', () => {
-      expect(service.showShutdownAlert()).toBeFalsy();
-    });
+    it('should not contain any minimized programs', () => {
+      expect(service.minimizedPrograms()).toEqual([]);
+    })
   });
 
   describe('<alert-shutdown>', () => {
