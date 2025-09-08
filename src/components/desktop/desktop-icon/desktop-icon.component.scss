@@ -27,12 +27,12 @@
 
   &.active {
     img {
-      background-color: blue; // TODO placeholder
+      background-color: blue; // TODO placeholder, needs blue tint added to img
     }
 
     p {
       border-color: white;
-      background-color: blue;
+      background-color: $win-95-text-highlight;
     }
   }
 }

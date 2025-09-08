@@ -1,6 +1,7 @@
 // ! Common
 $win-95-grey: #c0c0c0;
 $win-95-dark-cyan: #007d80;
+$win-95-text-highlight: #05037F; // TODO ensure this is consistent across text highlighting. RN this is the color when clicking desktop icon in Win95
 
 @mixin icon-common {
   pointer-events: none;
