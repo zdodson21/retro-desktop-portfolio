@@ -12,7 +12,7 @@
     z-index: 2;
     pointer-events: none;
 
-    ::ng-deep * {
+    ::ng-deep > * {
       pointer-events: all;
     }
   }

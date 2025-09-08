@@ -2,7 +2,6 @@
 
 .system-monitor-wrapper {
   @include program-common();
-  // TODO whatever I do to make the desktop-icon work, I need to add to program-common
 
   .frame-contents {
     @include text-common();
