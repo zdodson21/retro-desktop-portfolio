@@ -12,6 +12,7 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "test:hl": "ng test --browsers=ChromeHeadless",
+    "test:hlnw": "ng test --browsers=ChromeHeadless --watch=false",
     "test:ci": "ng test --watch=false --karma-config=.github/configurations/karma.conf.js",
     "actions": "act",
     "actions:native": "npm run build; npm run test:ci",
