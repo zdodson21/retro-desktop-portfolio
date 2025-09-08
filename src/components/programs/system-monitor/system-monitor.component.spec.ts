@@ -21,7 +21,17 @@ describe('SystemMonitorComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should have <window-frame focus-name="system-monitor>', () => {
-    expect(compiled.querySelector('window-frame')?.getAttribute('focus-name')).toBe('system-monitor');
+  describe('Window Management', () => {
+    it('focus-name should be "system-monitor"', () => {
+      expect(compiled.querySelector('window-frame')?.getAttribute('focus-name')).toBe('system-monitor');
+    });
+
+    it('window-title should be "System Monitor"', () => {
+      expect(compiled.querySelector('window-frame')?.getAttribute('window-title')).toBe('System Monitor');
+    });
+
+    it('icon path should be correct', () => {
+      expect(compiled.querySelector('window-frame')?.getAttribute('window-icon')?.split('.')[0]).toBe('assets/icons/system-monitor')
+    });
   });
 });
