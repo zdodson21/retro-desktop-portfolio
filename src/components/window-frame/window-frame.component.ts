@@ -214,7 +214,7 @@ export class WindowFrameComponent {
   }
 
   /**
-   * @description sets window to full size
+   * @description sets program window to full size
    */
   private helpSetFullSize() {
     this.elementRef.nativeElement.style.width = '100.01%'; // ! 100.01% removes slivers of background in some browsers (Firefox)
