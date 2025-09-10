@@ -24,19 +24,19 @@ describe('WindowFrameComponent', () => {
   describe('Buttons', () => {
     describe('Assets', () => {
       // TODO add test for minimize button when icon added
-      // it('should have proper minimize button icon', () => {
-      //   expect(compiled.querySelector('.minimize-button > img')?.getAttribute('src')?.split('.')[0]).toBe('assets/icons/minimize-button');
-      // });
+      it('should have proper minimize button icon', () => {
+        expect(compiled.querySelector('.minimize-button > img')?.getAttribute('src')).toBe('assets/icons/minimize-button.svg');
+      });
 
       it('should have proper starting view button icon', () => {
-        expect(compiled.querySelector('.view-button > img')?.getAttribute('src')?.split('.')[0]).toBe('assets/icons/view-maximize');
+        expect(compiled.querySelector('.view-button > img')?.getAttribute('src')).toBe('assets/icons/maximize-button.svg');
       });
 
       // TODO add test for changing view button icon
       // test presses button, tests for icon
 
       it('should have proper close button icon', () => {
-        expect(compiled.querySelector('.close-button > img')?.getAttribute('src')?.split('.')[0]).toBe('assets/icons/close-button');
+        expect(compiled.querySelector('.close-button > img')?.getAttribute('src')).toBe('assets/icons/close-button.svg');
       });
     });
 

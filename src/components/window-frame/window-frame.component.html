@@ -9,10 +9,12 @@
     </div>
     <div class="controls">
       <div class="no-gap">
-        <button #minimizeButton class="minimize-button" (click)="minimizeButtonHandler($event)">-</button>
-        <!-- TODO add test when asset added above -->
+        <button #minimizeButton class="minimize-button" (click)="minimizeButtonHandler($event)">
+          <img src="assets/icons/minimize-button.svg" alt="minimize icon">
+        </button>
         <button #viewButton class="view-button" (click)="viewButtonHandler()">
-          <img src="{{ viewIcon }}" alt="maximize icon" />
+          <img src="{{ viewIcon }}" alt="window size change icon" />
+          <!-- TODO set alt text to change when viewIcon changes -->
         </button>
       </div>
       <button class="close-button" (click)="closeButtonHandler($event)">

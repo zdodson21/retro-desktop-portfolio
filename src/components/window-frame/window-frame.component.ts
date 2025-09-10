@@ -47,7 +47,7 @@ export class WindowFrameComponent {
   private isMinimized: boolean = false;
   private isFullSize: boolean = false;
 
-  public viewIcon = 'assets/icons/view-maximize.svg';
+  public viewIcon = 'assets/icons/maximize-button.svg';
 
   // Window management checks
   private isDragging: boolean = false;
@@ -154,14 +154,14 @@ export class WindowFrameComponent {
         height: this.store.viewportHeight(),
       };
 
-      this.viewIcon = 'assets/icons/close-button.svg'; // TODO placeholder
+      this.viewIcon = 'assets/icons/restore-button.svg'; // TODO placeholder
 
       this.wrapperRef.nativeElement.classList.add('full-view');
 
       this.helpSetFullSize();
     } else {
       // exiting full screen
-      this.viewIcon = 'assets/icons/view-maximize.svg';
+      this.viewIcon = 'assets/icons/maximize-button.svg';
 
       this.wrapperRef.nativeElement.classList.remove('full-view');
 
