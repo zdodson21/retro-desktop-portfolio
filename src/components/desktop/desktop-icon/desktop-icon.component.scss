@@ -27,7 +27,8 @@
 
   &.active {
     img {
-      background-color: blue; // TODO placeholder, needs blue tint added to img
+      // background-color: $win-95-highlight; // TODO placeholder, needs blue tint added to img
+      filter: brightness(0) saturate(100%) invert(6%) sepia(84%) saturate(5211%) hue-rotate(243deg) brightness(114%) contrast(135%);
     }
 
     p {
