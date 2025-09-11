@@ -17,7 +17,7 @@ import { TaskbarStartComponent } from '../taskbar-start/taskbar-start.component'
 export class TaskbarBaseComponent {
   @ViewChild('taskbarBase') taskbarBaseRef!: ElementRef;
 
-  private store: AppService = inject(AppService);
+  public store: AppService = inject(AppService);
   private item: HTMLElement;
 
   ngAfterViewInit() {

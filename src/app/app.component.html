@@ -1,7 +1,7 @@
 <div class="app-wrapper">
   <alert-shutdown #shutdownAlert [class.visible]="isAlertVisible()"></alert-shutdown>
   <desktop-environment>
-    <system-monitor></system-monitor>
+    <router-outlet></router-outlet>
   </desktop-environment>
   <start-menu></start-menu>
   <taskbar-base></taskbar-base>

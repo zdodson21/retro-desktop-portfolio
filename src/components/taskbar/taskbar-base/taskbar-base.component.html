@@ -3,7 +3,9 @@
     <taskbar-start></taskbar-start>
   </div>
   <div class="middle">
-    <taskbar-program icon="assets/icons/system-monitor.svg" text="System Monitor" focus-name="system-monitor"></taskbar-program>
+    @for (program of this.store.openPrograms(); track program) {
+      <taskbar-program [icon]="program.iconPath" [program-name]="program.programName" [focus-name]="program.focusName"></taskbar-program>
+    }
   </div>
   <div class="right-side">
     <taskbar-clock></taskbar-clock>

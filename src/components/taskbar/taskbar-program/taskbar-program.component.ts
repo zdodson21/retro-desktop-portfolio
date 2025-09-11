@@ -19,7 +19,7 @@ import { AppService } from '../../../app/app.service';
 export class TaskbarProgramComponent {
   @Input({ alias: 'focus-name' }) public focusName: string;
   @Input({ alias: 'icon' }) public src: string;
-  @Input({ alias: 'text' }) public text: string;
+  @Input({ alias: 'program-name' }) public programName: string;
 
   @ViewChild('program') private programRef!: ElementRef;
 

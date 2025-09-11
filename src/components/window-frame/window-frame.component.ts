@@ -11,6 +11,7 @@ import {
   WritableSignal,
 } from '@angular/core';
 import { AppService } from '../../app/app.service';
+import { Programs } from '../../interfaces/open-programs.interface';
 
 @Component({
   selector: 'window-frame',
@@ -27,6 +28,10 @@ export class WindowFrameComponent {
   @Input({ alias: 'focus-name' }) public focusName: string;
   @Input({ alias: 'window-title' }) public title: string;
   @Input({ alias: 'window-icon' }) public icon: string;
+  @Input({ alias: 'percent-height'}) public percentHeight: number; // should be set to same value window-frame is defined as in SCSS
+  @Input({ alias: 'percent-width'}) public percentWidth: number; // TODO There's probably a better way to do this, remove comment when updated
+
+  // TODO add percent-height and percent-width inputs for window sizes when not in full view
 
   @ViewChild('viewButton') private viewButtonRef!: ElementRef;
   @ViewChild('minimizeButton') private minimizeButtonRef!: ElementRef;
@@ -186,8 +191,12 @@ export class WindowFrameComponent {
         // * set this.dimensions to new width & height, should be all set below at CSS setting
       }
 
-      this.elementRef.nativeElement.style.width = `${this.dimensions.width}px`;
-      this.elementRef.nativeElement.style.height = `${this.dimensions.height}px`;
+      // TODO these do not work, implementing temp. solution
+      // this.elementRef.nativeElement.style.width = `${this.dimensions.width}px`;
+      // this.elementRef.nativeElement.style.height = `${this.dimensions.height}px`;
+
+      this.elementRef.nativeElement.style.width = `${this.percentWidth}%`;
+      this.elementRef.nativeElement.style.height = `${this.percentHeight}%`;
       this.elementRef.nativeElement.style.top = `${this.windowCoordinates.top}px`;
       this.elementRef.nativeElement.style.left = `${this.windowCoordinates.left}px`;
     }
@@ -203,11 +212,19 @@ export class WindowFrameComponent {
     if (this.isFullSize) {
       this.helpSetFullSize();
     } else {
-      // TODO resize window when viewport changes; should be similar math to above exiting full screen adapted for constant change
-      // Calculate width and height to figure out percent of screen taken compared to viewportRecorder
-      // Figure out pixel value based on current viewport and percentage
-      // TODO Try changing viewport height and width and see how it modifies the window-frame component. If no change, change
-      // window-frame to full screen, resize viewport, then un-fullscreen. Play with it and figure out what exactly needs to happen.
+      // this.elementRef.nativeElement.style.width = `${this.store.viewportWidth() / 2}px`;
+      // this.elementRef.nativeElement.style.height = `${this.store.viewportHeight() / 2}px`;
+
+      // TODO need to figure out if the window needs to move left, right, up, or down based on new values.
+      // If new viewport width || height is > previous, then adding is needed, else subtraction is needed
+
+      // this.windowCoordinates = {
+      //   top: this.store.viewportHeight() - this.windowCoordinates.top,
+      //   left: this.store.viewportWidth() - this.windowCoordinates.left
+      // }
+
+      // this.elementRef.nativeElement.style.top = `${this.windowCoordinates.top}px`;
+      // this.elementRef.nativeElement.style.left = `${this.windowCoordinates.left}px`;
     }
 
     this.helpStayInViewport();
@@ -229,10 +246,25 @@ export class WindowFrameComponent {
    */
   public closeButtonHandler(event?: MouseEvent) {
     event?.stopPropagation();
-    // TODO will have to remove item from router (which should close it?), then set focus to desktop-environment.
-    // Removing item from router will make it disappear
     this.store.focus.set('');
-    // TODO remove item from "openPrograms" array in the service. Maybe wait to see if this can be done via routing instead.
+
+    // TODO not yet working (not removing from openPrograms())
+    const currentProgram: Programs = {
+      programName: this.title,
+      focusName: this.focusName,
+      iconPath: this.icon,
+    };
+
+    if (
+      this.store
+        .openPrograms()
+        .some((currentProgram) => currentProgram.focusName === this.focusName)
+    ) {
+      this.store
+        .openPrograms()
+        .splice(this.store.openPrograms().indexOf(currentProgram), 1);
+      // TODO Removing last element of array currently???
+    }
   }
 
   /**

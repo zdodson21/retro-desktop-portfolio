@@ -9,12 +9,7 @@ import { OpenPrograms } from '../interfaces/open-programs.interface';
 export class AppService {
   // ! Common
   focus: WritableSignal<string> = signal('');
-  openPrograms: OpenPrograms = signal([
-    {
-      programName: 'System Monitor',
-      focusName: 'system-monitor',
-    },
-  ]);
+  openPrograms: OpenPrograms = signal([]);
 
   // ! Start Menu
 

@@ -8,11 +8,11 @@ import {
 } from '@angular/core';
 import { AlertShutdownComponent } from '../components/alerts/alert-shutdown/alert-shutdown.component';
 import { DesktopEnvironmentComponent } from '../components/desktop/desktop-environment/desktop-environment.component';
-import { SystemMonitorComponent } from '../components/programs/system-monitor/system-monitor.component';
 import { StartMenuComponent } from '../components/start/start-menu/start-menu.component';
 import { TaskbarBaseComponent } from '../components/taskbar/taskbar-base/taskbar-base.component';
 import { AppService } from './app.service';
-
+import { RouterOutlet } from '@angular/router';
+import { SystemMonitorComponent } from '../components/programs/system-monitor/system-monitor.component';
 @Component({
   selector: 'app-root',
   imports: [
@@ -20,7 +20,7 @@ import { AppService } from './app.service';
     TaskbarBaseComponent,
     DesktopEnvironmentComponent,
     StartMenuComponent,
-    SystemMonitorComponent,
+    RouterOutlet,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
