@@ -201,3 +201,13 @@ To build for macOS systems, run the following:
 ```bash
 npm run forge:mac
 ```
+
+---
+
+## Is This Repository Open Source?
+
+No. Because this is my portfolio web application containing numerous aspects (such as pictures and descriptions) of my life, this repository is not open source. It is "code-available", meaning anyone can view the code to see how all the pieces function, but no one is permitted to copy, modify, or redistribute this code without my permission.
+
+## Can I Contribute to this Repository?
+
+No*. I will not be accepting any pull requests submitted to this repository. However, if you have a suggestiong for how code could be written better, you are welcome to submit a pull request. Any pull requests or issues submitted will be taken as suggestsions, and no pull requests will be merged.
