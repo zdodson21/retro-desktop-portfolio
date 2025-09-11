@@ -38,10 +38,6 @@ Some aspects of this web application are created using external web-components, 
 
 ---
 
-## Angular Development
-
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.1.
-
 ### Installing Dependencies
 
 To install dependencies, run the following:
