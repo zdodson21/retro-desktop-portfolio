@@ -4,7 +4,7 @@
 
 ## Description
 
-This website  serves the purpose of being my portfolio as well as a sandbox to try new skills. Some aspects of this codebase (such as Electron) are unneccessary for this website, but were incorporated to learn how to utilize them. If something seems out of place, it is likely there so I could learn how to utilize it.
+This website serves the purpose of being my portfolio as well as a sandbox to try new skills. Some aspects of this codebase (such as Electron) are unnecessary for this website, but were incorporated to learn how to utilize them. If something seems out of place, it is likely included so I could learn how to use it.
 
 ---
 
@@ -13,7 +13,7 @@ This website  serves the purpose of being my portfolio as well as a sandbox to t
 | Tool | Purpose & Description |
 | ---- | --------------------- |
 | ![Angular](https://img.shields.io/badge/angular-%23DD0031.svg?style=for-the-badge&logo=angular&logoColor=white) | **[Angular](https://angular.dev/)**: Front-end framework used to handle the building, routing, and numerous other aspects of this web app. |
-| ![Lit](https://img.shields.io/badge/lit-4c64ff.svg?style=for-the-badge&logo=lit&logoColor=white) | **[Lit](https://lit.dev/docs/)**: Web-component library used for creation of some individual "programs" in the website that don't need to interact with the rest of the system. Creating web components helps to keep these "programs" containerized so they are less likely to introduce any bugs anywhere else. Programs that use Lit will be listed here when they are added. |
+| ![Lit](https://img.shields.io/badge/lit-4c64ff.svg?style=for-the-badge&logo=lit&logoColor=white) | **[Lit](https://lit.dev/docs/)**: Web-component library used for creation of some individual "programs" in the website that don't need to interact with the rest of the system. Creating web components helps to keep these "programs" containerized, making them less likely to introduce bugs elsewhere. Programs that use Lit will be listed here as they are added. |
 | ![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white) | **[Typescript](https://www.typescriptlang.org/)**: Language used by Angular to handle all logic related tasks. |
 | ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E) | **[JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)**: Utilized in configuration and may be used in Lit web components. |
 | ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white) | **[HTML](https://developer.mozilla.org/en-US/docs/Web/HTML)**: Structure of overall web app, individual "web pages" in the browser, and structure of web components. |
@@ -28,13 +28,13 @@ This website  serves the purpose of being my portfolio as well as a sandbox to t
 | ![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white) | **[Docker*](https://www.docker.com/)**: Containerization|
 | ![Electron.js](https://img.shields.io/badge/Electron-191970?style=for-the-badge&logo=Electron&logoColor=white) | **[Electron*](https://www.electronjs.org/)**: Desktop App|
 | ![Aseprite](https://img.shields.io/badge/Aseprite-FFFFFF?style=for-the-badge&logo=Aseprite&logoColor=#7D929E) | **[Aseprite](https://www.aseprite.org/)**: Icon recreation. |
-| ![Gimp Gnu Image Manipulation Program](https://img.shields.io/badge/Gimp-657D8B?style=for-the-badge&logo=gimp&logoColor=FFFFFF) | **[GIMP](https://www.gimp.org/)**: Icon recreation / file type conversion. |
+| ![Gimp Gnu Image Manipulation Program](https://img.shields.io/badge/Gimp-657D8B?style=for-the-badge&logo=gimp&logoColor=FFFFFF) | **[GIMP](https://www.gimp.org/)**: Icon recreation and file type conversion. |
 
 \* - Feature not required for typical website development / operation (added solely to learn how they work).
 
 ### Web Component Repos
 
-Some aspects of this web application are created using external web-components, hosted in other repositories. Those will be listed here when they are created.
+Some aspects of this web application are created using external web-components, hosted in other repositories. These will be listed here when they are created.
 
 ---
 
@@ -44,7 +44,7 @@ This project was generated using [Angular CLI](https://github.com/angular/angula
 
 ### Installing Dependencies
 
-To install dependencies run the following:
+To install dependencies, run the following:
 
 ```bash
 npm run install
@@ -58,11 +58,11 @@ To start a local development server, run:
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/` (or the provided localhost URL provided by Angular if port 4200 is currently in use). The application will automatically reload whenever you modify any of the source files.
+Once the server is running, open your browser and navigate to `http://localhost:4200/` (or the localhost URL provided by Angular if port 4200 is currently in use). The application will automatically reload whenever you modify any of the source files.
 
 ### Code scaffolding
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+The Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
 
 ```bash
 ng generate component component-name
@@ -112,11 +112,23 @@ For more information on using the Angular CLI, including detailed command refere
 
 To view code for currently configured Actions visit the [workflows folder in this repository](https://github.com/zdodson21/retro-desktop-portfolio/tree/main/.github/workflows).
 
-For development and locally testing configured actions, use [act](https://nektosact.com/).
+Use the following command to run test actions locally using native commands:
+
+```bash
+npm run actions:native
+```
+
+You can also use [act](https://nektosact.com/).
 
 **Note:** You must have docker installed to use act. You can figure out how to install Docker for your system [here](https://www.docker.com/).
 
 ### Build
+
+Default build command:
+
+```bash
+npm run build
+```
 
 Use the following command to run the build action locally:
 
@@ -126,7 +138,26 @@ act --job build
 
 ### Test
 
-Use the following command to run the test action locally:
+You can utilize the following test commands:
+
+```bash
+# Standard testing, opens Chrome
+npm run test
+
+# Headless testing
+npm run test:hl
+
+# Headless testing, does not watch for changes
+npm run test:hlnw
+
+# Testing using the GitHub Actions configuration file
+npm run test:ci
+
+```
+
+Use the following command to run the test action locally using [act](https://github.com/nektos/act):
+
+Note: This may not work due to issues with reliance on Google Chrome for testing.
 
 ```bash
 act --job test
@@ -148,9 +179,9 @@ npm run docker:build
 npm run docker:run
 ```
 
-From there you can either access this project in your browser at either the network address provided by the container or at [localhost:5200](http://localhost:5200)
+From there you can access this project in your browser at either the network address provided by the container or at [localhost:5200](http://localhost:5200)
 
-**Note:** Any self built container serves as an offline only method of accessing this web application, so any features that require a connection to a server will not function.
+**Note:** Any self-built container serves as an offline-only method of accessing this web application, so any features that require a connection to a server will not function.
 
 ---
 
@@ -206,8 +237,8 @@ npm run forge:mac
 
 ## Is This Repository Open Source?
 
-No. Because this is my portfolio web application containing numerous aspects (such as pictures and descriptions) of my life, this repository is not open source. It is "code-available", meaning anyone can view the code to see how all the pieces function, but no one is permitted to copy, modify, or redistribute this code without my permission.
+No. Because this is my portfolio web application, which contains numerous aspects (such as pictures and descriptions) of my life and projects, this repository is not open source. It is "code-available", meaning anyone can view the code to see how all the pieces function, but no one is permitted to copy, modify, or redistribute this code without my permission.
 
 ## Can I Contribute to this Repository?
 
-No*. I will not be accepting any pull requests submitted to this repository. However, if you have a suggestion for how code could be written better, you are welcome to submit a pull request. Any pull requests or issues submitted will be taken as suggestsions, and no pull requests will be merged.
+No*. I will not be accepting any pull requests submitted to this repository. However, if you have a suggestion for how code could be written better, you are welcome to submit a pull request. Any pull requests or issues submitted will be taken as suggestions, and no pull requests will be merged.
