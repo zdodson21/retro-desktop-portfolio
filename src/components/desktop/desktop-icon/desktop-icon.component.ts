@@ -20,7 +20,7 @@ export class DesktopIconComponent {
   @Input({ alias: 'icon-src' }) public src: string;
   @Input({ alias: 'icon-text' }) public text: string;
   @Input({ alias: 'icon-focus-name' }) public iconFocusName: string;
-  @Input({ alias: 'focus-name'}) public focusName: string; // The focus name of the program that opens on double click
+  @Input({ alias: 'focus-name' }) public focusName: string; // The focus name of the program that opens on double click
 
   @ViewChild('desktopIcon') private desktopIconRef!: ElementRef;
 
@@ -35,9 +35,10 @@ export class DesktopIconComponent {
 
   constructor() {
     effect(() => {
-      if (this.store.focus() == this.iconFocusName) {
-        this.isElementFocused.set(true);
-      } else {
+      if (
+        this.store.focus() !== this.iconFocusName &&
+        this.store.focus() !== this.focusName
+      ) {
         this.isElementFocused.set(false);
       }
     });
@@ -49,6 +50,7 @@ export class DesktopIconComponent {
   public singleClickHandler(event: MouseEvent) {
     event?.stopPropagation();
     this.store.focus.set(this.iconFocusName);
+    this.isElementFocused.set(true);
   }
 
   /**
@@ -57,6 +59,7 @@ export class DesktopIconComponent {
   public dblClickHandler(event: MouseEvent) {
     event?.stopPropagation();
     this.store.focus.set(this.focusName);
+    this.isElementFocused.set(true);
     console.log('double click');
   }
 }
