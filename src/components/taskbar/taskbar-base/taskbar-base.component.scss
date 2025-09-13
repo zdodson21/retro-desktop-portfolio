@@ -28,9 +28,15 @@
     height: 100%;
     gap: 4px;
     overflow: hidden;
+    display: flex;
+    flex-direction: row;
 
     taskbar-program {
-      width: min(200px, 33%);
+      width: 200px;
+      min-width: 0;
+      flex-shrink: 1;
+      min-width: 22px;
+      max-width: 200px;
     }
   }
 

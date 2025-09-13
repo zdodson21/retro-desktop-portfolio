@@ -11,6 +11,7 @@
   padding: 2px 6px;
   gap: 6px;
   overflow: hidden; // TODO needs changed to be elipsies or something like that
+  text-overflow: ellipsis;
 
   img {
     @include taskbar-item-icon();
@@ -18,6 +19,9 @@
 
   p {
     @include taskbar-item-text();
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   &.active {

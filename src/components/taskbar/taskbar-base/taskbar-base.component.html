@@ -4,7 +4,7 @@
   </div>
   <div class="middle">
     @for (program of this.store.openPrograms(); track program) {
-      <taskbar-program [icon]="program.iconPath" [program-name]="program.programName" [focus-name]="program.focusName"></taskbar-program>
+      <taskbar-program [icon]="program.iconPath" [program-name]="program.programName" [focus-name]="program.focusName"/>
     }
   </div>
   <div class="right-side">
