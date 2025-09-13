@@ -31,11 +31,17 @@ export class AlertShutdownComponent {
   public formSubmit(event: SubmitEvent) {
     event.preventDefault();
 
-    if (this.formValue === 0) {
-      globalThis.location.href =
-        'https://github.com/zdodson21?tab=repositories';
-    } else {
-      globalThis.location.href = `${globalThis.location.protocol}//${globalThis.location.host}`;
+    switch(this.formValue) {
+      case 0:
+        globalThis.location.href = 'https://github.com/zdodson21?tab=repositories';
+        break;
+      case 1:
+        globalThis.location.href = `${globalThis.location.protocol}//${globalThis.location.host}`;
+        break;
+      // TODO uncomment below when ready to integrate MSDOS-Prompt mode
+      // case 2:
+      //   // TODO switch to msdos-prompt mode
+      //   break;
     }
 
     this.dismissAlert();
