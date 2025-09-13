@@ -17,21 +17,10 @@
     display: flex;
     flex-direction: column-reverse;
 
-    p {
-      // TODO font needs to be corrected
-      @include text-common();
+    img {
+      width: 32px;
       padding: 8px;
-      font-weight: bold;
-      transform: rotate(-90deg);
-      font-size: 32px;
-
-      :first-child {
-        color: #bec3c6;
-      }
-
-      :last-child {
-        color: #fcfcfc;
-      }
+      height: auto;
     }
   }
 

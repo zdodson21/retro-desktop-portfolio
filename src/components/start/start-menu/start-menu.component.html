@@ -1,18 +1,15 @@
 <div #startMenu class="start-menu-wrapper" (click)="clickHandler($event)">
   <div class="win-95-bar">
-    <p>
-      <span>Windows</span>
-      <span>95</span>
-    </p>
+    <img src="assets/windows-95-text-start-menu.svg" alt="Windows95">
   </div>
   <div class="right-side">
     <div class="programs">
       <start-dropdown icon="assets/icons/program-folder.svg" text="Programs"></start-dropdown>
       <start-item icon="assets/icons/system-monitor.svg" program-name="System Monitor" focus-name="system-monitor"></start-item>
+      <start-item icon="assets/icons/internet-explorer.svg" program-name="Internet Explorer" focus-name="internet-explorer"></start-item>
       <start-item icon="assets/icons/msdos.svg" program-name="MS-DOS Prompt" focus-name="msdos-prompt"></start-item>
       <start-item icon="assets/icons/msdos.svg" program-name="MS-DOS Prompt" focus-name="msdos-prompt"></start-item>
-      <start-item icon="assets/icons/msdos.svg" program-name="MS-DOS Prompt" focus-name="msdos-prompt"></start-item>
-      <start-item icon="assets/icons/msdos.svg" program-name="MS-DOS Prompt" focus-name="msdos-prompt"></start-item>
+      <start-item icon="assets/icons/help.svg" program-name="Help" focus-name="help"></start-item>
     </div>
     <div class="power-options">
       <start-shutdown></start-shutdown>
