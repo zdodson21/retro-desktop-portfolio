@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { AppService } from '../../../app/app.service';
 import { SystemMonitorComponent } from '../system-monitor/system-monitor.component';
 import { ZachDodsonComponent } from '../zach-dodson/zach-dodson.component';
 
@@ -23,6 +24,8 @@ export class ProgramsWrapperComponent {
     ! Steps to add IE pages to routes
   */
 
+  private store: AppService = inject(AppService);
+
   public programs = {
     systemMonitor: false,
     zachDodson: false,
@@ -32,8 +35,21 @@ export class ProgramsWrapperComponent {
     this.route.queryParams.subscribe((params) => {
       this.programs.systemMonitor = 'system-monitor' in params;
       this.programs.zachDodson = 'zach-dodson' in params;
+
+      // TODO basically if param is in openPrograms, it needs to be in the route
+      Object.keys(params).forEach((param) => {
+        if (
+          !this.store
+            .openPrograms()
+            .some((program) => program.focusName === param)
+        ) {
+        }
+      });
     });
 
     // TODO next step => openPrograms needs to be updated based on what values are true here
+    // this.store.openPrograms().forEach((program) => {
+    //   if (program)
+    // })
   }
 }

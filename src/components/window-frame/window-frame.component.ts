@@ -11,7 +11,6 @@ import {
   WritableSignal,
 } from '@angular/core';
 import { AppService } from '../../app/app.service';
-import { Programs } from '../../interfaces/open-programs.interface';
 
 @Component({
   selector: 'window-frame',
@@ -28,8 +27,8 @@ export class WindowFrameComponent {
   @Input({ alias: 'focus-name' }) public focusName: string;
   @Input({ alias: 'window-title' }) public title: string;
   @Input({ alias: 'window-icon' }) public icon: string;
-  @Input({ alias: 'percent-height'}) public percentHeight: number; // should be set to same value window-frame is defined as in SCSS
-  @Input({ alias: 'percent-width'}) public percentWidth: number; // TODO There's probably a better way to do this, remove comment when updated
+  @Input({ alias: 'percent-height' }) public percentHeight: number; // should be set to same value window-frame is defined as in SCSS
+  @Input({ alias: 'percent-width' }) public percentWidth: number; // TODO There's probably a better way to do this, remove comment when updated
 
   // TODO add percent-height and percent-width inputs for window sizes when not in full view
 
@@ -214,15 +213,12 @@ export class WindowFrameComponent {
     } else {
       // this.elementRef.nativeElement.style.width = `${this.store.viewportWidth() / 2}px`;
       // this.elementRef.nativeElement.style.height = `${this.store.viewportHeight() / 2}px`;
-
       // TODO need to figure out if the window needs to move left, right, up, or down based on new values.
       // If new viewport width || height is > previous, then adding is needed, else subtraction is needed
-
       // this.windowCoordinates = {
       //   top: this.store.viewportHeight() - this.windowCoordinates.top,
       //   left: this.store.viewportWidth() - this.windowCoordinates.left
       // }
-
       // this.elementRef.nativeElement.style.top = `${this.windowCoordinates.top}px`;
       // this.elementRef.nativeElement.style.left = `${this.windowCoordinates.left}px`;
     }
@@ -248,22 +244,12 @@ export class WindowFrameComponent {
     event?.stopPropagation();
     this.store.focus.set('');
 
-    // TODO not yet working (not removing from openPrograms())
-    const currentProgram: Programs = {
-      programName: this.title,
-      focusName: this.focusName,
-      iconPath: this.icon,
-    };
+    const INDEX = this.store
+      .openPrograms()
+      .findIndex((program) => program.focusName === this.focusName);
 
-    if (
-      this.store
-        .openPrograms()
-        .some((currentProgram) => currentProgram.focusName === this.focusName)
-    ) {
-      this.store
-        .openPrograms()
-        .splice(this.store.openPrograms().indexOf(currentProgram), 1);
-      // TODO Removing last element of array currently???
+    if (INDEX !== -1) {
+      this.store.openPrograms().splice(INDEX, 1);
     }
   }
 
