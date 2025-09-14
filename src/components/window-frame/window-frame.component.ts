@@ -23,6 +23,7 @@ export class WindowFrameComponent {
    * @description prevents movement, resizing, and hides minimize & view buttons when true
    */
   @Input({ alias: 'alert' }) public isAlert: boolean = false;
+  @Input({ alias: 'hide-buttons'}) public hideButtons: boolean = false;
 
   @Input({ alias: 'focus-name' }) public focusName: string;
   @Input({ alias: 'window-title' }) public title: string;
@@ -79,12 +80,8 @@ export class WindowFrameComponent {
   };
 
   ngAfterViewInit() {
-    this.viewItem = this.viewButtonRef.nativeElement;
-    this.minimizeItem = this.minimizeButtonRef.nativeElement;
-
     if (this.isAlert) {
-      this.viewItem.classList.add('hide-button');
-      this.minimizeItem.classList.add('hide-button');
+      this.hideButtons = true;
       this.isElementFocused.set(true);
     } else {
       this.setupDraggable();
