@@ -4,8 +4,6 @@ import { Component } from '@angular/core';
   selector: 'app-control-panel',
   imports: [],
   templateUrl: './control-panel.component.html',
-  styleUrl: './control-panel.component.scss'
+  styleUrl: './control-panel.component.scss',
 })
-export class ControlPanelComponent {
-
-}
+export class ControlPanelComponent {}

@@ -15,8 +15,8 @@ export class ProgramsWrapperComponent {
     ! Steps to add programs to routes
       1. Import program component (both in TS & Angular imports).
       2. Create variable for program in `programs` object variable. Ensure alphabetical order maintained.
-      3. Check for program focus-name in params. Ensure alphabetical order maintained.
-        routing instead of UI it is added
+      3. Check for name in params and return value to program variable.
+      4. Create an if statement to add program to openPrograms() if it is in params
   */
 
   /*

@@ -8,9 +8,8 @@ describe('WindowsHelpComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [WindowsHelpComponent]
-    })
-    .compileComponents();
+      imports: [WindowsHelpComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(WindowsHelpComponent);
     component = fixture.componentInstance;

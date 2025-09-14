@@ -8,9 +8,8 @@ describe('OpenSourceContributionsComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [OpenSourceContributionsComponent]
-    })
-    .compileComponents();
+      imports: [OpenSourceContributionsComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(OpenSourceContributionsComponent);
     component = fixture.componentInstance;

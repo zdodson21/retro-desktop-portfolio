@@ -4,14 +4,13 @@
       @if (icon) {
         <img src="{{ icon }}" alt="{{ title }}" />
       }
-      <!-- TODO if src is empty, then set display none -->
       <p>{{ title }}</p>
     </div>
     <div class="controls">
       @if (!this.hideButtons) {
         <div class="no-gap">
           <button #minimizeButton class="minimize-button" (click)="minimizeButtonHandler($event)">
-            <img src="assets/icons/minimize-button.svg" alt="minimize icon">
+            <img src="assets/icons/minimize-button.svg" alt="minimize icon" />
           </button>
           <button #viewButton class="view-button" (click)="viewButtonHandler()">
             <img src="{{ viewIcon }}" alt="window size change icon" />

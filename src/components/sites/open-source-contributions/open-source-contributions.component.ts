@@ -4,8 +4,6 @@ import { Component } from '@angular/core';
   selector: 'app-open-source-contributions',
   imports: [],
   templateUrl: './open-source-contributions.component.html',
-  styleUrl: './open-source-contributions.component.scss'
+  styleUrl: './open-source-contributions.component.scss',
 })
-export class OpenSourceContributionsComponent {
-
-}
+export class OpenSourceContributionsComponent {}

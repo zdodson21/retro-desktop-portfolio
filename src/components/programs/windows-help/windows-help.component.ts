@@ -4,8 +4,6 @@ import { Component } from '@angular/core';
   selector: 'app-windows-help',
   imports: [],
   templateUrl: './windows-help.component.html',
-  styleUrl: './windows-help.component.scss'
+  styleUrl: './windows-help.component.scss',
 })
-export class WindowsHelpComponent {
-
-}
+export class WindowsHelpComponent {}

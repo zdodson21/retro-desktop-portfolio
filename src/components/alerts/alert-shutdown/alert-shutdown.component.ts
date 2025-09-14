@@ -31,9 +31,10 @@ export class AlertShutdownComponent {
   public formSubmit(event: SubmitEvent) {
     event.preventDefault();
 
-    switch(this.formValue) {
+    switch (this.formValue) {
       case 0:
-        globalThis.location.href = 'https://github.com/zdodson21?tab=repositories';
+        globalThis.location.href =
+          'https://github.com/zdodson21?tab=repositories';
         break;
       case 1:
         globalThis.location.href = `${globalThis.location.protocol}//${globalThis.location.host}`;

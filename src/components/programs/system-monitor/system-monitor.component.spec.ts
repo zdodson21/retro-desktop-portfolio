@@ -31,7 +31,7 @@ describe('SystemMonitorComponent', () => {
     });
 
     it('icon path should be correct', () => {
-      expect(compiled.querySelector('window-frame')?.getAttribute('window-icon')).toBe('assets/icons/system-monitor.svg')
+      expect(compiled.querySelector('window-frame')?.getAttribute('window-icon')).toBe('assets/icons/system-monitor.svg');
     });
   });
 });

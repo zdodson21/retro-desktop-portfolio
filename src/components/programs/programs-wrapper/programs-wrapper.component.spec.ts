@@ -10,9 +10,8 @@ describe('ProgramsWrapperComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [ProgramsWrapperComponent],
-      providers: [provideRouter([])]
-    })
-    .compileComponents();
+      providers: [provideRouter([])],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(ProgramsWrapperComponent);
     component = fixture.componentInstance;

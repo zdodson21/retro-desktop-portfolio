@@ -41,20 +41,20 @@ describe('WindowFrameComponent', () => {
     });
 
     // describe('Hiding', () => {
-      // TODO modify
-      // it('should not display minimize button if hideButtons is true', () => {
-      //   const minimizeButton = compiled.querySelector('.minimize-button');
-      //   minimizeButton?.classList.add('hide-button');
+    // TODO modify
+    // it('should not display minimize button if hideButtons is true', () => {
+    //   const minimizeButton = compiled.querySelector('.minimize-button');
+    //   minimizeButton?.classList.add('hide-button');
 
-      //   expect(globalThis.getComputedStyle(minimizeButton as Element).display).toBe('none');
-      // });
+    //   expect(globalThis.getComputedStyle(minimizeButton as Element).display).toBe('none');
+    // });
 
-      // it('should not display view change button on .hide-button', () => {
-      //   const viewButton = compiled.querySelector('.view-button');
-      //   viewButton?.classList.add('hide-button');
+    // it('should not display view change button on .hide-button', () => {
+    //   const viewButton = compiled.querySelector('.view-button');
+    //   viewButton?.classList.add('hide-button');
 
-      //   expect(globalThis.getComputedStyle(viewButton as Element).display).toBe('none');
-      // });
+    //   expect(globalThis.getComputedStyle(viewButton as Element).display).toBe('none');
+    // });
     // });
 
     // TODO make something like this work

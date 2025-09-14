@@ -32,7 +32,7 @@ describe('AppComponent', () => {
 
     it('should not contain any minimized programs', () => {
       expect(service.minimizedPrograms()).toEqual([]);
-    })
+    });
   });
 
   describe('<alert-shutdown>', () => {

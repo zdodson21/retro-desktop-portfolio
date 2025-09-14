@@ -4,8 +4,6 @@ import { Component } from '@angular/core';
   selector: 'app-taskbar-properties',
   imports: [],
   templateUrl: './taskbar-properties.component.html',
-  styleUrl: './taskbar-properties.component.scss'
+  styleUrl: './taskbar-properties.component.scss',
 })
-export class TaskbarPropertiesComponent {
-
-}
+export class TaskbarPropertiesComponent {}
