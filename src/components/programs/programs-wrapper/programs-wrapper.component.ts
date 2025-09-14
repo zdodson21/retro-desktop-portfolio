@@ -16,7 +16,6 @@ export class ProgramsWrapperComponent {
       1. Import program component (both in TS & Angular imports).
       2. Create variable for program in `programs` object variable. Ensure alphabetical order maintained.
       3. Check for program focus-name in params. Ensure alphabetical order maintained.
-      ? 4. Maybe need to update openPrograms array if item doesn't exist, mainly so if user goes to program through
         routing instead of UI it is added
   */
 
@@ -36,20 +35,31 @@ export class ProgramsWrapperComponent {
       this.programs.systemMonitor = 'system-monitor' in params;
       this.programs.welcome = 'welcome' in params;
 
-      // TODO basically if param is in openPrograms, it needs to be in the route
-      Object.keys(params).forEach((param) => {
-        if (
-          !this.store
-            .openPrograms()
-            .some((program) => program.focusName === param)
-        ) {
-        }
-      });
-    });
+      if (
+        'system-monitor' in params &&
+        !this.store
+          .openPrograms()
+          .some((programs) => programs.focusName === 'system-monitor')
+      ) {
+        this.store.openPrograms().push({
+          programName: 'System Monitor',
+          focusName: 'system-monitor',
+          iconPath: 'assets/icons/system-monitor.svg',
+        });
+      }
 
-    // TODO next step => openPrograms needs to be updated based on what values are true here
-    // this.store.openPrograms().forEach((program) => {
-    //   if (program)
-    // })
+      if (
+        'welcome' in params &&
+        !this.store
+          .openPrograms()
+          .some((programs) => programs.focusName === 'welcome')
+      ) {
+        this.store.openPrograms().push({
+          programName: 'Welcome',
+          focusName: 'welcome',
+          iconPath: '',
+        });
+      }
+    });
   }
 }
