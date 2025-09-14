@@ -2,11 +2,11 @@ import { Component, inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { AppService } from '../../../app/app.service';
 import { SystemMonitorComponent } from '../system-monitor/system-monitor.component';
-import { ZachDodsonComponent } from '../zach-dodson/zach-dodson.component';
+import { WelcomeComponent } from '../welcome/welcome.component';
 
 @Component({
   selector: 'app-programs-wrapper',
-  imports: [SystemMonitorComponent, ZachDodsonComponent],
+  imports: [SystemMonitorComponent, WelcomeComponent],
   templateUrl: './programs-wrapper.component.html',
   styleUrl: './programs-wrapper.component.scss',
 })
@@ -28,13 +28,13 @@ export class ProgramsWrapperComponent {
 
   public programs = {
     systemMonitor: false,
-    zachDodson: false,
+    welcome: false,
   };
 
   constructor(private route: ActivatedRoute) {
     this.route.queryParams.subscribe((params) => {
       this.programs.systemMonitor = 'system-monitor' in params;
-      this.programs.zachDodson = 'zach-dodson' in params;
+      this.programs.welcome = 'welcome' in params;
 
       // TODO basically if param is in openPrograms, it needs to be in the route
       Object.keys(params).forEach((param) => {
