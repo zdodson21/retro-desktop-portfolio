@@ -18,6 +18,7 @@
     flex-direction: column-reverse;
 
     img {
+      @include icon-common();
       width: 32px;
       padding: 8px;
       height: auto;
