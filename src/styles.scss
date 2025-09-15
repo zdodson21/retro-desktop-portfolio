@@ -42,7 +42,7 @@ $win-95-highlight: #05037f;
     border-color: black white white black;
   }
 
-  .border {
+  > span {
     width: 90%;
     height: 100%;
     align-content: center;
@@ -52,7 +52,7 @@ $win-95-highlight: #05037f;
       border-color: black;
     }
 
-    .underline {
+    > span {
       text-decoration: underline;
       border: none;
     }
