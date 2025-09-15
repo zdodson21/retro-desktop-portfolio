@@ -28,7 +28,8 @@
     {
       "files": ["*.ts", "*.spec.ts"],
       "options": {
-        "bracketSameLine": false
+        "bracketSameLine": false,
+        "printWidth": 256
       }
     }
   ]
