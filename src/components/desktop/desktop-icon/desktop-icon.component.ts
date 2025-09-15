@@ -1,13 +1,4 @@
-import {
-  Component,
-  effect,
-  ElementRef,
-  inject,
-  Input,
-  signal,
-  ViewChild,
-  WritableSignal,
-} from '@angular/core';
+import { Component, effect, ElementRef, inject, Input, signal, ViewChild, WritableSignal } from '@angular/core';
 import { AppService } from '../../../app/app.service';
 
 @Component({
@@ -35,10 +26,7 @@ export class DesktopIconComponent {
 
   constructor() {
     effect(() => {
-      if (
-        this.store.focus() !== this.iconFocusName &&
-        this.store.focus() !== this.focusName
-      ) {
+      if (this.store.focus() !== this.iconFocusName && this.store.focus() !== this.focusName) {
         this.isElementFocused.set(false);
       }
     });

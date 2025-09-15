@@ -1,12 +1,4 @@
-import {
-  Component,
-  effect,
-  ElementRef,
-  inject,
-  ViewChild,
-  signal,
-  WritableSignal,
-} from '@angular/core';
+import { Component, effect, ElementRef, inject, ViewChild, signal, WritableSignal } from '@angular/core';
 import { AppService } from '../../../app/app.service';
 
 @Component({

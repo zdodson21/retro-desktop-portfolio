@@ -1,10 +1,4 @@
-import {
-  Component,
-  effect,
-  ElementRef,
-  inject,
-  ViewChild,
-} from '@angular/core';
+import { Component, effect, ElementRef, inject, ViewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { AppService } from '../../../app/app.service';
 import { WindowFrameComponent } from '../../window-frame/window-frame.component';
@@ -33,8 +27,7 @@ export class AlertShutdownComponent {
 
     switch (this.formValue) {
       case 0:
-        globalThis.location.href =
-          'https://github.com/zdodson21?tab=repositories';
+        globalThis.location.href = 'https://github.com/zdodson21?tab=repositories';
         break;
       case 1:
         globalThis.location.href = `${globalThis.location.protocol}//${globalThis.location.host}`;

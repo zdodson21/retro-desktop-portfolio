@@ -35,12 +35,7 @@ export class ProgramsWrapperComponent {
       this.programs.systemMonitor = 'system-monitor' in params;
       this.programs.welcome = 'welcome' in params;
 
-      if (
-        'system-monitor' in params &&
-        !this.store
-          .openPrograms()
-          .some((programs) => programs.focusName === 'system-monitor')
-      ) {
+      if ('system-monitor' in params && !this.store.openPrograms().some((programs) => programs.focusName === 'system-monitor')) {
         this.store.openPrograms().push({
           programName: 'System Monitor',
           focusName: 'system-monitor',
@@ -48,12 +43,7 @@ export class ProgramsWrapperComponent {
         });
       }
 
-      if (
-        'welcome' in params &&
-        !this.store
-          .openPrograms()
-          .some((programs) => programs.focusName === 'welcome')
-      ) {
+      if ('welcome' in params && !this.store.openPrograms().some((programs) => programs.focusName === 'welcome')) {
         this.store.openPrograms().push({
           programName: 'Welcome',
           focusName: 'welcome',

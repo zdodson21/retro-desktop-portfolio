@@ -1,11 +1,4 @@
-import {
-  Component,
-  effect,
-  ElementRef,
-  inject,
-  Renderer2,
-  ViewChild,
-} from '@angular/core';
+import { Component, effect, ElementRef, inject, Renderer2, ViewChild } from '@angular/core';
 import { AppService } from '../../../app/app.service';
 import { StartDropdownComponent } from '../start-dropdown/start-dropdown.component';
 import { StartItemComponent } from '../start-item/start-item.component';

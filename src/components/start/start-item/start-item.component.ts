@@ -39,11 +39,7 @@ export class StartItemComponent {
   public clickHandler(event: MouseEvent) {
     event?.stopPropagation();
     // TODO if the same program exists multiple times it is still added multiple times
-    if (
-      !this.store
-        .openPrograms()
-        .some((programs) => programs.focusName === this.focusName)
-    ) {
+    if (!this.store.openPrograms().some((programs) => programs.focusName === this.focusName)) {
       this.store.openPrograms().push(this.programDetails);
     }
     console.log(this.store.openPrograms());

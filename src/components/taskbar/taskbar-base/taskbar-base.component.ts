@@ -6,11 +6,7 @@ import { TaskbarStartComponent } from '../taskbar-start/taskbar-start.component'
 
 @Component({
   selector: 'taskbar-base',
-  imports: [
-    TaskbarClockComponent,
-    TaskbarProgramComponent,
-    TaskbarStartComponent,
-  ],
+  imports: [TaskbarClockComponent, TaskbarProgramComponent, TaskbarStartComponent],
   templateUrl: './taskbar-base.component.html',
   styleUrl: './taskbar-base.component.scss',
 })
