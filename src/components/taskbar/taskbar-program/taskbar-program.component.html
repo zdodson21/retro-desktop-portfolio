@@ -1,4 +1,6 @@
 <div #program class="taskbar-program-wrapper" [class.active]="isProgramFocused()" (click)="clickHandler($event)">
-  <img src="{{ src }}" alt="{{ programName }} Icon" />
+  @if (src) {
+    <img src="{{ src }}" alt="{{ programName }} Icon" />
+  }
   <p>{{ programName }}</p>
 </div>
