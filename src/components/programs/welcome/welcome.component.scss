@@ -15,6 +15,7 @@
 
       .padding {
         padding: 20px;
+        height: calc(100% - 40px);
 
         button {
           @include control-button-common();
@@ -23,27 +24,85 @@
         }
 
         .top {
+          height: 15%;
         }
 
         .middle {
+          display: flex;
+          flex-direction: row;
+          height: 70%;
+          width: 100%;
+          justify-content: space-between;
+
           .tip-box {
+            background-color: #F1F6B7;
+            border-style: solid inset inset solid;
+            border-color: $taskbar-item-border-black $taskbar-item-border-white $taskbar-item-border-white $taskbar-item-border-black;
+            border-width: 2px;
+            padding: 28px;
+            display: flex;
+            flex-direction: row;
+
             .icon {
               @include icon-common();
+              width: 32px;
+
+              img {
+                width: 32px;
+              }
             }
 
             .text {
+              width: calc(100% - 32px);
+              display: flex;
+              flex-direction: column;
+              margin-left: 24px;
+
+              .header {
+                display: flex;
+                align-items: center;
+                font-size: 12px;
+                height: 60px;
+              }
+
+              .tip {
+                height: calc(100% - 40px);
+                padding-right: 15%;
+              }
             }
           }
 
           .buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            border-bottom: 2px #8a8a8a solid;
+            margin-left: 20px;
           }
         }
 
         .bottom {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          align-items: center;
+          height: 15%;
+
           .checkbox {
+            display: flex;
+            align-items: center;
+            height: 100%;
+
+            input {
+              margin-right: 6px;
+            }
           }
 
           .button {
+            border-top: 2px #f1f1f1 solid;
+            height: 100%;
+            display: flex;
+            align-items: center;
           }
         }
       }

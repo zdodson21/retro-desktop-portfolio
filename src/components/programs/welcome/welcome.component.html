@@ -12,7 +12,9 @@
               <img src="assets/icons/tip.svg" alt="Tip icon" />
             </div>
             <div class="text">
-              <h2>Did you know...</h2>
+              <div class="header">
+                <h2>Did you know...</h2>
+              </div>
               <div class="tip">
                 <p>
                   {{ tips[tipDisplayIndex()] }}
@@ -22,10 +24,10 @@
           </div>
 
           <div class="buttons">
-            <button (click)="whatsNewButtonHelper()">What's New</button>
-            <button (click)="githubProfileButtonHelper()">My GitHub Profile</button>
-            <button (click)="nextTipHelper()">Next Tip</button>
-            <button (click)="previousTipHelper()">Previous Tip</button>
+            <button (click)="whatsNewButtonHelper()"><span>What's New</span></button>
+            <button (click)="githubProfileButtonHelper()"><span>My GitHub Profile</span></button>
+            <button (click)="nextTipHelper()"><span>Next Tip</span></button>
+            <button (click)="previousTipHelper()"><span>Previous Tip</span></button>
           </div>
         </div>
 
@@ -36,8 +38,9 @@
             <!-- TODO needs to be checked by default, unless value changed by local storage -->
           </div>
           <div class="button">
-            <!-- TODO if problems encountered, change class name -->
-            <button>Close</button>
+            <button>
+              <span class="border">Close</span>
+            </button>
           </div>
         </div>
       </div>
