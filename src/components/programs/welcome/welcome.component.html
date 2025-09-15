@@ -1,1 +1,46 @@
-<p>welcome works!</p>
+<div class="welcome-wrapper">
+  <window-frame window-title="Welcome" focus-name="welcome" [percent-height]="50" [percent-width]="60" [hide-buttons]="true">
+    <div class="frame-contents">
+      <div class="padding">
+        <div class="top">
+          <h1>Welcome to Zach Dodson's Portfolio</h1>
+        </div>
+
+        <div class="middle">
+          <div class="tip-box">
+            <div class="icon">
+              <img src="assets/icons/tip.svg" alt="Tip icon">
+            </div>
+            <div class="text">
+              <h2>Did you know...</h2>
+              <div class="tip">
+                <p>
+                  {{ tips[tipDisplayIndex()] }}
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="buttons">
+            <button (click)="whatsNewButtonHelper()">What's New</button>
+            <button (click)="githubProfileButtonHelper()">My GitHub Profile</button>
+            <button (click)="nextTipHelper()">Next Tip</button>
+            <button (click)="previousTipHelper()">Previous Tip</button>
+          </div>
+        </div>
+
+        <div class="bottom">
+          <div class="checkbox">
+            <input type="checkbox" name="show-on-startup" id="show-on-startup" checked/>
+            <label for="show-on-startup">Show this Welcome Screen next time you start Windows</label>
+            <!-- TODO needs to be checked by default, unless value changed by local storage -->
+          </div>
+          <div class="button">
+            <!-- TODO if problems encountered, change class name -->
+            <button>Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </window-frame>
+</div>

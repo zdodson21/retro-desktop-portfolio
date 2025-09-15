@@ -1,0 +1,57 @@
+@use "../../../styles.scss" as *;
+
+.welcome-wrapper {
+  @include program-common();
+
+  window-frame {
+    width: 60%;
+    height: 60%;
+
+    .frame-contents {
+      @include text-common();
+      width: 100%;
+      height: 100%;
+      background-color: $win-95-grey;
+
+      .padding {
+        padding: 20px;
+
+        button {
+          @include control-button-common();
+          width: 150px;
+          font-size: 15px;
+        }
+
+        .top {
+
+        }
+
+        .middle {
+          .tip-box {
+            .icon {
+              @include icon-common();
+            }
+
+            .text {
+
+            }
+          }
+
+          .buttons {
+
+          }
+        }
+
+        .bottom {
+          .checkbox {
+
+          }
+
+          .button {
+
+          }
+        }
+      }
+    }
+  }
+}

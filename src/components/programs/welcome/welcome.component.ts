@@ -1,9 +1,58 @@
-import { Component } from '@angular/core';
+import { Component, signal, WritableSignal } from '@angular/core';
+import { WindowFrameComponent } from '../../window-frame/window-frame.component';
 
 @Component({
   selector: 'welcome',
-  imports: [],
+  imports: [WindowFrameComponent],
   templateUrl: './welcome.component.html',
   styleUrl: './welcome.component.scss',
 })
-export class WelcomeComponent {}
+export class WelcomeComponent {
+  public tips: Array<string> = [
+    // ! this array must have at least 2 values, or page will crash when randomizing
+    "If you don't know how to find something, you can look for directions in Help. Just click the Start button, and then click Help.",
+    'This web application functions similarly to many desktop computer interfaces. You should be able to navigate this web application similar to how you would navigate many desktop computers.',
+    "You can reset this web application's local storage values in Control Panel. Click the Start button, and then hover over Settings, and then click Control Panel. You will find a button to reset to the initial default state there.",
+    'The Shut Down command in the Shut Down menu will take you to my GitHub profile (due to browser security blocking the capability to close browser tabs with JavaScript / TypeScript).',
+    'You can open Internet Explorer to view my "About Me" and Project pages. Internet Explorer can be accessed from the Desktop or Start Menu. These pages can also be accessed by locating and double clicking them within Windows Explorer.',
+  ];
+  public tipDisplayIndex: WritableSignal<number> = signal(0);
+
+  /**
+   * @description Navigate user to Zach's GitHub repo release page for this project
+   */
+  public whatsNewButtonHelper() {
+    globalThis.open('https://github.com/zdodson21/retro-desktop-portfolio/releases');
+  }
+
+  /**
+   * @description Navigate user to Zach's GitHub profile in new tab
+   */
+  public githubProfileButtonHelper() {
+    globalThis.open('https://github.com/zdodson21');
+  }
+
+  /**
+   * @description Displays next message from tips[], if number goes over array length it will go back to
+   * 0
+   */
+  public nextTipHelper() {
+    let nextIndex: number = this.tipDisplayIndex() + 1;
+
+    if (nextIndex > this.tips.length - 1) nextIndex = 0;
+
+    this.tipDisplayIndex.set(nextIndex);
+  }
+
+  /**
+   * @description Displays previous message from tips[], if number goes below 0 it will go to the last
+   * index in the array
+   */
+  public previousTipHelper() {
+    let previousIndex: number = this.tipDisplayIndex() - 1;
+
+    if (previousIndex < 0) previousIndex = this.tips.length - 1;
+
+    this.tipDisplayIndex.set(previousIndex);
+  }
+}
