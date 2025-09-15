@@ -1,15 +1,4 @@
-import {
-  Component,
-  effect,
-  ElementRef,
-  HostListener,
-  inject,
-  Input,
-  Renderer2,
-  signal,
-  ViewChild,
-  WritableSignal,
-} from '@angular/core';
+import { Component, effect, ElementRef, HostListener, inject, Input, Renderer2, signal, ViewChild, WritableSignal } from '@angular/core';
 import { AppService } from '../../app/app.service';
 
 @Component({
@@ -105,12 +94,7 @@ export class WindowFrameComponent {
           this.isElementFocused.set(true);
 
           if (this.store.minimizedPrograms().includes(this.focusName)) {
-            this.store
-              .minimizedPrograms()
-              .splice(
-                this.store.minimizedPrograms().indexOf(this.focusName),
-                1,
-              );
+            this.store.minimizedPrograms().splice(this.store.minimizedPrograms().indexOf(this.focusName), 1);
             this.isElementMinimized.set(false);
           }
         } else {
@@ -166,10 +150,7 @@ export class WindowFrameComponent {
 
       this.wrapperRef.nativeElement.classList.remove('full-view');
 
-      if (
-        this.store.viewportWidth() !== this.viewportRecorder.width ||
-        this.store.viewportHeight() !== this.viewportRecorder.height
-      ) {
+      if (this.store.viewportWidth() !== this.viewportRecorder.width || this.store.viewportHeight() !== this.viewportRecorder.height) {
         // TODO finish all other important TODO items before this, that way irrelevant functions can be hidden in VSCode
         /*
           ! To replicate issue:
@@ -241,9 +222,7 @@ export class WindowFrameComponent {
     event?.stopPropagation();
     this.store.focus.set('');
 
-    const INDEX = this.store
-      .openPrograms()
-      .findIndex((program) => program.focusName === this.focusName);
+    const INDEX = this.store.openPrograms().findIndex((program) => program.focusName === this.focusName);
 
     if (INDEX !== -1) {
       this.store.openPrograms().splice(INDEX, 1);
@@ -296,8 +275,7 @@ export class WindowFrameComponent {
    * @description handles dragging events to move window around
    */
   private setupDraggable() {
-    const PANEL_LEFT_SIDE =
-      this.elementRef.nativeElement.querySelector('.left-side');
+    const PANEL_LEFT_SIDE = this.elementRef.nativeElement.querySelector('.left-side');
 
     PANEL_LEFT_SIDE.addEventListener('mousedown', (e: MouseEvent) => {
       this.setFocus();
