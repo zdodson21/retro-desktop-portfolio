@@ -1,0 +1,54 @@
+@use '../../../styles.scss' as *;
+
+.windows-help-wrapper {
+    @include program-common();
+
+    window-frame {
+      width: 50%; height: 70%;
+
+      .frame-contents {
+        @include text-common();
+        @include frame-contents-common();
+        background-color: #F1F6B7;
+
+        .padding {
+          padding: 20px;
+          height: calc(100% - 40px);
+
+          .top {
+            h2 {
+              @include allow-user-select();
+            }
+          }
+
+          .bottom {
+            .left {
+              p {
+                @include allow-user-select();
+              }
+
+              .buttons {
+                cursor: pointer;
+
+                button {
+                  .square {
+
+                  }
+
+                  p {
+                    @include text-common();
+                  }
+                }
+              }
+            }
+
+            .right {
+              img {
+                width: 50%;
+              }
+            }
+          }
+        }
+      }
+    }
+}

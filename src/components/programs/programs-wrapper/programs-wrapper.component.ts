@@ -3,10 +3,11 @@ import { ActivatedRoute } from '@angular/router';
 import { AppService } from '../../../app/app.service';
 import { SystemMonitorComponent } from '../system-monitor/system-monitor.component';
 import { WelcomeComponent } from '../welcome/welcome.component';
+import { WindowsHelpComponent } from '../windows-help/windows-help.component';
 
 @Component({
   selector: 'app-programs-wrapper',
-  imports: [SystemMonitorComponent, WelcomeComponent],
+  imports: [SystemMonitorComponent, WelcomeComponent, WindowsHelpComponent],
   templateUrl: './programs-wrapper.component.html',
   styleUrl: './programs-wrapper.component.scss',
 })
@@ -26,14 +27,24 @@ export class ProgramsWrapperComponent {
   private store: AppService = inject(AppService);
 
   public programs = {
+    help: false,
     systemMonitor: false,
     welcome: false,
   };
 
   constructor(private route: ActivatedRoute) {
     this.route.queryParams.subscribe((params) => {
+      this.programs.help = 'help' in params;
       this.programs.systemMonitor = 'system-monitor' in params;
       this.programs.welcome = 'welcome' in params;
+
+      if ('help' in params && !this.store.openPrograms().some((programs) => programs.focusName === 'windows-help')) {
+        this.store.openPrograms().push({
+          programName: 'Windows Help',
+          focusName: 'windows-help',
+          iconPath: 'assets/icons/windows-help.svg',
+        });
+      }
 
       if ('system-monitor' in params && !this.store.openPrograms().some((programs) => programs.focusName === 'system-monitor')) {
         this.store.openPrograms().push({

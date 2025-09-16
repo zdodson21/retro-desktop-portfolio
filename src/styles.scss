@@ -85,6 +85,12 @@ $win-95-highlight: #05037f;
   }
 }
 
+@mixin frame-contents-common {
+  width: 100%;
+  height: 100%;
+  background-color: $win-95-grey;
+}
+
 // ! Alert
 @mixin alert-common {
   background-color: rgba($color: #000000, $alpha: 0.5);

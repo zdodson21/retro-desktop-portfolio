@@ -1,9 +1,22 @@
-import { Component } from '@angular/core';
+import { Component, signal, WritableSignal } from '@angular/core';
+import { WindowFrameComponent } from '../../window-frame/window-frame.component';
 
 @Component({
-  selector: 'app-windows-help',
-  imports: [],
+  selector: 'windows-help',
+  imports: [WindowFrameComponent],
   templateUrl: './windows-help.component.html',
   styleUrl: './windows-help.component.scss',
 })
-export class WindowsHelpComponent {}
+export class WindowsHelpComponent {
+  public currentTopic: WritableSignal<number> = signal(0);
+
+  /**
+   * @description set currentTopic to change displayed information
+   * @param num Number tip from top to bottom, starting with 0
+   */
+  public setCurrentTopic(num: number) {
+    if (this.currentTopic() !== num) {
+      this.currentTopic.set(num);
+    }
+  }
+}
