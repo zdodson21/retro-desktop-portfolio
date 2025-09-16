@@ -55,4 +55,8 @@ export class WelcomeComponent {
 
     this.tipDisplayIndex.set(previousIndex);
   }
+
+  // TODO add logic for modifying local storage values
+
+  // TODO add close button function (work the same as window close button)
 }
