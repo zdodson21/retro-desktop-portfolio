@@ -4,7 +4,7 @@
     @include program-common();
 
     window-frame {
-      width: 50%; height: 70%;
+      width: 60%; height: 70%;
 
       .frame-contents {
         @include text-common();
@@ -14,35 +14,65 @@
         .padding {
           padding: 20px;
           height: calc(100% - 40px);
+          display: flex;
+          flex-direction: column;
 
           .top {
+            margin-bottom: 20px;
+
             h2 {
               @include allow-user-select();
+              font-size: 16px;
             }
           }
 
           .bottom {
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            height: 100%;
+
             .left {
+              display: flex;
+              flex-direction: column;
+              width: 25%;
+              padding-right: 12px;
+              border-right: 1px solid #909C9B;
+              overflow-y: scroll;
+
               p {
                 @include allow-user-select();
+                margin-bottom: 12px;
+                font-size: 14px;
               }
 
               .buttons {
+                display: flex;
+                flex-direction: column;
+                gap: 12px;
                 cursor: pointer;
 
-                button {
+                .option {
+                  // TODO button dimensions should conform to inside contents
                   .square {
-
+                    background-color: red;
+                    width: 12px;
+                    height: 12px;
                   }
 
                   p {
                     @include text-common();
+                    text-align: left;
                   }
                 }
               }
             }
 
             .right {
+              padding-left: 12px;
+              border-left: 1px solid #909C9B;
+              width: 75%;
+
               img {
                 width: 50%;
               }

@@ -6,6 +6,7 @@
   flex-direction: column;
   width: calc(100% - 6px);
   height: calc(100% - 6px);
+  overflow: hidden;
 
   &.full-view {
     border: none;
