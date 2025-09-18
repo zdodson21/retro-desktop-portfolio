@@ -3,7 +3,7 @@
     <div class="frame-contents">
       <div class="padding">
         <div class="top">
-          <h2>If you've never been here before: answers to common questions:</h2>
+          <h2>If you've never been here before: answers to common questions</h2>
         </div>
 
         <div class="bottom">
@@ -17,7 +17,7 @@
 
               <div class="option" (click)="setCurrentTopic(2)">
                 <div class="square"></div>
-                <p>How do I navigate this web application?</p>
+                <p>How do I navigate this website?</p>
               </div>
 
               <div class="option" (click)="setCurrentTopic(3)">
@@ -27,13 +27,13 @@
 
               <div class="option" (click)="setCurrentTopic(4)">
                 <div class="square"></div>
-                <p>You used alot of extra tech you didn't need to (Docker, Electron, etc.). Why?</p>
+                <p>Why use extra tech?</p>
                 <!-- TODO if calculator made using WASM add that above) -->
               </div>
 
               <div class="option" (click)="setCurrentTopic(5)">
                 <div class="square"></div>
-                <p>Will there be any updates released for this web app?</p>
+                <p>Will this website be updated?</p>
               </div>
             </div>
           </div>
@@ -81,9 +81,11 @@
               }
               @case (5) { <!-- Updates? -->
                 <p>
-                  I intend to, but nothing steady. Mainly just whenever I feel like making something new.
+                  I intend to update this site periodically with new projects (both interactive and text descriptions).
+                  Mainly just whenever I feel like making something new.
                   I currently have plans to recreate a few programs (such as Calculator and Paint),
-                  which I will release as they are completed.
+                  since they can teach me quite a bit for front-end and back-end development. They will be
+                  developed in branches (viewable on GitHub) and merged into the main branch when completed.
                 </p>
               }
               @default {
