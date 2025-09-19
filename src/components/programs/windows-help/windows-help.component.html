@@ -11,29 +11,29 @@
             <p>To find about more about this web application, click one of the buttons below:</p>
             <div class="buttons">
               <div class="option" (click)="setCurrentTopic(1)">
-                <div class="square"></div>
-                <p>Where is your professional & project information?</p>
+                <div class="square" [class.active]="currentTopic() === 1"></div>
+                <p [class.active]="currentTopic() === 1">Where is your professional & project information?</p>
               </div>
 
               <div class="option" (click)="setCurrentTopic(2)">
-                <div class="square"></div>
-                <p>How do I navigate this website?</p>
+                <div class="square" [class.active]="currentTopic() === 2"></div>
+                <p [class.active]="currentTopic() === 2">How do I navigate this website?</p>
               </div>
 
               <div class="option" (click)="setCurrentTopic(3)">
-                <div class="square"></div>
-                <p>Why the Windows 95 theme & functionality?</p>
+                <div class="square" [class.active]="currentTopic() === 3"></div>
+                <p [class.active]="currentTopic() === 3">Why the Windows 95 theme & functionality?</p>
               </div>
 
               <div class="option" (click)="setCurrentTopic(4)">
-                <div class="square"></div>
-                <p>Why use extra tech?</p>
+                <div class="square" [class.active]="currentTopic() === 4"></div>
+                <p [class.active]="currentTopic() === 4">Why use extra tech?</p>
                 <!-- TODO if calculator made using WASM add that above) -->
               </div>
 
               <div class="option" (click)="setCurrentTopic(5)">
-                <div class="square"></div>
-                <p>Will this website be updated?</p>
+                <div class="square" [class.active]="currentTopic() === 5"></div>
+                <p [class.active]="currentTopic() === 5">Will this website be updated?</p>
               </div>
             </div>
           </div>
