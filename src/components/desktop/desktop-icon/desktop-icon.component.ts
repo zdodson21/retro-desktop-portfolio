@@ -1,4 +1,5 @@
 import { Component, effect, ElementRef, inject, Input, signal, ViewChild, WritableSignal } from '@angular/core';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { AppService } from '../../../app/app.service';
 import { Programs } from '../../../interfaces/open-programs.interface';
 
@@ -18,7 +19,18 @@ export class DesktopIconComponent {
 
   private store: AppService = inject(AppService);
   private item: HTMLElement;
-  private programDetails: Programs
+  private programDetails: Programs;
+
+  private router: Router = inject(Router);
+  private route: ActivatedRoute = inject(ActivatedRoute);
+
+  ngOnInit() {
+    this.programDetails = {
+      programName: this.text,
+      focusName: this.focusName,
+      iconPath: this.src,
+    };
+  }
 
   ngAfterViewInit() {
     this.item = this.desktopIconRef.nativeElement;
@@ -49,11 +61,21 @@ export class DesktopIconComponent {
   public dblClickHandler(event: MouseEvent) {
     event?.stopPropagation();
 
-    // if (!this.store.openPrograms().some((programs) => programs.focusName === this.focusName)) {
-    //   this.store.openPrograms().push(this.programDetails);
-    // }
+    if (!this.store.openPrograms().some((programs) => programs.focusName === this.focusName)) {
+      this.store.openPrograms().push(this.programDetails);
+    }
 
     this.store.focus.set(this.focusName);
+
+    const CURRENT_PARAMS: Params = { ...this.route.snapshot.queryParams };
+    CURRENT_PARAMS[this.focusName] = "";
+
+    this.router.navigate(['programs'], {
+      relativeTo: this.route,
+      queryParams: CURRENT_PARAMS,
+      replaceUrl: true,
+    });
+
     this.isElementFocused.set(true);
   }
 }
