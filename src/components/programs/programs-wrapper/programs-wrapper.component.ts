@@ -3,11 +3,11 @@ import { ActivatedRoute } from '@angular/router';
 import { AppService } from '../../../app/app.service';
 import { SystemMonitorComponent } from '../system-monitor/system-monitor.component';
 import { WelcomeComponent } from '../welcome/welcome.component';
-import { WindowsHelpComponent } from '../windows-help/windows-help.component';
+import { HelpComponent } from '../help/help.component';
 
 @Component({
   selector: 'app-programs-wrapper',
-  imports: [SystemMonitorComponent, WelcomeComponent, WindowsHelpComponent],
+  imports: [SystemMonitorComponent, WelcomeComponent, HelpComponent],
   templateUrl: './programs-wrapper.component.html',
   styleUrl: './programs-wrapper.component.scss',
 })

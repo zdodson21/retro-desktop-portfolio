@@ -1,14 +1,14 @@
 import { Component, signal, WritableSignal } from '@angular/core';
 import { WindowFrameComponent } from '../../window-frame/window-frame.component';
-import { HelpButtonComponent } from '../../ui/help-button/help-button.component';
+import { HelpButtonComponent } from './components/help-button/help-button.component';
 
 @Component({
-  selector: 'windows-help', // TODO change to just "help"
+  selector: 'help', // TODO change to just "help"
   imports: [WindowFrameComponent, HelpButtonComponent],
-  templateUrl: './windows-help.component.html',
-  styleUrl: './windows-help.component.scss',
+  templateUrl: './help.component.html',
+  styleUrl: './help.component.scss',
 })
-export class WindowsHelpComponent {
+export class HelpComponent {
   public currentTopic: WritableSignal<number> = signal(0);
 
   /**

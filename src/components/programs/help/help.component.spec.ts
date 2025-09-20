@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { provideRouter } from '@angular/router';
-import { WindowsHelpComponent } from './windows-help.component';
+import { WindowsHelpComponent } from './help.component';
 
 describe('WindowsHelpComponent', () => {
   let component: WindowsHelpComponent;
