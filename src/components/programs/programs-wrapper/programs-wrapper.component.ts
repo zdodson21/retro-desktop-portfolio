@@ -38,10 +38,10 @@ export class ProgramsWrapperComponent {
       this.programs.systemMonitor = 'system-monitor' in params;
       this.programs.welcome = 'welcome' in params;
 
-      if ('help' in params && !this.store.openPrograms().some((programs) => programs.focusName === 'windows-help')) {
+      if ('help' in params && !this.store.openPrograms().some((programs) => programs.focusName === 'help')) {
         this.store.openPrograms().push({
           programName: 'Windows Help',
-          focusName: 'windows-help',
+          focusName: 'help',
           iconPath: 'assets/icons/windows-help.svg',
         });
       }

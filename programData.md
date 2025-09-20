@@ -35,7 +35,7 @@
 ```typescript
 {
   programName: 'Help',
-  focusName: 'windows-help',
+  focusName: 'help',
   iconPath: 'assets/icons/help.svg'
 }
 ```

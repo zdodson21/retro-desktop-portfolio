@@ -3,7 +3,7 @@ import { WindowFrameComponent } from '../../window-frame/window-frame.component'
 import { HelpButtonComponent } from '../../ui/help-button/help-button.component';
 
 @Component({
-  selector: 'windows-help',
+  selector: 'windows-help', // TODO change to just "help"
   imports: [WindowFrameComponent, HelpButtonComponent],
   templateUrl: './windows-help.component.html',
   styleUrl: './windows-help.component.scss',

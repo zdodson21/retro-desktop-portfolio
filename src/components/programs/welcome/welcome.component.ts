@@ -1,5 +1,7 @@
-import { Component, signal, WritableSignal } from '@angular/core';
+import { Component, signal, WritableSignal, inject } from '@angular/core';
 import { WindowFrameComponent } from '../../window-frame/window-frame.component';
+import { AppService } from '../../../app/app.service';
+import { Router, ActivatedRoute, Params } from '@angular/router';
 
 @Component({
   selector: 'welcome',
@@ -8,6 +10,11 @@ import { WindowFrameComponent } from '../../window-frame/window-frame.component'
   styleUrl: './welcome.component.scss',
 })
 export class WelcomeComponent {
+  private store: AppService = inject(AppService);
+
+  private router: Router = inject(Router);
+  private route: ActivatedRoute = inject(ActivatedRoute);
+
   public tips: Array<string> = [
     "If you don't know how to find something, you can look for directions in Help. Just click the Start button, and then click Help.",
     'This web application functions similarly to many desktop computer interfaces. You should be able to navigate this web application similar to how you would navigate many desktop computers.',
@@ -59,4 +66,23 @@ export class WelcomeComponent {
   // TODO add logic for modifying local storage values
 
   // TODO add close button function (work the same as window close button)
+  public closeButtonHelper(event: MouseEvent) {
+    event?.stopPropagation();
+    this.store.focus.set('');
+
+    const INDEX = this.store.openPrograms().findIndex((program) => program.focusName === 'welcome');
+
+    if (INDEX !== -1) {
+      this.store.openPrograms().splice(INDEX, 1);
+    }
+
+    const CURRENT_PARAMS: Params = { ...this.route.snapshot.queryParams };
+    delete CURRENT_PARAMS['welcome'];
+
+    this.router.navigate([], {
+      relativeTo: this.route,
+      queryParams: CURRENT_PARAMS,
+      replaceUrl: true
+    })
+  }
 }

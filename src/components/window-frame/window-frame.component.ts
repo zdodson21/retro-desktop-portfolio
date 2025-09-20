@@ -1,4 +1,5 @@
 import { Component, effect, ElementRef, HostListener, inject, Input, Renderer2, signal, ViewChild, WritableSignal } from '@angular/core';
+import { Router, ActivatedRoute, Params } from '@angular/router';
 import { AppService } from '../../app/app.service';
 
 @Component({
@@ -30,6 +31,9 @@ export class WindowFrameComponent {
   private store: AppService = inject(AppService);
   private renderer: Renderer2 = inject(Renderer2);
   private elementRef: ElementRef = inject(ElementRef);
+
+  private router: Router = inject(Router);
+  private route: ActivatedRoute = inject(ActivatedRoute);
 
   public isElementFocused: WritableSignal<boolean> = signal(false);
   public isElementMinimized: WritableSignal<boolean> = signal(false);
@@ -227,6 +231,15 @@ export class WindowFrameComponent {
     if (INDEX !== -1) {
       this.store.openPrograms().splice(INDEX, 1);
     }
+
+    const CURRENT_PARAMS: Params = { ...this.route.snapshot.queryParams };
+    delete CURRENT_PARAMS[this.focusName];
+
+    this.router.navigate([], {
+      relativeTo: this.route,
+      queryParams: CURRENT_PARAMS,
+      replaceUrl: true
+    })
   }
 
   /**
