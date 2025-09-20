@@ -83,6 +83,6 @@ export class WelcomeComponent {
       relativeTo: this.route,
       queryParams: CURRENT_PARAMS,
       replaceUrl: true
-    })
+    });
   }
 }
