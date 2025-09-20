@@ -1,9 +1,14 @@
 # Directories
 .angular
+.claude
+.cursor
+.gemini
 .github
+.junie
 .idea
 .vercel
 .vscode
+.windsurf
 coverage
 dist
 node_modules

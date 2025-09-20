@@ -1,7 +1,12 @@
 .angular
+.claude
+.cursor
+.gemini
 .github
+.junie
 .vercel
 .vscode
+.windsurf
 coverage
 dist
 node_modules
