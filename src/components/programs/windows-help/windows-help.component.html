@@ -28,7 +28,6 @@
               <div class="option" (click)="setCurrentTopic(4)">
                 <div class="square" [class.active]="currentTopic() === 4"></div>
                 <p [class.active]="currentTopic() === 4">Why use extra tech?</p>
-                <!-- TODO if calculator made using WASM add that above) -->
               </div>
 
               <div class="option" (click)="setCurrentTopic(5)">
@@ -46,18 +45,12 @@
                   The easiest way to do that is by clicking the Start button,
                   then clicking the Internet Explorer program in the Start Menu.
                 </p>
-                <div class="image">
-                  <img src="" alt="case 1">
-                </div>
               }
               @case (2) { <!-- How do I navigate? -->
                 <p>
                   There are multiple ways to navigate this web app! You can open programs from the "Desktop", locate them in
                   the Start Menu, open ".html" files in Internet Explorer from Windows Explorer, and perhaps more in the future!
                 </p>
-                <div class="image">
-
-                </div>
               }
               @case (3) { <!-- Why Windows 95? -->
                 <p>
@@ -66,10 +59,6 @@
                   using numerous "new-to-me" technologies (such as Angular, SCSS, TypeScript, etc.),
                   and building around a design I already liked certainly helped the process.
                 </p>
-
-                <div class="image">
-                  <img src="assets/images/blank-site.png" alt="Screenshot of this web application with nothing open.">
-                </div>
               }
               @case (4) { <!-- Why use Docker, Electron, WebAssembly (maybe?), other extra tech? -->
                 <p>

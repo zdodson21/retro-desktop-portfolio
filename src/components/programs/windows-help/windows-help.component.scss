@@ -4,19 +4,21 @@
   @include program-common();
 
   window-frame {
-    width: 60%;
-    height: 70%;
+    width: 50%;
+    height: 60%;
 
     .frame-contents {
       @include text-common();
       @include frame-contents-common();
       background-color: #f1f6b7;
+      overflow: scroll;
 
       .padding {
         padding: 20px;
         height: calc(100% - 40px);
         display: flex;
         flex-direction: column;
+        overflow: scroll;
 
         .top {
           margin-bottom: 20px;
@@ -39,6 +41,7 @@
             width: 25%;
             padding-right: 12px;
             border-right: 1px solid #909c9b;
+            height: 100%;
 
             p {
               @include allow-user-select();
