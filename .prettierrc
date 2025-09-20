@@ -20,12 +20,6 @@
       }
     },
     {
-      "files": ["*.spec.ts"],
-      "options": {
-        "printWidth": 256
-      }
-    },
-    {
       "files": ["*.ts", "*.spec.ts"],
       "options": {
         "bracketSameLine": false,
