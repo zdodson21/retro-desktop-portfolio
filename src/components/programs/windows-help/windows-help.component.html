@@ -11,71 +11,41 @@
           <div class="left">
             <p>To find about more about this web application, click one of the buttons below:</p>
             <div class="buttons">
-              <help-button (click)="setCurrentTopic(1)" [active]="currentTopic() === 1">
-                Where is your professional & project information?
-              </help-button>
+              <help-button (click)="setCurrentTopic(1)" [active]="currentTopic() === 1">Where is your professional & project information?</help-button>
 
-              <help-button (click)="setCurrentTopic(2)" [active]="currentTopic() === 2">
-                How do I navigate this website?
-              </help-button>
+              <help-button (click)="setCurrentTopic(2)" [active]="currentTopic() === 2">How do I navigate this website?</help-button>
 
-              <help-button (click)="setCurrentTopic(3)" [active]="currentTopic() === 3">
-                Why the Windows 95 theme & functionality?
-              </help-button>
+              <help-button (click)="setCurrentTopic(3)" [active]="currentTopic() === 3">Why the Windows 95 theme & functionality?</help-button>
 
-              <help-button (click)="setCurrentTopic(4)" [active]="currentTopic() === 4">
-                Why use extra tech?
-              </help-button>
+              <help-button (click)="setCurrentTopic(4)" [active]="currentTopic() === 4">Why use extra tech?</help-button>
 
-              <help-button (click)="setCurrentTopic(5)" [active]="currentTopic() === 5">
-                Will this website be updated?
-              </help-button>
+              <help-button (click)="setCurrentTopic(5)" [active]="currentTopic() === 5">Will this website be updated?</help-button>
             </div>
           </div>
 
           <div class="right">
             @switch (this.currentTopic()) {
-              @case (1) { <!-- Professional and Project Information -->
-                <p>
-                  All of that information can be viewed by navigating to the Internet Explorer program!
-                  The easiest way to do that is by clicking the Start button,
-                  then clicking the Internet Explorer program in the Start Menu.
-                </p>
+              @case (1) {
+                <!-- Professional and Project Information -->
+                <p>All of that information can be viewed by navigating to the Internet Explorer program! The easiest way to do that is by clicking the Start button, then clicking the Internet Explorer program in the Start Menu.</p>
               }
-              @case (2) { <!-- How do I navigate? -->
-                <p>
-                  There are multiple ways to navigate this web app! You can open programs from the "Desktop", locate them in
-                  the Start Menu, open ".html" files in Internet Explorer from Windows Explorer, and perhaps more in the future!
-                </p>
+              @case (2) {
+                <!-- How do I navigate? -->
+                <p>There are multiple ways to navigate this web app! You can open programs from the "Desktop", locate them in the Start Menu, open ".html" files in Internet Explorer from Windows Explorer, and perhaps more in the future!</p>
               }
-              @case (3) { <!-- Why Windows 95? -->
-                <p>
-                  I've always liked the UI, aesthetics, and feel of Windows 95.
-                  As for creating a whole web application around it, I thought it would challenge me to create something
-                  using numerous "new-to-me" technologies (such as Angular, SCSS, TypeScript, etc.),
-                  and building around a design I already liked certainly helped the process.
-                </p>
+              @case (3) {
+                <!-- Why Windows 95? -->
+                <p>I've always liked the UI, aesthetics, and feel of Windows 95. As for creating a whole web application around it, I thought it would challenge me to create something using numerous "new-to-me" technologies (such as Angular, SCSS, TypeScript, etc.), and building around a design I already liked certainly helped the process.</p>
               }
-              @case (4) { <!-- Why use Docker, Electron, WebAssembly (maybe?), other extra tech? -->
-                <p>
-                  While this web app originally started as a way to display my portfolio, I decided to also make it
-                  my sandbox for learning new technologies. This includes tech integrated directly into the application,
-                  as well as learning several external tools such as Docker for containerization and Electron for bundling
-                  this web application as a usable desktop application.
-                </p>
+              @case (4) {
+                <!-- Why use Docker, Electron, WebAssembly (maybe?), other extra tech? -->
+                <p>While this web app originally started as a way to display my portfolio, I decided to also make it my sandbox for learning new technologies. This includes tech integrated directly into the application, as well as learning several external tools such as Docker for containerization and Electron for bundling this web application as a usable desktop application.</p>
               }
-              @case (5) { <!-- Updates? -->
-                <p>
-                  I intend to update this site periodically with new projects (both interactive and text descriptions).
-                  Mainly just whenever I feel like making something new.
-                  I currently have plans to recreate a few programs (such as Calculator and Paint),
-                  since they can teach me quite a bit for front-end and back-end development. They will be
-                  developed in branches (viewable on GitHub) and merged into the main branch when completed.
-                </p>
+              @case (5) {
+                <!-- Updates? -->
+                <p>I intend to update this site periodically with new projects (both interactive and text descriptions). Mainly just whenever I feel like making something new. I currently have plans to recreate a few programs (such as Calculator and Paint), since they can teach me quite a bit for front-end and back-end development. They will be developed in branches (viewable on GitHub) and merged into the main branch when completed.</p>
               }
-              @default {
-
-              }
+              @default {}
             }
           </div>
         </div>

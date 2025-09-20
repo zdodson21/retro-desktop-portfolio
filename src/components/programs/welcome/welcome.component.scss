@@ -4,7 +4,8 @@
   @include program-common();
 
   window-frame {
-    width: 60%; height: 60%;
+    width: 60%;
+    height: 60%;
 
     .frame-contents {
       @include text-common();
@@ -33,9 +34,10 @@
           justify-content: space-between;
 
           .tip-box {
-            background-color: #F1F6B7;
+            background-color: #f1f6b7;
             border-style: solid inset inset solid;
-            border-color: $taskbar-item-border-black $taskbar-item-border-white $taskbar-item-border-white $taskbar-item-border-black;
+            border-color: $taskbar-item-border-black $taskbar-item-border-white
+              $taskbar-item-border-white $taskbar-item-border-black;
             border-width: 2px;
             padding: 28px;
             display: flex;
