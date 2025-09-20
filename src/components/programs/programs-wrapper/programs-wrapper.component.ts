@@ -4,10 +4,14 @@ import { AppService } from '../../../app/app.service';
 import { SystemMonitorComponent } from '../system-monitor/system-monitor.component';
 import { WelcomeComponent } from '../welcome/welcome.component';
 import { HelpComponent } from '../help/help.component';
+import { MyComputerComponent } from '../my-computer/my-computer.component';
 
 @Component({
   selector: 'app-programs-wrapper',
-  imports: [SystemMonitorComponent, WelcomeComponent, HelpComponent],
+  imports: [HelpComponent,
+            MyComputerComponent,
+            SystemMonitorComponent,
+            WelcomeComponent],
   templateUrl: './programs-wrapper.component.html',
   styleUrl: './programs-wrapper.component.scss',
 })
@@ -28,6 +32,7 @@ export class ProgramsWrapperComponent {
 
   public programs = {
     help: false,
+    myComputer: false,
     systemMonitor: false,
     welcome: false,
   };
@@ -35,6 +40,7 @@ export class ProgramsWrapperComponent {
   constructor(private route: ActivatedRoute) {
     this.route.queryParams.subscribe((params) => {
       this.programs.help = 'help' in params;
+      this.programs.myComputer = 'my-computer' in params;
       this.programs.systemMonitor = 'system-monitor' in params;
       this.programs.welcome = 'welcome' in params;
 
@@ -43,6 +49,14 @@ export class ProgramsWrapperComponent {
           programName: 'Windows Help',
           focusName: 'help',
           iconPath: 'assets/icons/windows-help.svg',
+        });
+      }
+
+      if ('my-computer' in params && !this.store.openPrograms().some((programs) => programs.focusName === 'my-computer')) {
+        this.store.openPrograms().push({
+          programName: 'My Computer',
+          focusName: 'my-computer',
+          iconPath: 'assets/icons/my-computer.svg',
         });
       }
 
