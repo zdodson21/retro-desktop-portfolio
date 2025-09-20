@@ -1,6 +1,7 @@
 import { Component, ElementRef, Input, ViewChild, inject } from '@angular/core';
 import { AppService } from '../../../app/app.service';
 import { Programs } from '../../../interfaces/open-programs.interface';
+import { Router, ActivatedRoute, Params } from '@angular/router';
 
 @Component({
   selector: 'start-item',
@@ -18,13 +19,15 @@ export class StartItemComponent {
   private store: AppService = inject(AppService);
   private item: HTMLElement;
 
+  private router: Router = inject(Router);
+  private route: ActivatedRoute = inject(ActivatedRoute);
+
   private programDetails: Programs;
 
   ngAfterViewInit() {
     this.item = this.startItemRef.nativeElement;
   }
 
-  // TODO this might not be waiting until values are acquired
   ngOnInit() {
     this.programDetails = {
       programName: this.programName,
@@ -38,11 +41,20 @@ export class StartItemComponent {
    */
   public clickHandler(event: MouseEvent) {
     event?.stopPropagation();
-    // TODO if the same program exists multiple times it is still added multiple times
+
     if (!this.store.openPrograms().some((programs) => programs.focusName === this.focusName)) {
       this.store.openPrograms().push(this.programDetails);
     }
-    console.log(this.store.openPrograms());
+
     this.store.focus.set(this.focusName);
+
+    const CURRENT_PARAMS: Params = { ...this.route.snapshot.queryParams }
+    CURRENT_PARAMS[this.focusName] = "";
+
+    this.router.navigate(['programs'], {
+      relativeTo: this.route,
+      queryParams: CURRENT_PARAMS,
+      replaceUrl: true,
+    })
   }
 }
