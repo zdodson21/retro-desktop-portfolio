@@ -1,5 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { SystemMonitorComponent } from './system-monitor.component';
+import { provideRouter } from '@angular/router';
 
 describe('SystemMonitorComponent', () => {
   let component: SystemMonitorComponent;
@@ -9,6 +10,7 @@ describe('SystemMonitorComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [SystemMonitorComponent],
+      providers: [provideRouter([])],
     }).compileComponents();
 
     fixture = TestBed.createComponent(SystemMonitorComponent);

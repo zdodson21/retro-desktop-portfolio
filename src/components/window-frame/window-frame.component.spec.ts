@@ -1,5 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { WindowFrameComponent } from './window-frame.component';
+import { provideRouter } from '@angular/router';
 
 describe('WindowFrameComponent', () => {
   let component: WindowFrameComponent;
@@ -9,6 +10,7 @@ describe('WindowFrameComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [WindowFrameComponent],
+      providers: [provideRouter([])],
     }).compileComponents();
 
     fixture = TestBed.createComponent(WindowFrameComponent);

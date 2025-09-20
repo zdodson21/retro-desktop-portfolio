@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { provideRouter } from '@angular/router';
 import { WindowsHelpComponent } from './windows-help.component';
 
 describe('WindowsHelpComponent', () => {
@@ -9,6 +9,7 @@ describe('WindowsHelpComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [WindowsHelpComponent],
+      providers: [provideRouter([])],
     }).compileComponents();
 
     fixture = TestBed.createComponent(WindowsHelpComponent);

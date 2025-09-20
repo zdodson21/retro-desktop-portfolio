@@ -1,5 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { AlertShutdownComponent } from './alert-shutdown.component';
+import { provideRouter } from '@angular/router';
 
 describe('AlertShutdownComponent', () => {
   let component: AlertShutdownComponent;
@@ -9,6 +10,7 @@ describe('AlertShutdownComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [AlertShutdownComponent],
+      providers: [provideRouter([])],
     }).compileComponents();
 
     fixture = TestBed.createComponent(AlertShutdownComponent);
