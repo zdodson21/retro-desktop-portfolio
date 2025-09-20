@@ -55,41 +55,6 @@
               display: flex;
               flex-direction: column;
               gap: 12px;
-              cursor: pointer;
-
-              .option {
-                // TODO button dimensions should conform to inside contents
-                display: flex;
-                flex-direction: row;
-                align-items: center;
-
-                .square {
-                  background-color: #c0c0c0;
-                  width: 11px;
-                  min-width: 11px;
-                  min-height: 11px;
-                  height: 11px;
-                  margin-right: 4px;
-                  border-width: 1px;
-                  border-style: inset solid solid inset;
-                  border-color: white black black white;
-
-                  &.active {
-                    border-color: black white white black;
-                  }
-                }
-
-                p {
-                  @include text-common();
-                  text-align: left;
-                  text-wrap: wrap;
-                  margin-bottom: 0;
-
-                  &.active {
-                    font-weight: bolder;
-                  }
-                }
-              }
             }
           }
 

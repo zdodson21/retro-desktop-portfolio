@@ -1,9 +1,10 @@
 import { Component, signal, WritableSignal } from '@angular/core';
 import { WindowFrameComponent } from '../../window-frame/window-frame.component';
+import { HelpButtonComponent } from '../../ui/help-button/help-button.component';
 
 @Component({
   selector: 'windows-help',
-  imports: [WindowFrameComponent],
+  imports: [WindowFrameComponent, HelpButtonComponent],
   templateUrl: './windows-help.component.html',
   styleUrl: './windows-help.component.scss',
 })

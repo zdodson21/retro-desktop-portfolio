@@ -1,0 +1,55 @@
+@use '../../../styles.scss' as *;
+
+.help-button-wrapper {
+  // TODO button dimensions should conform to inside contents
+  @include text-common();
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  cursor: pointer;
+
+  .square {
+    background-color: #c0c0c0;
+    width: 11px;
+    min-width: 11px;
+    min-height: 11px;
+    height: 11px;
+    margin-right: 4px;
+    border-width: 2px;
+    border-style: inset solid solid inset;
+    border-color: white black black white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &.active {
+      border-color: black white white black;
+    }
+
+    .inner-square {
+      width: 8px;
+      min-width: 8px;
+      height: 8px;
+      min-height: 8px;
+      border-style: solid solid solid solid;
+      border-color: white transparent transparent white;
+      border-width: 1px;
+
+      &.active {
+        border-color: transparent white white transparent;
+      }
+    }
+  }
+
+  p {
+    @include text-common();
+    text-align: left;
+    text-wrap: wrap;
+    margin-bottom: 0;
+    font-size: 14px;
+
+    &.active {
+      font-weight: bolder;
+    }
+  }
+}
