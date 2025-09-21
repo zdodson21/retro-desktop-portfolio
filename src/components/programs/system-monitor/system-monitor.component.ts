@@ -1,6 +1,5 @@
-import { Component, effect, inject } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { AppService } from '../../../app/app.service';
-import { Programs } from '../../../interfaces/open-programs.interface';
 import { WindowFrameComponent } from '../../window-frame/window-frame.component';
 
 @Component({
@@ -10,6 +9,5 @@ import { WindowFrameComponent } from '../../window-frame/window-frame.component'
   styleUrl: './system-monitor.component.scss',
 })
 export class SystemMonitorComponent {
-  // TODO need to implement routes for this being open, then can replicate for other programs
   public store: AppService = inject(AppService);
 }
