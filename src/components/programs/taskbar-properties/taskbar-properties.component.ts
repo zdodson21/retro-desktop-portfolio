@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
+import { WindowFrameComponent } from '../../window-frame/window-frame.component';
 
 @Component({
-  selector: 'app-taskbar-properties',
-  imports: [],
+  selector: 'taskbar-properties',
+  imports: [WindowFrameComponent],
   templateUrl: './taskbar-properties.component.html',
   styleUrl: './taskbar-properties.component.scss',
 })

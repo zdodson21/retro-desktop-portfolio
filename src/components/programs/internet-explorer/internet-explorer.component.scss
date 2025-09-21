@@ -1,0 +1,15 @@
+@use "../../../styles.scss" as *;
+
+.internet-explorer-wrapper {
+  @include program-common();
+
+  window-frame {
+    width: 70%;
+    height: 90%;
+
+    .frame-contents {
+      @include text-common();
+      @include frame-contents-common();
+    }
+  }
+}

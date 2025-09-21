@@ -1,0 +1,15 @@
+@use "../../../styles.scss" as *;
+
+.control-panel-wrapper {
+  @include program-common();
+
+  window-frame {
+    width: 30%;
+    height: 80%;
+
+    .frame-contents {
+      @include text-common();
+      @include frame-contents-common();
+    }
+  }
+}

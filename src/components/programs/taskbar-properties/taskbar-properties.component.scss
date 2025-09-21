@@ -1,0 +1,15 @@
+@use "../../../styles.scss" as *;
+
+.taskbar-properties-wrapper {
+  @include program-common();
+
+  window-frame {
+    width: 30%;
+    height: 50%;
+
+    .frame-contents {
+      @include text-common();
+      @include frame-contents-common();
+    }
+  }
+}

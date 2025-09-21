@@ -6,12 +6,13 @@ import { HelpComponent } from '../help/help.component';
 import { InternetExplorerComponent } from '../internet-explorer/internet-explorer.component';
 import { MyComputerComponent } from '../my-computer/my-computer.component';
 import { SystemMonitorComponent } from '../system-monitor/system-monitor.component';
+import { TaskbarPropertiesComponent } from '../taskbar-properties/taskbar-properties.component';
 import { WelcomeComponent } from '../welcome/welcome.component';
 import { WindowsExplorerComponent } from '../windows-explorer/windows-explorer.component';
 
 @Component({
   selector: 'app-programs-wrapper',
-  imports: [ControlPanelComponent, HelpComponent, InternetExplorerComponent, MyComputerComponent, SystemMonitorComponent, WelcomeComponent, WindowsExplorerComponent],
+  imports: [ControlPanelComponent, HelpComponent, InternetExplorerComponent, MyComputerComponent, SystemMonitorComponent, TaskbarPropertiesComponent, WelcomeComponent, WindowsExplorerComponent],
   templateUrl: './programs-wrapper.component.html',
   styleUrl: './programs-wrapper.component.scss',
 })
@@ -36,6 +37,7 @@ export class ProgramsWrapperComponent {
     internetExplorer: false,
     myComputer: false,
     systemMonitor: false,
+    taskbarProperties: false,
     welcome: false,
     windowsExplorer: false,
   };
@@ -47,6 +49,7 @@ export class ProgramsWrapperComponent {
       this.programs.internetExplorer = 'internet-explorer' in params;
       this.programs.myComputer = 'my-computer' in params;
       this.programs.systemMonitor = 'system-monitor' in params;
+      this.programs.taskbarProperties = 'taskbar-properties' in params;
       this.programs.welcome = 'welcome' in params;
       this.programs.windowsExplorer = 'windows-explorer' in params;
 
@@ -90,6 +93,14 @@ export class ProgramsWrapperComponent {
         });
       }
 
+      if ('taskbar-properties' in params && !this.store.openPrograms().some((programs) => programs.focusName === 'taskbar-properties')) {
+        this.store.openPrograms().push({
+          programName: 'Taskbar Properties',
+          focusName: 'taskbar-properties',
+          iconPath: '',
+        })
+      }
+
       if ('welcome' in params && !this.store.openPrograms().some((programs) => programs.focusName === 'welcome')) {
         this.store.openPrograms().push({
           programName: 'Welcome',
@@ -107,6 +118,9 @@ export class ProgramsWrapperComponent {
           iconPath: 'assets/icons/windows-explorer.svg',
         });
       }
+
+      // TODO check params, if only one item in params then focus should be set to that item
+      // if multiple items, set focus to the last item in params
     });
   }
 }
