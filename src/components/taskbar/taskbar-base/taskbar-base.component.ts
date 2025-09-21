@@ -23,7 +23,7 @@ export class TaskbarBaseComponent {
   /**
    * @description sets focus to taskbar base
    */
-  clickHandler(event: MouseEvent) {
+  public clickHandler(event: MouseEvent): void {
     event?.stopPropagation();
     this.store.focus.set('taskbar-base');
   }
