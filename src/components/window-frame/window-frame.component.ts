@@ -19,8 +19,9 @@ export class WindowFrameComponent {
   @Input({ alias: 'window-title' }) public title: string;
   @Input({ alias: 'window-icon' }) public icon: string;
   @Input({ alias: 'percent-height' }) public percentHeight: number;
-  @Input({ alias: 'percent-width' }) public percentWidth: number; // TODO instead of HTML input, set to values of the window-frame component, done somewhere else
-  // TODO add support for custom starting position (1 - 8) 1 being top middle, go around clock wise. Should start a few pixels from edge (check taskbar properties in Win95).
+  @Input({ alias: 'percent-width' }) public percentWidth: number; // TODO instead of HTML input, set to values of the window-frame component, used somewhere else, can be used for reference
+  // TODO add support for custom starting position (0 - 8) 0 being center, 1 being top middle, go around clock wise with corners (2, 4, 6, 8) and centers of sides (1, 3, 5, 7). Should start a few pixels from edge (check taskbar properties in Win95).
+  // TODO also add boolean support for preventing resizing. Useful for program such as calculator. Will also dim out the view change button
 
   @ViewChild('viewButton') private viewButtonRef!: ElementRef;
   @ViewChild('minimizeButton') private minimizeButtonRef!: ElementRef;
