@@ -1,5 +1,55 @@
 <div class="my-computer-wrapper">
-  <window-frame window-title="My Computer" focus-name="my-computer" window-icon="assets/icons/my-computer.svg" [percent-height]="50" [percent-width]="30">
-    <div class="frame-contents"></div>
+  <window-frame window-title="My Computer" focus-name="my-computer" window-icon="assets/icons/my-computer.svg" [prevent-resizing]="true" [hide-buttons]="true">
+    <div class="frame-contents">
+      <div class="padding">
+        <div class="content">
+          <div class="left">
+            <div class="img-wrapper">
+              <img src="assets/monitor-image.png" alt="">
+            </div>
+          </div>
+          <div class="right">
+            <figure>
+              <figcaption>System:</figcaption>
+              <ul>
+                <li>Zach's Personal Website</li>
+                <li>Version 1.0.0</li>
+              </ul>
+            </figure>
+            <figure>
+              <figcaption>Registered to:</figcaption>
+              <ul>
+                <li>Zachary Dodson</li>
+                <li>
+                  <a href="mailto:zdodson21@gmail.com?subject=Reaching%20out%20from%20your%20website!" target="_blank">zdodson21@gmail.com</a>
+                </li>
+                <li>
+                  <a href="https://github.com/zdodson21" target="_blank">zdodson21 @ GitHub</a>
+                </li>
+                <li>
+                  <a href="https://github.com/zdodson21/retro-desktop-portfolio" target="_blank">Project Repository</a>
+                </li>
+              </ul>
+            </figure>
+            <figure>
+              <figcaption>Computer:</figcaption>
+              <ul>
+                <li>Browser: {{ this.getBrowser() }}</li>
+                <li>Operating System: {{ this.getOS() }}</li>
+                <li>Available Processor Cores: {{ this.availableCores }}</li>
+              </ul>
+            </figure>
+          </div>
+        </div>
+        <div class="buttons">
+          <button>
+            OK
+          </button>
+          <button>
+            Cancel
+          </button>
+        </div>
+      </div>
+    </div>
   </window-frame>
 </div>
