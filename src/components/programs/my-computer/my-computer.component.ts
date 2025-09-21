@@ -5,8 +5,6 @@ import { WindowFrameComponent } from '../../window-frame/window-frame.component'
   selector: 'my-computer',
   imports: [WindowFrameComponent],
   templateUrl: './my-computer.component.html',
-  styleUrl: './my-computer.component.scss'
+  styleUrl: './my-computer.component.scss',
 })
-export class MyComputerComponent {
-
-}
+export class MyComputerComponent {}

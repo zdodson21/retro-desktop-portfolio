@@ -23,7 +23,6 @@ export class AppService {
 
   // ! Functions
 
-
   // ! Future Items
   isSoundEnabled: WritableSignal<boolean> = signal(false);
   customBackgroundColor: WritableSignal<string> = signal('');

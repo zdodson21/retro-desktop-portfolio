@@ -30,5 +30,4 @@ describe('TaskbarStartComponent', () => {
       expect(compiled.querySelector('.contents > p')?.textContent).toBe('Start');
     });
   });
-
 });

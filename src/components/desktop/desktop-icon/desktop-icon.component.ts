@@ -68,7 +68,7 @@ export class DesktopIconComponent {
     this.store.focus.set(this.focusName);
 
     const CURRENT_PARAMS: Params = { ...this.route.snapshot.queryParams };
-    CURRENT_PARAMS[this.focusName] = "";
+    CURRENT_PARAMS[this.focusName] = '';
 
     this.router.navigate(['programs'], {
       relativeTo: this.route,

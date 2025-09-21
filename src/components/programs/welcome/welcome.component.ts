@@ -86,7 +86,7 @@ export class WelcomeComponent {
     this.router.navigate([], {
       relativeTo: this.route,
       queryParams: CURRENT_PARAMS,
-      replaceUrl: true
+      replaceUrl: true,
     });
   }
 }

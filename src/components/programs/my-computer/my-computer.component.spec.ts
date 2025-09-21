@@ -10,8 +10,7 @@ describe('MyComputerComponent', () => {
     await TestBed.configureTestingModule({
       imports: [MyComputerComponent],
       providers: [provideRouter([])],
-    })
-    .compileComponents();
+    }).compileComponents();
 
     fixture = TestBed.createComponent(MyComputerComponent);
     component = fixture.componentInstance;
