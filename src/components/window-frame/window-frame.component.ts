@@ -14,13 +14,13 @@ export class WindowFrameComponent {
    */
   @Input({ alias: 'alert' }) public isAlert: boolean = false;
   @Input({ alias: 'hide-buttons' }) public hideButtons: boolean = false;
+  @Input({ alias: 'prevent-resizing' }) public preventResizing: boolean = false;
 
   @Input({ alias: 'focus-name' }) public focusName: string;
   @Input({ alias: 'window-title' }) public title: string;
   @Input({ alias: 'window-icon' }) public icon: string;
   @Input({ alias: 'percent-height' }) public percentHeight: number;
   @Input({ alias: 'percent-width' }) public percentWidth: number; // TODO instead of HTML input, set to values of the window-frame component, used somewhere else, can be used for reference
-  // TODO also add boolean support for preventing resizing. Useful for program such as calculator. Will also dim out the view change button
 
   @ViewChild('viewButton') private viewButtonRef!: ElementRef;
   @ViewChild('minimizeButton') private minimizeButtonRef!: ElementRef;
@@ -78,6 +78,8 @@ export class WindowFrameComponent {
     } else {
       this.setupDraggable();
     }
+
+    if (this.preventResizing) this.viewIcon = 'assets/icons/faded-maximize-button.svg'
 
     // Immediately sets offset, preventing a bug when clicking on a window-frame after the page loads,
     // which would cause it to jump into the top left corner of the viewport.

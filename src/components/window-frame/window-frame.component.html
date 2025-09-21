@@ -12,7 +12,7 @@
           <button #minimizeButton class="minimize-button" (click)="minimizeButtonHandler($event)">
             <img src="assets/icons/minimize-button.svg" alt="minimize icon" />
           </button>
-          <button #viewButton class="view-button" (click)="viewButtonHandler()">
+          <button #viewButton class="view-button" (click)="viewButtonHandler()" [disabled]="this.preventResizing">
             <img src="{{ viewIcon }}" [alt]="this.isFullSize ? 'Window shrink button icon' : 'Window maximize button icon'" />
             <!-- TODO set alt text to change when viewIcon changes -->
           </button>
