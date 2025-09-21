@@ -20,7 +20,6 @@ export class WindowFrameComponent {
   @Input({ alias: 'window-icon' }) public icon: string;
   @Input({ alias: 'percent-height' }) public percentHeight: number;
   @Input({ alias: 'percent-width' }) public percentWidth: number; // TODO instead of HTML input, set to values of the window-frame component, used somewhere else, can be used for reference
-  // TODO add support for custom starting position (0 - 8) 0 being center, 1 being top middle, go around clock wise with corners (2, 4, 6, 8) and centers of sides (1, 3, 5, 7). Should start a few pixels from edge (check taskbar properties in Win95).
   // TODO also add boolean support for preventing resizing. Useful for program such as calculator. Will also dim out the view change button
 
   @ViewChild('viewButton') private viewButtonRef!: ElementRef;
@@ -96,6 +95,7 @@ export class WindowFrameComponent {
       if (!this.isAlert) {
         if (this.store.focus() == this.focusName) {
           this.isElementFocused.set(true);
+          this.renderer.addClass(this.elementRef.nativeElement, 'active');
 
           if (this.store.minimizedPrograms().includes(this.focusName)) {
             this.store.minimizedPrograms().splice(this.store.minimizedPrograms().indexOf(this.focusName), 1);
@@ -103,6 +103,7 @@ export class WindowFrameComponent {
           }
         } else {
           this.isElementFocused.set(false);
+          this.renderer.removeClass(this.elementRef.nativeElement, 'active');
         }
       }
     });
