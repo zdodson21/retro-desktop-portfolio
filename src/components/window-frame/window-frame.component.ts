@@ -71,7 +71,7 @@ export class WindowFrameComponent {
     left: 0,
   };
 
-  ngAfterViewInit() {
+  ngAfterContentInit() {
     if (this.isAlert) {
       this.hideButtons = true;
       this.isElementFocused.set(true);
