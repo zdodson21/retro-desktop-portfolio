@@ -29,14 +29,14 @@ export class WelcomeComponent {
   /**
    * @description Navigate user to Zach's GitHub repo release page for this project
    */
-  public whatsNewButtonHelper() {
+  public whatsNewButtonHelper(): void {
     globalThis.open('https://github.com/zdodson21/retro-desktop-portfolio/releases');
   }
 
   /**
    * @description Navigate user to Zach's GitHub profile in new tab
    */
-  public githubProfileButtonHelper() {
+  public githubProfileButtonHelper(): void {
     globalThis.open('https://github.com/zdodson21');
   }
 
@@ -44,7 +44,7 @@ export class WelcomeComponent {
    * @description Displays next message from tips[], if number goes over array length it will go back to
    * 0
    */
-  public nextTipHelper() {
+  public nextTipHelper(): void {
     let nextIndex: number = this.tipDisplayIndex() + 1;
 
     if (nextIndex > this.tips.length - 1) nextIndex = 0;
@@ -56,7 +56,7 @@ export class WelcomeComponent {
    * @description Displays previous message from tips[], if number goes below 0 it will go to the last
    * index in the array
    */
-  public previousTipHelper() {
+  public previousTipHelper(): void {
     let previousIndex: number = this.tipDisplayIndex() - 1;
 
     if (previousIndex < 0) previousIndex = this.tips.length - 1;
@@ -66,8 +66,11 @@ export class WelcomeComponent {
 
   // TODO add logic for modifying local storage values
 
-  // TODO add close button function (work the same as window close button)
-  public closeButtonHelper(event: MouseEvent) {
+  /**
+   * @description Handles close button logic, closes window
+   * @param event Mouse click
+   */
+  public closeButtonHelper(event: MouseEvent): void {
     event?.stopPropagation();
     this.store.focus.set('');
 
