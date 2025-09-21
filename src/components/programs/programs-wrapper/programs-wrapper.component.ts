@@ -1,6 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { AppService } from '../../../app/app.service';
+import { CalculatorComponent } from '../calculator/calculator.component';
 import { ControlPanelComponent } from '../control-panel/control-panel.component';
 import { HelpComponent } from '../help/help.component';
 import { InternetExplorerComponent } from '../internet-explorer/internet-explorer.component';
@@ -12,7 +13,7 @@ import { WindowsExplorerComponent } from '../windows-explorer/windows-explorer.c
 
 @Component({
   selector: 'app-programs-wrapper',
-  imports: [ControlPanelComponent, HelpComponent, InternetExplorerComponent, MyComputerComponent, SystemMonitorComponent, TaskbarPropertiesComponent, WelcomeComponent, WindowsExplorerComponent],
+  imports: [CalculatorComponent, ControlPanelComponent, HelpComponent, InternetExplorerComponent, MyComputerComponent, SystemMonitorComponent, TaskbarPropertiesComponent, WelcomeComponent, WindowsExplorerComponent],
   templateUrl: './programs-wrapper.component.html',
   styleUrl: './programs-wrapper.component.scss',
 })
@@ -32,6 +33,7 @@ export class ProgramsWrapperComponent {
   private store: AppService = inject(AppService);
 
   public programs = {
+    calculator: false,
     controlPanel: false,
     help: false,
     internetExplorer: false,
@@ -44,6 +46,7 @@ export class ProgramsWrapperComponent {
 
   constructor(private route: ActivatedRoute) {
     this.route.queryParams.subscribe((params) => {
+      this.programs.calculator = 'calculator' in params;
       this.programs.controlPanel = 'control-panel' in params;
       this.programs.help = 'help' in params;
       this.programs.internetExplorer = 'internet-explorer' in params;
@@ -52,6 +55,14 @@ export class ProgramsWrapperComponent {
       this.programs.taskbarProperties = 'taskbar-properties' in params;
       this.programs.welcome = 'welcome' in params;
       this.programs.windowsExplorer = 'windows-explorer' in params;
+
+      if ('calculator' in params && !this.store.openPrograms().some((programs) => programs.focusName === 'calculator')) {
+        this.store.openPrograms().push({
+          programName: 'Calculator',
+          focusName: 'calculator',
+          iconPath: 'assets/icons/calculator.svg',
+        });
+      }
 
       if ('control-panel' in params && !this.store.openPrograms().some((programs) => programs.focusName === 'control-panel')) {
         this.store.openPrograms().push({

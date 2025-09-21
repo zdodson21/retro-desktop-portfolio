@@ -28,7 +28,7 @@ $win-95-highlight: #05037f;
 
 @mixin control-button-common {
   @include text-common();
-  background-color: #c0c0c0;
+  background-color: $win-95-grey;
   display: flex;
   justify-content: center;
   align-items: center;

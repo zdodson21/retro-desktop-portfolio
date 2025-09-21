@@ -4,8 +4,12 @@
   @include program-common();
 
   window-frame {
-    width: 300px;
-    height: 300px;
+    width: 350px;
+    height: 350px;
+
+    &.scientific {
+      width: 600px;
+    }
 
     .frame-contents {
       @include text-common();
