@@ -1,5 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { DesktopEnvironmentComponent } from './desktop-environment.component';
+import { provideRouter } from '@angular/router';
 
 describe('DesktopEnvironmentComponent', () => {
   let component: DesktopEnvironmentComponent;
@@ -9,6 +10,7 @@ describe('DesktopEnvironmentComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [DesktopEnvironmentComponent],
+      providers: [provideRouter([])],
     }).compileComponents();
 
     fixture = TestBed.createComponent(DesktopEnvironmentComponent);

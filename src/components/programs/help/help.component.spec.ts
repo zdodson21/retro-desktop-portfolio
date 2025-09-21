@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { provideRouter } from '@angular/router';
-import { WindowsHelpComponent } from './help.component';
+import { HelpComponent } from './help.component';
 
 describe('WindowsHelpComponent', () => {
-  let component: WindowsHelpComponent;
-  let fixture: ComponentFixture<WindowsHelpComponent>;
+  let component: HelpComponent;
+  let fixture: ComponentFixture<HelpComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [WindowsHelpComponent],
+      imports: [HelpComponent],
       providers: [provideRouter([])],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(WindowsHelpComponent);
+    fixture = TestBed.createComponent(HelpComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

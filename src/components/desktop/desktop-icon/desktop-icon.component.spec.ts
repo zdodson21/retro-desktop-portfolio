@@ -1,5 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { DesktopIconComponent } from './desktop-icon.component';
+import { provideRouter } from '@angular/router';
 
 describe('DesktopIconComponent', () => {
   let component: DesktopIconComponent;
@@ -9,6 +10,7 @@ describe('DesktopIconComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [DesktopIconComponent],
+      providers: [provideRouter([])],
     }).compileComponents();
 
     fixture = TestBed.createComponent(DesktopIconComponent);
