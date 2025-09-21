@@ -39,7 +39,7 @@ export class StartItemComponent {
   /**
    * @description opens applications with routes
    */
-  public clickHandler(event: MouseEvent) {
+  public clickHandler(event: MouseEvent): void {
     event?.stopPropagation();
 
     if (!this.store.openPrograms().some((programs) => programs.focusName === this.focusName)) {

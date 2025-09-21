@@ -22,7 +22,7 @@ export class StartShutdownComponent {
   /**
    * @description shows shutdown alert
    */
-  public clickHandler(event: MouseEvent) {
+  public clickHandler(event: MouseEvent): void {
     event?.stopPropagation();
     this.store.focus.set('shutdown-alert');
   }

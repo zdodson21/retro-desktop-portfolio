@@ -35,7 +35,7 @@ export class StartMenuComponent {
   /**
    * @description sets focus to "start-menu"
    */
-  public clickHandler(event: MouseEvent) {
+  public clickHandler(event: MouseEvent): void {
     event?.stopPropagation();
     this.store.focus.set('start-menu');
   }
