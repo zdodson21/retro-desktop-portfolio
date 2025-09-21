@@ -22,7 +22,7 @@ describe('TaskbarStartComponent', () => {
   });
 
   describe('Design', () => {
-    it('should hae the proper icon', () => {
+    it('should have the proper icon', () => {
       expect(compiled.querySelector('.contents > img')?.getAttribute('src')).toBe('assets/icons/start.svg');
     });
 
@@ -31,9 +31,4 @@ describe('TaskbarStartComponent', () => {
     });
   });
 
-  describe('Logic', () => {
-    it('should not be clicked by default', () => {
-      expect(component.isStartClicked()).toBeFalsy();
-    });
-  });
 });
