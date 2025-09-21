@@ -28,7 +28,7 @@ export class AppComponent {
    *              updating on window dimension changes.
    */
   @HostListener('window:resize')
-  private onResize() {
+  private onResize(): void {
     this.store.viewportWidth.set(globalThis.innerWidth);
     this.store.viewportHeight.set(globalThis.innerHeight);
   }
