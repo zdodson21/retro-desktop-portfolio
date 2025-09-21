@@ -1,0 +1,15 @@
+@use "../../../styles.scss" as *;
+
+.calculator-wrapper {
+  @include program-common();
+
+  window-frame {
+    width: 300px;
+    height: 300px;
+
+    .frame-contents {
+      @include text-common();
+      @include frame-contents-common();
+    }
+  }
+}
