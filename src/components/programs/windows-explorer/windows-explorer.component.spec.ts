@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { provideRouter } from '@angular/router';
 import { WindowsExplorerComponent } from './windows-explorer.component';
 
 describe('WindowsExplorerComponent', () => {
@@ -9,6 +9,7 @@ describe('WindowsExplorerComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [WindowsExplorerComponent],
+      providers: [provideRouter([])],
     }).compileComponents();
 
     fixture = TestBed.createComponent(WindowsExplorerComponent);

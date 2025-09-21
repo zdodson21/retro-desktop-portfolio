@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { provideRouter } from '@angular/router';
 import { TaskbarPropertiesComponent } from './taskbar-properties.component';
 
 describe('TaskbarPropertiesComponent', () => {
@@ -9,6 +9,7 @@ describe('TaskbarPropertiesComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [TaskbarPropertiesComponent],
+      providers: [provideRouter([])],
     }).compileComponents();
 
     fixture = TestBed.createComponent(TaskbarPropertiesComponent);
