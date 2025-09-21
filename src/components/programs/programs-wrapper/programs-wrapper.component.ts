@@ -97,7 +97,7 @@ export class ProgramsWrapperComponent {
         this.store.openPrograms().push({
           programName: 'Taskbar Properties',
           focusName: 'taskbar-properties',
-          iconPath: '',
+          iconPath: 'assets/icons/taskbar-properties.svg',
         })
       }
 
