@@ -1,5 +1,5 @@
 import { Component, effect, ElementRef, HostListener, inject, Input, Renderer2, signal, ViewChild, WritableSignal } from '@angular/core';
-import { Router, ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { AppService } from '../../app/app.service';
 
 @Component({
@@ -18,10 +18,8 @@ export class WindowFrameComponent {
   @Input({ alias: 'focus-name' }) public focusName: string;
   @Input({ alias: 'window-title' }) public title: string;
   @Input({ alias: 'window-icon' }) public icon: string;
-  @Input({ alias: 'percent-height' }) public percentHeight: number; // should be set to same value window-frame is defined as in SCSS
-  @Input({ alias: 'percent-width' }) public percentWidth: number; // TODO There's probably a better way to do this, remove comment when updated
-
-  // TODO add percent-height and percent-width inputs for window sizes when not in full view
+  @Input({ alias: 'percent-height' }) public percentHeight: number;
+  @Input({ alias: 'percent-width' }) public percentWidth: number; // TODO instead of HTML input, set to values of the window-frame component, done somewhere else
 
   @ViewChild('viewButton') private viewButtonRef!: ElementRef;
   @ViewChild('minimizeButton') private minimizeButtonRef!: ElementRef;
@@ -43,7 +41,7 @@ export class WindowFrameComponent {
   private minimizeItem: HTMLElement;
 
   private isMinimized: boolean = false;
-  private isFullSize: boolean = false;
+  public isFullSize: boolean = false;
 
   public viewIcon = 'assets/icons/maximize-button.svg';
 
@@ -112,13 +110,12 @@ export class WindowFrameComponent {
    * @description handle minimizing program
    * @param event MouseEvent
    */
-  public minimizeButtonHandler(event?: MouseEvent) {
+  public minimizeButtonHandler(event?: MouseEvent): void {
     event?.stopPropagation();
 
     if (!this.store.minimizedPrograms().includes(this.focusName)) {
       this.isMinimized = true;
-      // this.store.minimizedPrograms.update((arr) => [...arr, this.focusName]);
-      this.store.minimizedPrograms().push(this.focusName); // TODO might need to change to work with update instead, depends if system-monitor updates correctly when other programs exist.
+      this.store.minimizedPrograms().push(this.focusName);
     }
 
     if (this.store.minimizedPrograms().includes(this.focusName)) {
@@ -130,7 +127,7 @@ export class WindowFrameComponent {
   /**
    * @description handle changing between window & full screen mode
    */
-  public viewButtonHandler() {
+  public viewButtonHandler(): void {
     if (!this.isFullSize) {
       // going into full screen
       this.windowCoordinates = {
@@ -143,7 +140,7 @@ export class WindowFrameComponent {
         height: this.store.viewportHeight(),
       };
 
-      this.viewIcon = 'assets/icons/restore-button.svg'; // TODO placeholder
+      this.viewIcon = 'assets/icons/restore-button.svg';
 
       this.wrapperRef.nativeElement.classList.add('full-view');
 
@@ -154,28 +151,6 @@ export class WindowFrameComponent {
 
       this.wrapperRef.nativeElement.classList.remove('full-view');
 
-      if (this.store.viewportWidth() !== this.viewportRecorder.width || this.store.viewportHeight() !== this.viewportRecorder.height) {
-        // TODO finish all other important TODO items before this, that way irrelevant functions can be hidden in VSCode
-        /*
-          ! To replicate issue:
-            1. Change viewport height and width when page loads.
-              Take note that the program window will change height and width as well
-            2. Make program window-frame maximized, then minimized.
-            3. Notice the window no longer changes size. I want it to change size.
-
-            Good luck future me :D
-        */
-        // * Calculate window width as a percentage (I think it should be window width / recorded viewport width = % of screen taken)
-        // * Calculate window height as a percentage (same as above)
-        // * Calculate what the new window width should be (current viewport width * %)
-        // * Calculate what the new window height should be (same as above)
-        // * set this.dimensions to new width & height, should be all set below at CSS setting
-      }
-
-      // TODO these do not work, implementing temp. solution
-      // this.elementRef.nativeElement.style.width = `${this.dimensions.width}px`;
-      // this.elementRef.nativeElement.style.height = `${this.dimensions.height}px`;
-
       this.elementRef.nativeElement.style.width = `${this.percentWidth}%`;
       this.elementRef.nativeElement.style.height = `${this.percentHeight}%`;
       this.elementRef.nativeElement.style.top = `${this.windowCoordinates.top}px`;
@@ -183,27 +158,16 @@ export class WindowFrameComponent {
     }
 
     this.isFullSize = !this.isFullSize;
+
+    this.helpStayInViewport();
   }
 
   /**
    * @description maintains a full size program window even when browser size is changed
    */
   @HostListener('window:resize')
-  private helpMaintainSize() {
-    if (this.isFullSize) {
-      this.helpSetFullSize();
-    } else {
-      // this.elementRef.nativeElement.style.width = `${this.store.viewportWidth() / 2}px`;
-      // this.elementRef.nativeElement.style.height = `${this.store.viewportHeight() / 2}px`;
-      // TODO need to figure out if the window needs to move left, right, up, or down based on new values.
-      // If new viewport width || height is > previous, then adding is needed, else subtraction is needed
-      // this.windowCoordinates = {
-      //   top: this.store.viewportHeight() - this.windowCoordinates.top,
-      //   left: this.store.viewportWidth() - this.windowCoordinates.left
-      // }
-      // this.elementRef.nativeElement.style.top = `${this.windowCoordinates.top}px`;
-      // this.elementRef.nativeElement.style.left = `${this.windowCoordinates.left}px`;
-    }
+  private helpMaintainSize(): void {
+    if (this.isFullSize) this.helpSetFullSize();
 
     this.helpStayInViewport();
   }
@@ -211,7 +175,7 @@ export class WindowFrameComponent {
   /**
    * @description sets program window to full size
    */
-  private helpSetFullSize() {
+  private helpSetFullSize(): void {
     this.elementRef.nativeElement.style.width = '100.01%'; // ! 100.01% removes slivers of background in some browsers (Firefox)
     this.elementRef.nativeElement.style.height = `100.01%`;
     this.elementRef.nativeElement.style.top = `${this.store.viewportHeight() / 2 - 22}px`;
@@ -222,7 +186,7 @@ export class WindowFrameComponent {
    * @description handles close button functionality
    * @param event MouseEvent
    */
-  public closeButtonHandler(event?: MouseEvent) {
+  public closeButtonHandler(event?: MouseEvent): void {
     event?.stopPropagation();
     this.store.focus.set('');
 
@@ -238,15 +202,15 @@ export class WindowFrameComponent {
     this.router.navigate([], {
       relativeTo: this.route,
       queryParams: CURRENT_PARAMS,
-      replaceUrl: true
-    })
+      replaceUrl: true,
+    });
   }
 
   /**
    * @description Sets focus to clicked window
    * @param event MouseEvent
    */
-  public setFocus(event?: MouseEvent) {
+  public setFocus(event?: MouseEvent): void {
     event?.stopPropagation();
     this.store.focus.set(this.focusName);
   }
@@ -255,7 +219,7 @@ export class WindowFrameComponent {
    * @description Prevents program window from being placed outside of viewport area by repositioning
    * it back within the viewport if placed outside of it.
    */
-  private helpStayInViewport() {
+  private helpStayInViewport(): void {
     const FRAME = {
       x: +this.elementRef.nativeElement.style.left.split('p')[0], // gets the CSS value, then splits and gets the px value (without the px)
       y: +this.elementRef.nativeElement.style.top.split('p')[0],
@@ -287,7 +251,7 @@ export class WindowFrameComponent {
   /**
    * @description handles dragging events to move window around
    */
-  private setupDraggable() {
+  private setupDraggable(): void {
     const PANEL_LEFT_SIDE = this.elementRef.nativeElement.querySelector('.left-side');
 
     PANEL_LEFT_SIDE.addEventListener('mousedown', (e: MouseEvent) => {
@@ -305,6 +269,7 @@ export class WindowFrameComponent {
       if (this.isDragging) {
         this.elementRef.nativeElement.style.left = `${e.clientX - this.offset.x}px`;
         this.elementRef.nativeElement.style.top = `${e.clientY - this.offset.y}px`;
+        this.helpStayInViewport();
       }
     });
 
