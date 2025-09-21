@@ -49,7 +49,7 @@ export class DesktopIconComponent {
   /**
    * @description sets focus on desktop icon
    */
-  public singleClickHandler(event: MouseEvent) {
+  public singleClickHandler(event: MouseEvent): void {
     event?.stopPropagation();
     this.store.focus.set(this.iconFocusName);
     this.isElementFocused.set(true);
@@ -58,7 +58,7 @@ export class DesktopIconComponent {
   /**
    * @description opens applicable program / site / file
    */
-  public dblClickHandler(event: MouseEvent) {
+  public dblClickHandler(event: MouseEvent): void {
     event?.stopPropagation();
 
     if (!this.store.openPrograms().some((programs) => programs.focusName === this.focusName)) {
@@ -77,5 +77,9 @@ export class DesktopIconComponent {
     });
 
     this.isElementFocused.set(true);
+
+    setTimeout(() => {
+      this.isElementFocused.set(false);
+    }, 100);
   }
 }

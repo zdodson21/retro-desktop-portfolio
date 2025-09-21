@@ -96,6 +96,8 @@ export class ProgramsWrapperComponent {
           focusName: 'welcome',
           iconPath: '',
         });
+
+        this.store.focus.set('welcome');
       }
 
       if ('windows-explorer' in params && !this.store.openPrograms().some((programs) => programs.focusName === 'windows-explorer')) {

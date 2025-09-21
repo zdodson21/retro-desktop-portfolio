@@ -23,6 +23,8 @@
 
         .top {
           height: 15%;
+          overflow: hidden;
+          text-wrap: nowrap;
           // TODO font needs to be changed or switched to SVG
         }
 
@@ -42,6 +44,7 @@
             padding: 28px;
             display: flex;
             flex-direction: row;
+            overflow: scroll;
 
             .icon {
               @include icon-common();
