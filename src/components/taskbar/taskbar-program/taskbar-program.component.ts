@@ -36,7 +36,7 @@ export class TaskbarProgramComponent {
   /**
    * @description taskbar-program click handling
    */
-  public clickHandler(event: MouseEvent) {
+  public clickHandler(event: MouseEvent): void {
     event?.stopPropagation();
 
     if (this.store.focus() == this.focusName) {

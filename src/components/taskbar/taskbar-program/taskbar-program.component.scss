@@ -10,7 +10,7 @@
     $taskbar-item-border-black $taskbar-item-border-white;
   padding: 2px 6px;
   gap: 6px;
-  overflow: hidden; // TODO needs changed to be elipsies or something like that
+  overflow: hidden;
   text-overflow: ellipsis;
 
   img {
