@@ -1,7 +1,6 @@
 @use "../../../../../styles.scss" as *;
 
 .help-button-wrapper {
-  // TODO button dimensions should conform to inside contents
   @include text-common();
   display: flex;
   flex-direction: row;
