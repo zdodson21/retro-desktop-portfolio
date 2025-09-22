@@ -6,11 +6,7 @@
   window-frame {
     width: 475px; // TODO figure out a solution for mobile devices
     height: 475px;
-
-    @media (max-aspect-ratio: 1/1) {
-      width: 100vw;
-      height: 80vh;
-    }
+    @include mobile-viewport();
 
     .frame-contents {
       @include text-common();
@@ -56,6 +52,10 @@
 
                 li {
                   list-style-type: none;
+
+                  @media only screen and (max-width: 400px) {
+                    font-size: 14px;
+                  }
 
                   &:not(:last-child) {
                     margin-bottom: 4px;

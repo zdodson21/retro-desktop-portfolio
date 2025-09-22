@@ -3,6 +3,10 @@
 .system-monitor-wrapper {
   @include program-common();
 
+  window-frame {
+    @include mobile-viewport();
+  }
+
   .frame-contents {
     @include text-common();
     @include allow-user-select();

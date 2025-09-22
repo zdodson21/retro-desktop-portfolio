@@ -29,7 +29,9 @@ export class MyComputerComponent {
   }
 
   public getOS(): string {
-    if (this.userAgent.includes('Linux')) {
+    if (this.userAgent.includes('Android')) {
+      return 'Android';
+    } else if (this.userAgent.includes('Linux')) {
       return 'Linux';
     } else if (this.userAgent.includes('Windows')) {
       return 'Windows';
@@ -37,6 +39,10 @@ export class MyComputerComponent {
       return 'macOS';
     } else if (this.userAgent.includes('FreeBSD')) {
       return 'FreeBSD';
+    } else if (this.userAgent.includes('iPhone')) {
+      return 'iOS';
+    } else if (this.userAgent.includes('iPad')) {
+      return 'iPadOS'
     }
 
     return 'Unidentified Operating System';

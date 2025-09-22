@@ -20,7 +20,7 @@ export class WindowFrameComponent {
   @Input({ alias: 'window-title' }) public title: string;
   @Input({ alias: 'window-icon' }) public icon: string;
   @Input({ alias: 'percent-height' }) public percentHeight: number;
-  @Input({ alias: 'percent-width' }) public percentWidth: number; // TODO instead of HTML input, set to values of the window-frame component, used somewhere else, can be used for reference
+  @Input({ alias: 'percent-width' }) public percentWidth: number; // TODO instead of HTML input, set to values of the window-frame component, used somewhere else, can be used for reference. WILL GREATLY BENEFIT MOBILE SUPPORT!!!
 
   @ViewChild('viewButton') private viewButtonRef!: ElementRef;
   @ViewChild('minimizeButton') private minimizeButtonRef!: ElementRef;
