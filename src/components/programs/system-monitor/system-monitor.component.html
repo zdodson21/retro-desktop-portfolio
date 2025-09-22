@@ -17,6 +17,22 @@
             {{ this.store.viewportHeight() }}
           </li>
         </ul>
+
+        <figcaption>Browser Information</figcaption>
+        <ul>
+          <li>
+            <em>Browser:</em>
+            {{ this.store.getBrowser() }}
+          </li>
+          <li>
+            <em>Operating System:</em>
+            {{ this.store.getOS() }}
+          </li>
+          <li>
+            <em>Web Address:</em>
+            {{ this.store.webAddress }}
+          </li>
+        </ul>
       </figure>
       <figure class="program-states">
         <div class="open-programs">

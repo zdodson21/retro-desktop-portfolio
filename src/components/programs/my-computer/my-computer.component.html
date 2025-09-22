@@ -13,7 +13,7 @@
               <figcaption>System:</figcaption>
               <ul>
                 <li>Zach's Personal Website</li>
-                <li>Address: {{ this.address }}</li>
+                <li>Address: {{ this.store.webAddress }}</li>
                 <li>Version 1.0.0</li>
               </ul>
             </figure>
@@ -35,9 +35,9 @@
             <figure>
               <figcaption>Computer:</figcaption>
               <ul>
-                <li>Browser: {{ this.getBrowser() }}</li>
-                <li>Operating System: {{ this.getOS() }}</li>
-                <li>Available Processor Cores: {{ this.availableCores }}</li>
+                <li>Browser: {{ this.store.getBrowser() }}</li>
+                <li>Operating System: {{ this.store.getOS() }}</li>
+                <li>Available Processor Cores: {{ this.store.systemCores }}</li>
               </ul>
             </figure>
           </div>

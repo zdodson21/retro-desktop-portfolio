@@ -30,7 +30,7 @@ export class AlertShutdownComponent {
         globalThis.location.href = 'https://github.com/zdodson21?tab=repositories';
         break;
       case 1:
-        globalThis.location.href = `${globalThis.location.protocol}//${globalThis.location.host}`;
+        globalThis.location.href = this.store.webAddress;
         break;
       // TODO uncomment below when ready to integrate MSDOS-Prompt mode
       // case 2:
