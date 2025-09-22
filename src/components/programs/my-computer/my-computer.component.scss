@@ -4,8 +4,13 @@
   @include program-common();
 
   window-frame {
-    width: 475px;
+    width: 475px; // TODO figure out a solution for mobile devices
     height: 475px;
+
+    @media (max-aspect-ratio: 1/1) {
+      width: 100vw;
+      height: 80vh;
+    }
 
     .frame-contents {
       @include text-common();
