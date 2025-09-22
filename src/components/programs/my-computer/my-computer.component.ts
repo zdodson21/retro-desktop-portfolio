@@ -9,6 +9,7 @@ import { WindowFrameComponent } from '../../window-frame/window-frame.component'
 })
 export class MyComputerComponent {
   public availableCores: number = navigator.hardwareConcurrency;
+  public address: string = `${globalThis.location.protocol}//${globalThis.location.host}`;
   private userAgent: string = navigator.userAgent;
 
   public getBrowser(): string {
