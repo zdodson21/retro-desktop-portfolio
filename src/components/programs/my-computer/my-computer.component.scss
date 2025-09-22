@@ -42,11 +42,19 @@
             padding-top: 24px;
 
             figure {
+              figcaption {
+                margin-bottom: 4px;
+              }
+
               ul {
                 padding-left: 20px;
 
                 li {
                   list-style-type: none;
+
+                  &:not(:last-child) {
+                    margin-bottom: 4px;
+                  }
                 }
               }
             }
