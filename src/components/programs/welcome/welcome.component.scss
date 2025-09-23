@@ -6,6 +6,7 @@
   window-frame {
     width: 60%;
     height: 60%;
+    @include mobile-viewport();
 
     .frame-contents {
       @include text-common();

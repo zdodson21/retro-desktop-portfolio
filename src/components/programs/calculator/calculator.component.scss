@@ -6,6 +6,7 @@
   window-frame {
     width: 350px;
     height: 350px;
+    @include mobile-viewport();
 
     &.scientific {
       width: 600px;

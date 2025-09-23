@@ -21,6 +21,11 @@ export class AppService {
   public viewportWidth: WritableSignal<number> = signal(globalThis.innerWidth);
   public viewportHeight: WritableSignal<number> = signal(globalThis.innerHeight);
 
+  public mobilePercents = {
+    width: 90,
+    height: 80,
+  }
+
   private userAgent: string = navigator.userAgent;
 
   // ! Functions

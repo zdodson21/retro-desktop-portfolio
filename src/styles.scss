@@ -130,7 +130,7 @@ $win-95-highlight: #05037f;
     @include text-common();
   }
 
-  &:hover {
+  &:hover, &:active {
     background-color: $win-95-highlight;
 
     p {
