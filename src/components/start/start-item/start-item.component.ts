@@ -14,19 +14,12 @@ export class StartItemComponent {
   @Input({ alias: 'icon' }) public src: string;
   @Input({ alias: 'program-name' }) public programName: string;
 
-  @ViewChild('startItem') private startItemRef!: ElementRef;
-
   private store: AppService = inject(AppService);
-  private item: HTMLElement;
 
   private router: Router = inject(Router);
   private route: ActivatedRoute = inject(ActivatedRoute);
 
   private programDetails: Programs;
-
-  ngAfterViewInit() {
-    this.item = this.startItemRef.nativeElement;
-  }
 
   ngOnInit() {
     this.programDetails = {
