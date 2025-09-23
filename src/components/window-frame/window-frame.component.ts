@@ -305,6 +305,8 @@ export class WindowFrameComponent {
   }
   /**
    * @description drag start helper
+   * @param clientX x value of touch point
+   * @param clientY y value of touch point
    */
   private handleDragStart(clientX: number, clientY: number): void {
     this.setFocus();
@@ -320,6 +322,8 @@ export class WindowFrameComponent {
 
   /**
    * @description drag movement helper
+   * @param clientX x value of touch point
+   * @param clientY y value of touch point
    */
   private handleDragMove(clientX: number, clientY: number): void {
     this.elementRef.nativeElement.style.left = `${clientX - this.offset.x}px`;
@@ -328,7 +332,7 @@ export class WindowFrameComponent {
   }
 
   /**
-   * drag end helper
+   * @description drag end helper
    */
   private handleDragEnd(): void {
     if (this.isDragging) {
