@@ -268,42 +268,44 @@ export class WindowFrameComponent {
    * @description handles dragging events to move window around
    */
   private setupDraggable(): void {
-  const PANEL_LEFT_SIDE = this.elementRef.nativeElement.querySelector('.left-side');
+    const PANEL_LEFT_SIDE = this.elementRef.nativeElement.querySelector('.left-side');
 
-  // ! Mouse Events
-  PANEL_LEFT_SIDE.addEventListener('mousedown', (e: MouseEvent) => {
-    this.handleDragStart(e.clientX, e.clientY);
-  });
+    // ! Mouse Events
+    PANEL_LEFT_SIDE.addEventListener('mousedown', (e: MouseEvent) => {
+      this.handleDragStart(e.clientX, e.clientY);
+    });
 
-  document.addEventListener('mousemove', (e: MouseEvent) => {
-    if (this.isDragging) {
-      this.handleDragMove(e.clientX, e.clientY);
-    }
-  });
+    document.addEventListener('mousemove', (e: MouseEvent) => {
+      if (this.isDragging) {
+        this.handleDragMove(e.clientX, e.clientY);
+      }
+    });
 
-  document.addEventListener('mouseup', () => {
-    this.handleDragEnd();
-  });
+    document.addEventListener('mouseup', () => {
+      this.handleDragEnd();
+    });
 
-  // ! Touch Events
-  PANEL_LEFT_SIDE.addEventListener('touchstart', (e: TouchEvent) => {
-    const touch = e.touches[0];
-    this.handleDragStart(touch.clientX, touch.clientY);
-  });
-
-  document.addEventListener('touchmove', (e: TouchEvent) => {
-    if (this.isDragging) {
+    // ! Touch Events
+    PANEL_LEFT_SIDE.addEventListener('touchstart', (e: TouchEvent) => {
       const touch = e.touches[0];
-      this.handleDragMove(touch.clientX, touch.clientY);
-      e.preventDefault(); // Prevent scrolling while dragging
-    }
-  });
+      this.handleDragStart(touch.clientX, touch.clientY);
+    });
 
-  document.addEventListener('touchend', () => {
-    this.handleDragEnd();
-  });
-}
+    document.addEventListener('touchmove', (e: TouchEvent) => {
+      if (this.isDragging) {
+        const touch = e.touches[0];
+        this.handleDragMove(touch.clientX, touch.clientY);
+        e.preventDefault(); // Prevent scrolling while dragging
+      }
+    });
 
+    document.addEventListener('touchend', () => {
+      this.handleDragEnd();
+    });
+  }
+  /**
+   * @description drag start helper
+   */
   private handleDragStart(clientX: number, clientY: number): void {
     this.setFocus();
 
@@ -316,12 +318,18 @@ export class WindowFrameComponent {
     }
   }
 
+  /**
+   * @description drag movement helper
+   */
   private handleDragMove(clientX: number, clientY: number): void {
     this.elementRef.nativeElement.style.left = `${clientX - this.offset.x}px`;
     this.elementRef.nativeElement.style.top = `${clientY - this.offset.y}px`;
     this.helpStayInViewport();
   }
 
+  /**
+   * drag end helper
+   */
   private handleDragEnd(): void {
     if (this.isDragging) {
       this.helpStayInViewport();
