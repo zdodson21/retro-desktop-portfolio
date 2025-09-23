@@ -53,19 +53,6 @@ export class WindowFrameComponent {
   // Size & placement
   private offset = { x: 0, y: 0 };
 
-  private dimensions = {
-    width: this.elementRef.nativeElement.offsetWidth,
-    height: this.elementRef.nativeElement.offsetHeight,
-  };
-
-  /**
-    @description dimensions recorded when entering full screen for comparison when exiting full screen
-  */
-  private viewportRecorder = {
-    width: this.store.viewportWidth(),
-    height: this.store.viewportHeight(),
-  };
-
   private windowCoordinates = {
     top: 0,
     left: 0,
@@ -138,11 +125,6 @@ export class WindowFrameComponent {
       this.windowCoordinates = {
         top: this.elementRef.nativeElement.offsetTop,
         left: this.elementRef.nativeElement.offsetLeft,
-      };
-
-      this.viewportRecorder = {
-        width: this.store.viewportWidth(),
-        height: this.store.viewportHeight(),
       };
 
       this.viewIcon = 'assets/icons/restore-button.svg';
