@@ -20,7 +20,7 @@ export class WindowFrameComponent {
   @Input({ alias: 'window-title' }) public title: string;
   @Input({ alias: 'window-icon' }) public icon: string;
   @Input({ alias: 'percent-height' }) public percentHeight: number;
-  @Input({ alias: 'percent-width' }) public percentWidth: number; // TODO instead of HTML input, set to values of the window-frame component, used somewhere else, can be used for reference. WILL GREATLY BENEFIT MOBILE SUPPORT!!!
+  @Input({ alias: 'percent-width' }) public percentWidth: number;
 
   @ViewChild('viewButton') private viewButtonRef!: ElementRef;
   @ViewChild('minimizeButton') private minimizeButtonRef!: ElementRef;
@@ -156,8 +156,8 @@ export class WindowFrameComponent {
 
       this.wrapperRef.nativeElement.classList.remove('full-view');
 
-      this.elementRef.nativeElement.style.width = `${this.percentWidth}%`;
-      this.elementRef.nativeElement.style.height = `${this.percentHeight}%`;
+      this.setWindowSize();
+
       this.elementRef.nativeElement.style.top = `${this.windowCoordinates.top}px`;
       this.elementRef.nativeElement.style.left = `${this.windowCoordinates.left}px`;
     }
@@ -173,8 +173,19 @@ export class WindowFrameComponent {
   @HostListener('window:resize')
   private helpMaintainSize(): void {
     if (this.isFullSize) this.helpSetFullSize();
+    if (!this.isFullSize) this.setWindowSize();
 
     this.helpStayInViewport();
+  }
+
+  private setWindowSize(): void {
+    if (this.store.viewportWidth() > this.store.viewportHeight()) {
+      this.elementRef.nativeElement.style.width = `${this.percentWidth}%`;
+      this.elementRef.nativeElement.style.height = `${this.percentHeight}%`;
+    } else {
+      this.elementRef.nativeElement.style.width = `${this.store.mobilePercents.width}%`;
+      this.elementRef.nativeElement.style.height = `${this.store.mobilePercents.height}%`;
+    }
   }
 
   /**
@@ -257,33 +268,64 @@ export class WindowFrameComponent {
    * @description handles dragging events to move window around
    */
   private setupDraggable(): void {
-    const PANEL_LEFT_SIDE = this.elementRef.nativeElement.querySelector('.left-side');
+  const PANEL_LEFT_SIDE = this.elementRef.nativeElement.querySelector('.left-side');
 
-    PANEL_LEFT_SIDE.addEventListener('mousedown', (e: MouseEvent) => {
-      this.setFocus();
+  // ! Mouse Events
+  PANEL_LEFT_SIDE.addEventListener('mousedown', (e: MouseEvent) => {
+    this.handleDragStart(e.clientX, e.clientY);
+  });
 
-      if (!this.isFullSize) this.isDragging = true;
+  document.addEventListener('mousemove', (e: MouseEvent) => {
+    if (this.isDragging) {
+      this.handleDragMove(e.clientX, e.clientY);
+    }
+  });
 
+  document.addEventListener('mouseup', () => {
+    this.handleDragEnd();
+  });
+
+  // ! Touch Events
+  PANEL_LEFT_SIDE.addEventListener('touchstart', (e: TouchEvent) => {
+    const touch = e.touches[0];
+    this.handleDragStart(touch.clientX, touch.clientY);
+  });
+
+  document.addEventListener('touchmove', (e: TouchEvent) => {
+    if (this.isDragging) {
+      const touch = e.touches[0];
+      this.handleDragMove(touch.clientX, touch.clientY);
+      e.preventDefault(); // Prevent scrolling while dragging
+    }
+  });
+
+  document.addEventListener('touchend', () => {
+    this.handleDragEnd();
+  });
+}
+
+  private handleDragStart(clientX: number, clientY: number): void {
+    this.setFocus();
+
+    if (!this.isFullSize) {
+      this.isDragging = true;
       this.offset = {
-        x: e.clientX - this.elementRef.nativeElement.offsetLeft,
-        y: e.clientY - this.elementRef.nativeElement.offsetTop,
+        x: clientX - this.elementRef.nativeElement.offsetLeft,
+        y: clientY - this.elementRef.nativeElement.offsetTop,
       };
-    });
+    }
+  }
 
-    document.addEventListener('mousemove', (e: MouseEvent) => {
-      if (this.isDragging) {
-        this.elementRef.nativeElement.style.left = `${e.clientX - this.offset.x}px`;
-        this.elementRef.nativeElement.style.top = `${e.clientY - this.offset.y}px`;
-        this.helpStayInViewport();
-      }
-    });
+  private handleDragMove(clientX: number, clientY: number): void {
+    this.elementRef.nativeElement.style.left = `${clientX - this.offset.x}px`;
+    this.elementRef.nativeElement.style.top = `${clientY - this.offset.y}px`;
+    this.helpStayInViewport();
+  }
 
-    document.addEventListener('mouseup', () => {
-      if (this.isDragging) {
-        this.helpStayInViewport();
-
-        this.isDragging = false;
-      }
-    });
+  private handleDragEnd(): void {
+    if (this.isDragging) {
+      this.helpStayInViewport();
+      this.isDragging = false;
+    }
   }
 }
