@@ -40,7 +40,7 @@ export class AppService {
     } else if (this.userAgent.includes('Chrome')) {
       return 'Google Chrome';
     } else if (this.userAgent.includes('Safari')) {
-      return 'Safari / Webkit Browser';
+      return 'Safari / Webkit';
     }
 
     return 'Unidentified Browser';
