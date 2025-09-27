@@ -23,7 +23,7 @@
       "files": ["*.ts", "*.spec.ts"],
       "options": {
         "bracketSameLine": false,
-        "printWidth": 72
+        "printWidth": 80
       }
     }
   ]
