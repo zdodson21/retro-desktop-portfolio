@@ -24,7 +24,7 @@ export class AppService {
   public mobilePercents = {
     width: 90,
     height: 80,
-  }
+  };
 
   private userAgent: string = navigator.userAgent;
 
@@ -38,17 +38,29 @@ export class AppService {
   public getBrowser(): string {
     if (this.userAgent.includes('Edg/')) {
       return 'Microsoft Edge';
+    } else if (this.userAgent.includes('Brave/') || this.isBrave()) {
+      return 'Brave';
     } else if (this.userAgent.includes('OPR/')) {
       return 'Opera';
+    } else if (this.userAgent.includes('SamsungBrowser')) {
+      return 'Samsung Browser';
     } else if (this.userAgent.includes('Firefox')) {
       return 'Firefox';
     } else if (this.userAgent.includes('Chrome')) {
       return 'Google Chrome';
     } else if (this.userAgent.includes('Safari')) {
-      return 'Safari / Webkit';
+      return 'Safari';
     }
 
     return 'Unidentified Browser';
+  }
+
+  /**
+   * @description detect Brave browser
+   * @returns true if user is utilizing Brave browser
+   */
+  private isBrave(): boolean {
+    return typeof (navigator as unknown as { brave?: unknown }).brave !== 'undefined';
   }
 
   /**
@@ -80,7 +92,12 @@ export class AppService {
    * @return true if mobile, false if not
    */
   public isMobile(): boolean {
-    if (this.getOS() === 'Android' || this.getOS() === 'iPhone' || this.getOS() === 'iPadOS') return true;
+    if (
+      this.getOS() === 'Android' ||
+      this.getOS() === 'iPhone' ||
+      this.getOS() === 'iPadOS'
+    )
+      return true;
 
     return false;
   }
