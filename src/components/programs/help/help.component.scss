@@ -12,14 +12,13 @@
       @include text-common();
       @include frame-contents-common();
       background-color: #f1f6b7;
-      overflow: scroll;
 
       .padding {
         padding: 20px;
         height: calc(100% - 40px);
         display: flex;
         flex-direction: column;
-        overflow: scroll;
+        overflow-y: scroll;
 
         .top {
           margin-bottom: 20px;
@@ -67,6 +66,10 @@
 
             img {
               width: 50%;
+            }
+
+            p:not(:last-child) {
+              margin-bottom: 8px;
             }
           }
         }
