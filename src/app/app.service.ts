@@ -36,12 +36,16 @@ export class AppService {
    * @returns current browser
    */
   public getBrowser(): string {
-    if (this.userAgent.includes('Edg/')) {
+    if (this.userAgent.includes('DuckDuckGo')) {
+      return 'DuckDuckGo';
+    } else if (this.userAgent.includes('Edg/')) {
       return 'Microsoft Edge';
     } else if (this.userAgent.includes('Brave/') || this.isBrave()) {
       return 'Brave';
     } else if (this.userAgent.includes('OPR/')) {
       return 'Opera';
+    } else if (this.userAgent.includes('OPX/')) {
+      return 'Opera GX';
     } else if (this.userAgent.includes('SamsungBrowser')) {
       return 'Samsung Browser';
     } else if (this.userAgent.includes('Firefox')) {
