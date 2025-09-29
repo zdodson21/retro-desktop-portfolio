@@ -16,6 +16,8 @@ export class StartDropdownComponent {
   private store: AppService = inject(AppService);
   private item: HTMLElement;
 
+  public isHovered: boolean = false;
+
   ngAfterViewInit() {
     this.item = this.startDropdownRef.nativeElement;
   }
