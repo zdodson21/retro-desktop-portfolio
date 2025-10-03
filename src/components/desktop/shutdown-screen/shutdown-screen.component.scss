@@ -1,0 +1,33 @@
+@use "../../../styles.scss" as *;
+
+.shutdown-screen-wrapper {
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  color: #e87832;
+  font-size: 48px;
+  text-align: center;
+  @include text-common();
+
+  display: grid;
+  grid-template-columns: repeat(1);
+  grid-template-rows: 20% 60% 20%;
+  gap: 8px;
+
+  .row-2 {
+    align-content: center;
+  }
+
+  .row-3 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .reload-text {
+      display: block;
+      width: fit-content;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+  }
+}

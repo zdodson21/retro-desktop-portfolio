@@ -27,7 +27,7 @@ export class AlertShutdownComponent {
 
     switch (this.formValue) {
       case 0:
-        globalThis.location.href = 'https://github.com/zdodson21?tab=repositories';
+        this.store.desktopMode.set(1);
         break;
       case 1:
         globalThis.location.href = this.store.webAddress;

@@ -1,4 +1,4 @@
-<div class="app-wrapper">
+<div class="app-wrapper" [class.visible]="this.store.desktopMode() === 0">
   <alert-shutdown #shutdownAlert [class.visible]="isAlertVisible()"></alert-shutdown>
   <desktop-environment>
     <router-outlet></router-outlet>
@@ -6,3 +6,5 @@
   <start-menu />
   <taskbar-base />
 </div>
+
+<shutdown-screen [class.visible]="this.store.desktopMode() === 1"/>
