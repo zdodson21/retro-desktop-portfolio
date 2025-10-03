@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
-import { WindowFrameComponent } from '../../window-frame/window-frame.component';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { AppService } from '../../../app/app.service';
-import { Router, ActivatedRoute, Params } from '@angular/router';
+import { WindowFrameComponent } from '../../window-frame/window-frame.component';
 
 @Component({
   selector: 'my-computer',
