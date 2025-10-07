@@ -1,17 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { provideRouter } from '@angular/router';
+import { HaxChatAgentSite } from './hax-chat-agent.component';
 
-import { HaxChatAgentComponent } from './hax-chat-agent.component';
-
-describe('HaxChatAgentComponent', () => {
-  let component: HaxChatAgentComponent;
-  let fixture: ComponentFixture<HaxChatAgentComponent>;
+describe('HaxChatAgentSite', () => {
+  let component: HaxChatAgentSite;
+  let fixture: ComponentFixture<HaxChatAgentSite>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [HaxChatAgentComponent],
+      imports: [HaxChatAgentSite],
+      providers: [provideRouter([])],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(HaxChatAgentComponent);
+    fixture = TestBed.createComponent(HaxChatAgentSite);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

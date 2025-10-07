@@ -1,0 +1,43 @@
+@use "../sites.scss" as *;
+
+.error-site-wrapper {
+  max-width: 75%;
+  padding: 24px;
+  @include site-mobile-support(75%);
+
+  header {
+    .top {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 12px;
+
+      h1 {
+        margin: 0;
+      }
+    }
+  }
+
+  .bar {
+    display: block;
+    border: solid 1px #c0c0c0;
+    margin: 12px 0px;
+  }
+
+  main {
+    ul {
+      li {
+
+        &:not(:last-child) {
+          margin-bottom: 4px;
+        }
+
+        span {
+          img {
+            width: 16px;
+            vertical-align: middle;
+          }
+        }
+      }
+    }
+  }
+}

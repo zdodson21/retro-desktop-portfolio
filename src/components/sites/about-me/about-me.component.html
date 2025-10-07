@@ -1,36 +1,98 @@
-<header>
-  <!-- TODO default styles for header, main, and footer might need to be adjusted -->
-  <h1>About Me</h1>
-</header>
-<main>
-  <div id="self-description">
-    <div class="text">
+<article class="about-me-site-wrapper">
+  <header>
+    <h1>About Me</h1>
+  </header>
+  <main>
+    <div id="self-description">
+      <div class="text">
 
+      </div>
+      <div class="img">
+
+      </div>
+      <div class="socials-row">
+        <a-ie href="https://github.com/zdodson21">GitHub</a-ie>
+        <a-ie href="https://www.linkedin.com/in/zach-dodson-psu/">LinkedIn</a-ie>
+      </div>
     </div>
-    <div class="img">
 
+    <div id="professional-experience">
+      <h2>Professional Experience</h2>
+      <div class="learning-assistant">
+        <h3>Web Development Learning Assistant (Penn State College of Information Science & Technology)</h3>
+        <p>University Park, PA (August 2024 - December 2024)</p>
+        <ul>
+          <li>
+            Worked on a team of 3 learning assistants to support a class of ~60 undergraduate students in a web development course <a-ie href="https://ist.psu.edu/learning/courses/ist/256">(IST 256: Programming for the Web)</a-ie>, delivering supplementalt instruction during and after class time.
+          </li>
+          <li>
+            Hosted weekly office-hour sessions after class, resulting in a noticable increase in student understanding and academic performance.
+          </li>
+          <li>
+            Reviewed and annotated student code submissions, emphasizing self-learning strategies to encourage independent problem-solving.
+          </li>
+        </ul>
+      </div>
+
+      <div class="internship">
+        <h3>
+          <ie-route domain="hax-chat-agent" tld="os">
+            Front-End Web Developer (Intern @ HAXTheWeb / Penn State College of Arts & Architecture)
+          </ie-route>
+        </h3>
+        <p>University Park, PA (May 2024 - August 2024)</p>
+        <ul>
+          <li>
+            Designed and launched an AI-driven chat interface for HAXTheWeb, an open source content management system, enabling real-time conversation for site editors and visitors.
+          </li>
+          <li>
+            Built reusable web components with Lit library, implementing cross-component state management, chat-history logging, developer-mode toggles, responsive scaling, message recall, and displayable message suggestions.
+          </li>
+          <li>
+            Identified and resolved numerous bugs across the HAXTheWeb monorepo, improving overall usability and acessibility, fixing cross browser usability issues, and UI/UX inconsistencies.
+          </li>
+        </ul>
+      </div>
     </div>
-    <div class="socials-row">
-      <!-- GitHub -->
-      <!-- LinkedIn -->
+
+    <div id="project-experience">
+      <h2>Projects</h2>
+      <p>Descriptions about my major projects can be viewed on their individual pages, accessible by clicking their name in the following list:</p>
+      <ul>
+        <li>
+          <ie-route domain="retro-desktop-portfolio" tld="net">Retro Desktop Portfolio (this web application)</ie-route>
+        </li>
+        <li>
+          <ie-route domain="hax-audit" tld="os">HAXTheWeb Audit CLI Tool (Open Source Contribution)</ie-route>
+        </li>
+        <li>
+          <ie-route domain="hax-chat-agent" tld="os">HAXTheWeb Chat Agent (Internship)</ie-route>
+        </li>
+        <li>
+          <ie-route domain="open-source-contributions" tld="os">Open Source Contributions</ie-route>
+        </li>
+        <li>
+          <ie-route domain="small-projects" tld="net">Small Projects</ie-route>
+        </li>
+      </ul>
     </div>
-  </div>
 
-  <div id="professional-experience">
-    <div class="learning-assistant">
-
+    <div id="education">
+      <h2>Education</h2>
+      <h3>The Pennsylvania State University (University Park, PA) (June 2021 - December 2024)</h3>
+      <ul>
+        <li>Major: (B.S.) Enterprise Technology Integration</li>
+        <li>Minor: Information Sciences and Technology</li>
+        <li>Certification in Business Fundamentals (Finance, Suppy Chains, Marketing, Management, International Relations)</li>
+      </ul>
+      <p>Knowledge Acquired:</p>
+      <ul>
+        <li>Project Management</li>
+        <li>Full-Stack Software Development</li>
+        <li>Database Concepts</li>
+        <li>Philosophy & Ethics in Technology</li>
+        <li>Generative AI Implementation & Usage</li>
+      </ul>
     </div>
-    .
-  </div>
-
-  <div id="project-experience">
-    <!-- TODO would be nice if clicking on a project header would navigate the internet-explorer route to that page -->
-  </div>
-
-  <div id="education">
-
-  </div>
-</main>
-<footer>
-
-</footer>
+  </main>
+</article>

@@ -1,0 +1,15 @@
+@use "../../../../../styles.scss" as *;
+
+button {
+  background-color: $win-95-grey;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;;
+
+  img {
+    @include icon-common();
+  }
+}

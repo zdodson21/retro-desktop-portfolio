@@ -1,17 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { provideRouter } from '@angular/router';
+import { SmallProjectsSite } from './small-projects.component';
 
-import { SmallProjectsComponent } from './small-projects.component';
-
-describe('SmallProjectsComponent', () => {
-  let component: SmallProjectsComponent;
-  let fixture: ComponentFixture<SmallProjectsComponent>;
+describe('SmallProjectsSite', () => {
+  let component: SmallProjectsSite;
+  let fixture: ComponentFixture<SmallProjectsSite>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [SmallProjectsComponent],
+      imports: [SmallProjectsSite],
+      providers: [provideRouter([])],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(SmallProjectsComponent);
+    fixture = TestBed.createComponent(SmallProjectsSite);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -1,17 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { provideRouter } from '@angular/router';
+import { OpenSourceContributionsSite } from './open-source-contributions.component';
 
-import { OpenSourceContributionsComponent } from './open-source-contributions.component';
-
-describe('OpenSourceContributionsComponent', () => {
-  let component: OpenSourceContributionsComponent;
-  let fixture: ComponentFixture<OpenSourceContributionsComponent>;
+describe('OpenSourceContributionsSite', () => {
+  let component: OpenSourceContributionsSite;
+  let fixture: ComponentFixture<OpenSourceContributionsSite>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [OpenSourceContributionsComponent],
+      imports: [OpenSourceContributionsSite],
+      providers: [provideRouter([])],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(OpenSourceContributionsComponent);
+    fixture = TestBed.createComponent(OpenSourceContributionsSite);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

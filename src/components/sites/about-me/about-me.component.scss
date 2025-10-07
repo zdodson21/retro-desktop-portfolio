@@ -1,0 +1,10 @@
+@use "../sites.scss" as *;
+
+.about-me-site-wrapper {
+  @include site-common();
+
+  h1 {
+    margin: 0px;
+  }
+}
+

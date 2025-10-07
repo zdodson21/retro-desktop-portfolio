@@ -1,0 +1,15 @@
+@use "../sites.scss" as *;
+
+.portfolio-site-wrapper {
+  @include site-common();
+
+  main {
+    div {
+      p {
+        &:not(:last-child) {
+          margin-bottom: 8px;
+        }
+      }
+    }
+  }
+}

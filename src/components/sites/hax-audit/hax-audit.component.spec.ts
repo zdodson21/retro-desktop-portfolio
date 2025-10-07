@@ -1,17 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { provideRouter } from '@angular/router';
+import { HaxAuditSite } from './hax-audit.component';
 
-import { HaxAuditComponent } from './hax-audit.component';
-
-describe('HaxAuditComponent', () => {
-  let component: HaxAuditComponent;
-  let fixture: ComponentFixture<HaxAuditComponent>;
+describe('HaxAuditSite', () => {
+  let component: HaxAuditSite;
+  let fixture: ComponentFixture<HaxAuditSite>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [HaxAuditComponent],
+      imports: [HaxAuditSite],
+      providers: [provideRouter([])],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(HaxAuditComponent);
+    fixture = TestBed.createComponent(HaxAuditSite);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -1,3 +1,5 @@
+@use "./print.scss" as *;
+
 // ! Common
 $win-95-grey: #c0c0c0;
 $win-95-dark-cyan: #007d80;
@@ -34,12 +36,12 @@ $win-95-highlight: #05037f;
   align-items: center;
   border-radius: 0;
   border-style: outset solid solid outset;
-  border-color: white black black white;
+  border-color: white #7d7c7c #7d7c7c white;
   padding: 4px 0px;
 
   &:active {
     border-style: solid inset inset solid;
-    border-color: black white white black;
+    border-color: #7d7c7c white white #7d7c7c;
   }
 
   > span {

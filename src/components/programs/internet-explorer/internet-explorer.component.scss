@@ -1,5 +1,25 @@
 @use "../../../styles.scss" as *;
 
+$toolbar-height: 28px; // TODO might need to change to px values
+$standard-button-height: 56px;
+$address-bar-height: 32px;
+$status-bar-height: 5%;
+
+@media (max-aspect-ratio: 1/1) {
+  .standard-buttons {
+    overflow-x: scroll;
+  }
+}
+
+@mixin no-text-overflow() {
+  white-space: nowrap;
+
+  p {
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
 .internet-explorer-wrapper {
   @include program-common();
 
@@ -11,6 +31,379 @@
     .frame-contents {
       @include text-common();
       @include frame-contents-common();
+
+      .bar-container {
+        height: 100%;
+        width: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .bar {
+          height: 80%;
+          width: 2px;
+          background-color: #979797;
+          border-left: white 1.5px solid;
+          border-bottom: #979797 2px solid;
+          box-shadow: 0.5px 0.5px #A2A2A2;
+        }
+      }
+
+      .toolbar {
+        height: $toolbar-height;
+        display: flex;
+        flex-direction: row;
+        border-bottom: 1px solid #858585;
+        border-left: 1px #7c7d7d solid;
+        border-top: 1px white solid;
+        border-right: 1px white solid;
+
+        .toolbar-buttons {
+          display: flex;
+          align-items: center;
+          flex-direction: row;
+          height: 100%;
+          width: calc(100% - 28px);
+
+          toolbar-button {
+            display: block;
+            height: 22px;
+            border: 2px transparent solid;
+            border-radius: 0;
+
+            &:hover, &:focus {
+              border-style: outset solid solid outset;
+              border-color: white #7d7c7c #7d7c7c white;
+            }
+
+            &:active {
+              border-style: solid inset inset solid;
+              border-color: #7d7c7c white white #7d7c7c;
+            }
+          }
+
+          toolbar-menu {
+            display: none;
+
+            &.visible {
+              display: block;
+            }
+          }
+        }
+
+        img {
+          @include icon-common();
+        }
+      }
+
+      .standard-buttons {
+        display: flex;
+        flex-direction: row;
+        height: $standard-button-height;
+        // TODO standard-buttons need to compress so all can fit on screen on phones
+        // look at taskbar for reference
+        border-top: 1px white solid;
+        border-bottom: 1px solid #858585;
+        border-left: 1px #7c7d7d solid;
+        border-right: 1px white solid;
+
+        .divider-container {
+          height: 100%;
+          display: flex;
+          align-items: center;
+
+          .divider {
+            border-left: 1px #9D9D9D inset;
+            border-right: 1px white inset;
+            height: 90%;
+            margin: 0px 2px;
+          }
+        }
+
+        standard-button {
+          display: block;
+          width: 52px;
+          height: 52px;
+          border: 2px transparent solid;
+          border-radius: 0;
+
+          &:hover, &:focus {
+            border-style: outset solid solid outset;
+            border-color: white #7d7c7c #7d7c7c white;
+          }
+
+          &:active {
+            border-style: solid inset inset solid;
+            border-color: #7d7c7c white white #7d7c7c;
+          }
+        }
+
+        .buttons {
+          display: flex;
+          flex-direction: row;
+        }
+      }
+
+      .address-bar {
+        height: $address-bar-height;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        width: calc(100% - 2px);
+        border-top: 1px white solid;
+        border-left: 1px #7c7d7d solid;
+        border-right: 1px white solid;
+        border-bottom: 1px #7c7d7d solid;
+
+        $p-width: 54px;
+        $button-width: 56px;
+
+        > p {
+          font-size: 14px;
+          width: $p-width;
+          text-align: center;
+        }
+
+        .search-input {
+          display: flex;
+          flex-direction: row;
+          gap: 2px;
+          background-color: white;
+          width: calc(100% - $p-width - $button-width - 6px);
+          height: 24px;
+          align-items: center;
+          border-top: 1.5px inset black;
+          border-left: 1.5px inset black;
+          border-bottom: 1.5px inset white;
+          border-right: 1.5px inset white;
+
+          img {
+            padding-left: 2px;
+            width: 20px;
+            height: 22px;
+          }
+
+          input {
+            border: none;
+            width: calc(100% - 20px);
+            height: 22px;
+
+            &:focus {
+              border: none;
+              outline: none;
+            }
+          }
+        }
+
+        button {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          justify-content: center;
+          height: calc(100% - 4px);
+          gap: 4px;
+          background-color: $win-95-grey;
+          width: $button-width;
+          margin: 0px 4px;
+
+          border: 2px transparent solid;
+          border-radius: 0;
+
+          &:hover {
+            border-style: outset solid solid outset;
+            border-color: white black black white;
+          }
+
+          &:active {
+            border-style: solid inset inset solid;
+            border-color: #7d7c7c white white #7d7c7c;
+          }
+
+          img {
+            display: none;
+            @include icon-common();
+
+            &.visible {
+              display: block;
+            }
+          }
+        }
+      }
+
+      .main-content {
+        height: calc(100% - $toolbar-height - $standard-button-height - $address-bar-height - $status-bar-height - 24px);
+        display: flex;
+        flex-direction: row;
+        padding-top: 8px;
+        margin-bottom: 8px;
+        border-top: 2px #DEDEDE solid;
+
+        &.sidebar-open {
+          gap: 8px;
+          background-color: #C0C0C0;
+        }
+
+        .sidebar {
+          height: 100%;
+          width: 0%;
+
+          &.sidebar-open {
+            width: 18%;
+            padding-left: 2px;
+          }
+
+          .sidebar-content {
+            height: 100%;
+            background-color: white;
+            padding-top: 1px;
+            margin-right: 1px;
+
+            .title-bar {
+              background-color: #c0c0c0;
+              height: 20px;
+              padding: 0px 2px 0px 6px;
+              align-content: center;
+              display: flex;
+              flex-direction: row;
+              align-items: center;
+              justify-content: space-between;
+              border: 1px #7c7d7d inset;
+              border-left: 1px solid white;
+              margin-right: 1px;
+              font-size: 14px;
+
+              close-sidebar-button {
+                height: 16px;
+
+                &:hover {
+                  border-style: solid;
+                  border-width: 1px;
+                  border-radius: 0;
+                  border-style: outset solid solid outset;
+                  border-color: white black black white;
+                }
+
+                &:active {
+                  border-style: solid inset inset solid;
+                  border-color: #7d7c7c white white #7d7c7c;
+                }
+              }
+            }
+
+            .content {
+              // TODO needs to be scrollable
+              height: calc(100% - 32px);
+              background-color: white;
+              padding: 4px;
+              overflow-y: scroll;
+
+              .input-container {
+                display: flex;
+                width: 100%;
+                justify-content: center;
+                align-items: center;
+
+                input {
+                  padding: 0;
+                  margin: 0;
+                  width: 100%;
+                }
+              }
+
+              ul {
+                list-style-type: none;
+                margin: 0;
+                padding: 0;
+
+                li {
+                  font-size: 14px;
+                  display: flex;
+                  align-items: center;
+                  flex-direction: row;
+                  gap: 8px;
+
+                  &:not(:last-child) {
+                    margin-bottom: 12px;
+                  }
+
+                  img {
+                    @include icon-common();
+                    width: 16px;
+                  }
+                }
+              }
+            }
+          }
+        }
+
+        .site-content {
+          background-color: white;
+          height: 100%;
+          width: 100%;
+          overflow: scroll;
+          border-width: 2px;
+          border-color: #3F3F3F #EBEBEB #EBEBEB #3F3F3F;
+          border-style: inset;
+
+          &.sidebar-open {
+            width: 78%;
+          }
+        }
+      }
+
+      .status-bar {
+        @mixin status-bar-borders() {
+          border-top: 1px inset #979797;
+          border-right: 1px inset white;
+          border-bottom: 1px inset white;
+          border-left: 1px inset #979797;
+        }
+
+        display: flex;
+        flex-direction: row;
+        gap: 4px;
+        width: 100%;
+        height: $status-bar-height;
+
+        @mixin set-flex-row() {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          gap: 4px;
+        }
+
+        img {
+          width: 20px;
+          @include icon-common();
+        }
+
+        .status {
+          @include set-flex-row();
+          @include no-text-overflow();
+          width: 60%;
+          font-size: 14px;
+          padding-left: 4px;
+          @include status-bar-borders();
+        }
+
+        .box {
+          width: 5%;
+          @include status-bar-borders();
+        }
+
+        .connection {
+          @include set-flex-row();
+          @include no-text-overflow();
+          @include status-bar-borders();
+          width: 30%;
+          padding-left: 4px;
+
+          img[src="assets/icons/internet-explorer/connection-issue.svg"] {
+            width: 13px;
+            height: 20px;
+          }
+        }
+      }
     }
   }
 }

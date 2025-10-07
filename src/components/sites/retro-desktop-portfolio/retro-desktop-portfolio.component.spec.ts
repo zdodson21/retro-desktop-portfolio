@@ -1,17 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { provideRouter } from '@angular/router';
+import { RetroDesktopPortfolioSite } from './retro-desktop-portfolio.component';
 
-import { RetroDesktopPortfolioComponent } from './retro-desktop-portfolio.component';
-
-describe('RetroDesktopPortfolioComponent', () => {
-  let component: RetroDesktopPortfolioComponent;
-  let fixture: ComponentFixture<RetroDesktopPortfolioComponent>;
+describe('RetroDesktopPortfolioSite', () => {
+  let component: RetroDesktopPortfolioSite;
+  let fixture: ComponentFixture<RetroDesktopPortfolioSite>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [RetroDesktopPortfolioComponent],
+      imports: [RetroDesktopPortfolioSite],
+      providers: [provideRouter([])],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(RetroDesktopPortfolioComponent);
+    fixture = TestBed.createComponent(RetroDesktopPortfolioSite);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

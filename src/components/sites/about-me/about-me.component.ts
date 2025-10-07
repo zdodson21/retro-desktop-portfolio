@@ -1,9 +1,11 @@
 import { Component } from '@angular/core';
+import { AIeComponent } from '../components/a-ie/a-ie.component';
+import { IeRouteComponent } from '../components/ie-route/ie-route.component';
 
 @Component({
-  selector: 'app-about-me',
-  imports: [],
+  selector: 'about-me',
+  imports: [AIeComponent, IeRouteComponent],
   templateUrl: './about-me.component.html',
   styleUrl: './about-me.component.scss',
 })
-export class AboutMeComponent {}
+export class AboutMeSite {}

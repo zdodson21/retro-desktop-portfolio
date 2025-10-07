@@ -1,8 +1,188 @@
-<div class="internet-explorer-wrapper">
-  <window-frame window-title="Internet Explorer" focus-name="internet-explorer" window-icon="assets/icons/internet-explorer.svg" [percent-width]="70" [percent-height]="90">
+<div class="internet-explorer-wrapper .non-printable">
+  <window-frame #windowFrame window-title="Internet Explorer" focus-name="internet-explorer" window-icon="assets/icons/html-file.svg" [percent-width]="70" [percent-height]="90">
     <div class="frame-contents">
-      <div class="padding">
+      <div class="toolbar">
+        <div class="toolbar-buttons">
+          <div class="bar-container">
+            <div class="bar"></div>
+          </div>
+          <!-- File button that will display / Print (printButtonHelper() / Send Page by Email (mailButtonHelper()) -->
+          <toolbar-button (click)="menuFocus = toolbarButtonHelper('file')">File</toolbar-button>
+          <toolbar-menu [class.visible]="menuFocus === 'file'">
+            <toolbar-item left-text="Print" [right-text]="getPrintCommand()"/>
+            <toolbar-dropout>Send</toolbar-dropout>
+          </toolbar-menu>
+          <!-- View button that will display Toolbars drop out (Standard buttons, Address Bar, Links) / Status Bar / Explorer bar drop out (search, favorites, history) (just making sidebar visible, same as buttons below), Go To drop out (Homepage, Site list), stop, refresh, text size, Source (only add when Notepad is made) -->
+          <toolbar-button (click)="menuFocus = toolbarButtonHelper('view')">View</toolbar-button>
+          <toolbar-menu [class.visible]="menuFocus === 'view'">
 
+          </toolbar-menu>
+        </div>
+        <img src="assets/ie-top-right.png" alt="Windows 95 Icon">
+      </div>
+
+      <div class="standard-buttons">
+        <div class="bar-container">
+          <div class="bar"></div>
+        </div>
+        <div class="explorer-buttons buttons">
+          <standard-button button-name="stop" (click)="routerNavigator('error');" />
+          <standard-button button-name="refresh" (click)="refreshButtonHelper()" />
+          <standard-button button-name="home" (click)="routerNavigator('about-me');" />
+        </div>
+        <div class="divider-container">
+          <div class="divider"></div>
+        </div>
+        <div class="go-to-buttons buttons">
+          <standard-button button-name="search" (click)="openCloseSidebar(0)" />
+          <standard-button button-name="favorites" (click)="openCloseSidebar(1)" />
+          <standard-button button-name="history" (click)="openCloseSidebar(2)" />
+        </div>
+        <div class="divider-container">
+          <div class="divider"></div>
+        </div>
+        <div class="share-buttons buttons">
+          <standard-button button-name="mail" (click)="mailButtonHelper()" />
+          <standard-button button-name="print" (click)="printButtonHelper()" />
+        </div>
+      </div>
+
+      <div class="address-bar">
+        <div class="bar-container">
+          <div class="bar"></div>
+        </div>
+        <p>Address</p>
+        <div class="search-input">
+          <img src="assets/icons/html-file.svg" alt="html file icon" />
+          <input #addressBarInput type="text" name="address-bar" id="address-bar" (keypress)="inputKeyInputHelper($event)" data-1p-ignore data-lpignore="true"/>
+        </div>
+        <button (mouseover)="goButtonHovered = true" (mouseleave)="goButtonHovered = false" (click)="goButtonHelper()">
+          <!-- TODO needs touch support -->
+          <img src="assets/icons/internet-explorer/gray-go-button.svg" alt="gray go button" [class.visible]="goButtonHovered === false"/>
+          <img src="assets/icons/internet-explorer/go-button.svg" alt="go button" [class.visible]="goButtonHovered">
+          <p>Go</p>
+        </button>
+      </div>
+
+      <div class="main-content" [class.sidebar-open]="IEService.sidebar()">
+        <div class="sidebar" [class.sidebar-open]="IEService.sidebar()">
+          @switch (sidebarContent) {
+            @case (0) {
+              <div class="search sidebar-content">
+                <div class="title-bar">
+                  <p>Search</p>
+                  <close-sidebar-button />
+                </div>
+
+                <div class="content">
+                   <div class="input-container">
+                     <input #searchBarInput type="text" name="search-box" id="search-box" (keypress)="searchHelper()">
+                   </div>
+
+                   <ul>
+                    @for (result of searchResults; track $index) {
+                      <li>
+                        <ie-route domain="{{result.domain}}" tld="{{result.tld}}" />
+                      </li>
+                    }
+                   </ul>
+                </div>
+              </div>
+            }
+
+            @case (1) {
+              <div class="favorites sidebar-content">
+                <div class="title-bar">
+                  <p>Favorites</p>
+                  <close-sidebar-button />
+                </div>
+
+                <div class="content">
+                  <ul>
+                    @for (site of possibleSites; track $index) {
+                      <li>
+                        <img src="assets/icons/html-file.svg" alt="html file icon">
+                        <ie-route domain="{{ site.domain }}" tld="{{ site.tld }}" />
+                      </li>
+                    }
+                  </ul>
+                </div>
+              </div>
+            }
+
+            @case (2) {
+              <div class="history sidebar-content">
+                <div class="title-bar">
+                  <p>History</p>
+                  <close-sidebar-button />
+                </div>
+
+                <div class="content">
+                  <ul>
+                    @for (site of IEService.browserHistory(); track $index) {
+                      <li>
+                        <ie-route domain="{{ site.domain }}" tld="{{ site.tld }}"/>
+                      </li>
+                    }
+                  </ul>
+                </div>
+              </div>
+            }
+          }
+        </div>
+
+        <div #siteContent class="site-content print-selection">
+          @switch (displayedSite()) {
+            @case ('about-me') {
+              <about-me />
+            }
+            @case ('hax-audit') {
+              <hax-audit />
+            }
+            @case ('hax-chat-agent') {
+              <hax-chat-agent />
+            }
+            @case ('open-source-contributions') {
+              <open-source-contributions />
+            }
+            @case ('retro-desktop-portfolio') {
+              <retro-desktop-portfolio />
+            }
+            @case ('') {
+              <secret-site />
+            }
+            @case ('small-projects') {
+              <small-projects />
+            }
+            @default {
+              <error-site />
+            }
+          }
+        </div>
+      </div>
+
+      <div class="status-bar">
+        <div class="status">
+          <img [src]="IEService.statusBarIcon()" alt="html file icon" />
+          <p class="status-bar-content">
+            {{ IEService.statusBarContent() }}
+          </p>
+        </div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="connection">
+          @if (['hax-audit', 'hax-chat-agent', 'open-source-contributions'].includes(displayedSite())) {
+            <!-- TODO might want to change this based on certain domains -->
+            <img src="assets/icons/internet-explorer/internet-globe.svg" alt="internet icon" />
+            <p>Internet</p>
+          } @else if (!dnsContainsSite(displayedSite())) {
+            <img src="assets/icons/internet-explorer/connection-issue.svg" alt="error icon" />
+            <p>Connection Error</p>
+          } @else {
+            <img src="assets/icons/network-neighborhood.svg" alt="network neighborhood icon" />
+            <p>Local intranet</p>
+          }
+        </div>
       </div>
     </div>
   </window-frame>

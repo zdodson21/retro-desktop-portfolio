@@ -11,12 +11,12 @@ import { StartShutdownComponent } from '../start-shutdown/start-shutdown.compone
   styleUrl: './start-menu.component.scss',
 })
 export class StartMenuComponent {
-  @ViewChild('startMenu') private startMenuRef!: ElementRef;
+  // @ViewChild('startMenu') private startMenuRef!: ElementRef;
 
   private store: AppService = inject(AppService);
   private renderer: Renderer2 = inject(Renderer2);
   private elementRef: ElementRef = inject(ElementRef);
-  private item: HTMLElement;
+  // private item: HTMLElement;
 
   constructor() {
     effect(() => {
@@ -28,9 +28,9 @@ export class StartMenuComponent {
     });
   }
 
-  ngAfterViewInit() {
-    this.item = this.startMenuRef.nativeElement;
-  }
+  // ngAfterViewInit() {
+  //   this.item = this.startMenuRef.nativeElement;
+  // }
 
   /**
    * @description sets focus to "start-menu"

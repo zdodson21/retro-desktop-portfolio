@@ -1,0 +1,8 @@
+<!--
+  ! This component is for any anchor tags that need to modify the internet-explorer router query.
+  ? See a-ie for anchor tags for use in the internet-explorer program that open websites in external new tabs.
+-->
+<!-- TODO this component will change the route used for the internet-explorer query -->
+<a #a (click)="setRoute()" (mouseover)="hover()" (mouseleave)="unhover()">
+  <ng-content></ng-content>
+</a>

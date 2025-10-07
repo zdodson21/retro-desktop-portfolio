@@ -195,8 +195,10 @@ export class WindowFrameComponent {
     }
 
     const CURRENT_PARAMS: Params = { ...this.route.snapshot.queryParams };
-    delete CURRENT_PARAMS[this.focusName];
 
+    CURRENT_PARAMS[this.focusName] = null;
+
+    // console.log(CURRENT_PARAMS)
     this.router.navigate([], {
       relativeTo: this.route,
       queryParams: CURRENT_PARAMS,

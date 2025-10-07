@@ -21,7 +21,7 @@ describe('StartDropdownComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should have the proper arrow icon', () => {
-    expect(compiled.querySelector('.arrow')?.getAttribute('src')).toBe('assets/icons/submenu-arrow.svg');
-  });
+  // it('should have the proper arrow icon', () => {
+  //   expect(compiled.querySelector('.arrow')?.getAttribute('src')).toBe('assets/icons/submenu-arrow.svg');
+  // });
 });

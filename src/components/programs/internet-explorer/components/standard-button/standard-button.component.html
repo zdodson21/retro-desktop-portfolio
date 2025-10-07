@@ -1,0 +1,10 @@
+<button class="standard-button-wrapper" (mouseover)="this.hovered = true" (mouseleave)="this.hovered = false">
+  <!-- TODO add touch support -->
+  <div class="img">
+    <img src="assets/icons/internet-explorer/gray-{{ this.buttonName }}-button.svg" alt="gray {{ this.buttonName }} icon" [class.visible]="!this.hovered"/>
+    <img src="assets/icons/internet-explorer/{{ this.buttonName }}-button.svg" alt="{{ this.buttonName }} icon" [class.visible]="this.hovered"/>
+  </div>
+  <p>
+    {{ this.text }}
+  </p>
+</button>
