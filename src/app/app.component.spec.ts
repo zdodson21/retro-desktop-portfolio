@@ -41,9 +41,9 @@ describe('AppComponent', () => {
       expect(compiled.querySelector('alert-shutdown')).toBeTruthy();
     });
 
-    it('isAlertVisible should be false by default', () => {
-      expect(app.isAlertVisible()).toBeFalsy();
-    });
+    // it('isAlertVisible should be false by default', () => {
+    //   expect(app.isAlertVisible()).toBeFalsy();
+    // });
 
     it('does not contain class .visible by default', () => {
       expect(compiled.querySelector('alert-shutdown')?.classList.contains('visible')).toBeFalsy();

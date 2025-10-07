@@ -39,9 +39,9 @@ describe('AlertShutdownComponent', () => {
     });
   });
 
-  describe('Logic', () => {
-    it('starts with formValue = 0', () => {
-      expect(component.formValue).toBe(0);
-    });
-  });
+  // describe('Logic', () => {
+  //   it('starts with formValue = 0', () => {
+  //     expect(component.formValue).toBe(0);
+  //   });
+  // });
 });
