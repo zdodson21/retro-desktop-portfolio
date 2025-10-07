@@ -12,13 +12,13 @@ import { RetroDesktopPortfolioSite } from '../../sites/retro-desktop-portfolio/r
 import { SecretSite } from '../../sites/secret-site/secret-site.component';
 import { SmallProjectsSite } from '../../sites/small-projects/small-projects.component';
 import { ToolbarButtonComponent } from '../../ui/toolbar/toolbar-button/toolbar-button.component';
+import { ToolbarDropoutComponent } from '../../ui/toolbar/toolbar-dropout/toolbar-dropout.component';
+import { ToolbarItemComponent } from '../../ui/toolbar/toolbar-item/toolbar-item.component';
+import { ToolbarMenuComponent } from '../../ui/toolbar/toolbar-menu/toolbar-menu.component';
 import { WindowFrameComponent } from '../../window-frame/window-frame.component';
 import { CloseSidebarButtonComponent } from './components/close-sidebar-button/close-sidebar-button.component';
 import { StandardButtonComponent } from './components/standard-button/standard-button.component';
 import { InternetExplorerService } from './internet-explorer.service';
-import { ToolbarMenuComponent } from '../../ui/toolbar/toolbar-menu/toolbar-menu.component';
-import { ToolbarItemComponent } from '../../ui/toolbar/toolbar-item/toolbar-item.component';
-import { ToolbarDropoutComponent } from '../../ui/toolbar/toolbar-dropout/toolbar-dropout.component';
 
 @Component({
   selector: 'internet-explorer',

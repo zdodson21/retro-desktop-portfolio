@@ -23,7 +23,7 @@ import { AppService } from './app.service';
 export class AppComponent {
   protected store: AppService = inject(AppService);
 
-  public isAlertVisible: WritableSignal<boolean> = signal(false);
+  protected isAlertVisible: WritableSignal<boolean> = signal(false);
 
   constructor() {
     effect(() => {

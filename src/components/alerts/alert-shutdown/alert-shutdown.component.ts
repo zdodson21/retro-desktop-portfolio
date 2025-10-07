@@ -1,4 +1,4 @@
-import { Component, effect, ElementRef, inject, ViewChild } from '@angular/core';
+import { Component, effect, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { AppService } from '../../../app/app.service';
 import { WindowFrameComponent } from '../../window-frame/window-frame.component';
@@ -11,7 +11,7 @@ import { WindowFrameComponent } from '../../window-frame/window-frame.component'
 })
 export class AlertShutdownComponent {
   private store: AppService = inject(AppService);
-  public formValue: number = 0; // 0 = shutdown, 1 = restart
+  protected formValue: number = 0; // 0 = shutdown, 1 = restart
 
   constructor() {
     effect(() => {
@@ -22,7 +22,7 @@ export class AlertShutdownComponent {
   /**
    * @description handles form submission, overriding default behavior
    */
-  public formSubmit(event: SubmitEvent): void {
+  protected formSubmit(event: SubmitEvent): void {
     event.preventDefault();
 
     switch (this.formValue) {
@@ -44,7 +44,7 @@ export class AlertShutdownComponent {
   /**
    * @description provides functionality to "no" button
    */
-  public noButtonHelper(event: MouseEvent): void {
+  protected noButtonHelper(event: MouseEvent): void {
     event?.stopPropagation();
     this.dismissAlert();
   }
@@ -52,7 +52,7 @@ export class AlertShutdownComponent {
   /**
    * @description dismisses alert by removing focus
    */
-  public dismissAlert(): void {
+  protected dismissAlert(): void {
     this.store.focus.set('');
   }
 }

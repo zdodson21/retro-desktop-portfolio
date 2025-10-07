@@ -6,15 +6,15 @@
         <ul>
           <li>
             <em>focus:</em>
-            {{ this.store.focus() }}
+            {{ store.focus() }}
           </li>
           <li>
             <em>viewportWidth:</em>
-            {{ this.store.viewportWidth() }}
+            {{ store.viewportWidth() }}
           </li>
           <li>
             <em>viewportHeight:</em>
-            {{ this.store.viewportHeight() }}
+            {{ store.viewportHeight() }}
           </li>
         </ul>
 
@@ -22,22 +22,22 @@
         <ul>
           <li>
             <em>Browser:</em>
-            {{ this.store.getBrowser() }}
+            {{ store.getBrowser() }}
           </li>
           <li>
             <em>Operating System:</em>
-            {{ this.store.getOS() }}
+            {{ store.getOS() }}
           </li>
           <li>
             <em>Web Address:</em>
-            {{ this.store.webAddress }}
+            {{ store.webAddress }}
           </li>
         </ul>
       </figure>
       <figure class="program-states">
         <div class="open-programs">
           <figcaption>Open Programs</figcaption>
-          @for (program of this.store.openPrograms(); track program) {
+          @for (program of store.openPrograms(); track program) {
             <ul>
               <li>
                 <em>{{ program.programName }}</em>
@@ -51,7 +51,7 @@
         </div>
         <div class="minimized-programs">
           <figcaption>Minimized Programs</figcaption>
-          @for (program of this.store.minimizedPrograms(); track program) {
+          @for (program of store.minimizedPrograms(); track program) {
             <ul>
               <li>{{ program }}</li>
             </ul>

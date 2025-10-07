@@ -42,7 +42,7 @@ export class ProgramsWrapperComponent {
 
   private store: AppService = inject(AppService);
 
-  public programs = {
+  protected programs = {
     calculator: false,
     controlPanel: false,
     help: false,

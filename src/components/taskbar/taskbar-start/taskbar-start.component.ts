@@ -1,4 +1,4 @@
-import { Component, effect, ElementRef, inject, ViewChild, signal, WritableSignal } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { AppService } from '../../../app/app.service';
 
 @Component({
@@ -8,14 +8,14 @@ import { AppService } from '../../../app/app.service';
   styleUrl: './taskbar-start.component.scss',
 })
 export class TaskbarStartComponent {
-  public store: AppService = inject(AppService);
-
+  protected store: AppService = inject(AppService);
   private previousFocus: string = this.store.focus();
 
   /**
    * @description Handles changing styles and other functionality of the start button.
+   * @param event mouse click event
    */
-  public startButtonHandler(event: MouseEvent): void {
+  protected startButtonHandler(event: MouseEvent): void {
     event?.stopPropagation();
 
     if (!this.store.focus().includes('start-menu')) {

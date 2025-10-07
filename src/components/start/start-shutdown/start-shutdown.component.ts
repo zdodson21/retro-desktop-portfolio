@@ -1,4 +1,4 @@
-import { Component, ElementRef, ViewChild, inject } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { AppService } from '../../../app/app.service';
 
 @Component({
@@ -8,21 +8,13 @@ import { AppService } from '../../../app/app.service';
   styleUrl: './start-shutdown.component.scss',
 })
 export class StartShutdownComponent {
-  @ViewChild('startShutdown') private startShutdownRef!: ElementRef;
-
   private store: AppService = inject(AppService);
-  private item: HTMLElement;
-
-  ngAfterViewInit() {
-    this.item = this.startShutdownRef.nativeElement;
-  }
-
-  constructor() {}
 
   /**
    * @description shows shutdown alert
+   * @param event mouse click event
    */
-  public clickHandler(event: MouseEvent): void {
+  protected clickHandler(event: MouseEvent): void {
     event?.stopPropagation();
     this.store.focus.set('shutdown-alert');
   }

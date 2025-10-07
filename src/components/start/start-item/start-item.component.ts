@@ -1,4 +1,4 @@
-import { Component, ElementRef, Input, ViewChild, inject } from '@angular/core';
+import { Component, Input, inject } from '@angular/core';
 import { AppService } from '../../../app/app.service';
 import { Programs } from '../../../interfaces/open-programs.interface';
 import { Router, ActivatedRoute, Params } from '@angular/router';
@@ -32,7 +32,7 @@ export class StartItemComponent {
   /**
    * @description opens applications with routes
    */
-  public clickHandler(event: MouseEvent): void {
+  protected clickHandler(event: MouseEvent): void {
     event?.stopPropagation();
 
     if (!this.store.openPrograms().some((programs) => programs.focusName === this.focusName)) {

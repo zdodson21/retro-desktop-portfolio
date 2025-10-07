@@ -33,6 +33,12 @@
             display: flex;
             justify-content: center;
             padding-top: 48px;
+
+            .img-wrapper {
+              img {
+                @include icon-common();
+              }
+            }
           }
 
           .right {

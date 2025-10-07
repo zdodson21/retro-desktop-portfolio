@@ -10,7 +10,7 @@ import { WindowFrameComponent } from '../../window-frame/window-frame.component'
   styleUrl: './my-computer.component.scss',
 })
 export class MyComputerComponent {
-  public store: AppService = inject(AppService);
+  protected store: AppService = inject(AppService);
 
   private router: Router = inject(Router);
   private route: ActivatedRoute = inject(ActivatedRoute);
@@ -19,7 +19,7 @@ export class MyComputerComponent {
    * @description Handles button events. Both buttons pretty much do the same thing, but both are included for UI consistency
    * @param event Mouse click
    */
-  public buttonHelper(event: MouseEvent): void {
+  protected buttonHelper(event: MouseEvent): void {
     event?.stopPropagation();
     this.store.focus.set('');
 

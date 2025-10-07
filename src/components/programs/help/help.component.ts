@@ -9,13 +9,13 @@ import { HelpButtonComponent } from './components/help-button/help-button.compon
   styleUrl: './help.component.scss',
 })
 export class HelpComponent {
-  public currentTopic: WritableSignal<number> = signal(0);
+  protected currentTopic: WritableSignal<number> = signal(0);
 
   /**
    * @description set currentTopic to change displayed information
    * @param num Number tip from top to bottom, starting with 0
    */
-  public setCurrentTopic(num: number): void {
+  protected setCurrentTopic(num: number): void {
     if (this.currentTopic() !== num) {
       this.currentTopic.set(num);
     }

@@ -1,4 +1,4 @@
-import { Component, effect, ElementRef, inject, Input, signal, ViewChild, WritableSignal } from '@angular/core';
+import { Component, effect, inject, Input, signal, WritableSignal } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { AppService } from '../../../app/app.service';
 import { Programs } from '../../../interfaces/open-programs.interface';
@@ -15,10 +15,7 @@ export class DesktopIconComponent {
   @Input({ alias: 'icon-focus-name' }) public iconFocusName: string;
   @Input({ alias: 'focus-name' }) public focusName: string; // The focus name of the program that opens on double click
 
-  @ViewChild('desktopIcon') private desktopIconRef!: ElementRef;
-
   private store: AppService = inject(AppService);
-  private item: HTMLElement;
   private programDetails: Programs;
 
   private router: Router = inject(Router);
@@ -32,11 +29,7 @@ export class DesktopIconComponent {
     };
   }
 
-  ngAfterViewInit() {
-    this.item = this.desktopIconRef.nativeElement;
-  }
-
-  public isElementFocused: WritableSignal<boolean> = signal(false);
+  protected isElementFocused: WritableSignal<boolean> = signal(false);
 
   constructor() {
     effect(() => {

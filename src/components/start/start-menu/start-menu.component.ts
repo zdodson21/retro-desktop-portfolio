@@ -1,4 +1,4 @@
-import { Component, effect, ElementRef, inject, Renderer2, ViewChild } from '@angular/core';
+import { Component, effect, ElementRef, inject, Renderer2 } from '@angular/core';
 import { AppService } from '../../../app/app.service';
 import { StartDropdownComponent } from '../start-dropdown/start-dropdown.component';
 import { StartItemComponent } from '../start-item/start-item.component';
@@ -11,12 +11,9 @@ import { StartShutdownComponent } from '../start-shutdown/start-shutdown.compone
   styleUrl: './start-menu.component.scss',
 })
 export class StartMenuComponent {
-  // @ViewChild('startMenu') private startMenuRef!: ElementRef;
-
   private store: AppService = inject(AppService);
   private renderer: Renderer2 = inject(Renderer2);
   private elementRef: ElementRef = inject(ElementRef);
-  // private item: HTMLElement;
 
   constructor() {
     effect(() => {
@@ -28,14 +25,11 @@ export class StartMenuComponent {
     });
   }
 
-  // ngAfterViewInit() {
-  //   this.item = this.startMenuRef.nativeElement;
-  // }
-
   /**
    * @description sets focus to "start-menu"
+   * @param event Mouse click event
    */
-  public clickHandler(event: MouseEvent): void {
+  protected clickHandler(event: MouseEvent): void {
     event?.stopPropagation();
     this.store.focus.set('start-menu');
   }

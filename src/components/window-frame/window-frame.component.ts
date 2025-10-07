@@ -45,17 +45,17 @@ export class WindowFrameComponent {
   private router: Router = inject(Router);
   private route: ActivatedRoute = inject(ActivatedRoute);
 
-  public isElementFocused: WritableSignal<boolean> = signal(false);
-  public isElementMinimized: WritableSignal<boolean> = signal(false);
+  protected isElementFocused: WritableSignal<boolean> = signal(false);
+  protected isElementMinimized: WritableSignal<boolean> = signal(false);
 
   // Buttons
   private viewItem: HTMLElement;
   private minimizeItem: HTMLElement;
 
   private isMinimized: boolean = false;
-  public isFullSize: boolean = false;
+  protected isFullSize: boolean = false;
 
-  public viewIcon = 'assets/icons/maximize-button.svg';
+  protected viewIcon = 'assets/icons/maximize-button.svg';
 
   // Window management checks
   private isDragging: boolean = false;
@@ -113,7 +113,7 @@ export class WindowFrameComponent {
    * @description handle minimizing program
    * @param event MouseEvent
    */
-  public minimizeButtonHandler(event?: MouseEvent): void {
+  protected minimizeButtonHandler(event?: MouseEvent): void {
     event?.stopPropagation();
 
     if (!this.store.minimizedPrograms().includes(this.focusName)) {
@@ -130,7 +130,7 @@ export class WindowFrameComponent {
   /**
    * @description handle changing between window & full screen mode
    */
-  public viewButtonHandler(): void {
+  protected viewButtonHandler(): void {
     if (!this.isFullSize) {
       // going into full screen
       this.windowCoordinates = {
@@ -195,7 +195,7 @@ export class WindowFrameComponent {
    * @description handles close button functionality
    * @param event MouseEvent
    */
-  public closeButtonHandler(event?: MouseEvent): void {
+  protected closeButtonHandler(event?: MouseEvent): void {
     event?.stopPropagation();
     this.store.focus.set('');
 
@@ -221,7 +221,7 @@ export class WindowFrameComponent {
    * @description Sets focus to clicked window
    * @param event MouseEvent
    */
-  public setFocus(event?: MouseEvent): void {
+  protected setFocus(event?: MouseEvent): void {
     event?.stopPropagation();
     this.store.focus.set(this.focusName);
   }

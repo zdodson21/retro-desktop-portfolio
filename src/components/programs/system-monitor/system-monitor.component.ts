@@ -9,5 +9,5 @@ import { WindowFrameComponent } from '../../window-frame/window-frame.component'
   styleUrl: './system-monitor.component.scss',
 })
 export class SystemMonitorComponent {
-  public store: AppService = inject(AppService);
+  protected store: AppService = inject(AppService);
 }

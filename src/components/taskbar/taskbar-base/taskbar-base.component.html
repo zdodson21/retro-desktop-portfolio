@@ -1,9 +1,9 @@
-<div class="taskbar-base-wrapper" #taskbarBase (click)="clickHandler($event)">
+<div class="taskbar-base-wrapper" (click)="clickHandler($event)">
   <div class="left-side">
     <taskbar-start />
   </div>
   <div class="middle">
-    @for (program of this.store.openPrograms(); track program) {
+    @for (program of store.openPrograms(); track program) {
       <taskbar-program [icon]="program.iconPath" [program-name]="program.programName" [focus-name]="program.focusName" />
     }
   </div>

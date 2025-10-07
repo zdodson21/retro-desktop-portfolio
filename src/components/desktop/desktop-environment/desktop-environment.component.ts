@@ -1,6 +1,6 @@
-import { Component, ElementRef, inject, ViewChild } from '@angular/core';
-import { DesktopIconComponent } from '../desktop-icon/desktop-icon.component';
+import { Component, inject } from '@angular/core';
 import { AppService } from '../../../app/app.service';
+import { DesktopIconComponent } from '../desktop-icon/desktop-icon.component';
 
 @Component({
   selector: 'desktop-environment',
@@ -9,14 +9,7 @@ import { AppService } from '../../../app/app.service';
   styleUrl: './desktop-environment.component.scss',
 })
 export class DesktopEnvironmentComponent {
-  @ViewChild('desktopEnvironment') private desktopEnvironmentRef!: ElementRef;
-
   private store: AppService = inject(AppService);
-  private item: HTMLElement;
-
-  ngAfterViewInit() {
-    this.item = this.desktopEnvironmentRef.nativeElement;
-  }
 
   /**
    * @description sets focus through click events

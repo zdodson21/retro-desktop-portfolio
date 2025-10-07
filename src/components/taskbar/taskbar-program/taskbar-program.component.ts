@@ -1,4 +1,4 @@
-import { Component, effect, ElementRef, inject, Input, signal, ViewChild, WritableSignal } from '@angular/core';
+import { Component, effect, inject, Input, signal, WritableSignal } from '@angular/core';
 import { AppService } from '../../../app/app.service';
 
 @Component({
@@ -12,16 +12,9 @@ export class TaskbarProgramComponent {
   @Input({ alias: 'icon' }) public src: string;
   @Input({ alias: 'program-name' }) public programName: string;
 
-  @ViewChild('program') private programRef!: ElementRef;
-
   private store: AppService = inject(AppService);
-  private item: HTMLElement;
 
-  ngAfterViewInit() {
-    this.item = this.programRef.nativeElement;
-  }
-
-  isProgramFocused: WritableSignal<boolean> = signal(false);
+  protected isProgramFocused: WritableSignal<boolean> = signal(false);
 
   constructor() {
     effect(() => {
@@ -35,8 +28,9 @@ export class TaskbarProgramComponent {
 
   /**
    * @description taskbar-program click handling
+   * @param event mouse click event
    */
-  public clickHandler(event: MouseEvent): void {
+  protected clickHandler(event: MouseEvent): void {
     event?.stopPropagation();
 
     if (this.store.focus() == this.focusName) {
