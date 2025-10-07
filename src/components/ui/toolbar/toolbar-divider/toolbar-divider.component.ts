@@ -4,8 +4,6 @@ import { Component } from '@angular/core';
   selector: 'app-toolbar-divider',
   imports: [],
   templateUrl: './toolbar-divider.component.html',
-  styleUrl: './toolbar-divider.component.scss'
+  styleUrl: './toolbar-divider.component.scss',
 })
-export class ToolbarDividerComponent {
-
-}
+export class ToolbarDividerComponent {}

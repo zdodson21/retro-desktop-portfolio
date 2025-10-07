@@ -10,8 +10,7 @@ describe('CalculatorComponent', () => {
     await TestBed.configureTestingModule({
       imports: [CalculatorComponent],
       providers: [provideRouter([])],
-    })
-    .compileComponents();
+    }).compileComponents();
 
     fixture = TestBed.createComponent(CalculatorComponent);
     component = fixture.componentInstance;

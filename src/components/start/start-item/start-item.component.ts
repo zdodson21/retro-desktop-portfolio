@@ -52,6 +52,6 @@ export class StartItemComponent {
       relativeTo: this.route,
       queryParams: CURRENT_PARAMS,
       replaceUrl: true,
-    })
+    });
   }
 }

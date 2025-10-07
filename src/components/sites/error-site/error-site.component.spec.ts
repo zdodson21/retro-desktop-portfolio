@@ -10,8 +10,7 @@ describe('ErrorSiteComponent', () => {
     await TestBed.configureTestingModule({
       imports: [ErrorSite],
       providers: [provideRouter([])],
-    })
-    .compileComponents();
+    }).compileComponents();
 
     fixture = TestBed.createComponent(ErrorSite);
     component = fixture.componentInstance;

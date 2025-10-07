@@ -1,4 +1,15 @@
-import { Component, effect, ElementRef, HostListener, inject, Input, Renderer2, signal, ViewChild, WritableSignal } from '@angular/core';
+import {
+  Component,
+  effect,
+  ElementRef,
+  HostListener,
+  inject,
+  Input,
+  Renderer2,
+  signal,
+  ViewChild,
+  WritableSignal,
+} from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { AppService } from '../../app/app.service';
 
@@ -66,7 +77,7 @@ export class WindowFrameComponent {
       this.setupDraggable();
     }
 
-    if (this.preventResizing) this.viewIcon = 'assets/icons/faded-maximize-button.svg'
+    if (this.preventResizing) this.viewIcon = 'assets/icons/faded-maximize-button.svg';
 
     // Immediately sets offset, preventing a bug when clicking on a window-frame after the page loads,
     // which would cause it to jump into the top left corner of the viewport.

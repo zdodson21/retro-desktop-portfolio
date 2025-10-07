@@ -13,7 +13,17 @@ import { WindowsExplorerComponent } from '../windows-explorer/windows-explorer.c
 
 @Component({
   selector: 'app-programs-wrapper',
-  imports: [CalculatorComponent, ControlPanelComponent, HelpComponent, InternetExplorerComponent, MyComputerComponent, SystemMonitorComponent, TaskbarPropertiesComponent, WelcomeComponent, WindowsExplorerComponent],
+  imports: [
+    CalculatorComponent,
+    ControlPanelComponent,
+    HelpComponent,
+    InternetExplorerComponent,
+    MyComputerComponent,
+    SystemMonitorComponent,
+    TaskbarPropertiesComponent,
+    WelcomeComponent,
+    WindowsExplorerComponent,
+  ],
   templateUrl: './programs-wrapper.component.html',
   styleUrl: './programs-wrapper.component.scss',
 })
@@ -80,7 +90,10 @@ export class ProgramsWrapperComponent {
         });
       }
 
-      if ('internet-explorer' in params && !this.store.openPrograms().some((programs) => programs.focusName === 'internet-explorer')) {
+      if (
+        'internet-explorer' in params &&
+        !this.store.openPrograms().some((programs) => programs.focusName === 'internet-explorer')
+      ) {
         this.store.openPrograms().push({
           programName: 'Internet Explorer',
           focusName: 'internet-explorer',
@@ -104,12 +117,15 @@ export class ProgramsWrapperComponent {
         });
       }
 
-      if ('taskbar-properties' in params && !this.store.openPrograms().some((programs) => programs.focusName === 'taskbar-properties')) {
+      if (
+        'taskbar-properties' in params &&
+        !this.store.openPrograms().some((programs) => programs.focusName === 'taskbar-properties')
+      ) {
         this.store.openPrograms().push({
           programName: 'Taskbar Properties',
           focusName: 'taskbar-properties',
           iconPath: 'assets/icons/taskbar-properties.svg',
-        })
+        });
       }
 
       if ('welcome' in params && !this.store.openPrograms().some((programs) => programs.focusName === 'welcome')) {
@@ -122,7 +138,10 @@ export class ProgramsWrapperComponent {
         this.store.focus.set('welcome');
       }
 
-      if ('windows-explorer' in params && !this.store.openPrograms().some((programs) => programs.focusName === 'windows-explorer')) {
+      if (
+        'windows-explorer' in params &&
+        !this.store.openPrograms().some((programs) => programs.focusName === 'windows-explorer')
+      ) {
         this.store.openPrograms().push({
           programName: 'Windows Explorer',
           focusName: 'windows-explorer',

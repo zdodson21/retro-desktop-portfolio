@@ -1,8 +1,8 @@
 <div class="start-dropdown-wrapper" #startDropdown (mouseover)="hoverHandler(); isHovered = true" (mouseleave)="isHovered = false">
   <img src="{{ src }}" alt="{{ text }}" />
   <p>{{ text }}</p>
-  <img src="assets/icons/submenu-arrow.svg" alt="arrow" class="arrow" [class.visible]="!isHovered"/>
-  <img src="assets/icons/submenu-arrow-white.svg" alt="white arrow" class="arrow" [class.visible]="isHovered">
+  <img src="assets/icons/submenu-arrow.svg" alt="arrow" class="arrow" [class.visible]="!isHovered" />
+  <img src="assets/icons/submenu-arrow-white.svg" alt="white arrow" class="arrow" [class.visible]="isHovered" />
   <!-- <svg version="1.1" width="4" height="7" xmlns="http://www.w3.org/2000/svg">
     <rect x="0" y="0" width="1" height="7" fill="#000000" />
     <rect x="0" y="1" width="2" height="5" fill="#000000" />

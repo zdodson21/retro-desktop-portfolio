@@ -4,10 +4,10 @@ import { Component, Input } from '@angular/core';
   selector: 'standard-button',
   imports: [],
   templateUrl: './standard-button.component.html',
-  styleUrl: './standard-button.component.scss'
+  styleUrl: './standard-button.component.scss',
 })
 export class StandardButtonComponent {
-  @Input({ 'alias': 'button-name', 'required': true }) public buttonName: string;
+  @Input({ alias: 'button-name', required: true }) public buttonName: string;
   protected text: string;
   protected hovered: boolean = false;
 
@@ -17,6 +17,6 @@ export class StandardButtonComponent {
 
     firstChar = firstChar?.toUpperCase();
 
-    this.text = `${firstChar}${restOfString}`
+    this.text = `${firstChar}${restOfString}`;
   }
 }

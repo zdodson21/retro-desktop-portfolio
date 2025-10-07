@@ -4,8 +4,6 @@ import { Component } from '@angular/core';
   selector: 'toolbar-dropout',
   imports: [],
   templateUrl: './toolbar-dropout.component.html',
-  styleUrl: './toolbar-dropout.component.scss'
+  styleUrl: './toolbar-dropout.component.scss',
 })
-export class ToolbarDropoutComponent {
-
-}
+export class ToolbarDropoutComponent {}

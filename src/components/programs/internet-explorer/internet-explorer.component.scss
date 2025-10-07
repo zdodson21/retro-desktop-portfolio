@@ -45,7 +45,7 @@ $status-bar-height: 5%;
           background-color: #979797;
           border-left: white 1.5px solid;
           border-bottom: #979797 2px solid;
-          box-shadow: 0.5px 0.5px #A2A2A2;
+          box-shadow: 0.5px 0.5px #a2a2a2;
         }
       }
 
@@ -71,7 +71,8 @@ $status-bar-height: 5%;
             border: 2px transparent solid;
             border-radius: 0;
 
-            &:hover, &:focus {
+            &:hover,
+            &:focus {
               border-style: outset solid solid outset;
               border-color: white #7d7c7c #7d7c7c white;
             }
@@ -113,7 +114,7 @@ $status-bar-height: 5%;
           align-items: center;
 
           .divider {
-            border-left: 1px #9D9D9D inset;
+            border-left: 1px #9d9d9d inset;
             border-right: 1px white inset;
             height: 90%;
             margin: 0px 2px;
@@ -127,7 +128,8 @@ $status-bar-height: 5%;
           border: 2px transparent solid;
           border-radius: 0;
 
-          &:hover, &:focus {
+          &:hover,
+          &:focus {
             border-style: outset solid solid outset;
             border-color: white #7d7c7c #7d7c7c white;
           }
@@ -231,16 +233,19 @@ $status-bar-height: 5%;
       }
 
       .main-content {
-        height: calc(100% - $toolbar-height - $standard-button-height - $address-bar-height - $status-bar-height - 24px);
+        height: calc(
+          100% - $toolbar-height - $standard-button-height -
+            $address-bar-height - $status-bar-height - 24px
+        );
         display: flex;
         flex-direction: row;
         padding-top: 8px;
         margin-bottom: 8px;
-        border-top: 2px #DEDEDE solid;
+        border-top: 2px #dedede solid;
 
         &.sidebar-open {
           gap: 8px;
-          background-color: #C0C0C0;
+          background-color: #c0c0c0;
         }
 
         .sidebar {
@@ -342,7 +347,7 @@ $status-bar-height: 5%;
           width: 100%;
           overflow: scroll;
           border-width: 2px;
-          border-color: #3F3F3F #EBEBEB #EBEBEB #3F3F3F;
+          border-color: #3f3f3f #ebebeb #ebebeb #3f3f3f;
           border-style: inset;
 
           &.sidebar-open {

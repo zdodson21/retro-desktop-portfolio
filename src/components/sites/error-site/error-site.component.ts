@@ -4,8 +4,6 @@ import { Component } from '@angular/core';
   selector: 'error-site',
   imports: [],
   templateUrl: './error-site.component.html',
-  styleUrl: './error-site.component.scss'
+  styleUrl: './error-site.component.scss',
 })
-export class ErrorSite {
-
-}
+export class ErrorSite {}

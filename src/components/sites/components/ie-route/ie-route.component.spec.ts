@@ -10,8 +10,7 @@ describe('IeRouteComponent', () => {
     await TestBed.configureTestingModule({
       imports: [IeRouteComponent],
       providers: [provideRouter([])],
-    })
-    .compileComponents();
+    }).compileComponents();
 
     fixture = TestBed.createComponent(IeRouteComponent);
     component = fixture.componentInstance;

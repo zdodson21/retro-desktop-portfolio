@@ -3,4 +3,4 @@ export interface SiteList {
   tld: string;
 }
 
-export type DNS = SiteList[]
+export type DNS = SiteList[];

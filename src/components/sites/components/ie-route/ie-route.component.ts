@@ -6,13 +6,13 @@ import { ActivatedRoute, Router } from '@angular/router';
   selector: 'ie-route',
   imports: [],
   templateUrl: './ie-route.component.html',
-  styleUrl: './ie-route.component.scss'
+  styleUrl: './ie-route.component.scss',
 })
 export class IeRouteComponent {
   @ViewChild('a') private a?: ElementRef<HTMLElement>;
 
   @Input({ alias: 'domain', required: true }) public domain: string;
-  @Input({ alias: 'tld', required: true}) public tld: string;
+  @Input({ alias: 'tld', required: true }) public tld: string;
 
   private route: ActivatedRoute = inject(ActivatedRoute);
   private router: Router = inject(Router);

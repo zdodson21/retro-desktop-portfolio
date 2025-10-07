@@ -5,7 +5,7 @@ import { InternetExplorerService } from '../../internet-explorer.service';
   selector: 'close-sidebar-button',
   imports: [],
   templateUrl: './close-sidebar-button.component.html',
-  styleUrl: './close-sidebar-button.component.scss'
+  styleUrl: './close-sidebar-button.component.scss',
 })
 export class CloseSidebarButtonComponent {
   protected IEService: InternetExplorerService = inject(InternetExplorerService);

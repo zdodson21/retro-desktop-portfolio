@@ -8,9 +8,8 @@ describe('ShutdownScreenComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ShutdownScreenComponent]
-    })
-    .compileComponents();
+      imports: [ShutdownScreenComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(ShutdownScreenComponent);
     component = fixture.componentInstance;

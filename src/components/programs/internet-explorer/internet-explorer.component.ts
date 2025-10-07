@@ -108,7 +108,7 @@ export class InternetExplorerComponent {
         this.displayedSite.set('');
         this.setWindowTitle('Secret Site');
         this.setAddressBar('', 'secret', true);
-      } else if (IE_PARAM === "error") {
+      } else if (IE_PARAM === 'error') {
         this.displayedSite.set('error');
         this.setWindowTitle('Cannot find webpage');
       } else {
@@ -169,7 +169,7 @@ export class InternetExplorerComponent {
    */
   protected mailButtonHelper(): void {
     if (!this.dnsContainsSite(this.displayedSite())) {
-      if (globalThis.confirm("An error page is currently being displayed, are you sure you wish it in an email?")) {
+      if (globalThis.confirm('An error page is currently being displayed, are you sure you wish it in an email?')) {
         globalThis.open(
           `mailto:person?subject=Check%20Out%20This%20Webpage&body=${this.store.webAddress}/programs?internet-explorer=${this.displayedSite()}`,
           '_blank',
@@ -212,7 +212,7 @@ export class InternetExplorerComponent {
    * @returns tld value as string
    */
   private getTLD(domain: string): string {
-    const FOUND_TLD: SiteList | undefined = this.possibleSites.find(site => site.domain === domain);
+    const FOUND_TLD: SiteList | undefined = this.possibleSites.find((site) => site.domain === domain);
 
     if (FOUND_TLD !== undefined) return FOUND_TLD.tld;
 
@@ -303,16 +303,19 @@ export class InternetExplorerComponent {
     const LAST_INDEX: number = this.IEService.browserHistory.length - 1;
 
     if (this.IEService.browserHistory.length > 0) {
-      if (this.IEService.browserHistory()[LAST_INDEX].domain !== domain && this.IEService.browserHistory()[LAST_INDEX].tld !== tld) {
+      if (
+        this.IEService.browserHistory()[LAST_INDEX].domain !== domain &&
+        this.IEService.browserHistory()[LAST_INDEX].tld !== tld
+      ) {
         this.IEService.browserHistory().push({
           domain: domain,
-          tld: tld
+          tld: tld,
         });
       }
     } else {
       this.IEService.browserHistory().push({
         domain: domain,
-        tld: tld
+        tld: tld,
       });
     }
   }
@@ -327,11 +330,11 @@ export class InternetExplorerComponent {
     let inputVal = this.searchBarInput?.nativeElement.value;
 
     if (inputVal) {
-      this.possibleSites.forEach(site => {
+      this.possibleSites.forEach((site) => {
         if (site.domain.includes(inputVal) || site.tld.includes(inputVal)) {
           this.searchResults.push(site);
         }
-      })
+      });
     }
   }
 

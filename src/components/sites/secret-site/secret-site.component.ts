@@ -4,8 +4,6 @@ import { Component } from '@angular/core';
   selector: 'secret-site',
   imports: [],
   templateUrl: './secret-site.component.html',
-  styleUrl: './secret-site.component.scss'
+  styleUrl: './secret-site.component.scss',
 })
-export class SecretSite {
-
-}
+export class SecretSite {}

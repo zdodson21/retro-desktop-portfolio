@@ -5,7 +5,7 @@ import { WindowFrameComponent } from '../../window-frame/window-frame.component'
   selector: 'calculator',
   imports: [WindowFrameComponent],
   templateUrl: './calculator.component.html',
-  styleUrl: './calculator.component.scss'
+  styleUrl: './calculator.component.scss',
 })
 export class CalculatorComponent {
   public isScientific: boolean = false;

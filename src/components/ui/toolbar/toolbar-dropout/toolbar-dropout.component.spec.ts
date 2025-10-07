@@ -8,9 +8,8 @@ describe('ToolbarDropoutComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ToolbarDropoutComponent]
-    })
-    .compileComponents();
+      imports: [ToolbarDropoutComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(ToolbarDropoutComponent);
     component = fixture.componentInstance;

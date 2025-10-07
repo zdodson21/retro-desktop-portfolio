@@ -9,16 +9,14 @@
           <!-- File button that will display / Print (printButtonHelper() / Send Page by Email (mailButtonHelper()) -->
           <toolbar-button (click)="menuFocus = toolbarButtonHelper('file')">File</toolbar-button>
           <toolbar-menu [class.visible]="menuFocus === 'file'">
-            <toolbar-item left-text="Print" [right-text]="getPrintCommand()"/>
+            <toolbar-item left-text="Print" [right-text]="getPrintCommand()" />
             <toolbar-dropout>Send</toolbar-dropout>
           </toolbar-menu>
           <!-- View button that will display Toolbars drop out (Standard buttons, Address Bar, Links) / Status Bar / Explorer bar drop out (search, favorites, history) (just making sidebar visible, same as buttons below), Go To drop out (Homepage, Site list), stop, refresh, text size, Source (only add when Notepad is made) -->
           <toolbar-button (click)="menuFocus = toolbarButtonHelper('view')">View</toolbar-button>
-          <toolbar-menu [class.visible]="menuFocus === 'view'">
-
-          </toolbar-menu>
+          <toolbar-menu [class.visible]="menuFocus === 'view'"></toolbar-menu>
         </div>
-        <img src="assets/ie-top-right.png" alt="Windows 95 Icon">
+        <img src="assets/ie-top-right.png" alt="Windows 95 Icon" />
       </div>
 
       <div class="standard-buttons">
@@ -26,9 +24,9 @@
           <div class="bar"></div>
         </div>
         <div class="explorer-buttons buttons">
-          <standard-button button-name="stop" (click)="routerNavigator('error');" />
+          <standard-button button-name="stop" (click)="routerNavigator('error')" />
           <standard-button button-name="refresh" (click)="refreshButtonHelper()" />
-          <standard-button button-name="home" (click)="routerNavigator('about-me');" />
+          <standard-button button-name="home" (click)="routerNavigator('about-me')" />
         </div>
         <div class="divider-container">
           <div class="divider"></div>
@@ -54,12 +52,12 @@
         <p>Address</p>
         <div class="search-input">
           <img src="assets/icons/html-file.svg" alt="html file icon" />
-          <input #addressBarInput type="text" name="address-bar" id="address-bar" (keypress)="inputKeyInputHelper($event)" data-1p-ignore data-lpignore="true"/>
+          <input #addressBarInput type="text" name="address-bar" id="address-bar" (keypress)="inputKeyInputHelper($event)" data-1p-ignore data-lpignore="true" />
         </div>
         <button (mouseover)="goButtonHovered = true" (mouseleave)="goButtonHovered = false" (click)="goButtonHelper()">
           <!-- TODO needs touch support -->
-          <img src="assets/icons/internet-explorer/gray-go-button.svg" alt="gray go button" [class.visible]="goButtonHovered === false"/>
-          <img src="assets/icons/internet-explorer/go-button.svg" alt="go button" [class.visible]="goButtonHovered">
+          <img src="assets/icons/internet-explorer/gray-go-button.svg" alt="gray go button" [class.visible]="goButtonHovered === false" />
+          <img src="assets/icons/internet-explorer/go-button.svg" alt="go button" [class.visible]="goButtonHovered" />
           <p>Go</p>
         </button>
       </div>
@@ -75,17 +73,17 @@
                 </div>
 
                 <div class="content">
-                   <div class="input-container">
-                     <input #searchBarInput type="text" name="search-box" id="search-box" (keypress)="searchHelper()">
-                   </div>
+                  <div class="input-container">
+                    <input #searchBarInput type="text" name="search-box" id="search-box" (keypress)="searchHelper()" />
+                  </div>
 
-                   <ul>
+                  <ul>
                     @for (result of searchResults; track $index) {
                       <li>
-                        <ie-route domain="{{result.domain}}" tld="{{result.tld}}" />
+                        <ie-route domain="{{ result.domain }}" tld="{{ result.tld }}" />
                       </li>
                     }
-                   </ul>
+                  </ul>
                 </div>
               </div>
             }
@@ -101,7 +99,7 @@
                   <ul>
                     @for (site of possibleSites; track $index) {
                       <li>
-                        <img src="assets/icons/html-file.svg" alt="html file icon">
+                        <img src="assets/icons/html-file.svg" alt="html file icon" />
                         <ie-route domain="{{ site.domain }}" tld="{{ site.tld }}" />
                       </li>
                     }
@@ -121,7 +119,7 @@
                   <ul>
                     @for (site of IEService.browserHistory(); track $index) {
                       <li>
-                        <ie-route domain="{{ site.domain }}" tld="{{ site.tld }}"/>
+                        <ie-route domain="{{ site.domain }}" tld="{{ site.tld }}" />
                       </li>
                     }
                   </ul>

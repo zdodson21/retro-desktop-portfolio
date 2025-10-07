@@ -1,7 +1,9 @@
 // TODO refine to print site content perfectly
 
 @media print {
-  body * { visibility: hidden }
+  body * {
+    visibility: hidden;
+  }
 
   .print-selection,
   .print-selection[_ngcontent] {

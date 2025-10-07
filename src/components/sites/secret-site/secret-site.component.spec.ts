@@ -10,8 +10,7 @@ describe('SecretSiteComponent', () => {
     await TestBed.configureTestingModule({
       imports: [SecretSite],
       providers: [provideRouter([])],
-    })
-    .compileComponents();
+    }).compileComponents();
 
     fixture = TestBed.createComponent(SecretSite);
     component = fixture.componentInstance;

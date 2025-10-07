@@ -5,7 +5,7 @@ import { AppService } from '../../../app/app.service';
   selector: 'shutdown-screen',
   imports: [],
   templateUrl: './shutdown-screen.component.html',
-  styleUrl: './shutdown-screen.component.scss'
+  styleUrl: './shutdown-screen.component.scss',
 })
 export class ShutdownScreenComponent {
   private store: AppService = inject(AppService);

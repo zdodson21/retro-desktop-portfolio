@@ -8,9 +8,8 @@ describe('ToolbarDividerComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ToolbarDividerComponent]
-    })
-    .compileComponents();
+      imports: [ToolbarDividerComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(ToolbarDividerComponent);
     component = fixture.componentInstance;

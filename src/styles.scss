@@ -90,7 +90,6 @@ $win-95-highlight: #05037f;
     }
   }
 
-
   // TODO add support for various starting positions of window-frame. If I can input number into mixin, then 0 is center, 1 is top middle, go around clock wise 1 - 8
 }
 
@@ -132,7 +131,8 @@ $win-95-highlight: #05037f;
     @include text-common();
   }
 
-  &:hover, &:active {
+  &:hover,
+  &:active {
     background-color: $win-95-highlight;
 
     p {

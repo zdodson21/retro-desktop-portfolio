@@ -8,9 +8,8 @@ describe('CloseSidebarButtonComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [CloseSidebarButtonComponent]
-    })
-    .compileComponents();
+      imports: [CloseSidebarButtonComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(CloseSidebarButtonComponent);
     component = fixture.componentInstance;
