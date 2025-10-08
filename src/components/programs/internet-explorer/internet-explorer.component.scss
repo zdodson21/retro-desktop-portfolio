@@ -2,7 +2,7 @@
 @use "../programs.scss" as *;
 @use "../../../colors.scss" as *;
 
-$toolbar-height: 28px; // TODO might need to change to px values
+$toolbar-height: 28px;
 $standard-button-height: 56px;
 $address-bar-height: 32px;
 $status-bar-height: 5%;
@@ -33,6 +33,19 @@ $status-bar-height: 5%;
     .frame-contents {
       @include text-common();
       @include frame-contents-common();
+
+      @mixin hover-handling() {
+        &:hover,
+        &:focus {
+          border-style: outset solid solid outset;
+          border-color: white #7d7c7c #7d7c7c white;
+        }
+
+        &:active {
+          border-style: solid inset inset solid;
+          border-color: #7d7c7c white white #7d7c7c;
+        }
+      }
 
       .bar-container {
         height: 100%;
@@ -72,17 +85,7 @@ $status-bar-height: 5%;
             height: 22px;
             border: 2px transparent solid;
             border-radius: 0;
-
-            &:hover,
-            &:focus {
-              border-style: outset solid solid outset;
-              border-color: white #7d7c7c #7d7c7c white;
-            }
-
-            &:active {
-              border-style: solid inset inset solid;
-              border-color: #7d7c7c white white #7d7c7c;
-            }
+            @include hover-handling();
           }
 
           toolbar-menu {
@@ -103,8 +106,6 @@ $status-bar-height: 5%;
         display: flex;
         flex-direction: row;
         height: $standard-button-height;
-        // TODO standard-buttons need to compress so all can fit on screen on phones
-        // look at taskbar for reference
         border-top: 1px white solid;
         border-bottom: 1px solid #858585;
         border-left: 1px #7c7d7d solid;
@@ -129,17 +130,7 @@ $status-bar-height: 5%;
           height: 52px;
           border: 2px transparent solid;
           border-radius: 0;
-
-          &:hover,
-          &:focus {
-            border-style: outset solid solid outset;
-            border-color: white #7d7c7c #7d7c7c white;
-          }
-
-          &:active {
-            border-style: solid inset inset solid;
-            border-color: #7d7c7c white white #7d7c7c;
-          }
+          @include hover-handling();
         }
 
         .buttons {

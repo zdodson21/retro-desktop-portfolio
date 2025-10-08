@@ -24,41 +24,6 @@
   // TODO might need to fix some Safari / GNOME Web specific bugs eventually.
 }
 
-// ! Buttons
-
-@mixin control-button-common {
-  @include text-common();
-  background-color: $win-95-grey;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 0;
-  border-style: outset solid solid outset;
-  border-color: white #7d7c7c #7d7c7c white;
-  padding: 4px 0px;
-
-  &:active {
-    border-style: solid inset inset solid;
-    border-color: #7d7c7c white white #7d7c7c;
-  }
-
-  > span {
-    width: 90%;
-    height: 100%;
-    align-content: center;
-    border: 1px transparent dotted;
-
-    &:active {
-      border-color: black;
-    }
-
-    > span {
-      text-decoration: underline;
-      border: none;
-    }
-  }
-}
-
 @font-face {
   font-family: W95FA;
   src: url("../public/fonts/w95fa.woff") format("woff");

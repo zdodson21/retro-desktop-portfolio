@@ -1,5 +1,6 @@
 @use "../../../styles.scss" as *;
 @use "../programs.scss" as *;
+@use "../../ui/control-button.scss" as *;
 
 .my-computer-wrapper {
   @include program-common();
