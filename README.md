@@ -234,4 +234,4 @@ No. Because this is my portfolio web application, which contains numerous aspect
 
 ## Can I Contribute to this Repository?
 
-No*. I will not be accepting any pull requests submitted to this repository. However, if you have a suggestion for how code could be written better, you are welcome to submit a pull request. Any pull requests or issues submitted will be taken as suggestions, and no pull requests will be merged.
+No*. I will not be accepting any pull requests submitted to this repository (not that I expect any for a personal website). However, if you have a suggestion for how code could be written better, you are welcome to submit a pull request. Any pull requests or issues submitted will be taken as suggestions, and no pull requests will be merged.
