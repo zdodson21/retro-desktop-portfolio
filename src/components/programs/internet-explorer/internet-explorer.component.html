@@ -10,7 +10,7 @@
           <!-- TODO modify styles, if menu is open, then clicked button style should be active -->
           <toolbar-button text="File" (click)="menuFocus = toolbarButtonHelper($event, 'file')" (mouseover)="toolbarHoverHelper('file')">
             <toolbar-menu [class.visible]="menuFocus === 'file'">
-              <toolbar-item left-text="Print" [right-text]="getPrintCommand()" />
+              <toolbar-item left-text="Print" (click)="printButtonHelper()" [right-text]="getPrintCommand()" />
               <toolbar-dropout text="Send">
                 <!-- TODO Another toolbar menu with items, this idea should be able to keep nesting-->
               </toolbar-dropout>
@@ -25,7 +25,7 @@
               <toolbar-dropout text="Go To">
 
               </toolbar-dropout>
-              <toolbar-item left-text="Full Screen"/>
+              <toolbar-item left-text="Full Screen" [disabled]="windowFrame.isFullSize" (click)="fullscreenHandler()"/>
             </toolbar-menu>
           </toolbar-button>
         </div>

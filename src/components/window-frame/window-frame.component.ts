@@ -53,7 +53,7 @@ export class WindowFrameComponent {
   private minimizeItem: HTMLElement;
 
   private isMinimized: boolean = false;
-  protected isFullSize: boolean = false;
+  public isFullSize: boolean = false;
 
   protected viewIcon = 'assets/icons/maximize-button.svg';
 
@@ -130,7 +130,7 @@ export class WindowFrameComponent {
   /**
    * @description handle changing between window & full screen mode
    */
-  protected viewButtonHandler(): void {
+  public viewButtonHandler(): void {
     if (!this.isFullSize) {
       // going into full screen
       this.windowCoordinates = {

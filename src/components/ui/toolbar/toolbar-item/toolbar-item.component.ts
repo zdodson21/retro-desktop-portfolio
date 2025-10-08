@@ -9,4 +9,5 @@ import { Component, Input } from '@angular/core';
 export class ToolbarItemComponent {
   @Input({ alias: 'left-text' }) public leftText: string;
   @Input({ alias: 'right-text' }) public rightText: string;
+  @Input({ alias: 'disabled' }) public disabled: boolean;
 }

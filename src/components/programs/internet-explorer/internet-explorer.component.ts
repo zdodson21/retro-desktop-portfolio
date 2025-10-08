@@ -358,4 +358,11 @@ export class InternetExplorerComponent {
 
     return '';
   }
+
+  /**
+   * @description supports the full screen menu button
+   */
+  protected fullscreenHandler(): void {
+    if (!this.windowFrame?.isFullSize) this.windowFrame?.viewButtonHandler();
+  }
 }
