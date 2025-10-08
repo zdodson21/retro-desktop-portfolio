@@ -9,16 +9,18 @@
           <!-- File button that will display / Print (printButtonHelper() / Send Page by Email (mailButtonHelper()) -->
           <!-- TODO modify styles, if menu is open, then clicked button style should be active -->
           <toolbar-button text="File" (click)="menuFocus = toolbarButtonHelper($event, 'file')" (mouseover)="toolbarHoverHelper('file')">
-            <toolbar-menu [class.visible]="menuFocus === 'file'">
+            <toolbar-menu class="menu" [class.visible]="menuFocus === 'file'">
               <toolbar-item left-text="Print" (click)="printButtonHelper()" [right-text]="getPrintCommand()" />
               <toolbar-dropout text="Send">
-                <!-- TODO Another toolbar menu with items, this idea should be able to keep nesting-->
+                <toolbar-menu>
+                  <toolbar-item left-text="Page by Email..."></toolbar-item>
+                </toolbar-menu>
               </toolbar-dropout>
             </toolbar-menu>
           </toolbar-button>
           <!-- View button that will display Toolbars drop out (Standard buttons, Address Bar, Links) / Status Bar / Explorer bar drop out (search, favorites, history) (just making sidebar visible, same as buttons below), Go To drop out (Homepage, Site list), stop, refresh, text size, Source (only add when Notepad is made) -->
           <toolbar-button text="View" (click)="menuFocus = toolbarButtonHelper($event, 'view')" (mouseover)="toolbarHoverHelper('view')">
-            <toolbar-menu [class.visible]="menuFocus === 'view'">
+            <toolbar-menu class="menu" [class.visible]="menuFocus === 'view'">
               <toolbar-dropout text="Explorer Bar">
 
               </toolbar-dropout>

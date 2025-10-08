@@ -1,17 +1,11 @@
+@use "../toolbar.scss" as *;
+
 .toolbar-item-wrapper {
-  display: flex;
-  justify-content: space-between;
-  flex-direction: row;
-  width: 100%;
-  height: 100%;
+  @include toolbar-menu-item-common();
 
   &.disabled {
     p {
       // disabled color here
     }
-  }
-
-  &:hover {
-    background-color: red;
   }
 }

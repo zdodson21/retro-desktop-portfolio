@@ -1,0 +1,22 @@
+@mixin toolbar-menu-item-common() {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  width: calc(100% - 20px);
+  height: 100%;
+  padding: 4px 10px;
+
+  p {
+    font-size: 14px;
+    color: black;
+  }
+
+  &:hover {
+    background-color: #000074;
+
+    p {
+      color: white;
+    }
+  }
+}

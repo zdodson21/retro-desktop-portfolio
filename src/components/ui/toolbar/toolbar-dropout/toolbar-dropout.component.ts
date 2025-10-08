@@ -8,4 +8,5 @@ import { Component, Input } from '@angular/core';
 })
 export class ToolbarDropoutComponent {
   @Input({ alias: 'text' }) public text: string;
+  protected isHovered: boolean = false;
 }

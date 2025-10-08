@@ -1,6 +1,30 @@
-.toolbar-dropout-wrapper {
+@use "../toolbar.scss" as *;
 
-  &:hover {
-    background-color: red;
+.toolbar-dropout-wrapper {
+  @include toolbar-menu-item-common();
+
+  &.hovered {
+    background-color: #000074;
+
+    p {
+      color: white;
+    }
+  }
+
+  img {
+    display: none;
+
+    &.visible {
+      display: block;
+    }
+  }
+}
+
+.menu-space {
+  position: absolute;
+  display: none;
+
+  &.visible {
+    display: block;
   }
 }
