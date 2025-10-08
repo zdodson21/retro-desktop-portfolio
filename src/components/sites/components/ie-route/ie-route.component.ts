@@ -13,6 +13,7 @@ export class IeRouteComponent {
 
   @Input({ alias: 'domain', required: true }) public domain: string;
   @Input({ alias: 'tld', required: true }) public tld: string;
+  @Input({ alias: 'block-preview' }) public blockPreview: boolean = false;
 
   private route: ActivatedRoute = inject(ActivatedRoute);
   private router: Router = inject(Router);
@@ -23,8 +24,10 @@ export class IeRouteComponent {
    * @description set status bar content to href
    */
   protected hover(): void {
-    this.prevValue = this.IEService.statusBarContent();
-    this.IEService.statusBarContent.set(`http://${this.domain}.${this.tld}`);
+    if (!this.blockPreview) {
+      this.prevValue = this.IEService.statusBarContent();
+      this.IEService.statusBarContent.set(`http://${this.domain}.${this.tld}`);
+    }
   }
 
   ngAfterViewInit() {
@@ -37,13 +40,15 @@ export class IeRouteComponent {
    * @description set status bar content value to previous (pre-hover) value
    */
   protected unhover(): void {
-    if (this.prevValue === '') {
-      this.IEService.statusBarContent.set('Ready');
-    } else {
-      this.IEService.statusBarContent.set(this.prevValue);
-    }
+    if (!this.blockPreview) {
+      if (this.prevValue === '') {
+        this.IEService.statusBarContent.set('Ready');
+      } else {
+        this.IEService.statusBarContent.set(this.prevValue);
+      }
 
-    this.prevValue = '';
+      this.prevValue = '';
+    }
   }
 
   /**
