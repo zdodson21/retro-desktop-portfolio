@@ -88,7 +88,7 @@ $status-bar-height: 5%;
             @include hover-handling();
           }
 
-          .menu {
+          .top-level-menu {
             display: none;
 
             &.visible {
