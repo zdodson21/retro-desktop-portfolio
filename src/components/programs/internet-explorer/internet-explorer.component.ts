@@ -133,11 +133,19 @@ export class InternetExplorerComponent {
     });
   }
 
-  protected toolbarButtonHelper(button: string): string {
+  protected toolbarButtonHelper(event: MouseEvent, button: string): string {
+    event?.stopPropagation();
     if (button === 'file' && this.menuFocus === '') return 'file';
     if (button === 'view' && this.menuFocus === '') return 'view';
 
     return '';
+  }
+
+  protected toolbarHoverHelper(button: string): void {
+    console.log('toolbar hover helper called for button: ' + button)
+    if (this.menuFocus === 'file' || this.menuFocus === 'view') {
+      this.menuFocus = button;
+    }
   }
 
   /**
@@ -338,6 +346,9 @@ export class InternetExplorerComponent {
     }
   }
 
+  /**
+   * @description gets operating system to determine appropriate print command string
+   */
   protected getPrintCommand(): string {
     if (this.store.getOS() === 'Windows' || this.store.getOS() === 'Linux') {
       return 'Ctrl+P';

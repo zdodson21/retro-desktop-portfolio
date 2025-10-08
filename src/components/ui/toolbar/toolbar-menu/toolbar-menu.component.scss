@@ -1,8 +1,10 @@
+@use "../../../../colors.scss" as *;
+
 .toolbar-menu-wrapper {
-  background-color: red;
+  background-color: $win-95-grey;
   border: 1px blue solid;
   height: 100%;
-  width: 100%;
+  width: 156px;
   display: flex;
   flex-direction: column;
 }

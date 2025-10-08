@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'toolbar-button',
@@ -6,4 +6,6 @@ import { Component } from '@angular/core';
   templateUrl: './toolbar-button.component.html',
   styleUrl: './toolbar-button.component.scss',
 })
-export class ToolbarButtonComponent {}
+export class ToolbarButtonComponent {
+  @Input({ alias: 'text' }) public text: string;
+}

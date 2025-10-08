@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'toolbar-dropout',
@@ -6,4 +6,6 @@ import { Component } from '@angular/core';
   templateUrl: './toolbar-dropout.component.html',
   styleUrl: './toolbar-dropout.component.scss',
 })
-export class ToolbarDropoutComponent {}
+export class ToolbarDropoutComponent {
+  @Input({ alias: 'text' }) public text: string;
+}
