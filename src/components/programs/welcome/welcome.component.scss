@@ -1,4 +1,6 @@
 @use "../../../styles.scss" as *;
+@use "../programs.scss" as *;
+@use "../../../colors.scss" as *;
 
 .welcome-wrapper {
   @include program-common();

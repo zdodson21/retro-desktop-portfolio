@@ -1,0 +1,28 @@
+@use "../../styles.scss" as *;
+@use "../../colors.scss" as *;
+
+@mixin start-menu-object {
+  display: flex;
+  align-items: center;
+  padding-left: 12px;
+  gap: 12px;
+  height: 100%;
+
+  img {
+    @include icon-common();
+    width: 32px;
+  }
+
+  p {
+    @include text-common();
+  }
+
+  &:hover,
+  &:active {
+    background-color: $win-95-highlight;
+
+    p {
+      color: white;
+    }
+  }
+}

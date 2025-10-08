@@ -1,4 +1,6 @@
 @use "../../../styles.scss" as *;
+@use "../programs.scss" as *;
+@use "../../../colors.scss" as *;
 
 $toolbar-height: 28px; // TODO might need to change to px values
 $standard-button-height: 56px;

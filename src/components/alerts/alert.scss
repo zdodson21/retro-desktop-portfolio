@@ -1,0 +1,13 @@
+@mixin alert-common {
+  background-color: rgba($color: #000000, $alpha: 0.5);
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  window-frame {
+    display: block;
+    width: min(400px, 75%);
+  }
+}

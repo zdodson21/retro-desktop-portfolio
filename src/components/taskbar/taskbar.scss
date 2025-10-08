@@ -1,0 +1,18 @@
+@use "../../styles.scss" as *;
+
+@mixin taskbar-item-common {
+  display: block;
+  border-width: 2px;
+  height: 24px;
+}
+
+@mixin taskbar-item-text {
+  @include text-common();
+  font-size: 18px;
+  color: black;
+}
+
+@mixin taskbar-item-icon {
+  @include icon-common();
+  height: 22px;
+}
