@@ -11,21 +11,5 @@ export class StartDropdownComponent {
   @Input({ alias: 'icon' }) public src: string;
   @Input({ alias: 'text' }) public text: string;
 
-  @ViewChild('startDropdown') private startDropdownRef!: ElementRef;
-
-  private store: AppService = inject(AppService);
-  private item: HTMLElement;
-
-  public isHovered: boolean = false;
-
-  ngAfterViewInit() {
-    this.item = this.startDropdownRef.nativeElement;
-  }
-
-  constructor() {}
-
-  /**
-   * @description start-dropdown hover handler
-   */
-  public hoverHandler() {}
+  protected isHovered: boolean = false;
 }

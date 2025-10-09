@@ -3,10 +3,11 @@ import { AppService } from '../../../app/app.service';
 import { StartDropdownComponent } from '../start-dropdown/start-dropdown.component';
 import { StartItemComponent } from '../start-item/start-item.component';
 import { StartShutdownComponent } from '../start-shutdown/start-shutdown.component';
+import { StartSubmenuComponent } from '../start-submenu/start-submenu.component';
 
 @Component({
   selector: 'start-menu',
-  imports: [StartDropdownComponent, StartItemComponent, StartShutdownComponent],
+  imports: [StartDropdownComponent, StartItemComponent, StartSubmenuComponent, StartShutdownComponent],
   templateUrl: './start-menu.component.html',
   styleUrl: './start-menu.component.scss',
 })
