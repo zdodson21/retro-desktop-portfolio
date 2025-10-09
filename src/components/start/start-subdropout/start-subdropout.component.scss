@@ -3,11 +3,13 @@
 .container {
   position: relative;
 
-  .start-subdropout-container {
+  .start-subdropout-wrapper {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    height: 32px;
+    padding: 0px 4px;
 
     &.hovered {
       background-color: $win-95-highlight;
@@ -18,8 +20,14 @@
       flex-direction: row;
       align-items: center;
       height: 100%;
+      gap: 8px;
+
+      img {
+        width: 22px;
+      }
 
       p {
+        font-size: 15px;
         color: black;
 
         &.hovered {
@@ -43,11 +51,11 @@
     display: none;
 
     &.top {
-      top: 0;
+      top: -2px;
     }
 
     &.bottom {
-      bottom: 0;
+      bottom: -2px;
     }
 
     &.visible {

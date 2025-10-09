@@ -4,16 +4,16 @@
   display: flex;
   align-items: center;
   width: calc(100% - 4px);
-  height: 28px;
+  height: 32px;
   gap: 8px;
   padding-left: 4px;
 
   img {
-    height: 20px;
+    width: 22px;
   }
 
   p {
-    font-size: 14px;
+    font-size: 15px;
     color: black;
   }
 
