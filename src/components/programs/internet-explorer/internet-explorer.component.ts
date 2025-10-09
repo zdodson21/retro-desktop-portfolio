@@ -19,6 +19,7 @@ import { WindowFrameComponent } from '../../window-frame/window-frame.component'
 import { CloseSidebarButtonComponent } from './components/close-sidebar-button/close-sidebar-button.component';
 import { StandardButtonComponent } from './components/standard-button/standard-button.component';
 import { InternetExplorerService } from './internet-explorer.service';
+import { ToolbarDividerComponent } from '../../ui/toolbar/toolbar-divider/toolbar-divider.component';
 
 @Component({
   selector: 'internet-explorer',
@@ -35,6 +36,7 @@ import { InternetExplorerService } from './internet-explorer.service';
     SmallProjectsSite,
     StandardButtonComponent,
     ToolbarButtonComponent,
+    ToolbarDividerComponent,
     ToolbarDropoutComponent,
     ToolbarItemComponent,
     ToolbarMenuComponent,

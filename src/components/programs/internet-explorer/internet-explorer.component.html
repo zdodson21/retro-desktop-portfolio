@@ -6,14 +6,14 @@
           <div class="bar-container">
             <div class="bar"></div>
           </div>
-          <!-- File button that will display / Print (printButtonHelper() / Send Page by Email (mailButtonHelper()) -->
-          <!-- TODO modify styles, if menu is open, then clicked button style should be active -->
+
           <toolbar-button text="File" (click)="menuFocus = toolbarButtonHelper($event, 'file')" (mouseover)="toolbarHoverHelper('file')">
             <toolbar-menu class="top-level-menu" [class.visible]="menuFocus === 'file'">
               <toolbar-item left-text="Print" (click)="printButtonHelper()" [right-text]="getPrintCommand()" />
+              <toolbar-divider />
               <toolbar-dropout text="Send">
                 <toolbar-menu>
-                  <toolbar-item left-text="Page by Email..."></toolbar-item>
+                  <toolbar-item left-text="Page by Email..." (click)="mailButtonHelper()" />
                 </toolbar-menu>
               </toolbar-dropout>
             </toolbar-menu>
@@ -24,9 +24,11 @@
               <toolbar-dropout text="Explorer Bar">
 
               </toolbar-dropout>
+              <toolbar-divider />
               <toolbar-dropout text="Go To">
 
               </toolbar-dropout>
+              <toolbar-divider />
               <toolbar-item left-text="Full Screen" [disabled]="windowFrame.isFullSize" (click)="fullscreenHandler()"/>
             </toolbar-menu>
           </toolbar-button>
