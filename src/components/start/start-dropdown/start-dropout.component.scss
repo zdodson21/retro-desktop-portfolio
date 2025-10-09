@@ -1,7 +1,6 @@
 @use "../start.scss" as *;
 @use "../../../colors.scss" as *;
 
-
 .container {
   position: relative;
   height: 100%;
@@ -39,7 +38,6 @@
     display: none;
 
     &.top {
-  
       top: 0;
     }
 

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'start-subdropout',
@@ -7,5 +7,9 @@ import { Component } from '@angular/core';
   styleUrl: './start-subdropout.component.scss'
 })
 export class StartSubdropoutComponent {
+  @Input({ alias: 'icon' }) public src: string;
+  @Input({ alias: 'text' }) public text: string;
+  @Input({ alias: 'bottom' }) public bottom: boolean;
 
+  protected isHovered: boolean = false;
 }

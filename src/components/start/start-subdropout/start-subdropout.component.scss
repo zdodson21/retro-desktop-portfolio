@@ -1,0 +1,57 @@
+@use "../../../colors.scss" as *;
+
+.container {
+  position: relative;
+
+  .start-subdropout-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    &.hovered {
+      background-color: $win-95-highlight;
+    }
+
+    .left {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      height: 100%;
+
+      p {
+        color: black;
+
+        &.hovered {
+          color: white;
+        }
+      }
+    }
+
+    .arrow {
+      display: none;
+
+      &.visible {
+        display: block;
+      }
+    }
+  }
+
+  .menu-space {
+    position: absolute;
+    left: 100%;
+    display: none;
+
+    &.top {
+      top: 0;
+    }
+
+    &.bottom {
+      bottom: 0;
+    }
+
+    &.visible {
+      display: block;
+    }
+  }
+}

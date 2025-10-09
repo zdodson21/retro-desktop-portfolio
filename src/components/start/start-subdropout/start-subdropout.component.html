@@ -1,2 +1,15 @@
-<p>start-subdropout works!</p>
-<!-- TODO needs to function like a start-dropout with smaller styling, also dictate if menu starts at bottom or top -->
+<div class="container">
+  <div class="start-subdropout-container" [class.hovered]="isHovered" (mouseover)="isHovered = true" (mouseleave)="isHovered = false">
+    <div class="left">
+      <img [src]="src" [alt]="text">
+      <p [class.hovered]="isHovered">{{ text }}</p>
+    </div>
+    <div class="right">
+      <img src="assets/icons/submenu-arrow.svg" alt=" black arrow" class="arrow" [class.visible]="!isHovered" />
+      <img src="assets/icons/submenu-arrow-white.svg" alt="white-arrow" class="arrow" [class.visible]="isHovered"/>
+    </div>
+  </div>
+  <div class="menu-space" [class.top]="!bottom" [class.bottom]="bottom" [class.visible]="isHovered" (mouseover)="isHovered = true" (mouseleave)="isHovered = false">
+    <ng-content></ng-content>
+  </div>
+</div>
