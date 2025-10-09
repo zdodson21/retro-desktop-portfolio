@@ -53,7 +53,7 @@ export class InternetExplorerComponent {
 
   private route: ActivatedRoute = inject(ActivatedRoute);
   private router: Router = inject(Router);
-  private store: AppService = inject(AppService);
+  protected store: AppService = inject(AppService);
   protected IEService: InternetExplorerService = inject(InternetExplorerService);
   protected sidebarContent: number = 0; // 0 = search, 1 = favorites, 2 = history
   protected displayedSite: WritableSignal<string> = signal('about-me');
@@ -144,7 +144,6 @@ export class InternetExplorerComponent {
   }
 
   protected toolbarHoverHelper(button: string): void {
-    console.log('toolbar hover helper called for button: ' + button)
     if (this.menuFocus === 'file' || this.menuFocus === 'view') {
       this.menuFocus = button;
     }
@@ -366,5 +365,12 @@ export class InternetExplorerComponent {
    */
   protected fullscreenHandler(): void {
     if (!this.windowFrame?.isFullSize) this.windowFrame?.viewButtonHandler();
+  }
+
+  /**
+   * @description Formats site domain strings into words
+   */
+  protected formatButtonString(str: string): string {
+    return str.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(" ")
   }
 }
