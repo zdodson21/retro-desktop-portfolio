@@ -7,8 +7,8 @@ import { Component, Input } from '@angular/core';
   styleUrl: './start-dropout.component.scss',
 })
 export class StartDropoutComponent {
-  @Input({ alias: 'icon' }) public src: string;
-  @Input({ alias: 'text' }) public text: string;
+  @Input({ alias: 'icon', required: true }) public src: string;
+  @Input({ alias: 'text', required: true }) public text: string;
   @Input({ alias: 'bottom' }) public bottom: boolean;
 
   protected isHovered: boolean = false;
