@@ -4,18 +4,20 @@
   </div>
   <div class="right-side">
     <div class="programs">
-      <start-dropout icon="assets/icons/program-folder.svg" text="Programs">
+      <start-dropout icon="assets/icons/program-folder.svg" text="Programs" [bottom]="true">
         <start-submenu>
-          <start-subitem />
           <start-subdropout>
             <!-- TODO start-submenu here -->
           </start-subdropout>
+          <start-subitem icon="assets/icons/internet-explorer.svg" program-name="Internet Explorer" focus-name="internet-explorer" />
+          <start-subitem icon="assets/icons/windows-explorer.svg" program-name="Windows Explorer" focus-name="windows-explorer" />
         </start-submenu>
       </start-dropout>
-      
+
       <start-dropout icon="assets/icons/settings.svg" text="Settings">
         <start-submenu>
-          <start-subitem />
+          <start-subitem icon="assets/icons/control-panel.svg" program-name="Control Panel" focus-name="control-panel"/>
+          <start-subitem icon="assets/icons/taskbar-properties.svg" program-name="Taskbar Properties" focus-name="taskbar-properties"/>
         </start-submenu>
       </start-dropout>
       <!-- TODO  -->

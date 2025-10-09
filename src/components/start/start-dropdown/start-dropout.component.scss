@@ -36,8 +36,16 @@
   .menu-space {
     position: absolute;
     left: 100%;
-    top: 0;
     display: none;
+
+    &.top {
+  
+      top: 0;
+    }
+
+    &.bottom {
+      bottom: 0;
+    }
 
     &.visible {
       display: block;

@@ -5,7 +5,7 @@
     <img src="assets/icons/submenu-arrow.svg" alt="arrow" class="arrow" [class.visible]="!isHovered" />
     <img src="assets/icons/submenu-arrow-white.svg" alt="white arrow" class="arrow" [class.visible]="isHovered" />
   </div>
-  <div class="menu-space" [class.visible]="isHovered" (mouseover)="isHovered = true" (mouseleave)="isHovered = false">
+  <div class="menu-space" [class.top]="!bottom" [class.bottom]="bottom" [class.visible]="isHovered" (mouseover)="isHovered = true" (mouseleave)="isHovered = false">
     <ng-content></ng-content>
   </div>
 </div>

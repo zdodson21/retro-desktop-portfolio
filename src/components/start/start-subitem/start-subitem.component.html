@@ -1,4 +1,4 @@
-<div class="start-subitem-wrapper">
-  <img src="assets/icons/msdos.svg" alt="">
-  <p>Text</p>
+<div class="start-subitem-wrapper" (click)="clickHandler($event)">
+  <img [src]="src" [alt]="programName">
+  <p>{{ programName }}</p>
 </div>

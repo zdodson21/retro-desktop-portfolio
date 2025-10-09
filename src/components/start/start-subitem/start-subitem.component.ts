@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, Input, inject } from '@angular/core';
+import { AppService } from '../../../app/app.service';
+import { Programs } from '../../../interfaces/open-programs.interface';
+import { Router, ActivatedRoute, Params } from '@angular/router';
 
 @Component({
   selector: 'start-subitem',
@@ -7,5 +10,48 @@ import { Component } from '@angular/core';
   styleUrl: './start-subitem.component.scss'
 })
 export class StartSubitemComponent {
+  @Input({ alias: 'icon'}) public src: string;
+  @Input({ alias: 'focus-name'}) public focusName: string;
+  @Input({ alias: 'program-name' }) public programName: string;
 
+  private store: AppService = inject(AppService);
+
+  private router: Router = inject(Router);
+  private route: ActivatedRoute = inject(ActivatedRoute);
+
+  private programDetails: Programs;
+
+  ngOnInit() {
+    this.programDetails = {
+      programName: this.programName,
+      focusName: this.focusName,
+      iconPath: this.src,
+    };
+  }
+
+  /**
+   * @description opens applications with routes
+   */
+  protected clickHandler(event: MouseEvent): void {
+    event?.stopPropagation();
+
+    if (!this.store.openPrograms().some((programs) => programs.focusName === this.focusName)) {
+      this.store.openPrograms().push(this.programDetails);
+    }
+
+    this.store.focus.set(this.focusName);
+
+    const CURRENT_PARAMS: Params = { ...this.route.snapshot.queryParams };
+    if (this.focusName === 'internet-explorer') {
+      CURRENT_PARAMS['internet-explorer'] = 'about-me';
+    } else {
+      CURRENT_PARAMS[this.focusName] = '';
+    }
+
+    this.router.navigate(['programs'], {
+      relativeTo: this.route,
+      queryParams: CURRENT_PARAMS,
+      replaceUrl: true,
+    });
+  }
 }

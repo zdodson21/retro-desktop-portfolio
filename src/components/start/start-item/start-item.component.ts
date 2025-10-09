@@ -10,8 +10,8 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
   styleUrl: './start-item.component.scss',
 })
 export class StartItemComponent {
-  @Input({ alias: 'focus-name' }) public focusName: string;
   @Input({ alias: 'icon' }) public src: string;
+  @Input({ alias: 'focus-name' }) public focusName: string;
   @Input({ alias: 'program-name' }) public programName: string;
 
   private store: AppService = inject(AppService);

@@ -9,6 +9,7 @@ import { Component, Input } from '@angular/core';
 export class StartDropoutComponent {
   @Input({ alias: 'icon' }) public src: string;
   @Input({ alias: 'text' }) public text: string;
+  @Input({ alias: 'bottom' }) public bottom: boolean;
 
   protected isHovered: boolean = false;
 }
