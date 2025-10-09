@@ -86,6 +86,11 @@ $status-bar-height: 5%;
             border: 2px transparent solid;
             border-radius: 0;
             @include hover-handling();
+
+            &.active {
+              border-style: solid inset inset solid;
+              border-color: #7d7c7c white white #7d7c7c;
+            }
           }
 
           .top-level-menu {

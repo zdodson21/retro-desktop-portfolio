@@ -7,7 +7,7 @@
             <div class="bar"></div>
           </div>
 
-          <toolbar-button text="File" (click)="menuFocus = toolbarButtonHelper($event, 'file')" (mouseover)="toolbarHoverHelper('file')">
+          <toolbar-button text="File" [class.active]="menuFocus === 'file'" (click)="menuFocus = toolbarButtonHelper($event, 'file')" (mouseover)="toolbarHoverHelper('file')">
             <toolbar-menu class="top-level-menu" [class.visible]="menuFocus === 'file'" (click)="store.focus.set('internet-explorer')">
               <toolbar-item left-text="Print" (click)="printButtonHelper()" [right-text]="getPrintCommand()" />
 
@@ -21,7 +21,7 @@
             </toolbar-menu>
           </toolbar-button>
 
-          <toolbar-button text="View" (click)="menuFocus = toolbarButtonHelper($event, 'view')" (mouseover)="toolbarHoverHelper('view')">
+          <toolbar-button text="View" [class.active]="menuFocus === 'view'" (click)="menuFocus = toolbarButtonHelper($event, 'view')" (mouseover)="toolbarHoverHelper('view')">
             <toolbar-menu class="top-level-menu" [class.visible]="menuFocus === 'view'" (click)="store.focus.set('internet-explorer')">
               <toolbar-dropout text="Explorer Bar">
                 <toolbar-menu>
