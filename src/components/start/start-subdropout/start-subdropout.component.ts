@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-start-subdropout',
+  selector: 'start-subdropout',
   imports: [],
   templateUrl: './start-subdropout.component.html',
   styleUrl: './start-subdropout.component.scss'
