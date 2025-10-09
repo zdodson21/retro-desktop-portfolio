@@ -1,40 +1,46 @@
 @use "../start.scss" as *;
 @use "../../../colors.scss" as *;
 
-.start-dropdown-wrapper {
-  @include start-menu-object();
 
-  &.hovered {
-    background-color: $win-95-highlight;
-  }
+.container {
+  position: relative;
+  height: 100%;
 
-  p {
-    color: black;
+  .start-dropdown-wrapper {
+    @include start-menu-object();
 
     &.hovered {
-      color: white;
+      background-color: $win-95-highlight;
+    }
+
+    p {
+      color: black;
+
+      &.hovered {
+        color: white;
+      }
+    }
+
+    .arrow {
+      margin-left: auto;
+      margin-right: 12px;
+      width: 8px;
+      display: none;
+
+      &.visible {
+        display: block;
+      }
     }
   }
 
-  .arrow {
-    margin-left: auto;
-    margin-right: 12px;
-    width: 8px;
+  .menu-space {
+    position: absolute;
+    left: 100%;
+    top: 0;
     display: none;
 
     &.visible {
       display: block;
     }
-  }
-}
-
-.menu-space {
-  position: absolute;
-  left: 100%;
-  top: 0;
-  display: none;
-
-  &.visible {
-    display: block;
   }
 }
