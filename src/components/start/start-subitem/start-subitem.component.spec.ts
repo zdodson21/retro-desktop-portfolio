@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { provideRouter } from '@angular/router';
 import { StartSubitemComponent } from './start-subitem.component';
 
 describe('StartSubitemComponent', () => {
@@ -8,7 +8,8 @@ describe('StartSubitemComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [StartSubitemComponent]
+      imports: [StartSubitemComponent],
+      providers: [provideRouter([])],
     })
     .compileComponents();
 
