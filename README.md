@@ -40,7 +40,7 @@ Some aspects of this web application are created using external web-components, 
 To install dependencies, run the following:
 
 ```bash
-npm run install
+npm install
 ```
 
 ### Development server
