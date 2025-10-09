@@ -25,9 +25,9 @@
             <toolbar-menu class="top-level-menu" [class.visible]="menuFocus === 'view'" (click)="store.focus.set('internet-explorer')">
               <toolbar-dropout text="Explorer Bar">
                 <toolbar-menu>
-                  <toolbar-item left-text="Search" (click)="openCloseSidebar(0)" />
-                  <toolbar-item left-text="Favorites" (click)="openCloseSidebar(1)" />
-                  <toolbar-item left-text="History" (click)="openCloseSidebar(2)" />
+                  <toolbar-item left-text="Search" (click)="openCloseSidebar(0, true)" [disabled]="sidebarContent === 0 && IEService.sidebar()" />
+                  <toolbar-item left-text="Favorites" (click)="openCloseSidebar(1, true)" [disabled]="sidebarContent === 1 && IEService.sidebar()" />
+                  <toolbar-item left-text="History" (click)="openCloseSidebar(2, true)" [disabled]="sidebarContent === 2 && IEService.sidebar()" />
                 </toolbar-menu>
               </toolbar-dropout>
 
@@ -43,9 +43,43 @@
                 </toolbar-menu>
               </toolbar-dropout>
 
+              <toolbar-item left-text="Stop" (click)="routerNavigator('error')"/>
+
+              <toolbar-item left-text="Refresh" (click)="refreshButtonHelper()"/>
+
               <toolbar-divider />
 
               <toolbar-item left-text="Full Screen" [disabled]="windowFrame.isFullSize" (click)="fullscreenHandler()" />
+            </toolbar-menu>
+          </toolbar-button>
+
+          <toolbar-button text="Favorites" [class.active]="menuFocus === 'favorites'" (click)="menuFocus = toolbarButtonHelper($event, 'favorites')" (mouseover)="toolbarHoverHelper('favorites')">
+            <toolbar-menu class="top-level-menu" [class.visible]="menuFocus === 'favorites'" (click)="store.focus.set('internet-explorer')">
+              <toolbar-dropout text="Personal Projects">
+                <toolbar-menu>
+                  <toolbar-item left-text="Retro Desktop Portfolio" (click)="routerNavigator('retro-desktop-portfolio')"/>
+                </toolbar-menu>
+              </toolbar-dropout>
+
+              <toolbar-divider />
+
+              <toolbar-dropout text="Prof. Experience">
+                <toolbar-menu>
+                  <toolbar-item left-text="About Me" (click)="routerNavigator('about-me')"/>
+                  <toolbar-divider />
+                  <toolbar-item left-text="HAX Chat Agent" (click)="routerNavigator('hax-chat-agent')"/>
+                </toolbar-menu>
+              </toolbar-dropout>
+
+              <toolbar-dropout text="Open Source">
+                <toolbar-menu>
+                  <toolbar-item left-text="Open Source Contributions" (click)="routerNavigator('open-source-contributions')"/>
+                  <toolbar-item left-text="HAX Chat Agent" (click)="routerNavigator('hax-chat-agent')"/>
+                  <toolbar-item left-text="HAX Audit" (click)="routerNavigator('hax-audit')"/>
+                </toolbar-menu>
+              </toolbar-dropout>
+
+              <toolbar-item left-text="Small Projects" (click)="routerNavigator('small-projects')"/>
             </toolbar-menu>
           </toolbar-button>
         </div>

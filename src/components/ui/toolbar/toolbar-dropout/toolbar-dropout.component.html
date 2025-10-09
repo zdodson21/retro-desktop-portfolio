@@ -1,4 +1,5 @@
 <div class="container">
+  <!-- TODO add support for an icon (renders conditionally) -->
   <div class="toolbar-dropout-wrapper" [class.hovered]="isHovered === true" (mouseover)="isHovered = true" (mouseleave)="isHovered = false">
     <p>{{ text }}</p>
     <img src="assets/icons/submenu-arrow.svg" alt="black arrow" [class.visible]="!isHovered" />

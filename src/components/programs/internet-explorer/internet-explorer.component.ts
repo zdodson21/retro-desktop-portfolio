@@ -139,12 +139,13 @@ export class InternetExplorerComponent {
     event?.stopPropagation();
     if (button === 'file' && this.menuFocus === '') return 'file';
     if (button === 'view' && this.menuFocus === '') return 'view';
+    if (button === 'favorites' && this.menuFocus === '') return 'favorites';
 
     return '';
   }
 
   protected toolbarHoverHelper(button: string): void {
-    if (this.menuFocus === 'file' || this.menuFocus === 'view') {
+    if (this.menuFocus === 'file' || this.menuFocus === 'view' || this.menuFocus === 'favorites') {
       this.menuFocus = button;
     }
   }
@@ -164,9 +165,9 @@ export class InternetExplorerComponent {
    * @description sets sidebar open state and displayed content
    * @param contentNum 0 = search | 1 = favorites | 2 = history
    */
-  protected openCloseSidebar(contentNum: number): void {
+  protected openCloseSidebar(contentNum: number, toolbarItem: boolean = false): void {
     if (this.IEService.sidebar() && this.sidebarContent === contentNum) {
-      this.IEService.sidebar.set(false);
+      if (!toolbarItem) this.IEService.sidebar.set(false);
     } else {
       this.sidebarContent = contentNum;
       if (!this.IEService.sidebar()) this.IEService.sidebar.set(true);
