@@ -1,3 +1,4 @@
+@use "../../../styles.scss" as *;
 @use "../../../colors.scss" as *;
 
 .start-subitem-wrapper {
@@ -10,11 +11,13 @@
 
   img {
     width: 22px;
+    @include icon-common();
   }
 
   p {
     font-size: 15px;
     color: black;
+    @include text-common();
   }
 
   &:hover {

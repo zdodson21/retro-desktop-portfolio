@@ -1,4 +1,5 @@
 @use "../../../colors.scss" as *;
+@use "../../../styles.scss" as *;
 
 .container {
   position: relative;
@@ -24,11 +25,13 @@
 
       img {
         width: 22px;
+        @include icon-common();
       }
 
       p {
         font-size: 15px;
         color: black;
+        @include text-common();
 
         &.hovered {
           color: white;
