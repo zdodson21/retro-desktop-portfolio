@@ -20,14 +20,14 @@
               </toolbar-dropout>
             </toolbar-menu>
           </toolbar-button>
-          <!-- View button that will display Toolbars drop out (Standard buttons, Address Bar, Links) / Status Bar / Explorer bar drop out (search, favorites, history) (just making sidebar visible, same as buttons below), Go To drop out (Homepage, Site list), stop, refresh, text size, Source (only add when Notepad is made) -->
+
           <toolbar-button text="View" (click)="menuFocus = toolbarButtonHelper($event, 'view')" (mouseover)="toolbarHoverHelper('view')">
             <toolbar-menu class="top-level-menu" [class.visible]="menuFocus === 'view'" (click)="store.focus.set('internet-explorer')">
               <toolbar-dropout text="Explorer Bar">
                 <toolbar-menu>
-                  <toolbar-item left-text="Search" (click)="openCloseSidebar(0)"/>
-                  <toolbar-item left-text="Favorites" (click)="openCloseSidebar(1)"/>
-                  <toolbar-item left-text="History" (click)="openCloseSidebar(2)"/>
+                  <toolbar-item left-text="Search" (click)="openCloseSidebar(0)" />
+                  <toolbar-item left-text="Favorites" (click)="openCloseSidebar(1)" />
+                  <toolbar-item left-text="History" (click)="openCloseSidebar(2)" />
                 </toolbar-menu>
               </toolbar-dropout>
 
@@ -35,17 +35,17 @@
 
               <toolbar-dropout text="Go To">
                 <toolbar-menu>
-                  <toolbar-item left-text="Home Page" (click)="routerNavigator('about-me')"/>
+                  <toolbar-item left-text="Home Page" (click)="routerNavigator('about-me')" />
                   <toolbar-divider />
                   @for (site of possibleSites; track $index) {
-                    <toolbar-item [left-text]="formatButtonString(site.domain)" (click)="routerNavigator(site.domain)"/>
+                    <toolbar-item [left-text]="formatButtonString(site.domain)" (click)="routerNavigator(site.domain)" />
                   }
                 </toolbar-menu>
               </toolbar-dropout>
 
               <toolbar-divider />
 
-              <toolbar-item left-text="Full Screen" [disabled]="windowFrame.isFullSize" (click)="fullscreenHandler()"/>
+              <toolbar-item left-text="Full Screen" [disabled]="windowFrame.isFullSize" (click)="fullscreenHandler()" />
             </toolbar-menu>
           </toolbar-button>
         </div>

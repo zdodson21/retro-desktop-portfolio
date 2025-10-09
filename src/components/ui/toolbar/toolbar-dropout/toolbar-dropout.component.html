@@ -1,7 +1,7 @@
 <div class="toolbar-dropout-wrapper" [class.hovered]="isHovered === true" (mouseover)="isHovered = true" (mouseleave)="isHovered = false">
   <p>{{ text }}</p>
-  <img src="assets/icons/submenu-arrow.svg" alt="black arrow" [class.visible]="!isHovered">
-  <img src="assets/icons/submenu-arrow-white.svg" alt="white arrow" [class.visible]="isHovered">
+  <img src="assets/icons/submenu-arrow.svg" alt="black arrow" [class.visible]="!isHovered" />
+  <img src="assets/icons/submenu-arrow-white.svg" alt="white arrow" [class.visible]="isHovered" />
 </div>
 <div class="menu-space" [class.visible]="isHovered" (mouseover)="isHovered = true" (mouseleave)="isHovered = false">
   <ng-content></ng-content>

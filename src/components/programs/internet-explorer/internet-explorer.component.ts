@@ -371,6 +371,9 @@ export class InternetExplorerComponent {
    * @description Formats site domain strings into words
    */
   protected formatButtonString(str: string): string {
-    return str.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(" ")
+    return str
+      .split('-')
+      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+      .join(' ');
   }
 }
