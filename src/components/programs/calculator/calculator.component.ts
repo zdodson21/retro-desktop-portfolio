@@ -10,5 +10,6 @@ import { WindowFrameComponent } from '../../window-frame/window-frame.component'
 export class CalculatorComponent {
   protected isScientific: boolean = false;
 
-  // TODO add routing for standard and scientific, if route = anything else (other than null / '' / standard / scientific) then it should auto change to standard
+  // TODO add routing for standard and scientific, if route = anything else (other than null / '' / scientific) then it should auto change to ''
+  // TODO '' router param should load it as standard as well
 }

@@ -4,6 +4,4 @@ import { InternetExplorerComponent } from '../components/programs/internet-explo
 
 export const routes: Routes = [
   { path: 'programs', component: ProgramsWrapperComponent },
-  // TODO want internet explorer to be a param in the path above
-  // Ex: `programs?internet-explorer="about-me"&system-monitor=`
 ];

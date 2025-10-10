@@ -34,7 +34,7 @@ export class AlertShutdownComponent {
         break;
       // TODO uncomment below when ready to integrate MSDOS-Prompt mode
       // case 2:
-      //   // TODO switch to msdos-prompt mode
+      //   this.store.desktopMode.set(2)
       //   break;
     }
 

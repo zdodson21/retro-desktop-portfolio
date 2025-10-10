@@ -2,7 +2,7 @@
   <div class="top-panel">
     <div class="left-side">
       @if (icon) {
-        <img src="{{ icon }}" alt="{{ title }}" />
+        <img [src]="icon" [alt]="title" />
       }
       <p>{{ title }}</p>
     </div>
@@ -13,8 +13,7 @@
             <img src="assets/icons/minimize-button.svg" alt="minimize icon" />
           </button>
           <button #viewButton class="view-button" (click)="viewButtonHandler()" [disabled]="preventResizing">
-            <img src="{{ viewIcon }}" [alt]="isFullSize ? 'Window shrink button icon' : 'Window maximize button icon'" />
-            <!-- TODO set alt text to change when viewIcon changes -->
+            <img [src]="viewIcon" [alt]="isFullSize ? 'Window shrink button icon' : 'Window maximize button icon'" />
           </button>
         </div>
       }

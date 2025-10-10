@@ -24,8 +24,6 @@ export class AIeComponent {
     this.prevValue = this.IEStore.statusBarContent();
     let setValue: string = '';
 
-    // TODO check for certain strings in href (like linkedin or github). If detected set icon to that instead of browser icon. leave browser icon for generic
-
     if (!this.checkSpecialString()) {
       switch (this.store.getBrowser()) {
         case 'Brave':

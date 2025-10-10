@@ -2,7 +2,7 @@
 @use "../ui/control-button.scss" as *;
 
 .window-frame-wrapper {
-  border: 3px outset white; // TODO finalize border color
+  border: 3px outset white;
   display: flex;
   flex-direction: column;
   width: calc(100% - 6px);
