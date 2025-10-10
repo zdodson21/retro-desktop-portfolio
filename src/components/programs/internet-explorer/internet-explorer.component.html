@@ -37,7 +37,7 @@
                 <toolbar-menu>
                   <toolbar-item left-text="Home Page" (click)="routerNavigator('about-me')" />
                   <toolbar-divider />
-                  @for (site of possibleSites; track $index) {
+                  @for (site of IEService.possibleSites; track $index) {
                     <toolbar-item [left-text]="formatButtonString(site.domain)" (click)="routerNavigator(site.domain)" />
                   }
                 </toolbar-menu>
@@ -165,7 +165,7 @@
 
                 <div class="content">
                   <ul>
-                    @for (site of possibleSites; track $index) {
+                    @for (site of IEService.possibleSites; track $index) {
                       <li>
                         <img src="assets/icons/html-file.svg" alt="html file icon" />
                         <ie-route domain="{{ site.domain }}" tld="{{ site.tld }}" />

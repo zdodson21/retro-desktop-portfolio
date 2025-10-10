@@ -60,34 +60,7 @@ export class InternetExplorerComponent {
   protected statusBarContent: string = 'Ready';
   protected goButtonHovered: boolean = false;
   protected searchResults: DNS = [];
-  protected menuFocus: string = ''; // TODO change to empty string
-
-  protected possibleSites: DNS = [
-    {
-      domain: 'about-me',
-      tld: 'net',
-    },
-    {
-      domain: 'hax-audit',
-      tld: 'os',
-    },
-    {
-      domain: 'hax-chat-agent',
-      tld: 'org',
-    },
-    {
-      domain: 'open-source-contributions',
-      tld: 'os',
-    },
-    {
-      domain: 'retro-desktop-portfolio',
-      tld: 'net',
-    },
-    {
-      domain: 'small-projects',
-      tld: 'net',
-    },
-  ];
+  protected menuFocus: string = '';
 
   ngAfterViewInit() {
     this.route.queryParamMap.subscribe((params) => {
@@ -214,7 +187,7 @@ export class InternetExplorerComponent {
    * @returns tld value as string
    */
   private getTLD(domain: string): string {
-    const FOUND_TLD: SiteList | undefined = this.possibleSites.find((site) => site.domain === domain);
+    const FOUND_TLD: SiteList | undefined = this.IEService.possibleSites.find((site) => site.domain === domain);
 
     if (FOUND_TLD !== undefined) return FOUND_TLD.tld;
 
@@ -293,7 +266,7 @@ export class InternetExplorerComponent {
    *
    */
   protected dnsContainsSite(siteName: string): boolean {
-    return this.possibleSites.some((site) => site.domain === siteName) ? true : false;
+    return this.IEService.possibleSites.some((site) => site.domain === siteName) ? true : false;
   }
 
   /**
@@ -326,13 +299,13 @@ export class InternetExplorerComponent {
    * @description called when search function input detects keypress, updaing search results array to display any matches
    */
   protected searchHelper() {
-    // TODO only updating when enter pressed?
+    // TODO updating on certain conditions, ensure it works on backspace too
     this.searchResults = [];
 
     let inputVal = this.searchBarInput?.nativeElement.value;
 
     if (inputVal) {
-      this.possibleSites.forEach((site) => {
+      this.IEService.possibleSites.forEach((site) => {
         if (site.domain.includes(inputVal) || site.tld.includes(inputVal)) {
           this.searchResults.push(site);
         }
