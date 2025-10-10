@@ -347,6 +347,7 @@ $status-bar-height: 5%;
           border-width: 2px;
           border-color: #3f3f3f #ebebeb #ebebeb #3f3f3f;
           border-style: inset;
+          @include allow-user-select();
 
           &.sidebar-open {
             width: 78%;

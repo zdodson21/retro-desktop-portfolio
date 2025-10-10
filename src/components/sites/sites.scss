@@ -4,6 +4,32 @@
   // TODO set font-size, font family
   height: calc(100% - 8px);
   padding: 8px;
+  @include set-font();
+
+  .badges {
+    display: flex;
+    gap: 4px;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}
+
+@mixin set-font() {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  figcaption,
+  a,
+  a-ie,
+  ie-route,
+  li,
+  em {
+    font-family: Georgia, "Times New Roman", Times, serif;
+  }
 }
 
 @mixin site-mobile-support($max-width) {

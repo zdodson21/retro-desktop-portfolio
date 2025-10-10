@@ -1,0 +1,5 @@
+@use "../sites.scss" as *;
+
+.hax-audit-site-wrapper {
+  @include site-common();
+}
