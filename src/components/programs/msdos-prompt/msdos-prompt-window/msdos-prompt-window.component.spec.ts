@@ -8,9 +8,8 @@ describe('MsdosPromptWindowComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [MsdosPromptWindowComponent]
-    })
-    .compileComponents();
+      imports: [MsdosPromptWindowComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(MsdosPromptWindowComponent);
     component = fixture.componentInstance;

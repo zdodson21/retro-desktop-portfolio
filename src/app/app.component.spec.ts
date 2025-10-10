@@ -24,7 +24,7 @@ describe('AppComponent', () => {
   });
 
   describe('app-wrapper', () => {
-    it ('should exist', () => {
+    it('should exist', () => {
       expect(compiled.querySelector('.app-wrapper')).toBeTruthy();
     });
 
@@ -60,7 +60,7 @@ describe('AppComponent', () => {
 
     it('should not be visible by default', () => {
       expect(compiled.querySelector('start-menu')?.classList.contains('visible')).toBeFalsy();
-    })
+    });
 
     // TODO probably better to ensure it has both the class AND is display: none
 
@@ -74,7 +74,7 @@ describe('AppComponent', () => {
   });
 
   describe('<shutdown-screen>', () => {
-    it ('Should contain Shutdown-Screen component', () => {
+    it('Should contain Shutdown-Screen component', () => {
       expect(compiled.querySelector('shutdown-screen')).toBeTruthy();
     });
 
@@ -85,13 +85,13 @@ describe('AppComponent', () => {
   });
 
   describe('<msdos-prompt>', () => {
-    it ('should contain msdos-prompt component', () => {
+    it('should contain msdos-prompt component', () => {
       expect(compiled.querySelector('msdos-prompt')).toBeTruthy();
-    })
+    });
 
     it('Should not be visible by default', () => {
       expect(compiled.querySelector('msdos-prompt')?.classList.contains('visible')).toBeFalsy();
       // TODO probably better to ensure it has both the class AND is display: none
-    })
+    });
   });
 });

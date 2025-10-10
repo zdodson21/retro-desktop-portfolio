@@ -4,7 +4,7 @@ import { Component, Input } from '@angular/core';
   selector: 'start-subdropout',
   imports: [],
   templateUrl: './start-subdropout.component.html',
-  styleUrl: './start-subdropout.component.scss'
+  styleUrl: './start-subdropout.component.scss',
 })
 export class StartSubdropoutComponent {
   @Input({ alias: 'icon', required: true }) public src: string;

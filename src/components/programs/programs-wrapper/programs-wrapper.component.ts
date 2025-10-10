@@ -80,7 +80,10 @@ export class ProgramsWrapperComponent {
         });
       }
 
-      if ('control-panel' in params && !this.windowService.openPrograms().some((programs) => programs.focusName === 'control-panel')) {
+      if (
+        'control-panel' in params &&
+        !this.windowService.openPrograms().some((programs) => programs.focusName === 'control-panel')
+      ) {
         this.windowService.openPrograms().push({
           programName: 'Control Panel',
           focusName: 'control-panel',
@@ -107,7 +110,10 @@ export class ProgramsWrapperComponent {
         });
       }
 
-      if ('my-computer' in params && !this.windowService.openPrograms().some((programs) => programs.focusName === 'my-computer')) {
+      if (
+        'my-computer' in params &&
+        !this.windowService.openPrograms().some((programs) => programs.focusName === 'my-computer')
+      ) {
         this.windowService.openPrograms().push({
           programName: 'My Computer',
           focusName: 'my-computer',
@@ -115,15 +121,21 @@ export class ProgramsWrapperComponent {
         });
       }
 
-      if ('program-menu' in params && !this.windowService.openPrograms().some((programs) => programs.focusName === 'program-menu')) {
+      if (
+        'program-menu' in params &&
+        !this.windowService.openPrograms().some((programs) => programs.focusName === 'program-menu')
+      ) {
         this.windowService.openPrograms().push({
           programName: 'Mobile Program Menu',
           focusName: 'program-menu',
           iconPath: 'assets/icons/program-folder.svg',
-        })
+        });
       }
 
-      if ('system-monitor' in params && !this.windowService.openPrograms().some((programs) => programs.focusName === 'system-monitor')) {
+      if (
+        'system-monitor' in params &&
+        !this.windowService.openPrograms().some((programs) => programs.focusName === 'system-monitor')
+      ) {
         this.windowService.openPrograms().push({
           programName: 'System Monitor',
           focusName: 'system-monitor',

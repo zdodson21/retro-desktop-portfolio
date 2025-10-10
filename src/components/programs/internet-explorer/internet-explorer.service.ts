@@ -43,5 +43,5 @@ export class InternetExplorerService {
       domain: 'small-projects',
       tld: 'net',
     },
-  ]
+  ];
 }

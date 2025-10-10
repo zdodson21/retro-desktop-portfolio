@@ -10,8 +10,7 @@ describe('StartSubitemComponent', () => {
     await TestBed.configureTestingModule({
       imports: [StartSubitemComponent],
       providers: [provideRouter([])],
-    })
-    .compileComponents();
+    }).compileComponents();
 
     fixture = TestBed.createComponent(StartSubitemComponent);
     component = fixture.componentInstance;

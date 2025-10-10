@@ -2,7 +2,7 @@ import { Injectable, WritableSignal, signal } from '@angular/core';
 import { OpenPrograms } from '../../interfaces/open-programs.interface';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class WindowService {
   public openPrograms: OpenPrograms = signal([]);

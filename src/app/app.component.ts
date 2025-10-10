@@ -18,7 +18,7 @@ import { SystemService } from '../services/system/system.service';
     StartMenuComponent,
     RouterOutlet,
     ShutdownScreenComponent,
-    MsdosPromptComponent
+    MsdosPromptComponent,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',

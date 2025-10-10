@@ -43,9 +43,9 @@
                 </toolbar-menu>
               </toolbar-dropout>
 
-              <toolbar-item left-text="Stop" (click)="routerNavigator('error')"/>
+              <toolbar-item left-text="Stop" (click)="routerNavigator('error')" />
 
-              <toolbar-item left-text="Refresh" (click)="refreshButtonHelper()"/>
+              <toolbar-item left-text="Refresh" (click)="refreshButtonHelper()" />
 
               <toolbar-divider />
 
@@ -57,7 +57,7 @@
             <toolbar-menu class="top-level-menu" [class.visible]="menuFocus === 'favorites'" (click)="store.focus.set('internet-explorer')">
               <toolbar-dropout text="Personal Projects">
                 <toolbar-menu>
-                  <toolbar-item left-text="Retro Desktop Portfolio" (click)="routerNavigator('retro-desktop-portfolio')"/>
+                  <toolbar-item left-text="Retro Desktop Portfolio" (click)="routerNavigator('retro-desktop-portfolio')" />
                 </toolbar-menu>
               </toolbar-dropout>
 
@@ -65,22 +65,22 @@
 
               <toolbar-dropout text="Prof. Experience">
                 <toolbar-menu>
-                  <toolbar-item left-text="About Me" (click)="routerNavigator('about-me')"/>
+                  <toolbar-item left-text="About Me" (click)="routerNavigator('about-me')" />
                   <toolbar-divider />
-                  <toolbar-item left-text="HAX Chat Agent" (click)="routerNavigator('hax-chat-agent')"/>
+                  <toolbar-item left-text="HAX Chat Agent" (click)="routerNavigator('hax-chat-agent')" />
                 </toolbar-menu>
               </toolbar-dropout>
 
               <toolbar-dropout text="Open Source">
                 <toolbar-menu>
-                  <toolbar-item left-text="Open Source Contributions" (click)="routerNavigator('open-source-contributions')"/>
+                  <toolbar-item left-text="Open Source Contributions" (click)="routerNavigator('open-source-contributions')" />
                   <toolbar-divider />
-                  <toolbar-item left-text="HAX Chat Agent" (click)="routerNavigator('hax-chat-agent')"/>
-                  <toolbar-item left-text="HAX Audit" (click)="routerNavigator('hax-audit')"/>
+                  <toolbar-item left-text="HAX Chat Agent" (click)="routerNavigator('hax-chat-agent')" />
+                  <toolbar-item left-text="HAX Audit" (click)="routerNavigator('hax-audit')" />
                 </toolbar-menu>
               </toolbar-dropout>
 
-              <toolbar-item left-text="Small Projects" (click)="routerNavigator('small-projects')"/>
+              <toolbar-item left-text="Small Projects" (click)="routerNavigator('small-projects')" />
             </toolbar-menu>
           </toolbar-button>
         </div>

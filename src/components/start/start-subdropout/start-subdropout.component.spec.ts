@@ -8,9 +8,8 @@ describe('StartSubdropoutComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [StartSubdropoutComponent]
-    })
-    .compileComponents();
+      imports: [StartSubdropoutComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(StartSubdropoutComponent);
     component = fixture.componentInstance;

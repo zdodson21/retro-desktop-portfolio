@@ -3,10 +3,10 @@
   <desktop-environment>
     <router-outlet></router-outlet>
   </desktop-environment>
-  <start-menu [class.visible]="store.focus() === 'start-menu'"/>
+  <start-menu [class.visible]="store.focus() === 'start-menu'" />
   <taskbar-base />
 </div>
 
 <shutdown-screen [class.visible]="this.store.desktopMode() === 1" />
 
-<msdos-prompt [class.visible]="this.store.desktopMode() === 2"/>
+<msdos-prompt [class.visible]="this.store.desktopMode() === 2" />

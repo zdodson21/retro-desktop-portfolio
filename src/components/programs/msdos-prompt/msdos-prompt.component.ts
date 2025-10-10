@@ -4,8 +4,6 @@ import { Component } from '@angular/core';
   selector: 'msdos-prompt',
   imports: [],
   templateUrl: './msdos-prompt.component.html',
-  styleUrl: './msdos-prompt.component.scss'
+  styleUrl: './msdos-prompt.component.scss',
 })
-export class MsdosPromptComponent {
-
-}
+export class MsdosPromptComponent {}

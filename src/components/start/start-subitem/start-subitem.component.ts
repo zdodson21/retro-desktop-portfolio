@@ -8,12 +8,12 @@ import { WindowService } from '../../../services/window/window.service';
   selector: 'start-subitem',
   imports: [],
   templateUrl: './start-subitem.component.html',
-  styleUrl: './start-subitem.component.scss'
+  styleUrl: './start-subitem.component.scss',
 })
 export class StartSubitemComponent {
-  @Input({ alias: 'icon', required: true}) public src: string;
-  @Input({ alias: 'focus-name', required: true}) public focusName: string;
-  @Input({ alias: 'program-name',required: true }) public programName: string;
+  @Input({ alias: 'icon', required: true }) public src: string;
+  @Input({ alias: 'focus-name', required: true }) public focusName: string;
+  @Input({ alias: 'program-name', required: true }) public programName: string;
 
   private store: AppService = inject(AppService);
   private windowService: WindowService = inject(WindowService);

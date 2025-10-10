@@ -10,8 +10,7 @@ describe('ProgramMenuComponent', () => {
     await TestBed.configureTestingModule({
       imports: [ProgramMenuComponent],
       providers: [provideRouter([])],
-    })
-    .compileComponents();
+    }).compileComponents();
 
     fixture = TestBed.createComponent(ProgramMenuComponent);
     component = fixture.componentInstance;
