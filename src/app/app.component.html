@@ -3,7 +3,7 @@
   <desktop-environment>
     <router-outlet></router-outlet>
   </desktop-environment>
-  <start-menu />
+  <start-menu [class.visible]="store.focus() === 'start-menu'"/>
   <taskbar-base />
 </div>
 

@@ -21,19 +21,7 @@ import { StartSubmenuComponent } from '../start-submenu/start-submenu.component'
   styleUrl: './start-menu.component.scss',
 })
 export class StartMenuComponent {
-  private store: AppService = inject(AppService);
-  private renderer: Renderer2 = inject(Renderer2);
-  private elementRef: ElementRef = inject(ElementRef);
-
-  constructor() {
-    effect(() => {
-      if (this.store.focus() === 'start-menu') {
-        this.renderer.addClass(this.elementRef.nativeElement, 'visible');
-      } else {
-        this.renderer.removeClass(this.elementRef.nativeElement, 'visible');
-      }
-    });
-  }
+  protected store: AppService = inject(AppService);
 
   /**
    * @description sets focus to "start-menu"

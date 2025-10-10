@@ -97,7 +97,7 @@ export class AppService {
    * @return true if mobile, false if not
    */
   public isMobile(): boolean {
-    if (this.getOS() === 'Android' || this.getOS() === 'iPhone' || this.getOS() === 'iPadOS') return true;
+    if (this.getOS() === 'Android' || this.getOS() === 'iOS' || this.getOS() === 'iPadOS') return true;
 
     return false;
   }

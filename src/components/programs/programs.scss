@@ -37,3 +37,10 @@
   height: 100%;
   background-color: $win-95-grey;
 }
+
+@mixin mobile-viewport {
+  @media (max-aspect-ratio: 1/1) {
+    width: 90%;
+    height: 80%;
+  }
+}

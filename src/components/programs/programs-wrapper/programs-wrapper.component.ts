@@ -10,6 +10,7 @@ import { SystemMonitorComponent } from '../system-monitor/system-monitor.compone
 import { TaskbarPropertiesComponent } from '../taskbar-properties/taskbar-properties.component';
 import { WelcomeComponent } from '../welcome/welcome.component';
 import { WindowsExplorerComponent } from '../windows-explorer/windows-explorer.component';
+import { ProgramMenuComponent } from '../program-menu/program-menu.component';
 
 @Component({
   selector: 'app-programs-wrapper',
@@ -19,6 +20,7 @@ import { WindowsExplorerComponent } from '../windows-explorer/windows-explorer.c
     HelpComponent,
     InternetExplorerComponent,
     MyComputerComponent,
+    ProgramMenuComponent,
     SystemMonitorComponent,
     TaskbarPropertiesComponent,
     WelcomeComponent,
@@ -48,6 +50,7 @@ export class ProgramsWrapperComponent {
     help: false,
     internetExplorer: false,
     myComputer: false,
+    programMenu: false,
     systemMonitor: false,
     taskbarProperties: false,
     welcome: false,
@@ -61,6 +64,7 @@ export class ProgramsWrapperComponent {
       this.programs.help = 'help' in params;
       this.programs.internetExplorer = 'internet-explorer' in params;
       this.programs.myComputer = 'my-computer' in params;
+      this.programs.programMenu = 'program-menu' in params;
       this.programs.systemMonitor = 'system-monitor' in params;
       this.programs.taskbarProperties = 'taskbar-properties' in params;
       this.programs.welcome = 'welcome' in params;
@@ -107,6 +111,14 @@ export class ProgramsWrapperComponent {
           focusName: 'my-computer',
           iconPath: 'assets/icons/my-computer.svg',
         });
+      }
+
+      if ('program-menu' in params && !this.store.openPrograms().some((programs) => programs.focusName === 'program-menu')) {
+        this.store.openPrograms().push({
+          programName: 'Mobile Program Menu',
+          focusName: 'program-menu',
+          iconPath: 'assets/icons/start.svg',
+        })
       }
 
       if ('system-monitor' in params && !this.store.openPrograms().some((programs) => programs.focusName === 'system-monitor')) {

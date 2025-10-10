@@ -4,36 +4,40 @@
   </div>
   <div class="right-side">
     <div class="programs">
-      <start-dropout icon="assets/icons/program-folder.svg" text="Programs" [bottom]="true">
-        <start-submenu>
-          <start-subdropout icon="assets/icons/program-folder.svg" text="Accessories">
-            <start-submenu>
-              <start-subdropout icon="assets/icons/program-folder.svg" text="System Tools">
-                <start-submenu>
-                  <start-subitem icon="assets/icons/system-monitor.svg" program-name="System Monitor" focus-name="system-monitor" />
-                </start-submenu>
-              </start-subdropout>
-              <!-- <start-subitem icon="assets/icons/calculator.svg" program-name="Calculator" focus-name="calculator"></start-subitem> -->
-            </start-submenu>
-          </start-subdropout>
+      @if (!store.isMobile()) {
+        <start-dropout icon="assets/icons/program-folder.svg" text="Programs" [bottom]="true">
+          <start-submenu>
+            <start-subdropout icon="assets/icons/program-folder.svg" text="Accessories">
+              <start-submenu>
+                <start-subdropout icon="assets/icons/program-folder.svg" text="System Tools">
+                  <start-submenu>
+                    <start-subitem icon="assets/icons/system-monitor.svg" program-name="System Monitor" focus-name="system-monitor" />
+                  </start-submenu>
+                </start-subdropout>
+                <!-- <start-subitem icon="assets/icons/calculator.svg" program-name="Calculator" focus-name="calculator"></start-subitem> -->
+              </start-submenu>
+            </start-subdropout>
 
-          <start-subdropout icon="assets/icons/program-folder.svg" text="Main">
-            <start-submenu>
-              <start-subitem icon="assets/icons/control-panel.svg" program-name="Control Panel" focus-name="control-panel"/>
-              <start-subitem icon="assets/icons/windows-explorer.svg" program-name="Windows Explorer" focus-name="windows-explorer" />
-            </start-submenu>
-          </start-subdropout>
-          <start-subitem icon="assets/icons/internet-explorer.svg" program-name="Internet Explorer" focus-name="internet-explorer" />
-          <start-subitem icon="assets/icons/windows-explorer.svg" program-name="Windows Explorer" focus-name="windows-explorer" />
-        </start-submenu>
-      </start-dropout>
+            <start-subdropout icon="assets/icons/program-folder.svg" text="Main">
+              <start-submenu>
+                <start-subitem icon="assets/icons/control-panel.svg" program-name="Control Panel" focus-name="control-panel"/>
+                <start-subitem icon="assets/icons/windows-explorer.svg" program-name="Windows Explorer" focus-name="windows-explorer" />
+              </start-submenu>
+            </start-subdropout>
+            <start-subitem icon="assets/icons/internet-explorer.svg" program-name="Internet Explorer" focus-name="internet-explorer" />
+            <start-subitem icon="assets/icons/windows-explorer.svg" program-name="Windows Explorer" focus-name="windows-explorer" />
+          </start-submenu>
+        </start-dropout>
 
-      <start-dropout icon="assets/icons/settings.svg" text="Settings">
-        <start-submenu>
-          <start-subitem icon="assets/icons/control-panel.svg" program-name="Control Panel" focus-name="control-panel"/>
-          <start-subitem icon="assets/icons/taskbar-properties.svg" program-name="Taskbar Properties" focus-name="taskbar-properties"/>
-        </start-submenu>
-      </start-dropout>
+        <start-dropout icon="assets/icons/settings.svg" text="Settings">
+          <start-submenu>
+            <start-subitem icon="assets/icons/control-panel.svg" program-name="Control Panel" focus-name="control-panel"/>
+            <!-- <start-subitem icon="assets/icons/taskbar-properties.svg" program-name="Taskbar Properties" focus-name="taskbar-properties"/> -->
+          </start-submenu>
+        </start-dropout>
+      } @else {
+        <start-item icon="assets/icons/start.svg" program-name="Mobile Program Menu" focus-name="program-menu"/>
+      }
 
       <start-item icon="assets/icons/internet-explorer.svg" program-name="Internet Explorer" focus-name="internet-explorer" />
       <start-item icon="assets/icons/system-monitor.svg" program-name="System Monitor" focus-name="system-monitor" />

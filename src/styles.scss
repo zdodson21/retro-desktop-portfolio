@@ -32,15 +32,6 @@
   font-display: swap;
 }
 
-// ! Mobile
-
-@mixin mobile-viewport {
-  @media (max-aspect-ratio: 1/1) {
-    width: 90%;
-    height: 80%;
-  }
-}
-
 // ! HTML
 * {
   font-family: W95FA;

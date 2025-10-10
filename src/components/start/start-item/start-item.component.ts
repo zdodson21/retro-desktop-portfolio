@@ -13,6 +13,7 @@ export class StartItemComponent {
   @Input({ alias: 'icon', required: true }) public src: string;
   @Input({ alias: 'focus-name', required: true }) public focusName: string;
   @Input({ alias: 'program-name', required: true }) public programName: string;
+  @Input({ alias: 'in-program' }) public inProgram: boolean;
 
   private store: AppService = inject(AppService);
 
@@ -39,19 +40,28 @@ export class StartItemComponent {
       this.store.openPrograms().push(this.programDetails);
     }
 
-    this.store.focus.set(this.focusName);
-
     const CURRENT_PARAMS: Params = { ...this.route.snapshot.queryParams };
+
     if (this.focusName === 'internet-explorer') {
       CURRENT_PARAMS['internet-explorer'] = 'about-me';
     } else {
       CURRENT_PARAMS[this.focusName] = '';
     }
 
-    this.router.navigate(['programs'], {
-      relativeTo: this.route,
-      queryParams: CURRENT_PARAMS,
-      replaceUrl: true,
-    });
+    if (!this.inProgram) {
+      this.router.navigate(['programs'], {
+        relativeTo: this.route,
+        queryParams: CURRENT_PARAMS,
+        replaceUrl: true,
+      });
+    } else {
+      this.router.navigate([], {
+        relativeTo: this.route,
+        queryParams: CURRENT_PARAMS,
+        replaceUrl: true,
+      });
+    }
+
+    this.store.focus.set(this.focusName);
   }
 }
