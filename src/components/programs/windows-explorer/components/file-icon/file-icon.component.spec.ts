@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { provideRouter } from '@angular/router';
 import { FileIconComponent } from './file-icon.component';
 
 describe('FileIconComponent', () => {
@@ -8,7 +8,8 @@ describe('FileIconComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [FileIconComponent]
+      imports: [FileIconComponent],
+      providers: [provideRouter([])],
     })
     .compileComponents();
 
