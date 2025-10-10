@@ -6,6 +6,7 @@ import { OpenPrograms } from '../interfaces/open-programs.interface';
 })
 export class AppService {
   // TODO similar to what I did with SCSS, I might want to abstract a bunch of this stuff into separate system wide services
+  // TODO ensure service tests are in their own file
   // ! Common
   public focus: WritableSignal<string> = signal('');
   public desktopMode: WritableSignal<number> = signal(0); // 0 = desktop | 1 = shutdown | 2 = MSDOS-Prompt (when added)
