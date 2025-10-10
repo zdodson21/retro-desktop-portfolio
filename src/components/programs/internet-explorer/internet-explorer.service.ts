@@ -9,4 +9,39 @@ export class InternetExplorerService {
   public statusBarContent: WritableSignal<string> = signal('Ready');
   public browserHistory: WritableSignal<DNS> = signal([]);
   public sidebar: WritableSignal<boolean> = signal(false);
+
+  /*
+    List:
+      * .com = published non-personal projects, commercial & noncommercial
+      * .org = professional work
+      * .net = networking, personal projects, etc.
+      * .edu = contributions to education / academics
+      * .os = open source contributions
+  */
+  public possibleSites: DNS = [
+    {
+      domain: 'about-me',
+      tld: 'net',
+    },
+    {
+      domain: 'hax-audit',
+      tld: 'os',
+    },
+    {
+      domain: 'hax-chat-agent',
+      tld: 'org',
+    },
+    {
+      domain: 'open-source-contributions',
+      tld: 'os',
+    },
+    {
+      domain: 'retro-desktop-portfolio',
+      tld: 'net',
+    },
+    {
+      domain: 'small-projects',
+      tld: 'net',
+    },
+  ]
 }

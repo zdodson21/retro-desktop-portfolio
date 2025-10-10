@@ -62,14 +62,6 @@ export class InternetExplorerComponent {
   protected searchResults: DNS = [];
   protected menuFocus: string = ''; // TODO change to empty string
 
-  /*
-    List:
-      * .com = published non-personal projects, commercial & noncommercial
-      * .org = professional work
-      * .net = networking, personal projects, etc.
-      * .edu = contributions to education / academics
-      * .os = open source contributions
-  */
   protected possibleSites: DNS = [
     {
       domain: 'about-me',
