@@ -1,5 +1,3 @@
-// ! State management
-
 import { Injectable, signal, WritableSignal } from '@angular/core';
 import { OpenPrograms } from '../interfaces/open-programs.interface';
 
@@ -7,31 +5,26 @@ import { OpenPrograms } from '../interfaces/open-programs.interface';
   providedIn: 'root',
 })
 export class AppService {
+  // TODO similar to what I did with SCSS, I might want to abstract a bunch of this stuff into separate system wide services
   // ! Common
   public focus: WritableSignal<string> = signal('');
-  public openPrograms: OpenPrograms = signal([]);
   public desktopMode: WritableSignal<number> = signal(0); // 0 = desktop | 1 = shutdown | 2 = MSDOS-Prompt (when added)
 
-  // ! Start Menu
-
-  // ! Alerts
-
   // ! Window Management
+  public openPrograms: OpenPrograms = signal([]);
   public minimizedPrograms: WritableSignal<string[]> = signal([]);
-
-  public viewportWidth: WritableSignal<number> = signal(globalThis.innerWidth);
-  public viewportHeight: WritableSignal<number> = signal(globalThis.innerHeight);
 
   public mobilePercents = {
     width: 90,
     height: 80,
   };
 
+  // ! System Information
   private userAgent: string = navigator.userAgent;
 
-  // ! Functions
+  public viewportWidth: WritableSignal<number> = signal(globalThis.innerWidth);
+  public viewportHeight: WritableSignal<number> = signal(globalThis.innerHeight);
 
-  // ! System Information
   /**
    * @description get browser from user agent
    * @returns current browser
@@ -105,8 +98,4 @@ export class AppService {
   public systemCores: number = navigator.hardwareConcurrency;
 
   public webAddress: string = `${globalThis.location.protocol}//${globalThis.location.host}`;
-
-  // ! Future Items
-  public isSoundEnabled: WritableSignal<boolean> = signal(false);
-  public customBackgroundColor: WritableSignal<string> = signal('');
 }
