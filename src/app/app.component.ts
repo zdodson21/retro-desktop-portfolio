@@ -7,6 +7,7 @@ import { StartMenuComponent } from '../components/start/start-menu/start-menu.co
 import { TaskbarBaseComponent } from '../components/taskbar/taskbar-base/taskbar-base.component';
 import { AppService } from './app.service';
 import { MsdosPromptComponent } from '../components/programs/msdos-prompt/msdos-prompt.component';
+import { SystemService } from '../services/system/system.service';
 
 @Component({
   selector: 'app-root',
@@ -24,6 +25,7 @@ import { MsdosPromptComponent } from '../components/programs/msdos-prompt/msdos-
 })
 export class AppComponent {
   protected store: AppService = inject(AppService);
+  private systemService: SystemService = inject(SystemService);
 
   /**
    * @description Sets viewport dimension variables for live
@@ -31,7 +33,7 @@ export class AppComponent {
    */
   @HostListener('window:resize')
   private onResize(): void {
-    this.store.viewportWidth.set(globalThis.innerWidth);
-    this.store.viewportHeight.set(globalThis.innerHeight);
+    this.systemService.viewportWidth.set(globalThis.innerWidth);
+    this.systemService.viewportHeight.set(globalThis.innerHeight);
   }
 }

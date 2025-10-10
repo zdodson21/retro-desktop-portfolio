@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { AppService } from '../../../app/app.service';
+import { SystemService } from '../../../services/system/system.service';
 
 @Component({
   selector: 'shutdown-screen',
@@ -8,9 +8,9 @@ import { AppService } from '../../../app/app.service';
   styleUrl: './shutdown-screen.component.scss',
 })
 export class ShutdownScreenComponent {
-  private store: AppService = inject(AppService);
+  private systemService: SystemService = inject(SystemService);
 
   protected reloadPage(): void {
-    globalThis.location.href = this.store.webAddress;
+    globalThis.location.href = this.systemService.webAddress;
   }
 }

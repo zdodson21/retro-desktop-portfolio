@@ -12,6 +12,7 @@ import {
 } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { AppService } from '../../app/app.service';
+import { SystemService } from '../../services/system/system.service';
 
 @Component({
   selector: 'window-frame',
@@ -39,6 +40,7 @@ export class WindowFrameComponent {
 
   // Element control
   private store: AppService = inject(AppService);
+  private systemService: SystemService = inject(SystemService);
   private renderer: Renderer2 = inject(Renderer2);
   private elementRef: ElementRef = inject(ElementRef);
 
@@ -172,7 +174,7 @@ export class WindowFrameComponent {
   }
 
   private setWindowSize(): void {
-    if (this.store.viewportWidth() > this.store.viewportHeight()) {
+    if (this.systemService.viewportWidth() > this.systemService.viewportHeight()) {
       this.elementRef.nativeElement.style.width = `${this.percentWidth}%`;
       this.elementRef.nativeElement.style.height = `${this.percentHeight}%`;
     } else {
@@ -187,8 +189,8 @@ export class WindowFrameComponent {
   private helpSetFullSize(): void {
     this.elementRef.nativeElement.style.width = '100.01%'; // ! 100.01% removes slivers of background in some browsers (Firefox)
     this.elementRef.nativeElement.style.height = `100.01%`;
-    this.elementRef.nativeElement.style.top = `${this.store.viewportHeight() / 2 - 22}px`;
-    this.elementRef.nativeElement.style.left = `${this.store.viewportWidth() / 2}px`;
+    this.elementRef.nativeElement.style.top = `${this.systemService.viewportHeight() / 2 - 22}px`;
+    this.elementRef.nativeElement.style.left = `${this.systemService.viewportWidth() / 2}px`;
   }
 
   /**
@@ -239,8 +241,8 @@ export class WindowFrameComponent {
     };
 
     // Right side of viewport
-    if (FRAME.x + FRAME.width / 2 > this.store.viewportWidth()) {
-      this.elementRef.nativeElement.style.left = `${this.store.viewportWidth() - FRAME.width / 2}px`;
+    if (FRAME.x + FRAME.width / 2 > this.systemService.viewportWidth()) {
+      this.elementRef.nativeElement.style.left = `${this.systemService.viewportWidth() - FRAME.width / 2}px`;
     }
 
     // Left side of viewport
@@ -249,8 +251,8 @@ export class WindowFrameComponent {
     }
 
     // Bottom of viewport
-    if (FRAME.y + FRAME.height / 2 + 44 > this.store.viewportHeight()) {
-      this.elementRef.nativeElement.style.top = `${this.store.viewportHeight() - FRAME.height / 2 - 44}px`;
+    if (FRAME.y + FRAME.height / 2 + 44 > this.systemService.viewportHeight()) {
+      this.elementRef.nativeElement.style.top = `${this.systemService.viewportHeight() - FRAME.height / 2 - 44}px`;
     }
 
     // Top of viewport

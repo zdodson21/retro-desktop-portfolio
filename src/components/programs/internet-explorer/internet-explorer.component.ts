@@ -20,6 +20,7 @@ import { CloseSidebarButtonComponent } from './components/close-sidebar-button/c
 import { StandardButtonComponent } from './components/standard-button/standard-button.component';
 import { InternetExplorerService } from './internet-explorer.service';
 import { ToolbarDividerComponent } from '../../ui/toolbar/toolbar-divider/toolbar-divider.component';
+import { SystemService } from '../../../services/system/system.service';
 
 @Component({
   selector: 'internet-explorer',
@@ -55,6 +56,7 @@ export class InternetExplorerComponent {
   private router: Router = inject(Router);
   protected store: AppService = inject(AppService);
   protected IEService: InternetExplorerService = inject(InternetExplorerService);
+  private systemService: SystemService = inject(SystemService);
   protected sidebarContent: number = 0; // 0 = search, 1 = favorites, 2 = history
   protected displayedSite: WritableSignal<string> = signal('about-me');
   protected statusBarContent: string = 'Ready';
@@ -146,13 +148,13 @@ export class InternetExplorerComponent {
     if (!this.dnsContainsSite(this.displayedSite())) {
       if (globalThis.confirm('An error page is currently being displayed, are you sure you wish it in an email?')) {
         globalThis.open(
-          `mailto:person?subject=Check%20Out%20This%20Webpage&body=${this.store.webAddress}/programs?internet-explorer=${this.displayedSite()}`,
+          `mailto:person?subject=Check%20Out%20This%20Webpage&body=${this.systemService.webAddress}/programs?internet-explorer=${this.displayedSite()}`,
           '_blank',
         );
       }
     } else {
       globalThis.open(
-        `mailto:person?subject=Check%20Out%20This%20Webpage&body=${this.store.webAddress}/programs?internet-explorer=${this.displayedSite()}`,
+        `mailto:person?subject=Check%20Out%20This%20Webpage&body=${this.systemService.webAddress}/programs?internet-explorer=${this.displayedSite()}`,
         '_blank',
       );
     }
@@ -317,9 +319,9 @@ export class InternetExplorerComponent {
    * @description gets operating system to determine appropriate print command string
    */
   protected getPrintCommand(): string {
-    if (this.store.getOS() === 'Windows' || this.store.getOS() === 'Linux') {
+    if (this.systemService.getOS() === 'Windows' || this.systemService.getOS() === 'Linux') {
       return 'Ctrl+P';
-    } else if (this.store.getOS() === 'macOS') {
+    } else if (this.systemService.getOS() === 'macOS') {
       return 'CMD+P';
     }
 

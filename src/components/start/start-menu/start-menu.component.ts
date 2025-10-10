@@ -6,6 +6,7 @@ import { StartShutdownComponent } from '../start-shutdown/start-shutdown.compone
 import { StartSubdropoutComponent } from '../start-subdropout/start-subdropout.component';
 import { StartSubitemComponent } from '../start-subitem/start-subitem.component';
 import { StartSubmenuComponent } from '../start-submenu/start-submenu.component';
+import { SystemService } from '../../../services/system/system.service';
 
 @Component({
   selector: 'start-menu',
@@ -21,7 +22,8 @@ import { StartSubmenuComponent } from '../start-submenu/start-submenu.component'
   styleUrl: './start-menu.component.scss',
 })
 export class StartMenuComponent {
-  protected store: AppService = inject(AppService);
+  private store: AppService = inject(AppService);
+  protected systemService: SystemService = inject(SystemService);
 
   /**
    * @description sets focus to "start-menu"

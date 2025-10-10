@@ -1,6 +1,6 @@
 import { Component, inject, Input } from '@angular/core';
-import { AppService } from '../../../../app/app.service';
 import { InternetExplorerService } from '../../../programs/internet-explorer/internet-explorer.service';
+import { SystemService } from '../../../../services/system/system.service';
 
 @Component({
   selector: 'a-ie',
@@ -11,7 +11,7 @@ import { InternetExplorerService } from '../../../programs/internet-explorer/int
 export class AIeComponent {
   @Input({ alias: 'href' }) public href: string;
 
-  private store: AppService = inject(AppService);
+  private systemService: SystemService = inject(SystemService);
   private IEStore: InternetExplorerService = inject(InternetExplorerService);
   private prevIcon: string;
   private prevValue: string;
@@ -25,7 +25,7 @@ export class AIeComponent {
     let setValue: string = '';
 
     if (!this.checkSpecialString()) {
-      switch (this.store.getBrowser()) {
+      switch (this.systemService.getBrowser()) {
         case 'Brave':
           setValue = 'assets/icons/brave.svg';
           break;

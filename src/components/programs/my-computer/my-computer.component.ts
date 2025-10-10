@@ -2,6 +2,7 @@ import { Component, inject } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { AppService } from '../../../app/app.service';
 import { WindowFrameComponent } from '../../window-frame/window-frame.component';
+import { SystemService } from '../../../services/system/system.service';
 
 @Component({
   selector: 'my-computer',
@@ -10,7 +11,8 @@ import { WindowFrameComponent } from '../../window-frame/window-frame.component'
   styleUrl: './my-computer.component.scss',
 })
 export class MyComputerComponent {
-  protected store: AppService = inject(AppService);
+  private store: AppService = inject(AppService);
+  protected systemService: SystemService = inject(SystemService);
 
   private router: Router = inject(Router);
   private route: ActivatedRoute = inject(ActivatedRoute);

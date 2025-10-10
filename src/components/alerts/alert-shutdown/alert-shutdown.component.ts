@@ -2,6 +2,7 @@ import { Component, effect, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { AppService } from '../../../app/app.service';
 import { WindowFrameComponent } from '../../window-frame/window-frame.component';
+import { SystemService } from '../../../services/system/system.service';
 
 @Component({
   selector: 'alert-shutdown',
@@ -11,7 +12,8 @@ import { WindowFrameComponent } from '../../window-frame/window-frame.component'
 })
 export class AlertShutdownComponent {
   private store: AppService = inject(AppService);
-  protected formValue: number = 0; // 0 = shutdown, 1 = restart
+  private systemService: SystemService = inject(SystemService);
+  protected formValue: number = 0; // 0 = Shutdown, 1 = Restart, 2 = MSDOS-Prompt Mode
 
   constructor() {
     effect(() => {
@@ -30,7 +32,7 @@ export class AlertShutdownComponent {
         this.store.desktopMode.set(1);
         break;
       case 1:
-        globalThis.location.href = this.store.webAddress;
+        globalThis.location.href = this.systemService.webAddress;
         break;
       // TODO uncomment below when ready to integrate MSDOS-Prompt mode
       // case 2:

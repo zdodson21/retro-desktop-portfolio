@@ -1,6 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { AppService } from '../../../app/app.service';
 import { DesktopIconComponent } from '../desktop-icon/desktop-icon.component';
+import { SystemService } from '../../../services/system/system.service';
 
 @Component({
   selector: 'desktop-environment',
@@ -9,7 +10,8 @@ import { DesktopIconComponent } from '../desktop-icon/desktop-icon.component';
   styleUrl: './desktop-environment.component.scss',
 })
 export class DesktopEnvironmentComponent {
-  protected store: AppService = inject(AppService);
+  private store: AppService = inject(AppService);
+  protected systemService: SystemService = inject(SystemService);
 
   /**
    * @description sets focus through click events

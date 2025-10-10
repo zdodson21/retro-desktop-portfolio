@@ -1,6 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { AppService } from '../../../app/app.service';
 import { WindowFrameComponent } from '../../window-frame/window-frame.component';
+import { SystemService } from '../../../services/system/system.service';
 
 @Component({
   selector: 'system-monitor',
@@ -10,4 +11,5 @@ import { WindowFrameComponent } from '../../window-frame/window-frame.component'
 })
 export class SystemMonitorComponent {
   protected store: AppService = inject(AppService);
+  protected systemService: SystemService = inject(SystemService);
 }
