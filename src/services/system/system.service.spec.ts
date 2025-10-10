@@ -13,4 +13,8 @@ describe('SystemService', () => {
   it('should be created', () => {
     expect(service).toBeTruthy();
   });
+
+  it('should return browser as Google Chrome', () => {
+    expect(service.getBrowser()).toEqual('Google Chrome');
+  });
 });

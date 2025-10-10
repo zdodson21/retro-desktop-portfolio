@@ -13,4 +13,12 @@ describe('WindowService', () => {
   it('should be created', () => {
     expect(service).toBeTruthy();
   });
+
+  it('should not contain any open programs', () => {
+    expect(service.openPrograms()).toEqual([]);
+  });
+
+  it('should not contain any minimized programs', () => {
+    expect(service.minimizedPrograms()).toEqual([]);
+  });
 });

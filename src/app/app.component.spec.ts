@@ -1,23 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
-import { AppService } from './app.service';
 import { provideRouter } from '@angular/router';
 
 describe('AppComponent', () => {
   let app: AppComponent;
-  let service: AppService;
   let fixture: ComponentFixture<AppComponent>;
   let compiled: HTMLElement;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [AppComponent],
-      providers: [AppService, [provideRouter([])]],
+      providers: [[provideRouter([])]],
     }).compileComponents();
 
     fixture = TestBed.createComponent(AppComponent);
     app = fixture.componentInstance;
-    service = TestBed.inject(AppService);
     compiled = fixture.nativeElement as HTMLElement;
     fixture.detectChanges();
   });
@@ -26,24 +23,17 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  describe('Service', () => {
-    it('should contain blank focus by default', () => {
-      expect(service.focus()).toBe('');
+  describe('app-wrapper', () => {
+    it ('should exist', () => {
+      expect(compiled.querySelector('.app-wrapper')).toBeTruthy();
     });
 
-    it('desktopMode should be 0 by default', () => {
-      expect(service.desktopMode()).toBe(0); // TODO difference between toBe and toEqual
+    it('should contain .visible by default', () => {
+      expect(compiled.querySelector('.app-wrapper')?.classList.contains('visible')).toBeTruthy();
     });
+    // TODO probably better to ensure it has both the class AND is display: none
 
-    // it('should not contain any minimized programs', () => {
-    //   expect(service.minimizedPrograms()).toEqual([]);
-    // });
-
-    // describe('User Agent', () => {
-    //   it('should return Google Chrome', () => {
-    //     expect(service.getBrowser()).toEqual('Google Chrome');
-    //   });
-    // });
+    // TODO should not be visible when desktopMode not === 0?
   });
 
   describe('<alert-shutdown>', () => {
@@ -53,13 +43,8 @@ describe('AppComponent', () => {
 
     it('does not contain class .visible by default', () => {
       expect(compiled.querySelector('alert-shutdown')?.classList.contains('visible')).toBeFalsy();
+      // TODO probably better to ensure it has both the class AND is display: none
     });
-
-    // TODO general idea is here, need to make it work
-    // it('contains .visible when desktopMode = 1', () => {
-    //   service.desktopMode.set(1);
-    //   expect(compiled.querySelector('alert-shutdown')?.classList.contains('visible')).toBeTruthy();
-    // });
   });
 
   describe('<desktop-environment>', () => {
@@ -72,6 +57,14 @@ describe('AppComponent', () => {
     it('Should Contain Start-Menu Component', () => {
       expect(compiled.querySelector('start-menu')).toBeTruthy();
     });
+
+    it('should not be visible by default', () => {
+      expect(compiled.querySelector('start-menu')?.classList.contains('visible')).toBeFalsy();
+    })
+
+    // TODO probably better to ensure it has both the class AND is display: none
+
+    // TODO should be visible when start-button is pressed???
   });
 
   describe('<taskbar-base>', () => {
@@ -81,6 +74,10 @@ describe('AppComponent', () => {
   });
 
   describe('<shutdown-screen>', () => {
+    it ('Should contain Shutdown-Screen component', () => {
+      expect(compiled.querySelector('shutdown-screen')).toBeTruthy();
+    });
+
     it('Should not be visible by default', () => {
       expect(compiled.querySelector('shutdown-screen')?.classList.contains('visible')).toBeFalsy();
       // TODO probably better to ensure it has both the class AND is display: none
@@ -88,8 +85,13 @@ describe('AppComponent', () => {
   });
 
   describe('<msdos-prompt>', () => {
+    it ('should contain msdos-prompt component', () => {
+      expect(compiled.querySelector('msdos-prompt')).toBeTruthy();
+    })
+
     it('Should not be visible by default', () => {
       expect(compiled.querySelector('msdos-prompt')?.classList.contains('visible')).toBeFalsy();
+      // TODO probably better to ensure it has both the class AND is display: none
     })
   });
 });
