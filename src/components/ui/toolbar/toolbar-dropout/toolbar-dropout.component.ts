@@ -1,4 +1,5 @@
-import { Component, Input } from '@angular/core';
+import { Component, inject, Input } from '@angular/core';
+import { AppService } from '../../../../app/app.service';
 
 @Component({
   selector: 'toolbar-dropout',
@@ -9,4 +10,13 @@ import { Component, Input } from '@angular/core';
 export class ToolbarDropoutComponent {
   @Input({ alias: 'text' }) public text: string;
   protected isHovered: boolean = false;
+  private store: AppService = inject(AppService);
+
+  /**
+   * @description Support for touch inputs
+   */
+  protected touchSupport(event: MouseEvent) {
+    event?.stopPropagation();
+    if (this.store.isMobile()) this.isHovered = !this.isHovered;
+  }
 }
