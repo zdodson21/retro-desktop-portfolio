@@ -12,6 +12,7 @@
     .frame-contents {
       @include text-common();
       @include frame-contents-common();
+      background-color: white;
     }
   }
 }
