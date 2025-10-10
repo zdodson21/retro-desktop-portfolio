@@ -1,4 +1,4 @@
-import { Component, effect, HostListener, inject, signal, WritableSignal } from '@angular/core';
+import { Component, HostListener, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { AlertShutdownComponent } from '../components/alerts/alert-shutdown/alert-shutdown.component';
 import { DesktopEnvironmentComponent } from '../components/desktop/desktop-environment/desktop-environment.component';
@@ -6,6 +6,7 @@ import { ShutdownScreenComponent } from '../components/desktop/shutdown-screen/s
 import { StartMenuComponent } from '../components/start/start-menu/start-menu.component';
 import { TaskbarBaseComponent } from '../components/taskbar/taskbar-base/taskbar-base.component';
 import { AppService } from './app.service';
+import { MsdosPromptComponent } from '../components/programs/msdos-prompt/msdos-prompt.component';
 
 @Component({
   selector: 'app-root',
@@ -16,20 +17,13 @@ import { AppService } from './app.service';
     StartMenuComponent,
     RouterOutlet,
     ShutdownScreenComponent,
+    MsdosPromptComponent
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
 export class AppComponent {
   protected store: AppService = inject(AppService);
-
-  protected isAlertVisible: WritableSignal<boolean> = signal(false);
-
-  constructor() {
-    effect(() => {
-      this.isAlertVisible.set(this.store.focus() === 'shutdown-alert');
-    });
-  }
 
   /**
    * @description Sets viewport dimension variables for live

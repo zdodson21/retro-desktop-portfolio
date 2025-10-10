@@ -1,5 +1,5 @@
 <div class="app-wrapper" [class.visible]="this.store.desktopMode() === 0">
-  <alert-shutdown #shutdownAlert [class.visible]="isAlertVisible()"></alert-shutdown>
+  <alert-shutdown [class.visible]="this.store.focus() === 'shutdown-alert'"></alert-shutdown>
   <desktop-environment>
     <router-outlet></router-outlet>
   </desktop-environment>
@@ -9,4 +9,4 @@
 
 <shutdown-screen [class.visible]="this.store.desktopMode() === 1" />
 
-<!-- TODO MSDOS Prompt Mode will go here, desktopMode() === 2 -->
+<msdos-prompt [class.visible]="this.store.desktopMode() === 2"/>

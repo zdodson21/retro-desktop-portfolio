@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-msdos-prompt',
+  selector: 'msdos-prompt',
   imports: [],
   templateUrl: './msdos-prompt.component.html',
   styleUrl: './msdos-prompt.component.scss'
