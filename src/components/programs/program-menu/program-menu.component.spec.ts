@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { provideRouter } from '@angular/router';
 import { ProgramMenuComponent } from './program-menu.component';
 
 describe('ProgramMenuComponent', () => {
@@ -8,7 +8,8 @@ describe('ProgramMenuComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ProgramMenuComponent]
+      imports: [ProgramMenuComponent],
+      providers: [provideRouter([])],
     })
     .compileComponents();
 

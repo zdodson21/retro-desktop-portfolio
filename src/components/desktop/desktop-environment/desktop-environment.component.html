@@ -4,6 +4,9 @@
   </div>
   <div class="icons">
     <desktop-icon icon-text="My Computer" icon-src="assets/icons/my-computer.svg" icon-focus-name="my-computer-icon" focus-name="my-computer" />
+    @if (store.isMobile()) {
+      <desktop-icon icon-text="Mobile Program Menu" icon-src="assets/icons/program-folder.svg" icon-focus-name="mobile-folder-icon" focus-name="program-menu" />
+    }
     <desktop-icon icon-text="Internet Explorer" icon-src="assets/icons/internet-explorer.svg" icon-focus-name="internet-explorer-icon" focus-name="internet-explorer" />
   </div>
 </div>

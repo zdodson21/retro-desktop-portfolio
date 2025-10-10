@@ -117,7 +117,7 @@ export class ProgramsWrapperComponent {
         this.store.openPrograms().push({
           programName: 'Mobile Program Menu',
           focusName: 'program-menu',
-          iconPath: 'assets/icons/start.svg',
+          iconPath: 'assets/icons/program-folder.svg',
         })
       }
 

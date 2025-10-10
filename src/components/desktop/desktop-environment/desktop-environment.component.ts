@@ -9,7 +9,7 @@ import { DesktopIconComponent } from '../desktop-icon/desktop-icon.component';
   styleUrl: './desktop-environment.component.scss',
 })
 export class DesktopEnvironmentComponent {
-  private store: AppService = inject(AppService);
+  protected store: AppService = inject(AppService);
 
   /**
    * @description sets focus through click events
