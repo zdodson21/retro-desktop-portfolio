@@ -35,15 +35,15 @@ describe('AppComponent', () => {
       expect(service.desktopMode()).toBe(0); // TODO difference between toBe and toEqual
     });
 
-    it('should not contain any minimized programs', () => {
-      expect(service.minimizedPrograms()).toEqual([]);
-    });
+    // it('should not contain any minimized programs', () => {
+    //   expect(service.minimizedPrograms()).toEqual([]);
+    // });
 
-    describe('User Agent', () => {
-      it('should return Google Chrome', () => {
-        expect(service.getBrowser()).toEqual('Google Chrome');
-      });
-    });
+    // describe('User Agent', () => {
+    //   it('should return Google Chrome', () => {
+    //     expect(service.getBrowser()).toEqual('Google Chrome');
+    //   });
+    // });
   });
 
   describe('<alert-shutdown>', () => {

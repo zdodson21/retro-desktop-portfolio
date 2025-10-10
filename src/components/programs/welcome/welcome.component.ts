@@ -2,6 +2,7 @@ import { Component, inject, signal, WritableSignal } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { AppService } from '../../../app/app.service';
 import { WindowFrameComponent } from '../../window-frame/window-frame.component';
+import { WindowService } from '../../../services/window/window.service';
 
 @Component({
   selector: 'welcome',
@@ -11,6 +12,7 @@ import { WindowFrameComponent } from '../../window-frame/window-frame.component'
 })
 export class WelcomeComponent {
   private store: AppService = inject(AppService);
+  private windowService: WindowService = inject(WindowService);
 
   private router: Router = inject(Router);
   private route: ActivatedRoute = inject(ActivatedRoute);
@@ -74,10 +76,10 @@ export class WelcomeComponent {
     event?.stopPropagation();
     this.store.focus.set('');
 
-    const INDEX = this.store.openPrograms().findIndex((program) => program.focusName === 'welcome');
+    const INDEX = this.windowService.openPrograms().findIndex((program) => program.focusName === 'welcome');
 
     if (INDEX !== -1) {
-      this.store.openPrograms().splice(INDEX, 1);
+      this.windowService.openPrograms().splice(INDEX, 1);
     }
 
     const CURRENT_PARAMS: Params = { ...this.route.snapshot.queryParams };

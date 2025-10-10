@@ -37,7 +37,7 @@
       <figure class="program-states">
         <div class="open-programs">
           <figcaption>Open Programs</figcaption>
-          @for (program of store.openPrograms(); track program) {
+          @for (program of windowService.openPrograms(); track program) {
             <ul>
               <li>
                 <em>{{ program.programName }}</em>
@@ -51,7 +51,7 @@
         </div>
         <div class="minimized-programs">
           <figcaption>Minimized Programs</figcaption>
-          @for (program of store.minimizedPrograms(); track program) {
+          @for (program of windowService.minimizedPrograms(); track program) {
             <ul>
               <li>{{ program }}</li>
             </ul>

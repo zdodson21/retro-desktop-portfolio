@@ -3,7 +3,7 @@
     <taskbar-start />
   </div>
   <div class="middle">
-    @for (program of store.openPrograms(); track program) {
+    @for (program of windowService.openPrograms(); track program) {
       <taskbar-program [icon]="program.iconPath" [program-name]="program.programName" [focus-name]="program.focusName" />
     }
   </div>

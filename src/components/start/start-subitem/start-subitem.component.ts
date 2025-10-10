@@ -2,6 +2,7 @@ import { Component, Input, inject } from '@angular/core';
 import { AppService } from '../../../app/app.service';
 import { Programs } from '../../../interfaces/open-programs.interface';
 import { Router, ActivatedRoute, Params } from '@angular/router';
+import { WindowService } from '../../../services/window/window.service';
 
 @Component({
   selector: 'start-subitem',
@@ -15,6 +16,7 @@ export class StartSubitemComponent {
   @Input({ alias: 'program-name',required: true }) public programName: string;
 
   private store: AppService = inject(AppService);
+  private windowService: WindowService = inject(WindowService);
 
   private router: Router = inject(Router);
   private route: ActivatedRoute = inject(ActivatedRoute);
@@ -35,8 +37,8 @@ export class StartSubitemComponent {
   protected clickHandler(event: MouseEvent): void {
     event?.stopPropagation();
 
-    if (!this.store.openPrograms().some((programs) => programs.focusName === this.focusName)) {
-      this.store.openPrograms().push(this.programDetails);
+    if (!this.windowService.openPrograms().some((programs) => programs.focusName === this.focusName)) {
+      this.windowService.openPrograms().push(this.programDetails);
     }
 
     this.store.focus.set(this.focusName);

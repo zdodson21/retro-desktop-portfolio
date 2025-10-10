@@ -2,6 +2,7 @@ import { Component, Input, inject } from '@angular/core';
 import { AppService } from '../../../app/app.service';
 import { Programs } from '../../../interfaces/open-programs.interface';
 import { Router, ActivatedRoute, Params } from '@angular/router';
+import { WindowService } from '../../../services/window/window.service';
 
 @Component({
   selector: 'start-item',
@@ -16,6 +17,7 @@ export class StartItemComponent {
   @Input({ alias: 'in-program' }) public inProgram: boolean;
 
   private store: AppService = inject(AppService);
+  private windowService: WindowService = inject(WindowService);
 
   private router: Router = inject(Router);
   private route: ActivatedRoute = inject(ActivatedRoute);
@@ -36,8 +38,8 @@ export class StartItemComponent {
   protected clickHandler(event: MouseEvent): void {
     event?.stopPropagation();
 
-    if (!this.store.openPrograms().some((programs) => programs.focusName === this.focusName)) {
-      this.store.openPrograms().push(this.programDetails);
+    if (!this.windowService.openPrograms().some((programs) => programs.focusName === this.focusName)) {
+      this.windowService.openPrograms().push(this.programDetails);
     }
 
     const CURRENT_PARAMS: Params = { ...this.route.snapshot.queryParams };

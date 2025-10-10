@@ -3,6 +3,7 @@ import { AppService } from '../../../app/app.service';
 import { TaskbarClockComponent } from '../taskbar-clock/taskbar-clock.component';
 import { TaskbarProgramComponent } from '../taskbar-program/taskbar-program.component';
 import { TaskbarStartComponent } from '../taskbar-start/taskbar-start.component';
+import { WindowService } from '../../../services/window/window.service';
 
 @Component({
   selector: 'taskbar-base',
@@ -11,7 +12,8 @@ import { TaskbarStartComponent } from '../taskbar-start/taskbar-start.component'
   styleUrl: './taskbar-base.component.scss',
 })
 export class TaskbarBaseComponent {
-  protected store: AppService = inject(AppService);
+  private store: AppService = inject(AppService);
+  protected windowService: WindowService = inject(WindowService);
 
   /**
    * @description sets focus to taskbar base

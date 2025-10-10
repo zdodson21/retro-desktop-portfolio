@@ -11,6 +11,7 @@ import { TaskbarPropertiesComponent } from '../taskbar-properties/taskbar-proper
 import { WelcomeComponent } from '../welcome/welcome.component';
 import { WindowsExplorerComponent } from '../windows-explorer/windows-explorer.component';
 import { ProgramMenuComponent } from '../program-menu/program-menu.component';
+import { WindowService } from '../../../services/window/window.service';
 
 @Component({
   selector: 'app-programs-wrapper',
@@ -43,6 +44,7 @@ export class ProgramsWrapperComponent {
   */
 
   private store: AppService = inject(AppService);
+  private windowService: WindowService = inject(WindowService);
 
   protected programs = {
     calculator: false,
@@ -70,24 +72,24 @@ export class ProgramsWrapperComponent {
       this.programs.welcome = 'welcome' in params;
       this.programs.windowsExplorer = 'windows-explorer' in params;
 
-      if ('calculator' in params && !this.store.openPrograms().some((programs) => programs.focusName === 'calculator')) {
-        this.store.openPrograms().push({
+      if ('calculator' in params && !this.windowService.openPrograms().some((programs) => programs.focusName === 'calculator')) {
+        this.windowService.openPrograms().push({
           programName: 'Calculator',
           focusName: 'calculator',
           iconPath: 'assets/icons/calculator.svg',
         });
       }
 
-      if ('control-panel' in params && !this.store.openPrograms().some((programs) => programs.focusName === 'control-panel')) {
-        this.store.openPrograms().push({
+      if ('control-panel' in params && !this.windowService.openPrograms().some((programs) => programs.focusName === 'control-panel')) {
+        this.windowService.openPrograms().push({
           programName: 'Control Panel',
           focusName: 'control-panel',
           iconPath: 'assets/icons/control-panel.svg',
         });
       }
 
-      if ('help' in params && !this.store.openPrograms().some((programs) => programs.focusName === 'help')) {
-        this.store.openPrograms().push({
+      if ('help' in params && !this.windowService.openPrograms().some((programs) => programs.focusName === 'help')) {
+        this.windowService.openPrograms().push({
           programName: 'Windows Help',
           focusName: 'help',
           iconPath: 'assets/icons/windows-help.svg',
@@ -96,33 +98,33 @@ export class ProgramsWrapperComponent {
 
       if (
         'internet-explorer' in params &&
-        !this.store.openPrograms().some((programs) => programs.focusName === 'internet-explorer')
+        !this.windowService.openPrograms().some((programs) => programs.focusName === 'internet-explorer')
       ) {
-        this.store.openPrograms().push({
+        this.windowService.openPrograms().push({
           programName: 'Internet Explorer',
           focusName: 'internet-explorer',
           iconPath: 'assets/icons/internet-explorer.svg',
         });
       }
 
-      if ('my-computer' in params && !this.store.openPrograms().some((programs) => programs.focusName === 'my-computer')) {
-        this.store.openPrograms().push({
+      if ('my-computer' in params && !this.windowService.openPrograms().some((programs) => programs.focusName === 'my-computer')) {
+        this.windowService.openPrograms().push({
           programName: 'My Computer',
           focusName: 'my-computer',
           iconPath: 'assets/icons/my-computer.svg',
         });
       }
 
-      if ('program-menu' in params && !this.store.openPrograms().some((programs) => programs.focusName === 'program-menu')) {
-        this.store.openPrograms().push({
+      if ('program-menu' in params && !this.windowService.openPrograms().some((programs) => programs.focusName === 'program-menu')) {
+        this.windowService.openPrograms().push({
           programName: 'Mobile Program Menu',
           focusName: 'program-menu',
           iconPath: 'assets/icons/program-folder.svg',
         })
       }
 
-      if ('system-monitor' in params && !this.store.openPrograms().some((programs) => programs.focusName === 'system-monitor')) {
-        this.store.openPrograms().push({
+      if ('system-monitor' in params && !this.windowService.openPrograms().some((programs) => programs.focusName === 'system-monitor')) {
+        this.windowService.openPrograms().push({
           programName: 'System Monitor',
           focusName: 'system-monitor',
           iconPath: 'assets/icons/system-monitor.svg',
@@ -131,17 +133,17 @@ export class ProgramsWrapperComponent {
 
       if (
         'taskbar-properties' in params &&
-        !this.store.openPrograms().some((programs) => programs.focusName === 'taskbar-properties')
+        !this.windowService.openPrograms().some((programs) => programs.focusName === 'taskbar-properties')
       ) {
-        this.store.openPrograms().push({
+        this.windowService.openPrograms().push({
           programName: 'Taskbar Properties',
           focusName: 'taskbar-properties',
           iconPath: 'assets/icons/taskbar-properties.svg',
         });
       }
 
-      if ('welcome' in params && !this.store.openPrograms().some((programs) => programs.focusName === 'welcome')) {
-        this.store.openPrograms().push({
+      if ('welcome' in params && !this.windowService.openPrograms().some((programs) => programs.focusName === 'welcome')) {
+        this.windowService.openPrograms().push({
           programName: 'Welcome',
           focusName: 'welcome',
           iconPath: '',
@@ -152,9 +154,9 @@ export class ProgramsWrapperComponent {
 
       if (
         'windows-explorer' in params &&
-        !this.store.openPrograms().some((programs) => programs.focusName === 'windows-explorer')
+        !this.windowService.openPrograms().some((programs) => programs.focusName === 'windows-explorer')
       ) {
-        this.store.openPrograms().push({
+        this.windowService.openPrograms().push({
           programName: 'Windows Explorer',
           focusName: 'windows-explorer',
           iconPath: 'assets/icons/windows-explorer.svg',

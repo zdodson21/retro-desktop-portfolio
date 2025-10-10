@@ -3,6 +3,7 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
 import { AppService } from '../../../app/app.service';
 import { WindowFrameComponent } from '../../window-frame/window-frame.component';
 import { SystemService } from '../../../services/system/system.service';
+import { WindowService } from '../../../services/window/window.service';
 
 @Component({
   selector: 'my-computer',
@@ -13,6 +14,7 @@ import { SystemService } from '../../../services/system/system.service';
 export class MyComputerComponent {
   private store: AppService = inject(AppService);
   protected systemService: SystemService = inject(SystemService);
+  private windowService: WindowService = inject(WindowService);
 
   private router: Router = inject(Router);
   private route: ActivatedRoute = inject(ActivatedRoute);
@@ -25,10 +27,10 @@ export class MyComputerComponent {
     event?.stopPropagation();
     this.store.focus.set('');
 
-    const INDEX = this.store.openPrograms().findIndex((program) => program.focusName === 'my-computer');
+    const INDEX = this.windowService.openPrograms().findIndex((program) => program.focusName === 'my-computer');
 
     if (INDEX !== -1) {
-      this.store.openPrograms().splice(INDEX, 1);
+      this.windowService.openPrograms().splice(INDEX, 1);
     }
 
     const CURRENT_PARAMS: Params = { ...this.route.snapshot.queryParams };

@@ -13,6 +13,7 @@ import {
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { AppService } from '../../app/app.service';
 import { SystemService } from '../../services/system/system.service';
+import { WindowService } from '../../services/window/window.service';
 
 @Component({
   selector: 'window-frame',
@@ -41,6 +42,7 @@ export class WindowFrameComponent {
   // Element control
   private store: AppService = inject(AppService);
   private systemService: SystemService = inject(SystemService);
+  private windowService: WindowService = inject(WindowService);
   private renderer: Renderer2 = inject(Renderer2);
   private elementRef: ElementRef = inject(ElementRef);
 
@@ -99,8 +101,8 @@ export class WindowFrameComponent {
           this.isElementFocused.set(true);
           this.renderer.addClass(this.elementRef.nativeElement, 'active');
 
-          if (this.store.minimizedPrograms().includes(this.focusName)) {
-            this.store.minimizedPrograms().splice(this.store.minimizedPrograms().indexOf(this.focusName), 1);
+          if (this.windowService.minimizedPrograms().includes(this.focusName)) {
+            this.windowService.minimizedPrograms().splice(this.windowService.minimizedPrograms().indexOf(this.focusName), 1);
             this.isElementMinimized.set(false);
           }
         } else {
@@ -118,12 +120,12 @@ export class WindowFrameComponent {
   protected minimizeButtonHandler(event?: MouseEvent): void {
     event?.stopPropagation();
 
-    if (!this.store.minimizedPrograms().includes(this.focusName)) {
+    if (!this.windowService.minimizedPrograms().includes(this.focusName)) {
       this.isMinimized = true;
-      this.store.minimizedPrograms().push(this.focusName);
+      this.windowService.minimizedPrograms().push(this.focusName);
     }
 
-    if (this.store.minimizedPrograms().includes(this.focusName)) {
+    if (this.windowService.minimizedPrograms().includes(this.focusName)) {
       this.store.focus.set('');
       this.isElementMinimized.set(true);
     }
@@ -178,8 +180,8 @@ export class WindowFrameComponent {
       this.elementRef.nativeElement.style.width = `${this.percentWidth}%`;
       this.elementRef.nativeElement.style.height = `${this.percentHeight}%`;
     } else {
-      this.elementRef.nativeElement.style.width = `${this.store.mobilePercents.width}%`;
-      this.elementRef.nativeElement.style.height = `${this.store.mobilePercents.height}%`;
+      this.elementRef.nativeElement.style.width = `${this.windowService.mobilePercents.width}%`;
+      this.elementRef.nativeElement.style.height = `${this.windowService.mobilePercents.height}%`;
     }
   }
 
@@ -201,10 +203,10 @@ export class WindowFrameComponent {
     event?.stopPropagation();
     this.store.focus.set('');
 
-    const INDEX = this.store.openPrograms().findIndex((program) => program.focusName === this.focusName);
+    const INDEX = this.windowService.openPrograms().findIndex((program) => program.focusName === this.focusName);
 
     if (INDEX !== -1) {
-      this.store.openPrograms().splice(INDEX, 1);
+      this.windowService.openPrograms().splice(INDEX, 1);
     }
 
     const CURRENT_PARAMS: Params = { ...this.route.snapshot.queryParams };

@@ -2,6 +2,7 @@ import { Component, effect, inject, Input, signal, WritableSignal } from '@angul
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { AppService } from '../../../app/app.service';
 import { Programs } from '../../../interfaces/open-programs.interface';
+import { WindowService } from '../../../services/window/window.service';
 
 @Component({
   selector: 'desktop-icon',
@@ -16,6 +17,7 @@ export class DesktopIconComponent {
   @Input({ alias: 'focus-name' }) public focusName: string; // The focus name of the program that opens on double click
 
   private store: AppService = inject(AppService);
+  private windowService: WindowService = inject(WindowService);
   private programDetails: Programs;
 
   private router: Router = inject(Router);
@@ -54,8 +56,8 @@ export class DesktopIconComponent {
   public dblClickHandler(event: MouseEvent): void {
     event?.stopPropagation();
 
-    if (!this.store.openPrograms().some((programs) => programs.focusName === this.focusName)) {
-      this.store.openPrograms().push(this.programDetails);
+    if (!this.windowService.openPrograms().some((programs) => programs.focusName === this.focusName)) {
+      this.windowService.openPrograms().push(this.programDetails);
     }
 
     this.store.focus.set(this.focusName);
