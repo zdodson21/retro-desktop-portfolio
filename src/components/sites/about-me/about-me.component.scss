@@ -3,7 +3,36 @@
 .about-me-site-wrapper {
   @include site-common();
 
-  h1 {
-    margin: 0px;
+  header {
+    h1 {
+      margin: 0px 0px 12px 0px;
+    }
+  }
+
+  main {
+    .self-description {
+
+      figure {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        gap: 8px;
+
+        img {
+          width: 12rem;
+        }
+
+        figcaption {
+          text-align: center;
+        }
+      }
+
+      .socials-row {
+        display: flex;
+        justify-content: space-around;
+        width: 100%;
+        align-items: center;
+      }
+    }
   }
 }
