@@ -1,4 +1,4 @@
-<div class="file-icon-wrapper">
+<div class="file-icon-wrapper" [class.active]="isElementFocused()" (click)="singleClickHandler($event)" (dblclick)="dblClickHandler($event, 'file')">
   <img [src]="src" alt="{{ fileName }} icon">
   <p>{{ fileName }}.{{ fileType }}</p>
 </div>

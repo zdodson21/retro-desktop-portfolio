@@ -1,5 +1,41 @@
-@use "../explorer-icon.scss" as *;
+@use "../../../../../styles.scss" as *;
+@use "../../../../../colors.scss" as *;
 
 .file-icon-wrapper {
-  @include explorer-icon-common();
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  gap: 8px;
+
+  img {
+    @include icon-common();
+    height: 45px;
+    image-rendering: pixelated;
+  }
+
+  p {
+    @include text-common();
+    text-wrap: balance;
+    text-align: center;
+    font-size: 16px;
+    color: black;
+    border: 1px dotted transparent;
+    // background-color: $win-95-dark-cyan;
+  }
+
+  &.active {
+    img {
+      filter: grayscale(100%) brightness(30%) sepia(100%) hue-rotate(-180deg)
+        saturate(400%) contrast(0.9);
+    }
+
+    p {
+      border-color: white;
+      color: white;
+      background-color: $win-95-highlight;
+    }
+  }
 }

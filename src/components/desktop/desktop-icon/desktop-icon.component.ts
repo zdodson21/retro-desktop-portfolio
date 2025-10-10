@@ -35,9 +35,7 @@ export class DesktopIconComponent {
 
   constructor() {
     effect(() => {
-      if (this.store.focus() !== this.iconFocusName && this.store.focus() !== this.focusName) {
-        this.isElementFocused.set(false);
-      }
+      if (this.store.focus() !== this.iconFocusName && this.store.focus() !== this.focusName) this.isElementFocused.set(false);
     });
   }
 
