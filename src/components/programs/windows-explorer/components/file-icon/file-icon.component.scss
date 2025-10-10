@@ -1,0 +1,5 @@
+@use "../explorer-icon.scss" as *;
+
+.file-icon-wrapper {
+  @include explorer-icon-common();
+}

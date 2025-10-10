@@ -4,5 +4,5 @@ import { Injectable, signal, WritableSignal } from '@angular/core';
   providedIn: 'root'
 })
 export class WindowsExplorerService {
-  public currentLocation: WritableSignal<string> = signal('');
+  public currentLocation: WritableSignal<Array<string>> = signal(['test-location']);
 }
