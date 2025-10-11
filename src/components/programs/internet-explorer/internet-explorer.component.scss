@@ -253,6 +253,10 @@ $status-bar-height: 5%;
           &.sidebar-open {
             width: 18%;
             padding-left: 2px;
+
+            &.mobile {
+              width: 40%;
+            }
           }
 
           .sidebar-content {

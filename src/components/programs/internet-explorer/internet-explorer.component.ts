@@ -56,7 +56,7 @@ export class InternetExplorerComponent {
   private router: Router = inject(Router);
   protected store: AppService = inject(AppService);
   protected IEService: InternetExplorerService = inject(InternetExplorerService);
-  private systemService: SystemService = inject(SystemService);
+  protected systemService: SystemService = inject(SystemService);
   protected sidebarContent: number = 0; // 0 = search, 1 = favorites, 2 = history
   protected displayedSite: WritableSignal<string> = signal('about-me');
   protected statusBarContent: string = 'Ready';

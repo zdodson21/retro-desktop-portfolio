@@ -131,7 +131,7 @@
       </div>
 
       <div class="main-content" (click)="menuFocus = ''" [class.sidebar-open]="IEService.sidebar()">
-        <div class="sidebar" [class.sidebar-open]="IEService.sidebar()">
+        <div class="sidebar" [class.sidebar-open]="IEService.sidebar()" [class.mobile]="systemService.isMobile()">
           @switch (sidebarContent) {
             @case (0) {
               <div class="search sidebar-content">
