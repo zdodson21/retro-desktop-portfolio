@@ -1,5 +1,6 @@
 @use "../../../styles.scss" as *;
 @use "../programs.scss" as *;
+@use "../../../font.scss" as *;
 
 .windows-help-wrapper {
   @include program-common();
@@ -69,7 +70,8 @@
               width: 50%;
             }
 
-            p:not(:last-child) {
+            p {
+              @include font-readability();
               margin-bottom: 8px;
             }
           }
