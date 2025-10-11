@@ -1,10 +1,23 @@
 @use "../../styles.scss" as *;
 
 @mixin site-common() {
-  // TODO set font-size, font family
   height: calc(100% - 8px);
-  padding: 8px;
+  padding: 12px;
   @include set-font();
+
+  header {
+    h1 {
+      margin: 0px 0px 12px 0px;
+    }
+  }
+
+  ul {
+    li {
+      &:not(:last-child) {
+        margin-bottom: 4px;
+      }
+    }
+  }
 
   .badges {
     display: flex;
@@ -12,6 +25,7 @@
     flex-direction: row;
     flex-wrap: wrap;
   }
+
 }
 
 @mixin set-font() {
@@ -27,8 +41,14 @@
   a-ie,
   ie-route,
   li,
-  em {
+  em,
+  time {
     font-family: Georgia, "Times New Roman", Times, serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    letter-spacing: .02em;
+    line-height: 1.25em;
   }
 }
 
