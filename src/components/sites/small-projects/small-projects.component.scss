@@ -1,0 +1,5 @@
+@use "../sites.scss" as *;
+
+.small-projects-wrapper {
+  @include site-common();
+}

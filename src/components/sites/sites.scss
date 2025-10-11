@@ -35,6 +35,14 @@
     width: 100%;
     align-items: center;
   }
+
+  main {
+    section {
+      &:not(:last-child) {
+        margin-bottom: 24px;
+      }
+    }
+  }
 }
 
 @mixin set-font() {

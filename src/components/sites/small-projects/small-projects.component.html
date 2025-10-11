@@ -1,2 +1,64 @@
 <!-- prettier-ignore -->
-<p>small-projects works!</p>
+<article class="small-projects-wrapper">
+  <header>
+    <h1>
+      Small Projects
+    </h1>
+    <p style="margin-bottom: 12px">
+      This page will hold descriptions for any projects that are not sizable enough to have their
+      own page.
+    </p>
+    <p>
+      Note: Projects here can range in difficulty it took to complete them. Some are simple, some
+      are more complex. All of these projects were used to learn or develop a new skill.
+    </p>
+  </header>
+  <main>
+    <section class="pi-weather">
+      <h2>Pi-Weather</h2>
+      <section class="badges">
+        <img src="assets/badges/svelte.svg" alt="svelte badge">
+        <img src="assets/badges/html5.svg" alt="html5 badge">
+        <img src="assets/badges/css3.svg" alt="css3 badge">
+        <img src="assets/badges/typescript.svg" alt="typescript.svg">
+      </section>
+      <nav>
+        <a-ie href="https://github.com/zdodson21/pi-weather">Project Repo</a-ie>
+      </nav>
+      <section class="description">
+        <p>
+          Utilized Svelte to create a weather dashboard, initially with the goal of it being utilized on
+          with a Raspberry Pi to create a physical weather dashboard. However, a bug in the Chromium browser
+          is inserting a white rectangle at the bottom of the page when screenshotting, preventing it from screenshotting
+          properly. I will probably attempt to remake this project using a templating framework over a web framework. This
+          project was a good introduction to APIs and Svelte.
+        </p>
+      </section>
+    </section>
+
+    <section class="replace-text">
+      <h2>Replace Text Python Package</h2>
+      <section class="badges">
+        <img src="assets/badges/python.svg" alt="python badge">
+      </section>
+      <nav>
+        <a-ie href="https://github.com/zdodson21/replace-text">Project Repo</a-ie>
+        <a-ie href="https://pypi.org/project/replace-text/">PyPi Page</a-ie>
+      </nav>
+      <section class="description">
+        <h3>Description</h3>
+        <ul>
+          <li>
+            In-file text replacer developed using Python.
+          </li>
+          <li>
+            Can replace text in a single file, or in every file within a specified directory.
+          </li>
+          <li>
+            Supports various flags, speeding up the process of using the CLI.
+          </li>
+        </ul>
+      </section>
+    </section>
+  </main>
+</article>
