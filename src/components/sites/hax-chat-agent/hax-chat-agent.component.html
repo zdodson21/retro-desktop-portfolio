@@ -4,7 +4,6 @@
     <h1>
       HAXTheWeb Chat Agent Frontend (Internship Project) (<time datetime="2024-05">May 2024</time> - <time datetime="2024-08">August 2024</time>)
     </h1>
-    <p>Tech Used:</p>
     <div class="badges">
       <img src="https://img.shields.io/badge/lit-4c64ff.svg?style=for-the-badge&logo=lit&logoColor=white" alt="Lit badge">
       <img src="https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white" alt="html 5 badge" />
@@ -37,7 +36,7 @@
 
       <details class="chat-agent" open>
         <summary>Chat Agent</summary>
-        <figure>
+        <figure [class.mobile]="systemService.isMobile()">
           <figcaption>
             <p>
               The main web component, housing numerous other web components inside of it.
@@ -63,10 +62,13 @@
 
       <details class="chat-agent-store" open>
         <summary>Chat Agent Store</summary>
-        <figure>
+        <figure [class.mobile]="systemService.isMobile()">
           <figcaption>
             <p>
-              <!-- Write about using mobx for cross component state management -->
+              Chat agent store is the state management solution for the various chat-agent components.
+              It utilizes <a-ie href="https://mobx.js.org/README.html">MobX</a-ie> to handle updating
+              any variables across the components. The Chat Agent Store also holds any functions used across
+              numerous components.
             </p>
           </figcaption>
           <div class="img-container">
@@ -75,9 +77,9 @@
         </figure>
       </details>
 
-      <details class="chat-button">
+      <details class="chat-button" open>
         <summary>Chat Button</summary>
-        <figure>
+        <figure [class.mobile]="systemService.isMobile()">
           <figcaption>
             Handles the opening and closing functionality of the chat-interface component. CSS was used to animate this component
             so it looks and feels like a button to the end-user.
@@ -90,7 +92,7 @@
 
       <details class="chat-control-bar" open>
         <summary>Chat Control Bar</summary>
-        <figure>
+        <figure [class.mobile]="systemService.isMobile()">
           <figcaption>
             <p>Handles numerous functions:</p>
             <ul>
@@ -122,7 +124,7 @@
 
       <details class="chat-dev-panel" open>
         <summary>Chat Developer Panel</summary>
-        <figure>
+        <figure [class.mobile]="systemService.isMobile()">
           <figcaption>
             <p>
               Provides numerous developer features:
@@ -164,7 +166,7 @@
 
       <details class="chat-input" open>
         <summary>Chat Input</summary>
-        <figure>
+        <figure [class.mobile]="systemService.isMobile()">
           <figcaption>
             <p>
               This component is where users will type their messages and send them to the backend for a response.
@@ -180,7 +182,7 @@
 
       <details class="chat-interface" open>
         <summary>Chat Interface</summary>
-        <figure>
+        <figure [class.mobile]="systemService.isMobile()">
           <figcaption>
             <p>
               Chat Interface is the main window that will be used to interact with the chat agent and its many features.
@@ -209,7 +211,7 @@
 
       <details class="chat-message" open>
         <summary>Chat Message</summary>
-        <figure>
+        <figure [class.mobile]="systemService.isMobile()">
           <figcaption>
             <p>
               Chat message will display the message it is provided from the chat log via mapping.
@@ -228,7 +230,7 @@
 
       <details class="chat-suggestion" open>
         <summary>Chat Suggestion</summary>
-        <figure>
+        <figure [class.mobile]="systemService.isMobile()">
           <figcaption>
             <p>
               Displays prompts to the user. When selected by the user, it will automatically be sent
@@ -247,7 +249,7 @@
       <h2>Other Features:</h2>
       <details class="full-screen" open>
         <summary>Full Screen Mode</summary>
-        <figure>
+        <figure [class.mobile]="systemService.isMobile()">
           <figcaption>
             <p>Full screen mode provides the following changes:</p>
             <ul>
@@ -277,7 +279,7 @@
 
       <details class="chat-log" open>
         <summary>Chat Log</summary>
-        <figure>
+        <figure [class.mobile]="systemService.isMobile()">
           <figcaption>
             <p>
               While not a component, the chat log plays a vital role in being the backbone of the entire chat agent system.

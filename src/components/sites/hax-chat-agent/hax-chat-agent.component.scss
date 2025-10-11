@@ -1,10 +1,39 @@
 @use "../sites.scss" as *;
 
+@mixin set-img-size($max-width: 100%) {
+
+  max-width: $max-width;
+  margin: 0px calc((100% - $max-width) / 2);
+
+  @media (max-aspect-ratio: 1/1) {
+    $max-width: calc($max-width + 40%);
+
+    @if $max-width > 95% {
+      $max-width: 90%;
+    }
+
+    max-width: calc($max-width);
+    margin: 0px calc((100% - $max-width) / 2);
+  }
+}
+
 .hax-chat-agent-wrapper {
   @include site-common();
 
-  summary {
-    cursor: pointer;
+  details {
+    $spacing: 16px;
+
+    &:not(:last-child) {
+      padding-bottom: $spacing;
+      border-bottom: solid black 1px;
+    }
+
+    margin-bottom: $spacing;
+
+    summary {
+      cursor: pointer;
+      font-weight: bold;
+    }
   }
 
   figure {
@@ -13,19 +42,125 @@
     margin: 4px 4px;
 
     figcaption {
-      width: 50%;
+      width: 40%;
     }
 
     .img-container {
-      width: 50%;
-      display: flex;
-      justify-content: center;
+      width: 60%;
+      align-content: center;
+      // display: flex;
+      // justify-content: center;
 
       img {
-        max-height: 27rem;
-        max-width: 27rem;
-        width: 75%;
+        display: block;
+        height: auto;
+        @include set-img-size();
+
+        &[src="assets/images/chat-agent.png"] {
+          @include set-img-size(50%);
+        }
+
+        &[src="assets/images/mobx.png"] {
+          @include set-img-size(30%);
+        }
+
+        &[src="assets/images/chat-button.png"] {
+          width: 25%;
+          @include set-img-size(25%);
+          @media (max-aspect-ratio: 1/1) {
+            width: 65%;
+          }
+        }
+
+        &[src="assets/images/chat-control-bar.png"] {
+          @include set-img-size(90%);
+        }
+
+        &[src="assets/images/chat-developer-panel.png"] {
+          @include set-img-size(90%);
+        }
+
+        &[src="assets/images/chat-input.png"] {
+          @include set-img-size(90%);
+        }
+
+        &[src="assets/images/chat-interface.png"] {
+          @include set-img-size(60%);
+        }
+
+        &[src="assets/images/chat-message.png"] {
+          @include set-img-size(60%);
+        }
+
+        &[src="assets/images/chat-suggestion.png"] {
+          @include set-img-size(90%);
+        }
+
+        &[src="assets/images/chat-agent-full-screen.png"] {
+          @include set-img-size(35%);
+        }
+
+        &[src="assets/images/chat-log.png"] {
+          @include set-img-size(90%);
+        }
       }
+    }
+
+    &.mobile {
+      flex-direction: column;
+      align-items: center;
+
+      figcaption, p {
+        width: 100%;
+      }
+
+      .img-container {
+        width: 100%;
+
+        img {
+          &[src="assets/images/chat-agent.png"] {
+            @include set-img-size(60%);
+            // TODO above does not work for mobile I don't think, but nothing wants to work atm
+          }
+
+          &[src="assets/images/mobx.png"] {
+            @include set-img-size(40%);
+          }
+
+          &[src="assets/images/chat-control-bar.png"] {
+            @include set-img-size(90%);
+          }
+
+          &[src="assets/images/chat-developer-panel.png"] {
+            @include set-img-size(90%);
+          }
+
+          &[src="assets/images/chat-input.png"] {
+            @include set-img-size(90%);
+          }
+
+          &[src="assets/images/chat-interface.png"] {
+            @include set-img-size(60%);
+          }
+
+          &[src="assets/images/chat-message.png"] {
+            @include set-img-size(60%);
+          }
+
+          &[src="assets/images/chat-suggestion.png"] {
+            @include set-img-size(90%);
+          }
+
+          &[src="assets/images/chat-agent-full-screen.png"] {
+            @include set-img-size(35%);
+          }
+
+          &[src="assets/images/chat-log.png"] {
+            @include set-img-size(90%);
+          }
+        }
+      }
+
     }
   }
 }

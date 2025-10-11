@@ -24,9 +24,17 @@
     display: flex;
     gap: 4px;
     flex-direction: row;
+    justify-content: center;
     flex-wrap: wrap;
+    margin: 8px 0px 16px 0px;
   }
 
+  nav {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    align-items: center;
+  }
 }
 
 @mixin set-font() {
