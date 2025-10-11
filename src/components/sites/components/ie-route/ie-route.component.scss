@@ -3,6 +3,10 @@ a {
   text-decoration: underline;
   cursor: pointer;
 
+  &.in-site {
+    font-family: Georgia, "Times New Roman", Times, serif;
+  }
+
   &:hover {
     color: #551a8b;
   }

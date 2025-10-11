@@ -10,6 +10,7 @@ import { SystemService } from '../../../../services/system/system.service';
 })
 export class AIeComponent {
   @Input({ alias: 'href' }) public href: string;
+  @Input({ alias: 'not-in-site' }) public notInSite: boolean = false;
 
   private systemService: SystemService = inject(SystemService);
   private IEStore: InternetExplorerService = inject(InternetExplorerService);

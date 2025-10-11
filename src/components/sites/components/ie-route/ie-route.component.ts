@@ -13,7 +13,7 @@ export class IeRouteComponent {
 
   @Input({ alias: 'domain', required: true }) public domain: string;
   @Input({ alias: 'tld', required: true }) public tld: string;
-  @Input({ alias: 'block-preview' }) public blockPreview: boolean = false;
+  @Input({ alias: 'not-in-site' }) public notInSite: boolean = false;
 
   private route: ActivatedRoute = inject(ActivatedRoute);
   private router: Router = inject(Router);
@@ -24,7 +24,7 @@ export class IeRouteComponent {
    * @description set status bar content to href
    */
   protected hover(): void {
-    if (!this.blockPreview) {
+    if (!this.notInSite) {
       this.prevValue = this.IEService.statusBarContent();
       this.IEService.statusBarContent.set(`http://${this.domain}.${this.tld}`);
     }
@@ -40,7 +40,7 @@ export class IeRouteComponent {
    * @description set status bar content value to previous (pre-hover) value
    */
   protected unhover(): void {
-    if (!this.blockPreview) {
+    if (!this.notInSite) {
       if (this.prevValue === '') {
         this.IEService.statusBarContent.set('Ready');
       } else {

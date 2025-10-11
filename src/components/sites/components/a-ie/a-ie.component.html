@@ -2,6 +2,6 @@
   ! This component is for any anchor tags that open an external site in a new tab.
   ? See ie-route for a route changing anchor tag component.
 -->
-<a [href]="this.href" target="_blank" (mouseover)="this.hover()" (mouseleave)="this.unhover()">
+<a [href]="this.href" [class.in-site]="!notInSite" target="_blank" (mouseover)="this.hover()" (mouseleave)="this.unhover()">
   <ng-content></ng-content>
 </a>

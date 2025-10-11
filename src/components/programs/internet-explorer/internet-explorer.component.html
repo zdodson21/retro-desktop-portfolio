@@ -148,7 +148,7 @@
                   <ul>
                     @for (result of searchResults; track $index) {
                       <li>
-                        <ie-route domain="{{ result.domain }}" tld="{{ result.tld }}" />
+                        <ie-route domain="{{ result.domain }}" tld="{{ result.tld }}" [not-in-site]="true" />
                       </li>
                     }
                   </ul>
@@ -168,7 +168,7 @@
                     @for (site of IEService.possibleSites; track $index) {
                       <li>
                         <img src="assets/icons/html-file.svg" alt="html file icon" />
-                        <ie-route domain="{{ site.domain }}" tld="{{ site.tld }}" />
+                        <ie-route domain="{{ site.domain }}" tld="{{ site.tld }}" [not-in-site]="true" />
                       </li>
                     }
                   </ul>
@@ -187,7 +187,7 @@
                   <ul>
                     @for (site of IEService.browserHistory(); track $index) {
                       <li>
-                        <ie-route domain="{{ site.domain }}" tld="{{ site.tld }}" />
+                        <ie-route domain="{{ site.domain }}" tld="{{ site.tld }}" [not-in-site]="true" />
                       </li>
                     }
                   </ul>
