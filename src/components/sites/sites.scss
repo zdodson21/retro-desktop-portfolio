@@ -43,7 +43,8 @@
   ie-route,
   li,
   em,
-  time {
+  time,
+  summary {
     font-family: Georgia, "Times New Roman", Times, serif;
     @include font-readability();
   }

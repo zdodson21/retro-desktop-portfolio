@@ -4,8 +4,292 @@
     <h1>
       HAXTheWeb Chat Agent Frontend (Internship Project) (<time datetime="2024-05">May 2024</time> - <time datetime="2024-08">August 2024</time>)
     </h1>
+    <p>Tech Used:</p>
+    <div class="badges">
+      <img src="https://img.shields.io/badge/lit-4c64ff.svg?style=for-the-badge&logo=lit&logoColor=white" alt="Lit badge">
+      <img src="https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white" alt="html 5 badge" />
+      <img src="https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white" alt="CSS3 Badge">
+      <img src="https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E" alt="JavaScript">
+    </div>
+    <nav>
+      <a-ie href="https://github.com/haxtheweb/webcomponents/tree/master/elements/chat-agent">Source Code</a-ie>
+      <a-ie href="https://haxtheweb.org/">HAXTheWeb Website</a-ie>
+      <a-ie href="https://lit.dev/">Lit Library</a-ie>
+    </nav>
   </header>
   <main>
+    <section class="description">
+      <h2>Description:</h2>
+      <p>
+        Between <time datetime="2024-05">May 2024</time> - <time datetime="2024-08">August 2024</time>
+        I created numerous web components for the HAXTheWeb project at the Penn State College of Arts & Architecture.
+        These web components were utilized to create one main component called <em>chat-agent</em>.
+        The goal of this project was to create a chat-agent for websites created within the
+        HAX Content Management System (HAXCMS) that could act as a "virtual learning assistant". This chat agent
+        (named <em>Merlin</em>) would utilize site content as its context to answer student questions about course material,
+        while also being capable of answer questions about HAXCMS (for developers).
+        These components work together to create a seamless experience for both end-users and developers.
+      </p>
+    </section>
 
+    <section class="webcomponents">
+      <h2>Web Components:</h2>
+
+      <details class="chat-agent" open>
+        <summary>Chat Agent</summary>
+        <figure>
+          <figcaption>
+            <p>
+              The main web component, housing numerous other web components inside of it.
+              Overall this component doesn't do much on its own, it acts primarily as a container
+              for all of the other components, while also responding to visual changes set by other components:
+            </p>
+            <ul>
+              <li>
+                Handles full screen functionality, changing the appearance of the chat agent to take up 100% of
+                the available vertical screen space.
+              </li>
+              <li>
+                Handles display of both the chat-interface and chat-button components. Chat Interface can be hidden,
+                while chat button will always be visible (unless Chat Agent is set to full screen and is open).
+              </li>
+            </ul>
+          </figcaption>
+          <div class="img-container">
+            <img src="assets/images/chat-agent.png" alt="chat agent screenshot">
+          </div>
+        </figure>
+      </details>
+
+      <details class="chat-agent-store" open>
+        <summary>Chat Agent Store</summary>
+        <figure>
+          <figcaption>
+            <p>
+              <!-- Write about using mobx for cross component state management -->
+            </p>
+          </figcaption>
+          <div class="img-container">
+            <img src="assets/images/mobx.png" alt="mobx logo">
+          </div>
+        </figure>
+      </details>
+
+      <details class="chat-button">
+        <summary>Chat Button</summary>
+        <figure>
+          <figcaption>
+            Handles the opening and closing functionality of the chat-interface component. CSS was used to animate this component
+            so it looks and feels like a button to the end-user.
+          </figcaption>
+          <div class="img-container">
+            <img src="assets/images/chat-button.png" alt="chat button screenshot">
+          </div>
+        </figure>
+      </details>
+
+      <details class="chat-control-bar" open>
+        <summary>Chat Control Bar</summary>
+        <figure>
+          <figcaption>
+            <p>Handles numerous functions:</p>
+            <ul>
+              <li>
+                Downloading chat log (.txt file format)
+              </li>
+              <li>
+                Restarting chat session
+              </li>
+              <li>
+                Toggling data collection
+              </li>
+              <li>
+                Toggling developer mode
+              </li>
+              <li>
+                Toggling full screen mode
+              </li>
+              <li>
+                Toggling visibility (while in full screen mode)
+              </li>
+            </ul>
+          </figcaption>
+          <div class="img-container">
+            <img src="assets/images/chat-control-bar.png" alt="chat control bar screenshot">
+          </div>
+        </figure>
+      </details>
+
+      <details class="chat-dev-panel" open>
+        <summary>Chat Developer Panel</summary>
+        <figure>
+          <figcaption>
+            <p>
+              Provides numerous developer features:
+            </p>
+            <ul>
+              <li>
+                Print chat log to browser's developer console:
+                <ul>
+                  <li>
+                    User's messages
+                  </li>
+                  <li>
+                    Merlin's messages
+                  </li>
+                  <li>
+                    Entire chat log
+                  </li>
+                </ul>
+              </li>
+
+              <li>
+                Download chat log (.json file format)
+              </li>
+
+              <li>
+                Switching backend AI model
+              </li>
+
+              <li>
+                Switching context used for Merlin's responses
+              </li>
+            </ul>
+          </figcaption>
+          <div class="img-container">
+            <img src="assets/images/chat-developer-panel.png" alt="chat developer panel screenshot">
+          </div>
+        </figure>
+      </details>
+
+      <details class="chat-input" open>
+        <summary>Chat Input</summary>
+        <figure>
+          <figcaption>
+            <p>
+              This component is where users will type their messages and send them to the backend for a response.
+              Users can utilize on screen controls to send messages and scroll through their previous messages,
+              or utilize keyboard controls to improve accessibility.
+            </p>
+          </figcaption>
+          <div class="img-container">
+            <img src="assets/images/chat-input.png" alt="chat input screenshot">
+          </div>
+        </figure>
+      </details>
+
+      <details class="chat-interface" open>
+        <summary>Chat Interface</summary>
+        <figure>
+          <figcaption>
+            <p>
+              Chat Interface is the main window that will be used to interact with the chat agent and its many features.
+              It houses the following components, handling styling aspects of the child components:
+            </p>
+            <ul>
+              <li>
+                Chat Control Bar
+              </li>
+              <li>
+                Chat Developer Panel
+              </li>
+              <li>
+                Chat Message (displayed from chat log array with mapping)
+              </li>
+              <li>
+                Chat Input
+              </li>
+            </ul>
+          </figcaption>
+          <div class="img-container">
+            <img src="assets/images/chat-interface.png" alt="chat interface screenshot">
+          </div>
+        </figure>
+      </details>
+
+      <details class="chat-message" open>
+        <summary>Chat Message</summary>
+        <figure>
+          <figcaption>
+            <p>
+              Chat message will display the message it is provided from the chat log via mapping.
+              It ensures proper formatting according to the sender of the message (User or Merlin),
+              providing icons for message sender (hat for Merlin and a randomly generated character
+              for the user using their name to generate the character). If the message is sent by Merlin,
+              it will also display chat suggestions, intended to be relevant to the context of the current
+              conversation.
+            </p>
+          </figcaption>
+          <div class="img-container">
+            <img src="assets/images/chat-message.png" alt="chat message screenshot">
+          </div>
+        </figure>
+      </details>
+
+      <details class="chat-suggestion" open>
+        <summary>Chat Suggestion</summary>
+        <figure>
+          <figcaption>
+            <p>
+              Displays prompts to the user. When selected by the user, it will automatically be sent
+              to Merlin while changing colors to display which suggestion was used, and which were not.
+              This component is designed to be generated using prompts provided by the backend AI model.
+            </p>
+          </figcaption>
+          <div class="img-container">
+            <img src="assets/images/chat-suggestion.png" alt="chat suggestion screnshot">
+          </div>
+        </figure>
+      </details>
+    </section>
+
+    <section class="other-features">
+      <h2>Other Features:</h2>
+      <details class="full-screen" open>
+        <summary>Full Screen Mode</summary>
+        <figure>
+          <figcaption>
+            <p>Full screen mode provides the following changes:</p>
+            <ul>
+              <li>
+                Hides the chat-button component while chat-agent is both visible and in full-screen mode.
+                The chat agent can be hidden by pressing the minus button in the chat control bar.
+              </li>
+              <li>
+                Can display more messages on screen.
+              </li>
+              <li>
+                Conforms to the right side of the screen while forcing website content to the left. This improves
+                visibility of website content by no longer covering it with a floating chat interface, enabling users
+                to utilize both site content and the chat agent side-by-side.
+              </li>
+              <li>
+                CSS media queries ensure full screen mode remains visually appealing and usable on various screen
+                and window sizes.
+              </li>
+            </ul>
+          </figcaption>
+          <div class="img-container">
+            <img src="assets/images/chat-agent-full-screen.png" alt="chat agent full screen mode screenshot">
+          </div>
+        </figure>
+      </details>
+
+      <details class="chat-log" open>
+        <summary>Chat Log</summary>
+        <figure>
+          <figcaption>
+            <p>
+              While not a component, the chat log plays a vital role in being the backbone of the entire chat agent system.
+              It is used for chat history, message rendering, chat saving, and could be used to provide context to either
+              Merlin or another AI model (such as ChatGPT or Claude).
+            </p>
+          </figcaption>
+          <div class="img-container">
+            <img src="assets/images/chat-log.png" alt="chat log screenshot">
+          </div>
+        </figure>
+      </details>
+    </section>
   </main>
 </article>

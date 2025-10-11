@@ -1,0 +1,31 @@
+@use "../sites.scss" as *;
+
+.hax-chat-agent-wrapper {
+  @include site-common();
+
+  summary {
+    cursor: pointer;
+  }
+
+  figure {
+    display: flex;
+    flex-direction: row;
+    margin: 4px 4px;
+
+    figcaption {
+      width: 50%;
+    }
+
+    .img-container {
+      width: 50%;
+      display: flex;
+      justify-content: center;
+
+      img {
+        max-height: 27rem;
+        max-width: 27rem;
+        width: 75%;
+      }
+    }
+  }
+}
