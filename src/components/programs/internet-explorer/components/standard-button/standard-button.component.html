@@ -1,5 +1,4 @@
 <button class="standard-button-wrapper" (mouseover)="hovered = true" (mouseleave)="hovered = false">
-  <!-- TODO add touch support -->
   <div class="img">
     <img src="assets/icons/internet-explorer/gray-{{ buttonName }}-button.svg" alt="gray {{ buttonName }} icon" [class.visible]="!hovered" />
     <img src="assets/icons/internet-explorer/{{ buttonName }}-button.svg" alt="{{ buttonName }} icon" [class.visible]="hovered" />

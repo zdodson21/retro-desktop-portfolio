@@ -123,7 +123,6 @@
           <input #addressBarInput type="text" name="address-bar" id="address-bar" (keypress)="inputKeyInputHelper($event)" data-1p-ignore data-lpignore="true" />
         </div>
         <button (mouseover)="goButtonHovered = true" (mouseleave)="goButtonHovered = false" (click)="goButtonHelper()">
-          <!-- TODO needs touch support -->
           <img src="assets/icons/internet-explorer/gray-go-button.svg" alt="gray go button" [class.visible]="goButtonHovered === false" />
           <img src="assets/icons/internet-explorer/go-button.svg" alt="go button" [class.visible]="goButtonHovered" />
           <p>Go</p>
@@ -142,7 +141,7 @@
 
                 <div class="content">
                   <div class="input-container">
-                    <input #searchBarInput type="text" name="search-box" id="search-box" (keypress)="searchHelper()" />
+                    <input #searchBarInput type="text" name="search-box" id="search-box" (keyup)="searchHelper()" />
                   </div>
 
                   <ul>
@@ -238,7 +237,6 @@
         <div class="box"></div>
         <div class="connection">
           @if (['hax-audit', 'hax-chat-agent', 'open-source-contributions'].includes(displayedSite())) {
-            <!-- TODO might want to change this based on certain domains -->
             <img src="assets/icons/internet-explorer/internet-globe.svg" alt="internet icon" />
             <p>Internet</p>
           } @else if (!dnsContainsSite(displayedSite())) {

@@ -3,6 +3,7 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
 import { AppService } from '../../../app/app.service';
 import { WindowFrameComponent } from '../../window-frame/window-frame.component';
 import { WindowService } from '../../../services/window/window.service';
+import { SystemService } from '../../../services/system/system.service';
 
 @Component({
   selector: 'welcome',
@@ -13,6 +14,7 @@ import { WindowService } from '../../../services/window/window.service';
 export class WelcomeComponent {
   private store: AppService = inject(AppService);
   private windowService: WindowService = inject(WindowService);
+  protected systemService: SystemService = inject(SystemService);
 
   private router: Router = inject(Router);
   private route: ActivatedRoute = inject(ActivatedRoute);

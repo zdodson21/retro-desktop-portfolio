@@ -174,9 +174,6 @@ export class ProgramsWrapperComponent {
           iconPath: 'assets/icons/windows-explorer.svg',
         });
       }
-
-      // TODO check params, if only one item in params then focus should be set to that item
-      // if multiple items, set focus to the last item in params
     });
   }
 }

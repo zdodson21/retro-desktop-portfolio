@@ -4,7 +4,7 @@
   @include program-common();
 
   window-frame {
-    width: 475px; // TODO figure out a solution for mobile devices
+    width: 475px;
     height: 475px;
     @include mobile-viewport();
   }

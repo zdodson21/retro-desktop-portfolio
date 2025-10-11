@@ -2,6 +2,7 @@
 @use "../programs.scss" as *;
 @use "../../../colors.scss" as *;
 @use "../../ui/control-button.scss" as *;
+@use "../../../font.scss" as *;
 
 .welcome-wrapper {
   @include program-common();
@@ -50,12 +51,20 @@
             flex-direction: row;
             overflow: scroll;
 
+            &.mobile {
+              padding: 0px;
+            }
+
             .icon {
               @include icon-common();
               width: 32px;
 
               img {
                 width: 32px;
+              }
+
+              &.mobile {
+                display: none;
               }
             }
 
@@ -64,6 +73,7 @@
               display: flex;
               flex-direction: column;
               margin-left: 24px;
+              @include font-readability();
 
               .header {
                 display: flex;
@@ -75,6 +85,10 @@
               .tip {
                 height: calc(100% - 40px);
                 padding-right: 15%;
+              }
+
+              &.mobile {
+                width: 100%;
               }
             }
           }

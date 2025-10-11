@@ -301,7 +301,6 @@ export class InternetExplorerComponent {
    * @description called when search function input detects keypress, updaing search results array to display any matches
    */
   protected searchHelper() {
-    // TODO updating on certain conditions, ensure it works on backspace too
     this.searchResults = [];
 
     let inputVal = this.searchBarInput?.nativeElement.value;
