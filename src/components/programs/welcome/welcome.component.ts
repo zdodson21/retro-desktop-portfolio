@@ -1,4 +1,4 @@
-import { Component, inject, signal, WritableSignal } from '@angular/core';
+import { Component, ElementRef, inject, signal, ViewChild, WritableSignal } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { AppService } from '../../../app/app.service';
 import { WindowFrameComponent } from '../../window-frame/window-frame.component';
@@ -12,6 +12,7 @@ import { SystemService } from '../../../services/system/system.service';
   styleUrl: './welcome.component.scss',
 })
 export class WelcomeComponent {
+  @ViewChild('checkBox') private checkBox?: ElementRef<HTMLInputElement>;
   private store: AppService = inject(AppService);
   private windowService: WindowService = inject(WindowService);
   protected systemService: SystemService = inject(SystemService);
@@ -29,6 +30,10 @@ export class WelcomeComponent {
     'You can open Internet Explorer to view my "About Me" and Project pages. Internet Explorer can be accessed from the Desktop or Start Menu. These pages can also be accessed by locating and double clicking them within Windows Explorer.',
   ];
   protected tipDisplayIndex: WritableSignal<number> = signal(0);
+
+  ngOnInit() {
+    if (localStorage.getItem("openWelcomeOnStartup") === null) localStorage.setItem("openWelcomeOnStartup", "yes");
+  }
 
   /**
    * @description Navigate user to Zach's GitHub repo release page for this project
@@ -69,6 +74,20 @@ export class WelcomeComponent {
   }
 
   // TODO add logic for modifying local storage values
+  protected checkboxInput(): void {
+    // Detect if checked or unchecked. Set localStorage based on that
+    if (this.checkBox?.nativeElement.checked) {
+      localStorage.setItem("openWelcomeOnStartup", "yes");
+    } else {
+      localStorage.setItem("openWelcomeOnStartup", "no");
+    }
+  }
+
+  protected setChecked(): boolean {
+    if (localStorage.getItem("openWelcomeOnStartup") === null || localStorage.getItem("openWelcomeOnStartup") === "yes") return true;
+
+    return false;
+  }
 
   /**
    * @description Handles close button logic, closes window

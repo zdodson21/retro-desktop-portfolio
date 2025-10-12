@@ -31,7 +31,7 @@ export class AppComponent {
   private route: ActivatedRoute = inject(ActivatedRoute);
 
   constructor() {
-    let openWelcome: string | null = localStorage.getItem("openWelcomeOnStart");
+    let openWelcome: string | null = localStorage.getItem("openWelcomeOnStartup");
     setTimeout(() => {
       const CURRENT_PARAMS: Params = { ...this.route.snapshot.queryParams }
       if (Object.keys(CURRENT_PARAMS).length === 0 && (openWelcome === null || openWelcome === "yes")) {
