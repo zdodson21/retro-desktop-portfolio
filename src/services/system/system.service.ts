@@ -82,4 +82,8 @@ export class SystemService {
   public systemCores: number = navigator.hardwareConcurrency;
 
   public webAddress: string = `${globalThis.location.protocol}//${globalThis.location.host}`;
+
+  public localStorageValues: Array<string> = [
+    "openWelcomeOnStartup", // 0
+  ]
 }

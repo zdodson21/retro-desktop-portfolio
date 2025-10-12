@@ -1,9 +1,9 @@
 import { Component, ElementRef, inject, signal, ViewChild, WritableSignal } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { AppService } from '../../../app/app.service';
-import { WindowFrameComponent } from '../../window-frame/window-frame.component';
-import { WindowService } from '../../../services/window/window.service';
 import { SystemService } from '../../../services/system/system.service';
+import { WindowService } from '../../../services/window/window.service';
+import { WindowFrameComponent } from '../../window-frame/window-frame.component';
 
 @Component({
   selector: 'welcome',
@@ -32,7 +32,9 @@ export class WelcomeComponent {
   protected tipDisplayIndex: WritableSignal<number> = signal(0);
 
   ngOnInit() {
-    if (localStorage.getItem("openWelcomeOnStartup") === null) localStorage.setItem("openWelcomeOnStartup", "yes");
+    if (localStorage.getItem(this.systemService.localStorageValues[0]) === null) {
+      localStorage.setItem(this.systemService.localStorageValues[0], 'yes');
+    }
   }
 
   /**
@@ -77,14 +79,19 @@ export class WelcomeComponent {
   protected checkboxInput(): void {
     // Detect if checked or unchecked. Set localStorage based on that
     if (this.checkBox?.nativeElement.checked) {
-      localStorage.setItem("openWelcomeOnStartup", "yes");
+      localStorage.setItem(this.systemService.localStorageValues[0], 'yes');
     } else {
-      localStorage.setItem("openWelcomeOnStartup", "no");
+      localStorage.setItem(this.systemService.localStorageValues[0], 'no');
     }
   }
 
   protected setChecked(): boolean {
-    if (localStorage.getItem("openWelcomeOnStartup") === null || localStorage.getItem("openWelcomeOnStartup") === "yes") return true;
+    if (
+      localStorage.getItem(this.systemService.localStorageValues[0]) === null ||
+      localStorage.getItem(this.systemService.localStorageValues[0]) === 'yes'
+    ) {
+      return true;
+    }
 
     return false;
   }
