@@ -6,4 +6,8 @@ import { Injectable, signal, WritableSignal } from '@angular/core';
 export class SettingsService {
   public isSoundEnabled: WritableSignal<boolean> = signal(false);
   public customBackgroundColor: WritableSignal<string> = signal('');
+
+  public localStorageValues: Array<string> = [
+    "openWelcomeOnStartup", // 0
+  ]
 }

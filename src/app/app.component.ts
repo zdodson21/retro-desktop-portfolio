@@ -1,4 +1,4 @@
-import { Component, effect, HostListener, inject } from '@angular/core';
+import { Component, HostListener, inject } from '@angular/core';
 import { ActivatedRoute, Params, Router, RouterOutlet } from '@angular/router';
 import { AlertShutdownComponent } from '../components/alerts/alert-shutdown/alert-shutdown.component';
 import { DesktopEnvironmentComponent } from '../components/desktop/desktop-environment/desktop-environment.component';
@@ -8,6 +8,7 @@ import { StartMenuComponent } from '../components/start/start-menu/start-menu.co
 import { TaskbarBaseComponent } from '../components/taskbar/taskbar-base/taskbar-base.component';
 import { SystemService } from '../services/system/system.service';
 import { AppService } from './app.service';
+import { SettingsService } from '../services/settings/settings.service';
 
 @Component({
   selector: 'app-root',
@@ -26,12 +27,13 @@ import { AppService } from './app.service';
 export class AppComponent {
   protected store: AppService = inject(AppService);
   private systemService: SystemService = inject(SystemService);
+  private settings: SettingsService = inject(SettingsService);
 
   private router: Router = inject(Router);
   private route: ActivatedRoute = inject(ActivatedRoute);
 
   constructor() {
-    let openWelcome: string | null = localStorage.getItem(this.systemService.localStorageValues[0]);
+    let openWelcome: string | null = localStorage.getItem(this.settings.localStorageValues[0]);
     setTimeout(() => {
       const CURRENT_PARAMS: Params = { ...this.route.snapshot.queryParams }
       if (Object.keys(CURRENT_PARAMS).length === 0 && (openWelcome === null || openWelcome === "yes")) {

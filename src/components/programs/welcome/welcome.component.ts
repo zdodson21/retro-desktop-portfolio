@@ -4,6 +4,7 @@ import { AppService } from '../../../app/app.service';
 import { SystemService } from '../../../services/system/system.service';
 import { WindowService } from '../../../services/window/window.service';
 import { WindowFrameComponent } from '../../window-frame/window-frame.component';
+import { SettingsService } from '../../../services/settings/settings.service';
 
 @Component({
   selector: 'welcome',
@@ -16,6 +17,7 @@ export class WelcomeComponent {
   private store: AppService = inject(AppService);
   private windowService: WindowService = inject(WindowService);
   protected systemService: SystemService = inject(SystemService);
+  private settings: SettingsService = inject(SettingsService);
 
   private router: Router = inject(Router);
   private route: ActivatedRoute = inject(ActivatedRoute);
@@ -32,8 +34,8 @@ export class WelcomeComponent {
   protected tipDisplayIndex: WritableSignal<number> = signal(0);
 
   ngOnInit() {
-    if (localStorage.getItem(this.systemService.localStorageValues[0]) === null) {
-      localStorage.setItem(this.systemService.localStorageValues[0], 'yes');
+    if (localStorage.getItem(this.settings.localStorageValues[0]) === null) {
+      localStorage.setItem(this.settings.localStorageValues[0], 'yes');
     }
   }
 
@@ -79,16 +81,16 @@ export class WelcomeComponent {
   protected checkboxInput(): void {
     // Detect if checked or unchecked. Set localStorage based on that
     if (this.checkBox?.nativeElement.checked) {
-      localStorage.setItem(this.systemService.localStorageValues[0], 'yes');
+      localStorage.setItem(this.settings.localStorageValues[0], 'yes');
     } else {
-      localStorage.setItem(this.systemService.localStorageValues[0], 'no');
+      localStorage.setItem(this.settings.localStorageValues[0], 'no');
     }
   }
 
   protected setChecked(): boolean {
     if (
-      localStorage.getItem(this.systemService.localStorageValues[0]) === null ||
-      localStorage.getItem(this.systemService.localStorageValues[0]) === 'yes'
+      localStorage.getItem(this.settings.localStorageValues[0]) === null ||
+      localStorage.getItem(this.settings.localStorageValues[0]) === 'yes'
     ) {
       return true;
     }
