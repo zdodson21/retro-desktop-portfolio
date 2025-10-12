@@ -15,6 +15,6 @@ export class SettingsService {
         * "yes": displays welcome program on start up | (set by default on first page visit).
         * "no": prevents display of welcome program on start up.
     */
-    "openWelcomeOnStartup", // 0
-  ]
+    'openWelcomeOnStartup', // 0
+  ];
 }

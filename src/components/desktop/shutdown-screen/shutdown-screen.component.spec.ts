@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { ShutdownScreenComponent } from './shutdown-screen.component';
 
 describe('ShutdownScreenComponent', () => {

@@ -35,11 +35,11 @@ export class AppComponent {
   constructor() {
     let openWelcome: string | null = localStorage.getItem(this.settings.localStorageValues[0]);
     setTimeout(() => {
-      const CURRENT_PARAMS: Params = { ...this.route.snapshot.queryParams }
-      if (Object.keys(CURRENT_PARAMS).length === 0 && (openWelcome === null || openWelcome === "yes")) {
+      const CURRENT_PARAMS: Params = { ...this.route.snapshot.queryParams };
+      if (Object.keys(CURRENT_PARAMS).length === 0 && (openWelcome === null || openWelcome === 'yes')) {
         this.router.navigate(['programs'], {
           relativeTo: this.route,
-          queryParams: {welcome: ''},
+          queryParams: { welcome: '' },
           replaceUrl: true,
         });
       }

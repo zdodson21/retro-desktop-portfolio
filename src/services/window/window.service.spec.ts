@@ -15,10 +15,10 @@ describe('WindowService', () => {
   });
 
   it('should not contain any open programs', () => {
-    expect(service.openPrograms()).toEqual([]);
+    expect(service.openPrograms.length).toEqual(0);
   });
 
   it('should not contain any minimized programs', () => {
-    expect(service.minimizedPrograms()).toEqual([]);
+    expect(service.minimizedPrograms.length).toEqual(0);
   });
 });

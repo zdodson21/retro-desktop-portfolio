@@ -17,4 +17,18 @@ describe('SystemService', () => {
   it('should return browser as Google Chrome', () => {
     expect(service.getBrowser()).toEqual('Google Chrome');
   });
+
+  it('should acquire userAgent properly', () => {
+    expect(service.userAgent).toEqual(navigator.userAgent);
+  });
+
+  describe('Viewport', () => {
+    it('should acquire width properly', () => {
+      expect(service.viewportWidth()).toEqual(globalThis.innerWidth);
+    });
+
+    it('should acquire height properly', () => {
+      expect(service.viewportHeight()).toEqual(globalThis.innerHeight);
+    });
+  });
 });

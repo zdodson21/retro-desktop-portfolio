@@ -1,7 +1,6 @@
 @use "../sites.scss" as *;
 
 @mixin set-img-size($max-width: 100%) {
-
   max-width: $max-width;
   margin: 0px calc((100% - $max-width) / 2);
 
@@ -111,7 +110,8 @@
       align-items: center;
       gap: 12px;
 
-      figcaption, p {
+      figcaption,
+      p {
         width: 100%;
       }
 
@@ -160,7 +160,6 @@
           }
         }
       }
-
     }
   }
 }

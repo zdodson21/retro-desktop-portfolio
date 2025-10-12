@@ -4,7 +4,7 @@ import { Injectable, WritableSignal, signal } from '@angular/core';
   providedIn: 'root',
 })
 export class SystemService {
-  private userAgent: string = navigator.userAgent;
+  public userAgent: string = navigator.userAgent;
 
   public viewportWidth: WritableSignal<number> = signal(globalThis.innerWidth);
   public viewportHeight: WritableSignal<number> = signal(globalThis.innerHeight);

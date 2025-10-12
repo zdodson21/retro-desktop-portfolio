@@ -38,7 +38,7 @@
         <ul>
           @for (item of settings.localStorageValues; track $index) {
             <em>{{ item }}</em>
-            = {{getLocalStorageVal(item)}}
+            = {{ getLocalStorageVal(item) }}
           }
         </ul>
       </figure>
