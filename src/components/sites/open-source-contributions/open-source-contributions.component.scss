@@ -1,0 +1,5 @@
+@use "../sites.scss" as *;
+
+.osc-wrapper {
+  @include site-common();
+}
