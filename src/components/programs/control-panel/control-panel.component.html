@@ -1,7 +1,9 @@
 <div class="control-panel-wrapper">
   <window-frame window-title="Control Panel" focus-name="control-panel" window-icon="assets/icons/control-panel.svg" [percent-width]="30" [percent-height]="80">
     <div class="frame-contents">
-      <div class="padding"></div>
+      <div class="padding">
+        <button (click)="clearLocalStorage()">Reset Web Application</button>
+      </div>
     </div>
   </window-frame>
 </div>

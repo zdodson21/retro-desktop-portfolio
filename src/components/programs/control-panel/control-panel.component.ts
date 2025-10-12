@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { WindowFrameComponent } from '../../window-frame/window-frame.component';
+import { SystemService } from '../../../services/system/system.service';
 
 @Component({
   selector: 'control-panel',
@@ -7,4 +8,17 @@ import { WindowFrameComponent } from '../../window-frame/window-frame.component'
   templateUrl: './control-panel.component.html',
   styleUrl: './control-panel.component.scss',
 })
-export class ControlPanelComponent {}
+export class ControlPanelComponent {
+  private systemService: SystemService = inject(SystemService);
+
+  protected setColor(): void {
+    localStorage.setItem('backgroundColor', '#FFFF00');
+  }
+
+  protected clearLocalStorage(): void {
+    if (globalThis.confirm('This will reset this web application back to its initial state. Continue?')) {
+      localStorage.clear();
+      globalThis.location.href = this.systemService.webAddress;
+    }
+  }
+}

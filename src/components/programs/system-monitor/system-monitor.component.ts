@@ -14,4 +14,6 @@ export class SystemMonitorComponent {
   protected store: AppService = inject(AppService);
   protected systemService: SystemService = inject(SystemService);
   protected windowService: WindowService = inject(WindowService);
+
+  protected localStorage = { ...localStorage }
 }
