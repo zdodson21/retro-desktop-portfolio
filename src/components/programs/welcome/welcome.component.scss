@@ -28,9 +28,11 @@
 
         .top {
           height: 15%;
-          overflow: hidden;
           text-wrap: nowrap;
-          // TODO font needs to be changed or switched to SVG
+          h1 {
+            overflow-x: hidden;
+            text-overflow: ellipsis;
+          }
         }
 
         .middle {
@@ -49,7 +51,7 @@
             padding: 28px;
             display: flex;
             flex-direction: row;
-            overflow: scroll;
+            overflow: auto;
 
             &.mobile {
               padding: 0px;

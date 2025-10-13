@@ -301,7 +301,7 @@ $status-bar-height: 5%;
               height: calc(100% - 32px);
               background-color: white;
               padding: 4px;
-              overflow-y: scroll;
+              overflow-y: auto;
 
               .input-container {
                 display: flex;
@@ -346,7 +346,7 @@ $status-bar-height: 5%;
           background-color: white;
           height: 100%;
           width: 100%;
-          overflow: scroll;
+          overflow: auto;
           border-width: 2px;
           border-color: #3f3f3f #ebebeb #ebebeb #3f3f3f;
           border-style: inset;

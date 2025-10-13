@@ -20,7 +20,7 @@
         height: calc(100% - 40px);
         display: flex;
         flex-direction: column;
-        overflow-y: scroll;
+        overflow-y: auto;
 
         .top {
           margin-bottom: 20px;

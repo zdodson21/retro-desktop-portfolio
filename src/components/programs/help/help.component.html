@@ -20,8 +20,6 @@
               <help-button (click)="setCurrentTopic(4)" [active]="currentTopic() === 4">Why use extra tech?</help-button>
 
               <help-button (click)="setCurrentTopic(5)" [active]="currentTopic() === 5">Will this website be updated?</help-button>
-
-              <help-button (click)="setCurrentTopic(6)" [active]="currentTopic() === 6">Why do scroll bars always appear in Opera? It makes the UI look bad!</help-button>
             </div>
           </div>
 
@@ -47,11 +45,6 @@
               @case (5) {
                 <!-- Updates? -->
                 <p>I intend to update this site periodically with new projects (both interactive and text descriptions). Mainly just whenever I feel like making something new. I currently have plans to recreate a few programs (such as Calculator and Paint), since they can teach me quite a bit for front-end and back-end development. They will be developed in branches (viewable on GitHub) and merged into the main branch when completed.</p>
-              }
-              @case (6) {
-                <!-- Opera Scroll Bars -->
-                <p>I do everything I can to develop for browsers (even those with low market share), because I believe your experience shouldn't differ based on the browser you use. Unfortunately cannot change this behavior, Opera tends to be a UI nightmare when it comes to cross-browser web development because some styles work drastically differently compared to other web browsers.</p>
-                <p>I will update this help page if I discover a way to change this setting in the Opera browser. For now, I suggest using a different browser if it affects your experience.</p>
               }
               @default {}
             }
