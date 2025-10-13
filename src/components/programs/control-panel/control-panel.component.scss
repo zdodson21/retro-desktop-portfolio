@@ -1,5 +1,6 @@
 @use "../../../styles.scss" as *;
 @use "../programs.scss" as *;
+@use "../../ui/control-button.scss" as *;
 
 .control-panel-wrapper {
   @include program-common();
@@ -12,6 +13,21 @@
     .frame-contents {
       @include text-common();
       @include frame-contents-common();
+
+      .padding {
+        padding: 8px;
+
+        button {
+          @include control-button-common();
+          width: 140px;
+        }
+
+        .reset-site {
+          display: flex;
+          width: 100%;
+          justify-content: center;
+        }
+      }
     }
   }
 }

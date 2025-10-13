@@ -2,7 +2,14 @@
   <window-frame window-title="Control Panel" focus-name="control-panel" window-icon="assets/icons/control-panel.svg" [percent-width]="30" [percent-height]="80">
     <div class="frame-contents">
       <div class="padding">
-        <button (click)="clearLocalStorage()">Reset Web Application</button>
+        <!-- TODO in future add area to change background color. Will need local storage -->
+        <div class="reset-site">
+          <button (click)="clearLocalStorage()">
+            <span>
+              Reset Web Application
+            </span>
+          </button>
+        </div>
       </div>
     </div>
   </window-frame>

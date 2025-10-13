@@ -81,7 +81,7 @@
           height: 24px;
 
           button {
-            @include control-button-common();
+            @include control-button-common(8px);
             width: 72px;
             height: 24px;
           }
