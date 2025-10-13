@@ -18,8 +18,6 @@ describe('SystemService', () => {
   });
 
   it('desktopMode should be 0 by default', () => {
-    expect(service.desktopMode()).toBe(0); // TODO difference between toBe and toEqual
+    expect(service.desktopMode()).toBe(0);
   });
-
-  // TODO test to ensure it changes when shutdown is pressed in shutdown menu?
 });

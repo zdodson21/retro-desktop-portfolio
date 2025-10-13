@@ -343,4 +343,11 @@ export class InternetExplorerComponent {
       .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
       .join(' ');
   }
+
+  /**
+   * @description opens share menu on mobile devices (Android & iOS)
+   */
+  protected openShareMenu() {
+    navigator.share({url: this.systemService.webAddress});
+  }
 }
