@@ -170,7 +170,7 @@
                     @for (site of IEService.possibleSites; track $index) {
                       <li>
                         <img src="assets/icons/html-file.svg" alt="html file icon" />
-                        <ie-route domain="{{ site.domain }}" tld="{{ site.tld }}" [not-in-site]="true" />
+                        <ie-route domain="{{ site.domain }}" tld="{{ site.tld }}" [not-in-site]="true" (click)="scrollToTop()" />
                       </li>
                     }
                   </ul>

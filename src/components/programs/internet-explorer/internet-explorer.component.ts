@@ -49,7 +49,7 @@ import { SystemService } from '../../../services/system/system.service';
 export class InternetExplorerComponent {
   @ViewChild('windowFrame') private windowFrame?: WindowFrameComponent;
   @ViewChild('addressBarInput') private addressBarInput?: ElementRef<HTMLInputElement>;
-  @ViewChild('siteContent') private siteContent?: ElementRef<HTMLElement>;
+  @ViewChild('siteContent') protected siteContent?: ElementRef<HTMLElement>;
   @ViewChild('searchBarInput') private searchBarInput?: ElementRef<HTMLInputElement>;
 
   private route: ActivatedRoute = inject(ActivatedRoute);
@@ -124,8 +124,12 @@ export class InternetExplorerComponent {
     if (this.IEService.displayedSite() !== this.parseAddressURL()) {
       this.routerNavigator(this.parseAddressURL());
     } else {
-      this.siteContent?.nativeElement.scrollTo(0, 0);
+      this.scrollToTop();
     }
+  }
+
+  protected scrollToTop(): void {
+    this.siteContent?.nativeElement.scrollTo(0, 0);
   }
 
   /**
