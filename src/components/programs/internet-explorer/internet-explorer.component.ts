@@ -58,7 +58,7 @@ export class InternetExplorerComponent {
   protected IEService: InternetExplorerService = inject(InternetExplorerService);
   protected systemService: SystemService = inject(SystemService);
   protected sidebarContent: number = 0; // 0 = search, 1 = favorites, 2 = history
-  protected displayedSite: WritableSignal<string> = signal('about-me');
+  // protected displayedSite: WritableSignal<string> = signal('about-me');
   protected statusBarContent: string = 'Ready';
   protected goButtonHovered: boolean = false;
   protected searchResults: DNS = [];
@@ -69,19 +69,19 @@ export class InternetExplorerComponent {
       const IE_PARAM = params.get('internet-explorer');
 
       if (IE_PARAM && this.dnsContainsSite(IE_PARAM)) {
-        this.displayedSite.set(IE_PARAM);
+        this.IEService.displayedSite.set(IE_PARAM);
         this.setWindowTitle(IE_PARAM);
         this.setAddressBar(IE_PARAM, this.getTLD(IE_PARAM));
         this.addToHistory(IE_PARAM, this.getTLD(IE_PARAM));
       } else if (!IE_PARAM) {
-        this.displayedSite.set('');
+        this.IEService.displayedSite.set('');
         this.setWindowTitle('Secret Site');
         this.setAddressBar('', 'secret', true);
       } else if (IE_PARAM === 'error') {
-        this.displayedSite.set('error');
+        this.IEService.displayedSite.set('error');
         this.setWindowTitle('Cannot find webpage');
       } else {
-        this.displayedSite.set('error');
+        this.IEService.displayedSite.set('error');
         this.setWindowTitle('Cannot find webpage');
         this.setAddressBar(IE_PARAM, 'error');
       }
@@ -121,7 +121,7 @@ export class InternetExplorerComponent {
    * @description navigate "site" content to top of content
    */
   protected refreshButtonHelper(): void {
-    if (this.displayedSite() !== this.parseAddressURL()) {
+    if (this.IEService.displayedSite() !== this.parseAddressURL()) {
       this.routerNavigator(this.parseAddressURL());
     } else {
       this.siteContent?.nativeElement.scrollTo(0, 0);
@@ -145,16 +145,16 @@ export class InternetExplorerComponent {
    * @description Open user's email client with current URL plus current internet-explorer route. Eliminate other routes for email URL.
    */
   protected mailButtonHelper(): void {
-    if (!this.dnsContainsSite(this.displayedSite())) {
+    if (!this.dnsContainsSite(this.IEService.displayedSite())) {
       if (globalThis.confirm('An error page is currently being displayed, are you sure you wish it in an email?')) {
         globalThis.open(
-          `mailto:person?subject=Check%20Out%20This%20Webpage&body=${this.systemService.webAddress}/programs?internet-explorer=${this.displayedSite()}`,
+          `mailto:person?subject=Check%20Out%20This%20Webpage&body=${this.systemService.webAddress}/programs?internet-explorer=${this.IEService.displayedSite()}`,
           '_blank',
         );
       }
     } else {
       globalThis.open(
-        `mailto:person?subject=Check%20Out%20This%20Webpage&body=${this.systemService.webAddress}/programs?internet-explorer=${this.displayedSite()}`,
+        `mailto:person?subject=Check%20Out%20This%20Webpage&body=${this.systemService.webAddress}/programs?internet-explorer=${this.IEService.displayedSite()}`,
         '_blank',
       );
     }

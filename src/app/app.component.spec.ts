@@ -94,4 +94,6 @@ describe('AppComponent', () => {
       // TODO probably better to ensure it has both the class AND is display: none
     });
   });
+
+  // TODO test to ensure every site can be created in the print selection???
 });

@@ -12,5 +12,30 @@
 <msdos-prompt [class.visible]="this.store.desktopMode() === 2" />
 
 <div class="print-selection">
-  <about-me />
+  @switch (IEService.displayedSite()) {
+    @case ('about-me') {
+      <about-me />
+    }
+    @case ('hax-audit') {
+      <hax-audit />
+    }
+    @case ('hax-chat-agent') {
+      <hax-chat-agent />
+    }
+    @case ('open-source-contributions') {
+      <open-source-contributions />
+    }
+    @case ('retro-desktop-portfolio') {
+      <retro-desktop-portfolio />
+    }
+    @case ('') {
+      <secret-site />
+    }
+    @case ('small-projects') {
+      <small-projects />
+    }
+    @default {
+      <error-site />
+    }
+  }
 </div>

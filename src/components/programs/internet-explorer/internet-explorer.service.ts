@@ -9,6 +9,7 @@ export class InternetExplorerService {
   public statusBarContent: WritableSignal<string> = signal('Ready');
   public browserHistory: WritableSignal<DNS> = signal([]);
   public sidebar: WritableSignal<boolean> = signal(false);
+  public displayedSite: WritableSignal<string> = signal('about-me');
 
   /*
     List:

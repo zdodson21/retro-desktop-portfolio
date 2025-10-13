@@ -1,25 +1,18 @@
-// TODO refine to print site content perfectly
-
-@media print {
-  .print-selection {
-    max-height: none !important;
-    height: auto !important;
-    overflow: visible !important;
-  }
-
-  .app-wrapper {
-    display: none !important;
-  }
-}
-
 @mixin test-print() {
   .print-selection {
+    display: block !important;
     max-height: none !important;
     height: auto !important;
     overflow: visible !important;
+    position: absolute !important;
   }
 
   .app-wrapper {
     display: none !important;
   }
 }
+
+@media print {
+  @include test-print();
+}
+

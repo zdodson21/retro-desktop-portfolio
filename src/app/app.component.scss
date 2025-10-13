@@ -84,4 +84,8 @@ msdos-prompt {
   @include extra-screen-defaults();
 }
 
+.print-selection {
+  display: none;
+}
+
 // @include test-print();

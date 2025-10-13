@@ -197,7 +197,7 @@
         </div>
 
         <div #siteContent class="site-content">
-          @switch (displayedSite()) {
+          @switch (IEService.displayedSite()) {
             @case ('about-me') {
               <about-me />
             }
@@ -236,10 +236,10 @@
         <div class="box"></div>
         <div class="box"></div>
         <div class="connection">
-          @if (['hax-audit', 'hax-chat-agent', 'open-source-contributions'].includes(displayedSite())) {
+          @if (['hax-audit', 'hax-chat-agent', 'open-source-contributions'].includes(IEService.displayedSite())) {
             <img src="assets/icons/internet-explorer/internet-globe.svg" alt="internet icon" />
             <p>Internet</p>
-          } @else if (!dnsContainsSite(displayedSite())) {
+          } @else if (!dnsContainsSite(IEService.displayedSite())) {
             <img src="assets/icons/internet-explorer/connection-issue.svg" alt="error icon" />
             <p>Connection Error</p>
           } @else {

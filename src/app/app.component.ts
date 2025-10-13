@@ -10,6 +10,14 @@ import { SystemService } from '../services/system/system.service';
 import { AppService } from './app.service';
 import { SettingsService } from '../services/settings/settings.service';
 import { AboutMeSite } from '../components/sites/about-me/about-me.component';
+import { InternetExplorerService } from '../components/programs/internet-explorer/internet-explorer.service';
+import { ErrorSite } from '../components/sites/error-site/error-site.component';
+import { HaxAuditSite } from '../components/sites/hax-audit/hax-audit.component';
+import { HaxChatAgentSite } from '../components/sites/hax-chat-agent/hax-chat-agent.component';
+import { OpenSourceContributionsSite } from '../components/sites/open-source-contributions/open-source-contributions.component';
+import { RetroDesktopPortfolioSite } from '../components/sites/retro-desktop-portfolio/retro-desktop-portfolio.component';
+import { SecretSite } from '../components/sites/secret-site/secret-site.component';
+import { SmallProjectsSite } from '../components/sites/small-projects/small-projects.component';
 
 @Component({
   selector: 'app-root',
@@ -21,7 +29,14 @@ import { AboutMeSite } from '../components/sites/about-me/about-me.component';
     RouterOutlet,
     ShutdownScreenComponent,
     MsdosPromptComponent,
-    AboutMeSite
+    AboutMeSite,
+    ErrorSite,
+    HaxAuditSite,
+    HaxChatAgentSite,
+    OpenSourceContributionsSite,
+    RetroDesktopPortfolioSite,
+    SecretSite,
+    SmallProjectsSite
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
@@ -29,6 +44,7 @@ import { AboutMeSite } from '../components/sites/about-me/about-me.component';
 export class AppComponent {
   protected store: AppService = inject(AppService);
   private systemService: SystemService = inject(SystemService);
+  protected IEService: InternetExplorerService = inject(InternetExplorerService);
   private settings: SettingsService = inject(SettingsService);
 
   private router: Router = inject(Router);
