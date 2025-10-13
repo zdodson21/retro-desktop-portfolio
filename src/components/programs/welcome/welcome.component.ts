@@ -77,9 +77,7 @@ export class WelcomeComponent {
     this.tipDisplayIndex.set(previousIndex);
   }
 
-  // TODO add logic for modifying local storage values
   protected checkboxInput(): void {
-    // Detect if checked or unchecked. Set localStorage based on that
     if (this.checkBox?.nativeElement.checked) {
       localStorage.setItem(this.settings.localStorageValues[0], 'yes');
     } else {

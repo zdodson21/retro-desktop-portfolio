@@ -28,8 +28,6 @@
       z-index: 99999999;
     }
   }
-
-  // TODO add support for various starting positions of window-frame. If I can input number into mixin, then 0 is center, 1 is top middle, go around clock wise 1 - 8
 }
 
 @mixin frame-contents-common {

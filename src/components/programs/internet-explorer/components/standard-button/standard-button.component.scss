@@ -13,12 +13,8 @@ button {
     margin-bottom: 2px;
 
     img {
-      display: none;
+      display: block;
       @include icon-common();
-
-      &.visible {
-        display: block;
-      }
     }
   }
 }

@@ -16,7 +16,7 @@ export class FileIconComponent {
   @Input({ alias: 'assoc-prog-name' }) public associatedProgramName: string;
   @Input({ alias: 'assoc-prog-icon-src' }) public associatedProgramIcon: string;
   @Input({ alias: 'path', required: true }) public path: string;
-  @Input({ alias: 'icon-src' }) public src: string; // TODO set this value based on file-type, not user input
+  @Input({ alias: 'icon-src' }) public src: string; // TODO set this value based on file-type, not user input. For example, if file-type === html, then path is provided from switch statement for file type
   @Input({ alias: 'file-name' }) public fileName: string;
   @Input({ alias: 'file-type' }) public fileType: string;
 

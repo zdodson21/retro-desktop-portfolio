@@ -15,11 +15,7 @@
     }
 
     img {
-      display: none;
-
-      &.visible {
-        display: block;
-      }
+      display: block;
     }
   }
 
