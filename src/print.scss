@@ -1,22 +1,25 @@
 // TODO refine to print site content perfectly
 
 @media print {
-  body * {
-    visibility: hidden;
-  }
-
-  .print-selection,
-  .print-selection[_ngcontent] {
-    visibility: visible;
+  .print-selection {
     max-height: none !important;
     height: auto !important;
     overflow: visible !important;
+  }
 
-    * {
-      visibility: visible;
-      max-height: none !important;
-      height: auto !important;
-      overflow: visible !important;
-    }
+  .app-wrapper {
+    display: none !important;
+  }
+}
+
+@mixin test-print() {
+  .print-selection {
+    max-height: none !important;
+    height: auto !important;
+    overflow: visible !important;
+  }
+
+  .app-wrapper {
+    display: none !important;
   }
 }

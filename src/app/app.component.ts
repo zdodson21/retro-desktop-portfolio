@@ -9,6 +9,7 @@ import { TaskbarBaseComponent } from '../components/taskbar/taskbar-base/taskbar
 import { SystemService } from '../services/system/system.service';
 import { AppService } from './app.service';
 import { SettingsService } from '../services/settings/settings.service';
+import { AboutMeSite } from '../components/sites/about-me/about-me.component';
 
 @Component({
   selector: 'app-root',
@@ -20,6 +21,7 @@ import { SettingsService } from '../services/settings/settings.service';
     RouterOutlet,
     ShutdownScreenComponent,
     MsdosPromptComponent,
+    AboutMeSite
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
