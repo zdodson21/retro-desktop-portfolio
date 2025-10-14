@@ -15,6 +15,12 @@
               <toolbar-item left-text="Standard" />
             </toolbar-menu>
           </toolbar-button>
+
+          <toolbar-button text="Help" [class.active]="menuFocus === 'help'" (click)="menuFocus = toolbarButtonHelper($event, 'help')" (mouseover)="toolbarHoverHelper('help')">
+            <toolbar-menu class="top-level-menu" [class.visible]="menuFocus === 'help'" (click)="store.focus.set('calculator')">
+              <toolbar-item left-text="Console Log WASM" (click)="callWasmFunctions()"/>
+            </toolbar-menu>
+          </toolbar-button>
         </div>
 
         <div class="calculator" (click)="menuFocus = ''">

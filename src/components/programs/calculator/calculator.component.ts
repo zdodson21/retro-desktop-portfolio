@@ -26,12 +26,13 @@ export class CalculatorComponent implements OnInit {
     event?.stopPropagation();
     if (button === 'edit' && this.menuFocus === '') return 'edit';
     if (button === 'view' && this.menuFocus === '') return 'view';
+    if (button === 'help' && this.menuFocus === '') return 'help';
 
     return '';
   }
 
   protected toolbarHoverHelper(button: string): void {
-    if (this.menuFocus === 'edit' || this.menuFocus === 'view') {
+    if (this.menuFocus === 'edit' || this.menuFocus === 'view' || this.menuFocus === 'help') {
       this.menuFocus = button;
     }
   }
@@ -53,7 +54,7 @@ export class CalculatorComponent implements OnInit {
 
       this.wasmExports = this.wasmInstance.exports;
 
-      this.callWasmFunctions();
+      // this.callWasmFunctions();
     } catch (error) {
       console.error(`Error loading or instantiating wasm module: ${error}`);
     }
