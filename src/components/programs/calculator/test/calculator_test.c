@@ -6,9 +6,8 @@
 // ! Standard Operations
 
 bool test_addition(void) {
-  bool test1, test2, test3;
-  test1 = test2 = test3 = true;
-  
+  bool test1 = true, test2 = true, test3 = true;
+
   if (add(2, 2) != 4) {
     test1 = false;
   }
@@ -27,8 +26,7 @@ bool test_addition(void) {
 }
 
 bool test_subtraction(void) {
-  bool test1, test2, test3;
-  test1 = test2 = test3 = true;
+  bool test1 = true, test2 = true, test3 = true;
 
   if (subtract(3, 2) != 1) {
     test1 = false;
@@ -50,6 +48,6 @@ int main(void) {
   print_bar();
   test_subtraction();
   print_bar();
-  
+
   return 0;
 }
