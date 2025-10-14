@@ -29,7 +29,8 @@
               {
                 "glob": "**/*",
                 "input": "public"
-              }
+              },
+              "src/wasm"
             ],
             "styles": [
               "src/styles.scss",
