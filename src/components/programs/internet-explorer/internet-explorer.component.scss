@@ -220,12 +220,8 @@ $status-bar-height: 5%;
           }
 
           img {
-            display: none;
+            display: block;
             @include icon-common();
-
-            &.visible {
-              display: block;
-            }
           }
         }
       }
