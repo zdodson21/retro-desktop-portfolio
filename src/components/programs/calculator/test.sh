@@ -1,1 +1,0 @@
-gcc calculator_test.c calculator.c -o calculator_test

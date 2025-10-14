@@ -45,3 +45,6 @@ Thumbs.db
 
 # Environment Variables
 .env
+
+# Compiled C Files
+calculator_test
