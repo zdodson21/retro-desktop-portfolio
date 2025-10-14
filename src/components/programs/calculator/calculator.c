@@ -1,4 +1,8 @@
-#include <emscripten.h>
+#if defined(__EMSCRIPTEN__) 
+  #include <emscripten.h>
+#else
+  #define EMSCRIPTEN_KEEPALIVE
+#endif
 
 EMSCRIPTEN_KEEPALIVE
 int add(int a, int b) {
