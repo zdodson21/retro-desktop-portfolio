@@ -1,22 +1,9 @@
 #include <stdio.h>
 #include <stdbool.h>
-#include "calculator.h"
+#include "../calculator.h"
+#include "helper.h"
 
 // TODO figure out colored text (green & red) for pass and fail respectivly
-// TODO test moving any support (basically not directly testing functions) into their own C and H files.
-// TODO might also want to just rearrange file structure, have C test file in its own test directory along with support files
-
-void print_Bar(void) {
-  printf("-------------------\n");
-}
-
-char * convertResult(bool result) {
-  if (result == true) {
-    return "Pass";
-  }
-
-  return "Fail";
-}
 
 bool test_Addition(void) {
   bool test1, test2, test3;
