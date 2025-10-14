@@ -41,10 +41,12 @@ export class CalculatorComponent implements OnInit {
     if (this.wasmExports) {
       const add = this.wasmExports.add;
       const subtract = this.wasmExports.subtract;
+      const multiply = this.wasmExports.multiply;
 
       if (typeof add === 'function' && typeof subtract === 'function') {
         console.log('Add 3 + 4:', add(3, 4));
         console.log('Subtract 7 - 4:', subtract(7, 4))
+        console.log('Multiply 7 * 3:', multiply(7, 3))
       } else {
         console.error('functions not found in WASM exports')
       }
