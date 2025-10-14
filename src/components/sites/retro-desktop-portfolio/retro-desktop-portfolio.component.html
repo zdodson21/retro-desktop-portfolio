@@ -7,11 +7,14 @@
       <img src="assets/badges/typescript.svg" alt="typescript badge" />
       <img src="assets/badges/html5.svg" alt="html 5 badge" />
       <img src="assets/badges/scss.svg" alt="scss badge" />
-      <img src="assets/badges/jasmine.svg" alt="jasmine badge" />
-      <img src="assets/badges/prettier.svg" alt="prettier badge" />
-      <img src="assets/badges/github-actions.svg" alt="github actions badge" />
+      <img src="assets/badges/c.svg" alt="c programming language badge">
+      <img src="assets/badges/wasm.svg" alt="web assembly badge">
       <img src="assets/badges/github.svg" alt="github badge" />
       <img src="assets/badges/vercel.svg" alt="vercel badge" />
+      <img src="assets/badges/github-actions.svg" alt="github actions badge" />
+      <img src="assets/badges/cmake.svg" alt="CMAKE badge" />
+      <img src="assets/badges/jasmine.svg" alt="jasmine badge" />
+      <img src="assets/badges/prettier.svg" alt="prettier badge" />
       <img src="assets/badges/cloudflare.svg" alt="cloudflare badge" />
       <img src="assets/badges/docker.svg" alt="docker badge" />
       <img src="assets/badges/electron.svg" alt="Electron.js badge" />
@@ -145,7 +148,30 @@
 
     <section class="post-release-features">
       <h2>Post Release Features:</h2>
-      <p>This section will be updated when big features are added after initial release.</p>
+
+      <section class="calculator">
+        @if (systemService.isMobile()) {
+          <h3>Calculator Program (Located in Start Menu > Mobile Program Menu)</h3>
+        } @else {
+          <h3>Calculator Program (Located in Start Menu > Programs > Accessories)</h3>
+        }
+        <nav>
+          <a-ie href="https://github.com/zdodson21/retro-desktop-portfolio/tree/main/src/components/programs/calculator">
+            Calculator Program Repository Location
+          </a-ie>
+        </nav>
+        <ul>
+          <li>
+            Utilized C programming language to write backend code for Calculator program (located within Start Menu).
+          </li>
+          <li>
+            Developed small custom testing program to ensure all functions return expected outputs.
+          </li>
+          <li>
+            Utilized CMAKE to compile both <em>calculator.c</em> file to WebAssembly for use in this web application, as well as compiling the test program.
+          </li>
+        </ul>
+      </section>
     </section>
   </main>
 </article>
