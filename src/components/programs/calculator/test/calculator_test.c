@@ -3,9 +3,9 @@
 #include "../calculator.h"
 #include "helper.h"
 
-// TODO figure out colored text (green & red) for pass and fail respectivly
+// ! Standard Operations
 
-bool test_Addition(void) {
+bool test_addition(void) {
   bool test1, test2, test3;
   test1 = test2 = test3 = true;
   
@@ -13,18 +13,20 @@ bool test_Addition(void) {
     test1 = false;
   }
 
-  printf("Add 2 + 2: %s\n", convertResult(test1));
+  printf("Add 2 + 2: %s\n", convert_result(test1));
 
   if (add(3, 2) != 5) {
     test2 = false;
   }
+
+  printf("Add 3 + 2: %s\n", convert_result(test2));
 
   if (test1 == false || test2 == false || test3 == false) {
     return false;
   }
 }
 
-bool test_Subtraction(void) {
+bool test_subtraction(void) {
   bool test1, test2, test3;
   test1 = test2 = test3 = true;
 
@@ -32,16 +34,22 @@ bool test_Subtraction(void) {
     test1 = false;
   }
 
-  printf("Subtract 3 - 2: %s\n", convertResult(test1));
+  printf("Subtract 3 - 2: %s\n", convert_result(test1));
 }
+
+// ! Scientific Operations
+
+
+
+// ! Main
 
 int main(void) {
   printf("Running tests:\n");
-  print_Bar();
-  test_Addition();
-  print_Bar();
-  test_Subtraction();
-  print_Bar();
+  print_bar();
+  test_addition();
+  print_bar();
+  test_subtraction();
+  print_bar();
   
   return 0;
 }
