@@ -1,10 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, inject, OnInit } from '@angular/core';
+import { AppService } from '../../../app/app.service';
 import { ToolbarButtonComponent } from '../../ui/toolbar/toolbar-button/toolbar-button.component';
 import { ToolbarItemComponent } from '../../ui/toolbar/toolbar-item/toolbar-item.component';
 import { ToolbarMenuComponent } from '../../ui/toolbar/toolbar-menu/toolbar-menu.component';
 import { WindowFrameComponent } from '../../window-frame/window-frame.component';
-import { AppService } from '../../../app/app.service';
 import { CalculatorButtonComponent } from './components/calculator-button/calculator-button.component';
 
 @Component({
@@ -65,11 +65,13 @@ export class CalculatorComponent implements OnInit {
       const add = this.wasmExports.add;
       const subtract = this.wasmExports.subtract;
       const multiply = this.wasmExports.multiply;
+      const divide = this.wasmExports.divide;
 
-      if (typeof add === 'function' && typeof subtract === 'function') {
+      if (typeof add === 'function' && typeof subtract === 'function' && typeof multiply === 'function' && typeof divide === 'function') {
         console.log('Add 3 + 4:', add(3, 4));
         console.log('Subtract 7 - 4:', subtract(7, 4));
         console.log('Multiply 7 * 3:', multiply(7, 3));
+        console.log('Divide 8 / 4: ', divide(8, 4));
       } else {
         console.error('functions not found in WASM exports');
       }
