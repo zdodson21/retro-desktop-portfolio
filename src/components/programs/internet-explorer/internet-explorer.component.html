@@ -126,8 +126,7 @@
           <input #addressBarInput type="text" name="address-bar" id="address-bar" (keypress)="inputKeyInputHelper($event)" data-1p-ignore data-lpignore="true" />
         </div>
         <button (mouseover)="goButtonHovered = true" (mouseleave)="goButtonHovered = false" (click)="goButtonHelper()">
-          <img src="assets/icons/internet-explorer/gray-go-button.svg" alt="gray go button" [class.visible]="goButtonHovered === false" />
-          <img src="assets/icons/internet-explorer/go-button.svg" alt="go button" [class.visible]="goButtonHovered" />
+          <img [src]="goButtonHovered ? 'assets/icons/internet-explorer/go-button.svg' : 'assets/icons/internet-explorer/gray-go-button.svg'" [alt]="goButtonHovered ? 'go button' : 'gray go button'" />
           <p>Go</p>
         </button>
       </div>
