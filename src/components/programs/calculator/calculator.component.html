@@ -1,7 +1,85 @@
 <div class="calculator-wrapper">
   <window-frame [class.scientific]="isScientific" window-title="Calculator" focus-name="calculator" window-icon="assets/icons/calculator.svg" [prevent-resizing]="true">
     <div class="frame-contents">
-      <!-- TODO maybe add support for router, standard is `programs?calculator=` and scientific is `programs?calculator=scientific` -->
+      <div class="padding">
+        <div class="toolbar" (click)="menuFocus = ''">
+          <toolbar-button text="Edit" [class.active]="menuFocus === 'edit'" (click)="menuFocus = toolbarButtonHelper($event, 'edit')" (mouseover)="toolbarHoverHelper('edit')">
+            <toolbar-menu class="top-level-menu" [class.visible]="menuFocus === 'edit'" (click)="store.focus.set('calculator')">
+              <toolbar-item left-text="Copy"/>
+            </toolbar-menu>
+          </toolbar-button>
+
+          <toolbar-button text="View" [class.active]="menuFocus === 'view'" (click)="menuFocus = toolbarButtonHelper($event, 'view')" (mouseover)="toolbarHoverHelper('view')">
+            <toolbar-menu class="top-level-menu" [class.visible]="menuFocus === 'view'" (click)="store.focus.set('calculator')">
+              <toolbar-item left-text="Scientific" [disabled]="true" />
+              <toolbar-item left-text="Standard" />
+            </toolbar-menu>
+          </toolbar-button>
+        </div>
+
+        <div class="calculator" (click)="menuFocus = ''">
+          <div class="output">
+            <output class="calc-output">0.</output>
+          </div>
+
+          @if (isScientific) {
+            <div class="scientific-button-set">
+
+            </div>
+          } @else {
+            <div class="standard-button-set">
+              <div class="top-row">
+                <output class="mem-output"></output>
+                <div class="buttons">
+                  <calculator-button btn-label="Back" color="dark-red" />
+                  <calculator-button btn-label="CE" color="dark-red" />
+                  <calculator-button btn-label="C" color="dark-red" />
+                </div>
+              </div>
+              <div class="button-set">
+                <div class="memory-buttons-column">
+                  <calculator-button btn-label="MC" color="red"/>
+                  <calculator-button btn-label="MR" color="red"/>
+                  <calculator-button btn-label="MS" color="red"/>
+                  <calculator-button btn-label="M+" color="red"/>
+                </div>
+                <div class="calc-buttons">
+                  <div class="column-1">
+                    <calculator-button btn-label="7" />
+                    <calculator-button btn-label="4" />
+                    <calculator-button btn-label="1"/>
+                    <calculator-button btn-label="0" />
+                  </div>
+                  <div class="column-2">
+                    <calculator-button btn-label="8" />
+                    <calculator-button btn-label="5" />
+                    <calculator-button btn-label="2"/>
+                    <calculator-button btn-label="+/-" />
+                  </div>
+                  <div class="column-3">
+                    <calculator-button btn-label="9" />
+                    <calculator-button btn-label="6" />
+                    <calculator-button btn-label="3"/>
+                    <calculator-button btn-label="." />
+                  </div>
+                  <div class="column-4">
+                    <calculator-button btn-label="/" color="red" />
+                    <calculator-button btn-label="*" color="red" />
+                    <calculator-button btn-label="-" color="red" />
+                    <calculator-button btn-label="+" color="red" />
+                  </div>
+                  <div class="column-5">
+                    <calculator-button btn-label="sqrt" color="dark-blue" />
+                    <calculator-button btn-label="%" color="dark-blue" />
+                    <calculator-button btn-label="1/x" color="dark-blue" />
+                    <calculator-button btn-label="=" color="red" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          }
+        </div>
+      </div>
     </div>
   </window-frame>
 </div>

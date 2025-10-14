@@ -1,29 +1,51 @@
-import { Component, OnInit } from '@angular/core';
-import { WindowFrameComponent } from '../../window-frame/window-frame.component';
 import { HttpClient } from '@angular/common/http';
+import { Component, inject, OnInit } from '@angular/core';
+import { ToolbarButtonComponent } from '../../ui/toolbar/toolbar-button/toolbar-button.component';
+import { ToolbarItemComponent } from '../../ui/toolbar/toolbar-item/toolbar-item.component';
+import { ToolbarMenuComponent } from '../../ui/toolbar/toolbar-menu/toolbar-menu.component';
+import { WindowFrameComponent } from '../../window-frame/window-frame.component';
+import { AppService } from '../../../app/app.service';
+import { CalculatorButtonComponent } from './components/calculator-button/calculator-button.component';
 
 @Component({
   selector: 'calculator',
-  imports: [WindowFrameComponent],
+  imports: [WindowFrameComponent, ToolbarButtonComponent, ToolbarItemComponent, ToolbarMenuComponent, CalculatorButtonComponent],
   templateUrl: './calculator.component.html',
   styleUrl: './calculator.component.scss',
 })
 export class CalculatorComponent implements OnInit {
   protected isScientific: boolean = false;
+  protected menuFocus: string = '';
+  protected store: AppService = inject(AppService);
 
   private wasmModule: WebAssembly.Module | undefined;
   private wasmInstance: WebAssembly.Instance | undefined;
   private wasmExports: any;
 
+  protected toolbarButtonHelper(event: MouseEvent, button: string): string {
+    event?.stopPropagation();
+    if (button === 'edit' && this.menuFocus === '') return 'edit';
+    if (button === 'view' && this.menuFocus === '') return 'view';
+
+    return '';
+  }
+
+  protected toolbarHoverHelper(button: string): void {
+    if (this.menuFocus === 'edit' || this.menuFocus === 'view') {
+      this.menuFocus = button;
+    }
+  }
+
+  // ! WASM Stuff \/
   constructor(private http: HttpClient) {}
 
   ngOnInit(): void {
-      this.loadWasm();
+    this.loadWasm();
   }
 
   async loadWasm() {
     try {
-      const wasmBuffer = await this.http.get('wasm/calculator.wasm', {responseType: 'arraybuffer'}).toPromise();
+      const wasmBuffer = await this.http.get('wasm/calculator.wasm', { responseType: 'arraybuffer' }).toPromise();
 
       const module = await WebAssembly.instantiate(wasmBuffer as ArrayBuffer);
       this.wasmModule = module;
@@ -33,7 +55,7 @@ export class CalculatorComponent implements OnInit {
 
       this.callWasmFunctions();
     } catch (error) {
-      console.error(`Error loading or instantiating wasm module: ${error}`)
+      console.error(`Error loading or instantiating wasm module: ${error}`);
     }
   }
 
@@ -45,10 +67,10 @@ export class CalculatorComponent implements OnInit {
 
       if (typeof add === 'function' && typeof subtract === 'function') {
         console.log('Add 3 + 4:', add(3, 4));
-        console.log('Subtract 7 - 4:', subtract(7, 4))
-        console.log('Multiply 7 * 3:', multiply(7, 3))
+        console.log('Subtract 7 - 4:', subtract(7, 4));
+        console.log('Multiply 7 * 3:', multiply(7, 3));
       } else {
-        console.error('functions not found in WASM exports')
+        console.error('functions not found in WASM exports');
       }
     }
   }

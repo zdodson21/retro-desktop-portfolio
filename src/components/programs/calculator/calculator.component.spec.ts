@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { provideRouter } from '@angular/router';
 import { CalculatorComponent } from './calculator.component';
+import { provideHttpClient } from '@angular/common/http';
 
 describe('CalculatorComponent', () => {
   let component: CalculatorComponent;
@@ -9,7 +10,7 @@ describe('CalculatorComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [CalculatorComponent],
-      providers: [provideRouter([])],
+      providers: [provideRouter([]), provideHttpClient()],
     }).compileComponents();
 
     fixture = TestBed.createComponent(CalculatorComponent);

@@ -16,6 +16,49 @@
     .frame-contents {
       @include text-common();
       @include frame-contents-common();
+
+      @mixin hover-handling() {
+        &:hover,
+        &:focus {
+          border-style: outset solid solid outset;
+          border-color: white #7d7c7c #7d7c7c white;
+        }
+
+        &:active {
+          border-style: solid inset inset solid;
+          border-color: #7d7c7c white white #7d7c7c;
+        }
+      }
+
+      .padding {
+
+        .toolbar {
+          height: 28px;
+          display: flex;
+          flex-direction: row;
+
+          toolbar-button {
+            display: block;
+            height: 22px;
+            border: 2px transparent solid;
+            border-radius: 0;
+            @include hover-handling();
+
+            &.active {
+              border-style: solid inset inset solid;
+              border-color: #7d7c7c white white #7d7c7c;
+            }
+          }
+
+          .top-level-menu {
+            display: none;
+
+            &.visible {
+              display: block;
+            }
+          }
+        }
+      }
     }
   }
 }
