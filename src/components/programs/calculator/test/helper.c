@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdbool.h>
 #include "../calculator.h"
-#include "helper.h"
 
 void print_bar(void) {
   printf("-------------------\n");

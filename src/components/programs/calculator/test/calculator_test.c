@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <stdbool.h>
-#include "../calculator.h"
 #include "helper.h"
 
 /*
@@ -162,6 +161,29 @@ static bool run_divide_tests() {
 
 // TODO root tests
 
+static bool run_root_tests() {
+  bool test[3];
+
+  test[0] = test_fnd_rt(2, 4, 2);
+  test[1] = test_fnd_rt(2, 9, 3);
+  test[2] = test_fnd_rt(2, 729, 27);
+
+  printf("\nRoot Tests: ");
+
+  size_t n = sizeof(test) / sizeof(test[0]);
+  for (size_t i = 0; i < n; i++) {
+    if (!test[i]) {
+      printf("Failed\n");
+      print_bar();
+      return false;
+    }
+  }
+
+  printf("Passed\n");
+  print_bar();
+  return true;
+}
+
 static bool run_one_over_tests() {
   bool test[3];
 
@@ -200,6 +222,7 @@ int main(void) {
     run_subtraction_tests(),
     run_multiply_tests(),
     run_divide_tests(),
+    run_root_tests(),
     run_one_over_tests(),
   };
 

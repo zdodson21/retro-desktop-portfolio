@@ -35,5 +35,5 @@ double find_root(double root, double num) {
 
 EMSCRIPTEN_KEEPALIVE
 double percent(double a) {
-  return a; // TODO find out exactly what this function should do based on how it works on win95
+  return a; // TODO find out exactly what this function should do based on how it works on win95, might not need funtion
 }
