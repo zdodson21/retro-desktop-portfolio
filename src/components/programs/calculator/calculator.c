@@ -21,7 +21,7 @@ double multiply(double a, double b) {
 
 EMSCRIPTEN_KEEPALIVE
 double divide(double a, double b) {
-  return a / b;
+  if (b != 0) return a / b;
 }
 
 EMSCRIPTEN_KEEPALIVE
@@ -32,9 +32,4 @@ double find_root(double root, double num) {
 EMSCRIPTEN_KEEPALIVE
 double percent(double a) {
   return a; // TODO find out exactly what this function should do based on how it works on win95
-}
-
-EMSCRIPTEN_KEEPALIVE
-double one_over(double a) {
-  return 1 / a; // TODO definitely wrong types here, look into data types and change. probably double or something
 }

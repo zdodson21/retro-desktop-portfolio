@@ -7,6 +7,5 @@ double multiply(double, double);
 double divide(double, double);
 double find_root(double, double);
 double percent(double);
-double one_over(double);
 
 #endif
