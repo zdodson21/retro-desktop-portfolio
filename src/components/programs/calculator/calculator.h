@@ -2,11 +2,11 @@
 #define CALCULATOR_H
 
 double add(double, double);
-int subtract(int, int);
-int multiply(int, int);
-int divide(int, int);
-int find_root(int, int);
-int percent(int);
+double subtract(double, double);
+double multiply(double, double);
+double divide(double, double);
+double find_root(double, double);
+double percent(double);
 double one_over(double);
 
 #endif
