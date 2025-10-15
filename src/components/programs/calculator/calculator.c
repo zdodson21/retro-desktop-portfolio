@@ -21,7 +21,11 @@ double multiply(double a, double b) {
 
 EMSCRIPTEN_KEEPALIVE
 double divide(double a, double b) {
-  if (b != 0) return a / b;
+  if (b != 0) {
+    return a / b;
+  }
+
+  return 0;
 }
 
 EMSCRIPTEN_KEEPALIVE
