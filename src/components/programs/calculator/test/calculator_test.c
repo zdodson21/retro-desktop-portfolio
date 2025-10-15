@@ -29,13 +29,13 @@ static bool run_addition_tests() {
   size_t n = sizeof(test) / sizeof(test[0]);
   for (size_t i = 0; i < n; i++) {
     if (!test[i]) {
-      printf("Failed\n");
+      printf(ANSI_COLOR_RED "Failed" ANSI_COLOR_RESET "\n");
       print_bar();
       return false;
     }
   }
 
-  printf("Passed\n");
+  printf(ANSI_COLOR_GREEN "Passed" ANSI_COLOR_RESET "\n");
   print_bar();
   return true;
 }
@@ -55,13 +55,13 @@ static bool run_subtraction_tests() {
   size_t n = sizeof(test) / sizeof(test[0]);
   for (size_t i = 0; i < n; i++) {
     if (!test[i]) {
-      printf("Failed\n");
+      printf(ANSI_COLOR_RED "Failed" ANSI_COLOR_RESET "\n");
       print_bar();
       return false;
     }
   }
 
-  printf("Passed\n");
+  printf(ANSI_COLOR_GREEN "Passed" ANSI_COLOR_RESET "\n");
   print_bar();
   return true;
 }
@@ -103,13 +103,13 @@ static bool run_multiply_tests() {
   size_t n = sizeof(test) / sizeof(test[0]);
   for (size_t i = 0; i < n; i++) {
     if (!test[i]) {
-      printf("Failed\n");
+      printf(ANSI_COLOR_RED "Failed" ANSI_COLOR_RESET "\n");
       print_bar();
       return false;
     }
   }
 
-  printf("Passed\n");
+  printf(ANSI_COLOR_GREEN "Passed" ANSI_COLOR_RESET "\n");
   print_bar();
   return true;
 }
@@ -148,13 +148,13 @@ static bool run_divide_tests() {
   size_t n = sizeof(test) / sizeof(test[0]);
   for (size_t i = 0; i < n; i++) {
     if (!test[i]) {
-      printf("Failed\n");
+      printf(ANSI_COLOR_RED "Failed" ANSI_COLOR_RESET "\n");
       print_bar();
       return false;
     }
   }
 
-  printf("Passed\n");
+  printf(ANSI_COLOR_GREEN "Passed" ANSI_COLOR_RESET "\n");
   print_bar();
   return true;
 }
@@ -173,13 +173,13 @@ static bool run_root_tests() {
   size_t n = sizeof(test) / sizeof(test[0]);
   for (size_t i = 0; i < n; i++) {
     if (!test[i]) {
-      printf("Failed\n");
+      printf(ANSI_COLOR_RED "Failed" ANSI_COLOR_RESET "\n");
       print_bar();
       return false;
     }
   }
 
-  printf("Passed\n");
+  printf(ANSI_COLOR_GREEN "Passed" ANSI_COLOR_RESET "\n");
   print_bar();
   return true;
 }
@@ -191,18 +191,18 @@ static bool run_one_over_tests() {
   test[1] = test_one_over(3, 0.33, false);
   test[2] = test_one_over(500, 0.002, false);
 
-  printf("\n One / X Tests: ");
+  printf("\nOne / X Tests: ");
 
   size_t n = sizeof(test) / sizeof(test[0]);
   for (size_t i = 0; i < n; i++) {
     if (!test[i]) {
-      printf("Failed\n");
+      printf(ANSI_COLOR_RED "Failed" ANSI_COLOR_RESET "\n");
       print_bar();
       return false;
     }
   }
 
-  printf("Passed\n");
+  printf(ANSI_COLOR_GREEN "Passed" ANSI_COLOR_RESET "\n");
   print_bar();
   return true;
 }
@@ -214,7 +214,7 @@ static bool run_one_over_tests() {
 // ! Main
 
 int main(void) {
-  printf("Running tests:\n");
+  printf("\nRunning tests:\n");
   print_bar();
 
   bool results[] = {
@@ -229,11 +229,11 @@ int main(void) {
   size_t n = sizeof(results) / sizeof(results[0]);
   for (size_t i = 0; i < n; i++) {
     if (results[i] == false) {
-      printf("Not all tests passed!\n");
+      printf(ANSI_COLOR_RED "\nNot all tests passed!" ANSI_COLOR_RESET "\n");
       return 0;
     }
   }
 
-  printf("All tests passed!");
+  printf(ANSI_COLOR_GREEN "\nAll tests passed!" ANSI_COLOR_RESET "\n");
   return 1;
 }
