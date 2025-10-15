@@ -18,10 +18,6 @@ export class CalculatorComponent implements OnInit {
   protected menuFocus: string = '';
   protected store: AppService = inject(AppService);
 
-  private wasmModule: WebAssembly.Module | undefined;
-  private wasmInstance: WebAssembly.Instance | undefined;
-  private wasmExports: any;
-
   protected toolbarButtonHelper(event: MouseEvent, button: string): string {
     event?.stopPropagation();
     if (button === 'edit' && this.menuFocus === '') return 'edit';
@@ -37,14 +33,27 @@ export class CalculatorComponent implements OnInit {
     }
   }
 
-  // ! WASM Stuff \/
+  // TODO add routing for standard and scientific, if route = anything else (other than null / '' / scientific) then it should auto change to ''
+  // TODO '' router param should load it as standard as well
+
+  /*
+    ! WASM HTTP stuff is below here.
+    ! Currently (10/15/2025) it is working, so DO NOT TOUCH IT UNLESS ADDING FUNCTION CALLING SAMPLES!!!
+    ! Test thoroughly before pushing anything new to GitHub if below is modified.
+    ! Any calculator logic should be written above this comment!
+    ! Use below code as an example for how to "import" and call WASM functions.
+  */
+  private wasmModule: WebAssembly.Module | undefined;
+  private wasmInstance: WebAssembly.Instance | undefined;
+  private wasmExports: any;
+
   constructor(private http: HttpClient) {}
 
   ngOnInit(): void {
     this.loadWasm();
   }
 
-  async loadWasm() {
+  private async loadWasm() {
     try {
       const wasmBuffer = await this.http.get('wasm/calculator.wasm', { responseType: 'arraybuffer' }).toPromise();
 
@@ -53,14 +62,12 @@ export class CalculatorComponent implements OnInit {
       this.wasmInstance = module.instance;
 
       this.wasmExports = this.wasmInstance.exports;
-
-      // this.callWasmFunctions();
     } catch (error) {
       console.error(`Error loading or instantiating wasm module: ${error}`);
     }
   }
 
-  callWasmFunctions() {
+  protected callWasmFunctions() {
     if (this.wasmExports) {
       const add = this.wasmExports.add;
       const subtract = this.wasmExports.subtract;
@@ -68,22 +75,24 @@ export class CalculatorComponent implements OnInit {
       const divide = this.wasmExports.divide;
       const findRoot = this.wasmExports.find_root;
       const percent = this.wasmExports.percent;
-      const oneOver = this.wasmExports.one_over;
 
-      if (typeof add === 'function' && typeof subtract === 'function' && typeof multiply === 'function' && typeof divide === 'function') {
-        console.log('Add 3 + 4:', add(3, 4));
+      if (
+        typeof add === 'function' &&
+        typeof subtract === 'function' &&
+        typeof multiply === 'function' &&
+        typeof divide === 'function' &&
+        typeof findRoot === 'function' &&
+        typeof percent === 'function'
+      ) {
+        console.log('Add 3 + 4: ', add(3, 4));
         console.log('Subtract 7 - 4:', subtract(7, 4));
         console.log('Multiply 7 * 3:', multiply(7, 3));
         console.log('Divide 8 / 4: ', divide(8, 4));
-        console.log('Find 2 root of 9', findRoot(2, 9));
+        console.log('Find 2 root of 9: ', findRoot(2, 9));
         console.log('Find percent: ', percent(4));
-        console.log('One over 3: ', oneOver(3));
       } else {
         console.error('functions not found in WASM exports');
       }
     }
   }
-
-  // TODO add routing for standard and scientific, if route = anything else (other than null / '' / scientific) then it should auto change to ''
-  // TODO '' router param should load it as standard as well
 }
