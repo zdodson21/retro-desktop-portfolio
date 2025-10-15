@@ -1,9 +1,12 @@
 #ifndef CALCULATOR_H
 #define CALCULATOR_H
 
-int add(int, int);
+double add(double, double);
 int subtract(int, int);
 int multiply(int, int);
 int divide(int, int);
+int find_root(int, int);
+int percent(int);
+double one_over(double);
 
 #endif

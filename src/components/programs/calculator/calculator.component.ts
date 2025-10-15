@@ -66,12 +66,18 @@ export class CalculatorComponent implements OnInit {
       const subtract = this.wasmExports.subtract;
       const multiply = this.wasmExports.multiply;
       const divide = this.wasmExports.divide;
+      const findRoot = this.wasmExports.find_root;
+      const percent = this.wasmExports.percent;
+      const oneOver = this.wasmExports.one_over;
 
       if (typeof add === 'function' && typeof subtract === 'function' && typeof multiply === 'function' && typeof divide === 'function') {
         console.log('Add 3 + 4:', add(3, 4));
         console.log('Subtract 7 - 4:', subtract(7, 4));
         console.log('Multiply 7 * 3:', multiply(7, 3));
         console.log('Divide 8 / 4: ', divide(8, 4));
+        console.log('Find 2 root of 9', findRoot(2, 9));
+        console.log('Find percent: ', percent(4));
+        console.log('One over 3: ', oneOver(3));
       } else {
         console.error('functions not found in WASM exports');
       }

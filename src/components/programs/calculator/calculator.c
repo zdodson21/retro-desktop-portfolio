@@ -5,7 +5,7 @@
 #endif
 
 EMSCRIPTEN_KEEPALIVE
-int add(int a, int b) {
+double add(double a, double b) {
   return a + b;
 }
 
@@ -25,7 +25,7 @@ int divide(int a, int b) {
 }
 
 EMSCRIPTEN_KEEPALIVE
-int find_root(int num, int root) {
+int find_root(int root, int num) {
   return num + root; // TODO obviously not done, just init setup
 }
 
@@ -34,6 +34,7 @@ int percent(int a) {
   return a; // TODO find out exactly what this function should do based on how it works on win95
 }
 
-int one_over(int a) {
+EMSCRIPTEN_KEEPALIVE
+double one_over(double a) {
   return 1 / a; // TODO definitely wrong types here, look into data types and change. probably double or something
 }

@@ -4,5 +4,9 @@
   "prettier.useEditorConfig": true,
   "prettier.configPath": ".prettierrc",
   "prettier.ignorePath": ".prettierignore",
-  "editor.formatOnSave": true
+  "editor.formatOnSave": true,
+  "files.associations": {
+    ".vercelignore": "ignore",
+    "bitset": "c"
+  }
 }
