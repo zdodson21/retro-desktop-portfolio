@@ -21,7 +21,6 @@ This website serves the purpose of being my portfolio as well as a sandbox to tr
 | ![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white) | **[GitHub](https://github.com/zdodson21/retro-desktop-portfolio)**: Git repository cloud service. |
 | ![Vercel](https://img.shields.io/badge/vercel-%23000000.svg?style=for-the-badge&logo=vercel&logoColor=white) | **[Vercel](https://vercel.com/)**: Web hosting, speed analytics, usage insights. |
 | ![GitHub Actions](https://img.shields.io/badge/github%20actions-%232671E5.svg?style=for-the-badge&logo=githubactions&logoColor=white) | **[GitHub Actions](https://docs.github.com/en/actions)**: CI/CD |
-| ![CMAKE](https://img.shields.io/badge/CMake-%23008FBA.svg?style=for-the-badge&logo=cmake&logoColor=white) | **[CMAKE](https://cmake.org/)** : Used to compile C code into WebAssembly or test programs. |
 | ![Jasmine](https://img.shields.io/badge/jasmine-%238A4182.svg?style=for-the-badge&logo=jasmine&logoColor=white) | **[Jasmine](https://jasmine.github.io/)**: TypeScript testing. |
 | ![Prettier](https://img.shields.io/badge/prettier-%23F7B93E.svg?style=for-the-badge&logo=prettier&logoColor=black) | **[Prettier](https://prettier.io/)**: Code formatting.|
 | ![Cloudflare](https://img.shields.io/badge/Cloudflare-F38020?style=for-the-badge&logo=Cloudflare&logoColor=white) | **[CloudFlare](https://www.cloudflare.com/)**: Domain name services. |
@@ -108,7 +107,7 @@ For more information on using the Angular CLI, including detailed command refere
 
 Some code for this project is written in C and compiled to WebAssembly to handle backend computational logic. One program that uses this is the [Calculator](https://github.com/zdodson21/retro-desktop-portfolio/tree/main/src/components/programs/calculator) program.
 
-Use the following command(s) to compile WebAssembly projects from C using [CMAKE](https://cmake.org/), [Emscripten](https://emscripten.org/), and [GNU C Compiler](https://gcc.gnu.org/)
+Use the following command(s) to compile WebAssembly projects from C using [GNU Make](https://www.gnu.org/software/make/), [Emscripten](https://emscripten.org/), and [GNU C Compiler](https://gcc.gnu.org/)
 
 ```bash
 # Calculator

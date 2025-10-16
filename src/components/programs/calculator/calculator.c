@@ -1,3 +1,15 @@
+/*
+ * Emscripten is required to compile this file to WebAssembly.
+ * https://emscripten.org/
+ *
+ * WASM Build Command (from calculator directory):
+ *    emcc -Os calculator.c -o ../../../wasm/calculator.wasm --no-entry
+ *
+ * A makefile is available in the root of this project.
+ * Run this command (from root of project) to compile this file to WebAssembly using MAKE:
+ *    make calculator
+ */
+
 #if defined(__EMSCRIPTEN__)
   #include <emscripten.h>
 #else
