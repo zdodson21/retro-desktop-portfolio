@@ -5,7 +5,7 @@ import { SystemService } from '../../../services/system/system.service';
 
 @Component({
   selector: 'calculator-site',
-  imports: [AIeComponent, IeRouteComponent],
+  imports: [AIeComponent],
   templateUrl: './calculator.component.html',
   styleUrl: './calculator.component.scss'
 })
