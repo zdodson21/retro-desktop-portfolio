@@ -15,6 +15,8 @@
 // ! Standard Operations
 
 bool run_addition_tests() {
+  printf("Addition Tests: \n\n");
+
   const int n = 6;
   bool test[n];
 
@@ -25,7 +27,7 @@ bool run_addition_tests() {
   test[4] = test_add(-2.3, -4.6, -6.9);
   test[5] = test_add(-2.3, 4.6, 2.3);
 
-  printf("\nAddition Tests: ");
+  printf("\nStatus: ");
 
   // size_t n = sizeof(test) / sizeof(test[0]);
   for (int i = 0; i < n; i++) {
@@ -42,6 +44,8 @@ bool run_addition_tests() {
 }
 
 bool run_subtraction_tests() {
+  printf("Subtraction Tests: \n\n");
+
   const int n = 6;
   bool test[n];
 
@@ -52,7 +56,7 @@ bool run_subtraction_tests() {
   test[4] = test_sub(-4.6, -2.3, -2.3);
   test[5] = test_sub(-4.6, 2.3, -6.9);
 
-  printf("\nSubtraction Tests: ");
+  printf("\nStatus: ");
 
   for (size_t i = 0; i < n; i++) {
     if (!test[i]) {
@@ -68,6 +72,8 @@ bool run_subtraction_tests() {
 }
 
 bool run_multiply_tests() {
+  printf("Multiplication  Tests: \n\n");
+
   const int n = 17;
   bool test[n];
 
@@ -100,7 +106,7 @@ bool run_multiply_tests() {
   test[15] = test_mult(-5.2, 2.3, -11.96);
   test[16] = test_mult(5.2, -2.3, -11.96);
 
-  printf("\nMultiplication  Tests: ");
+  printf("\nStatus: ");
 
   for (size_t i = 0; i < n; i++) {
     if (!test[i]) {
@@ -116,6 +122,8 @@ bool run_multiply_tests() {
 }
 
 bool run_divide_tests() {
+  printf("Division Tests: \n\n");
+
   const int n = 13;
   bool test[n];
 
@@ -145,7 +153,7 @@ bool run_divide_tests() {
   test[12] = test_div(-5.2, 2.3, -2.260870, false);
   test[13] = test_div(5.2, -2.3, -2.260870, false);
 
-  printf("\nDivision Tests: ");
+  printf("\nStatus: ");
 
   for (size_t i = 0; i < n; i++) {
     if (!test[i]) {
@@ -163,6 +171,9 @@ bool run_divide_tests() {
 // TODO root tests
 
 bool run_root_tests() {
+  printf("Root Tests: \n\n");
+
+
   const int n = 3;
   bool test[n];
 
@@ -170,7 +181,7 @@ bool run_root_tests() {
   test[1] = test_fnd_rt(2, 9, 3);
   test[2] = test_fnd_rt(2, 729, 27);
 
-  printf("\nRoot Tests: ");
+  printf("\nStatus: ");
 
   for (size_t i = 0; i < n; i++) {
     if (!test[i]) {
@@ -186,6 +197,8 @@ bool run_root_tests() {
 }
 
 bool run_one_over_tests() {
+  printf("One / X Tests: \n\n");
+
   const int n = 3;
   bool test[n];
 
@@ -193,7 +206,7 @@ bool run_one_over_tests() {
   test[1] = test_one_over(3, 0.33, false);
   test[2] = test_one_over(500, 0.002, false);
 
-  printf("\nOne / X Tests: ");
+  printf("\nStatus: ");
 
   for (size_t i = 0; i < n; i++) {
     if (!test[i]) {
