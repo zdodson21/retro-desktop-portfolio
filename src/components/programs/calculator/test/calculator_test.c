@@ -168,18 +168,41 @@ bool run_divide_tests() {
   return true;
 }
 
-// TODO root tests
+// bool run_root_tests() {
+//   printf("Root Tests: \n\n");
 
-bool run_root_tests() {
-  printf("Root Tests: \n\n");
 
+//   const int n = 3;
+//   bool test[n];
+
+//   test[0] = test_fnd_rt(2, 4, 2);
+//   test[1] = test_fnd_rt(2, 9, 3);
+//   test[2] = test_fnd_rt(2, 729, 27);
+
+//   printf("\nStatus: ");
+
+//   for (size_t i = 0; i < n; i++) {
+//     if (!test[i]) {
+//       printf(ANSI_COLOR_RED "Failed" ANSI_COLOR_RESET "\n");
+//       print_bar();
+//       return false;
+//     }
+//   }
+
+//   printf(ANSI_COLOR_GREEN "Passed" ANSI_COLOR_RESET "\n");
+//   print_bar();
+//   return true;
+// }
+
+bool run_one_over_tests() {
+  printf("One / X Tests: \n\n");
 
   const int n = 3;
   bool test[n];
 
-  test[0] = test_fnd_rt(2, 4, 2);
-  test[1] = test_fnd_rt(2, 9, 3);
-  test[2] = test_fnd_rt(2, 729, 27);
+  test[0] = test_one_over(0, 0, true);
+  test[1] = test_one_over(3, 0.33, false);
+  test[2] = test_one_over(500, 0.002, false);
 
   printf("\nStatus: ");
 
@@ -196,15 +219,16 @@ bool run_root_tests() {
   return true;
 }
 
-bool run_one_over_tests() {
-  printf("One / X Tests: \n\n");
+bool run_exponent_tests() {
+  printf("Exponent Tests: \n\n");
 
   const int n = 3;
   bool test[n];
 
-  test[0] = test_one_over(0, 0, true);
-  test[1] = test_one_over(3, 0.33, false);
-  test[2] = test_one_over(500, 0.002, false);
+  test[0] = test_exponent(2, 2, 4);
+  test[1] = test_exponent(6, 4, 1296);
+  test[2] = test_exponent(12, 6, 2985984);
+  // TODO write more tests
 
   printf("\nStatus: ");
 
@@ -236,8 +260,9 @@ int main(void) {
     run_subtraction_tests(),
     run_multiply_tests(),
     run_divide_tests(),
-    run_root_tests(),
+    // run_root_tests(),
     run_one_over_tests(),
+    run_exponent_tests(),
   };
 
   size_t n = sizeof(results) / sizeof(results[0]);

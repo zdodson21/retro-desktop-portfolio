@@ -47,11 +47,26 @@ double divide(double dividend, double divisor) {
 }
 
 EMSCRIPTEN_KEEPALIVE
-double find_root(double root, double num) {
-  return num + root; // TODO obviously not done, just init setup
+double percent(double a) {
+  return a; // TODO find out exactly what this function should do based on how it works on win95, might not need funtion
 }
 
 EMSCRIPTEN_KEEPALIVE
-double percent(double a) {
-  return a; // TODO find out exactly what this function should do based on how it works on win95, might not need funtion
+double exponent(double base, double exp) {
+  double init_base = base;
+  // Positive base
+  for (int i = 1; i < exp; i++) {
+    base = base * init_base;
+  }
+
+  // If not whole number
+    // Figure out how I want to go about multiplying by a fractional exponent (or decimal in this case)
+
+
+  return base;
+}
+
+EMSCRIPTEN_KEEPALIVE
+double find_root(double root, double num) {
+  return exponent(num, 1/root);  // Use exponent function to find root (square root of 9 = 9 ^ 1/2, 3 root of 9 = 9 ^ 1/3, etc.)
 }

@@ -88,6 +88,16 @@ bool test_one_over(double a, double b, bool test_0) { // TODO add support for di
   return true;
 }
 
+bool test_exponent(double base, double exp, double sol) {
+  if (exponent(base, exp) != sol) {
+    printf(ANSI_COLOR_RED "%f to the power of %f = %f: Fail" ANSI_COLOR_RESET "\n", base, exp, exponent(base, exp));
+    return false;
+  }
+
+  printf(ANSI_COLOR_GREEN "%f to the power of %f = %f: Pass" ANSI_COLOR_RESET "\n", base, exp, exponent(base, exp));
+  return true;
+}
+
 // bool has_false(size_t n, bool arr[]) {
 //   for (size_t i = 0; i < n; i++) {
 //     if (!arr[i]) {

@@ -12,6 +12,7 @@ bool test_mult(double, double, double);
 bool test_div(double, double, double, bool);
 bool test_fnd_rt(double, double, double);
 bool test_one_over(double, double, bool);
+bool test_exponent(double, double, double);
 // bool has_false(size_t, bool);
 
 #endif
