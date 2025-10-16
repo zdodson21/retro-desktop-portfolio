@@ -235,9 +235,9 @@ bool run_exponent_tests() {
   test[7] = test_exponent(5, 1, 5);
   test[8] = test_exponent(1, 3, 1);
   test[9] = test_exponent(-1, 3, -1);
-  test[10] = test_exponent(5, -1, 1/5); // Failing but right solution
-  test[11] = test_exponent(5, -2, 1/25); // Failing but wrong solution
-  test[12] = test_exponent(-5, -2, -1/25); // Failing but wrong solution
+  test[10] = test_exponent(5, -1, 1/5);
+  test[11] = test_exponent(5, -2, 1/25);
+  test[12] = test_exponent(-5, -2, -1/25);
   // TODO write more tests
 
   printf("\nStatus: ");

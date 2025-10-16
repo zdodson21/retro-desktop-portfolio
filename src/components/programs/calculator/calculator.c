@@ -55,6 +55,7 @@ double percent(double a) {
 EMSCRIPTEN_KEEPALIVE
 double exponent(double base, double exp) {
   const double init_base = base;
+  const double init_exp = exp;
 
   if (init_base == 0) {
     /*
@@ -65,7 +66,7 @@ double exponent(double base, double exp) {
     return 0;
   }
 
-  if (exp == 0) {
+  if (init_exp == 0) {
     if (init_base > 0) {
       return 1;
     }
@@ -74,25 +75,29 @@ double exponent(double base, double exp) {
     }
   }
 
-  if (exp == 1 || init_base == 1 || init_base == -1) {
+  if (init_exp == 1 || init_base == 1 || init_base == -1) {
     return init_base;
   }
-  else if (exp == -1) {
+  else if (init_exp == -1) {
     return 1 / init_base;
   }
 
-  if (init_base != 0 && init_base != 1 && !(exp == 0 && exp == 1 && exp == -1)) {
+  if (init_base != 0 && init_base != 1 && !(init_exp == 0 && init_exp == 1 && init_exp == -1)) {
+    if (exp < 0) {
+      exp = exp + (-2 * exp);
+    }
+
     for (int i = 1; i < exp; i++) {
       base = base * init_base;
     }
 
-    if (init_base < 0 && base > 0 && exp > 0) { // Negative bases w/ positive exponent
+    if (init_base < 0 && base > 0 && init_exp > 0) { // Negative bases w/ positive exponent
       return -base;
     }
-    else if (init_base > 0 && exp < 0) { // Positive base w/ negative exponent
+    else if (init_base > 0 && init_exp < 0) { // Positive base w/ negative exponent
       return 1/base;
     }
-    else if (init_base < 0 && base > 0 && exp < 0) { // Negative base w/ negative exponent
+    else if (init_base < 0 && base > 0 && init_exp < 0) { // Negative base w/ negative exponent
       return 1/-base;
     }
   }
