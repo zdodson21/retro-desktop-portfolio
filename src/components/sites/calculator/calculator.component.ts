@@ -1,6 +1,5 @@
 import { Component, inject } from '@angular/core';
 import { AIeComponent } from '../components/a-ie/a-ie.component';
-import { IeRouteComponent } from '../components/ie-route/ie-route.component';
 import { SystemService } from '../../../services/system/system.service';
 
 @Component({
