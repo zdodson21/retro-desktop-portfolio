@@ -10,8 +10,8 @@ double add(double a, double b) {
 }
 
 EMSCRIPTEN_KEEPALIVE
-double subtract(double a, double b) {
-  return a - b;
+double subtract(double minuend, double subtrahend) {
+  return minuend - subtrahend;
 }
 
 EMSCRIPTEN_KEEPALIVE
@@ -20,11 +20,17 @@ double multiply(double a, double b) {
 }
 
 EMSCRIPTEN_KEEPALIVE
-double divide(double a, double b) {
-  if (b != 0) {
-    return a / b;
+double divide(double dividend, double divisor) {
+  if (divisor != 0) {
+    return dividend / divisor;
   }
 
+  /*
+   * Return 0 is only here because program could break on edge case if it isn't.
+   * Any divide by 0 errors should be handled on the TypeScript side of things,
+   * without this function being called, so technically this return 0 should
+   * never actually be returned.
+   */
   return 0;
 }
 
