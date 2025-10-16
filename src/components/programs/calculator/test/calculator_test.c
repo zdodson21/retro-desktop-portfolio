@@ -222,12 +222,22 @@ bool run_one_over_tests() {
 bool run_exponent_tests() {
   printf("Exponent Tests: \n\n");
 
-  const int n = 3;
+  const int n = 13;
   bool test[n];
 
   test[0] = test_exponent(2, 2, 4);
   test[1] = test_exponent(6, 4, 1296);
   test[2] = test_exponent(12, 6, 2985984);
+  test[3] = test_exponent(-2, 2, -4);
+  test[4] = test_exponent(0, 3, 0); // Normally would return domain error
+  test[5] = test_exponent(5, 0, 1);
+  test[6] = test_exponent(-5, 0, -1);
+  test[7] = test_exponent(5, 1, 5);
+  test[8] = test_exponent(1, 3, 1);
+  test[9] = test_exponent(-1, 3, -1);
+  test[10] = test_exponent(5, -1, 1/5); // Failing but right solution
+  test[11] = test_exponent(5, -2, 1/25); // Failing but wrong solution
+  test[12] = test_exponent(-5, -2, -1/25); // Failing but wrong solution
   // TODO write more tests
 
   printf("\nStatus: ");

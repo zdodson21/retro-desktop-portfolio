@@ -38,6 +38,7 @@ double divide(double dividend, double divisor) {
   }
 
   /*
+   TODO delete this todo when below comment is handled in TS, leave below comment
    * Return 0 is only here because program could break on edge case if it isn't.
    * Any divide by 0 errors should be handled on the TypeScript side of things,
    * without this function being called, so technically this return 0 should
@@ -53,15 +54,48 @@ double percent(double a) {
 
 EMSCRIPTEN_KEEPALIVE
 double exponent(double base, double exp) {
-  double init_base = base;
-  // Positive base
-  for (int i = 1; i < exp; i++) {
-    base = base * init_base;
+  const double init_base = base;
+
+  if (init_base == 0) {
+    /*
+     TODO leave this todo until below comment is done, leave below comment, remove this toto
+     * TypeScript should have logic to detect if  both base & exp == 0
+     * If so, it needs to return a domain error.
+     */
+    return 0;
   }
 
-  // If not whole number
-    // Figure out how I want to go about multiplying by a fractional exponent (or decimal in this case)
+  if (exp == 0) {
+    if (init_base > 0) {
+      return 1;
+    }
+    else {
+      return -1;
+    }
+  }
 
+  if (exp == 1 || init_base == 1 || init_base == -1) {
+    return init_base;
+  }
+  else if (exp == -1) {
+    return 1 / init_base;
+  }
+
+  if (init_base != 0 && init_base != 1 && !(exp == 0 && exp == 1 && exp == -1)) {
+    for (int i = 1; i < exp; i++) {
+      base = base * init_base;
+    }
+
+    if (init_base < 0 && base > 0 && exp > 0) { // Negative bases w/ positive exponent
+      return -base;
+    }
+    else if (init_base > 0 && exp < 0) { // Positive base w/ negative exponent
+      return 1/base;
+    }
+    else if (init_base < 0 && base > 0 && exp < 0) { // Negative base w/ negative exponent
+      return 1/-base;
+    }
+  }
 
   return base;
 }
