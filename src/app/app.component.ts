@@ -18,6 +18,7 @@ import { OpenSourceContributionsSite } from '../components/sites/open-source-con
 import { RetroDesktopPortfolioSite } from '../components/sites/retro-desktop-portfolio/retro-desktop-portfolio.component';
 import { SecretSite } from '../components/sites/secret-site/secret-site.component';
 import { SmallProjectsSite } from '../components/sites/small-projects/small-projects.component';
+import { CalculatorSiteComponent } from '../components/sites/calculator/calculator.component';
 
 @Component({
   selector: 'app-root',
@@ -30,6 +31,7 @@ import { SmallProjectsSite } from '../components/sites/small-projects/small-proj
     ShutdownScreenComponent,
     MsdosPromptComponent,
     AboutMeSite,
+    CalculatorSiteComponent,
     ErrorSite,
     HaxAuditSite,
     HaxChatAgentSite,

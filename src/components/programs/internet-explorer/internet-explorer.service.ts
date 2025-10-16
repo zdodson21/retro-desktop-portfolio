@@ -25,6 +25,10 @@ export class InternetExplorerService {
       tld: 'net',
     },
     {
+      domain: 'calculator',
+      tld: 'net',
+    },
+    {
       domain: 'hax-audit',
       tld: 'os',
     },

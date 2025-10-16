@@ -1,0 +1,48 @@
+<!-- prettier-ignore -->
+<article class="calculator-site-wrapper">
+  <header>
+    <h1>Calculator (Retro Desktop Portfolio Program)</h1>
+    <div class="badges">
+      <img src="assets/badges/c.svg" alt="c language badge">
+      <img src="assets/badges/wasm.svg" alt="web assembly badge">
+      <img src="assets/badges/angular.svg" alt="angular badge" />
+      <img src="assets/badges/typescript.svg" alt="typescript badge" />
+      <img src="assets/badges/html5.svg" alt="html 5 badge" />
+      <img src="assets/badges/scss.svg" alt="scss badge" />
+    </div>
+    <nav>
+      <a-ie href="https://github.com/zdodson21/retro-desktop-portfolio/tree/main/src/components/programs/calculator">
+        Component Source Code
+      </a-ie>
+      <a [href]="`${systemService.webAddress}/programs?calculator`">
+        Open Caluclator (will close all other programs)
+      </a>
+    </nav>
+  </header>
+  <main>
+    <section class="description">
+      <h2>Description</h2>
+      <p>
+        Developed using C compiled to WebAssembly alongside Angular, the calculator program is a faithful recreation of the
+        calculator program from Windows 95. Angular is used to handle any logic on the frontend, then calls functions from a
+        WebAssembly file to handle any mathematical logic.
+      </p>
+    </section>
+
+    <section class="why-wasm">
+      <h2>Why C and WebAssembly? Why not Natively with Angular / TypeScript?</h2>
+      <p>
+        This is one of those projects I wanted to complete to learn new skills, not just to complete it in the most practical way.
+        Because a calculator relies on backend logic, I figured it would be the best program to recreate to learn C, compiling, and
+        WebAssembly. Angular and TypeScript are still used for both the frontend and ensuring any functions in WebAssembly can be called
+        safely.
+      </p>
+      <p>
+        Is this the most practical way to create a calculator for the web? Probably not, Typescript would likely be plenty fast enough
+        to handle the mathematical logic required, but it taught me a lot about programming in a lower-level language such as C, how
+        compiling works, and provided a better understanding of how WebAssembly works. And technically it should be "faster" than handling
+        the math logic with TypeScript, which is a (marginal) benefit.
+      </p>
+    </section>
+  </main>
+</article>

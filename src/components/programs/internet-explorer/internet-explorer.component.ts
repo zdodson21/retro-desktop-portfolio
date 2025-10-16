@@ -21,11 +21,13 @@ import { StandardButtonComponent } from './components/standard-button/standard-b
 import { InternetExplorerService } from './internet-explorer.service';
 import { ToolbarDividerComponent } from '../../ui/toolbar/toolbar-divider/toolbar-divider.component';
 import { SystemService } from '../../../services/system/system.service';
+import { CalculatorSiteComponent } from '../../sites/calculator/calculator.component';
 
 @Component({
   selector: 'internet-explorer',
   imports: [
     AboutMeSite,
+    CalculatorSiteComponent,
     CloseSidebarButtonComponent,
     ErrorSite,
     HaxAuditSite,
