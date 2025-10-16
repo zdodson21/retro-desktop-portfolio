@@ -222,7 +222,7 @@ bool run_one_over_tests() {
 bool run_exponent_tests() {
   printf("Exponent Tests: \n\n");
 
-  const int n = 13;
+  const int n = 17;
   bool test[n];
 
   test[0] = test_exponent(2, 2, 4);
@@ -238,6 +238,10 @@ bool run_exponent_tests() {
   test[10] = test_exponent(5, -1, 1/5);
   test[11] = test_exponent(5, -2, 1/25);
   test[12] = test_exponent(-5, -2, -1/25);
+  test[13] = test_exponent(0.3, 4, 0.0081);
+  test[14] = test_exponent(0.3, -4, 123.456790);
+  test[15] = test_exponent(-0.3, 4, -0.0081);
+  test[16] = test_exponent(-0.3, -4, -123.456790);
   // TODO write more tests
 
   printf("\nStatus: ");
