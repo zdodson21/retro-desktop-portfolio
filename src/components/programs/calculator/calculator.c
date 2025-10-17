@@ -16,6 +16,10 @@
   #define EMSCRIPTEN_KEEPALIVE
 #endif
 
+#include <stdbool.h>
+
+#define EPS 1e-12
+
 EMSCRIPTEN_KEEPALIVE
 double add(double a, double b) {
   return a + b;
@@ -48,6 +52,17 @@ double divide(double dividend, double divisor) {
 }
 
 EMSCRIPTEN_KEEPALIVE
+bool is_whole_num(double x) {
+  long long int_part = (long long) x;
+
+  double diff = x - (double)int_part;
+  if (diff < 0) diff = -diff;
+
+  return diff < EPS;
+  return false;
+}
+
+EMSCRIPTEN_KEEPALIVE
 double exponent(double base, double exp) {
   const double init_base = base;
   const double init_exp = exp;
@@ -77,11 +92,13 @@ double exponent(double base, double exp) {
     return 1 / init_base;
   }
 
-  if (init_base != 0 && init_base != 1 && !(init_exp == 0 && init_exp == 1 && init_exp == -1)) {
-    if (exp < 0) {
-      exp = exp + (-2 * exp);
-    }
+  // ! Past extra cases
+  // if (init_base != 0 && init_base != 1 && !(init_exp == 0 && init_exp == 1 && init_exp == -1)) {
+  if (exp < 0) {
+    exp = -exp;
+  }
 
+  if (is_whole_num(init_exp)) { // Exponent is whole number
     for (int i = 1; i < exp; i++) {
       base = base * init_base;
     }
@@ -96,6 +113,11 @@ double exponent(double base, double exp) {
       return 1/-base;
     }
   }
+  else { // Exponent is not whole number
+
+  }
+
+  // }
 
   // TODO have to handle decimal exponents.
 

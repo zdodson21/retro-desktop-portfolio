@@ -55,11 +55,9 @@ bool test_div(double a, double b, double c, bool test_0) {
 
   printf(ANSI_COLOR_GREEN "Divide %f / %f = %f: Pass" ANSI_COLOR_RESET "\n", a, b, divide(a, b));
   return true;
-
 }
 
-
-bool test_one_over(double a, double b, bool test_0) { // TODO add support for divide by 0
+bool test_one_over(double a, double b, bool test_0) {
   if (a == 0) {
     if (test_0) {
       printf(ANSI_COLOR_GREEN "Intentional Divide by 0 Error: Pass" ANSI_COLOR_RESET "\n");
@@ -86,6 +84,16 @@ bool test_exponent(double base, double exp, double sol) {
   }
 
   printf(ANSI_COLOR_GREEN "%f to the power of %f = %f: Pass" ANSI_COLOR_RESET "\n", base, exp, exponent(base, exp));
+  return true;
+}
+
+bool test_is_whole_num(double num, bool response) {
+  if (is_whole_num(num) != response) {
+    printf(ANSI_COLOR_RED "%f is %d: Fail" ANSI_COLOR_RESET "\n", num, is_whole_num(num));
+    return false;
+  }
+
+  printf(ANSI_COLOR_GREEN "%f is %d: Pass" ANSI_COLOR_RESET "\n", num, is_whole_num(num));
   return true;
 }
 

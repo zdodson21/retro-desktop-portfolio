@@ -233,6 +233,35 @@ bool run_exponent_tests() {
   return true;
 }
 
+bool run_whole_num_tests() {
+  printf("Is Whole Number Tests: \n\n");
+
+  const int n = 7;
+  bool test[n];
+
+  test[0] = test_is_whole_num(1, true);
+  test[1] = test_is_whole_num(2, true);
+  test[2] = test_is_whole_num(3, true);
+  test[3] = test_is_whole_num(100, true);
+  test[4] = test_is_whole_num(4.4, false);
+  test[5] = test_is_whole_num(0, true);
+  test[6] = test_is_whole_num(-5, true);
+
+  printf("\nStatus: ");
+
+  for (size_t i = 0; i < n; i++) {
+    if (!test[i]) {
+      printf(ANSI_COLOR_RED "Failed" ANSI_COLOR_RESET "\n");
+      print_bar();
+      return false;
+    }
+  }
+
+  printf(ANSI_COLOR_GREEN "Passed" ANSI_COLOR_RESET "\n");
+  print_bar();
+  return true;
+}
+
 // ! Scientific Operations
 
 
@@ -248,9 +277,9 @@ int main(void) {
     run_subtraction_tests(),
     run_multiply_tests(),
     run_divide_tests(),
-    // run_root_tests(),
     run_one_over_tests(),
     run_exponent_tests(),
+    run_whole_num_tests(),
   };
 
   size_t n = sizeof(results) / sizeof(results[0]);
