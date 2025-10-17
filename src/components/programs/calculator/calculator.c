@@ -48,11 +48,6 @@ double divide(double dividend, double divisor) {
 }
 
 EMSCRIPTEN_KEEPALIVE
-double percent(double a) {
-  return a; // TODO find out exactly what this function should do based on how it works on win95, might not need funtion
-}
-
-EMSCRIPTEN_KEEPALIVE
 double exponent(double base, double exp) {
   const double init_base = base;
   const double init_exp = exp;
@@ -102,10 +97,7 @@ double exponent(double base, double exp) {
     }
   }
 
-  return base;
-}
+  // TODO have to handle decimal exponents.
 
-EMSCRIPTEN_KEEPALIVE
-double find_root(double root, double num) {
-  return exponent(num, 1/root);  // Use exponent function to find root (square root of 9 = 9 ^ 1/2, 3 root of 9 = 9 ^ 1/3, etc.)
+  return base;
 }

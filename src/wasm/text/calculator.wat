@@ -1,9 +1,8 @@
 (module
   (type (;0;) (func (param f64 f64) (result f64)))
   (type (;1;) (func))
-  (type (;2;) (func (param f64) (result f64)))
-  (type (;3;) (func (param i32)))
-  (type (;4;) (func (result i32)))
+  (type (;2;) (func (param i32)))
+  (type (;3;) (func (result i32)))
   (func (;0;) (type 1)
     nop)
   (func (;1;) (type 0) (param f64 f64) (result f64)
@@ -27,9 +26,7 @@
     f64.const 0x0p+0 (;=0;)
     f64.ne
     select)
-  (func (;5;) (type 2) (param f64) (result f64)
-    local.get 0)
-  (func (;6;) (type 0) (param f64 f64) (result f64)
+  (func (;5;) (type 0) (param f64 f64) (result f64)
     (local f64 f64 i32)
     block  ;; label = @1
       block  ;; label = @2
@@ -156,16 +153,10 @@
       return
     end
     local.get 0)
-  (func (;7;) (type 0) (param f64 f64) (result f64)
-    local.get 1
-    f64.const 0x1p+0 (;=1;)
-    local.get 0
-    f64.div
-    call 6)
-  (func (;8;) (type 3) (param i32)
+  (func (;6;) (type 2) (param i32)
     local.get 0
     global.set 0)
-  (func (;9;) (type 4) (result i32)
+  (func (;7;) (type 3) (result i32)
     global.get 0)
   (table (;0;) 2 2 funcref)
   (memory (;0;) 258 258)
@@ -175,11 +166,9 @@
   (export "subtract" (func 2))
   (export "multiply" (func 3))
   (export "divide" (func 4))
-  (export "percent" (func 5))
-  (export "exponent" (func 6))
-  (export "find_root" (func 7))
+  (export "exponent" (func 5))
   (export "__indirect_function_table" (table 0))
   (export "_initialize" (func 0))
-  (export "_emscripten_stack_restore" (func 8))
-  (export "emscripten_stack_get_current" (func 9))
+  (export "_emscripten_stack_restore" (func 6))
+  (export "emscripten_stack_get_current" (func 7))
   (elem (;0;) (i32.const 1) func 0))

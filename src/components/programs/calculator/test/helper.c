@@ -58,15 +58,6 @@ bool test_div(double a, double b, double c, bool test_0) {
 
 }
 
-bool test_fnd_rt(double a, double b, double c) {
-  if (find_root(a, b) != c) {
-    printf(ANSI_COLOR_RED "%f root of %f = %f: Fail" ANSI_COLOR_RESET "\n", a, b, find_root(a, b));
-    return false;
-  }
-
-  printf(ANSI_COLOR_GREEN "%f root of %f = %f: Pass" ANSI_COLOR_RESET "\n", a, b, find_root(a, b));
-  return true;
-}
 
 bool test_one_over(double a, double b, bool test_0) { // TODO add support for divide by 0
   if (a == 0) {
