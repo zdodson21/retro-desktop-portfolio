@@ -63,7 +63,7 @@ bool test_one_over(double a, double b, bool test_0) {
       printf(ANSI_COLOR_GREEN "Intentional Divide by 0 Error: Pass" ANSI_COLOR_RESET "\n");
       return true;
     } else {
-      printf(ANSI_COLOR_GREEN "Unintentional Divide by 0. Set test_0 to false!" ANSI_COLOR_RESET "\n");
+      printf(ANSI_COLOR_RED "Unintentional Divide by 0. Set test_0 to false!" ANSI_COLOR_RESET "\n");
       return false;
     }
   }

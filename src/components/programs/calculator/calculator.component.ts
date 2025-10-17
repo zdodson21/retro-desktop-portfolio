@@ -74,6 +74,7 @@ export class CalculatorComponent implements OnInit {
       const multiply = this.wasmExports.multiply;
       const divide = this.wasmExports.divide;
       const exponent = this.wasmExports.exponent;
+      // TODO add samples for one over & sqrt
 
       if (
         typeof add === 'function' &&
