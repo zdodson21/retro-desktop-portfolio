@@ -262,6 +262,32 @@ bool run_whole_num_tests() {
   return true;
 }
 
+bool run_sqroot_tests() {
+  printf("Square Root Tests: \n\n");
+
+  const int n = 3;
+  bool test[n];
+
+  test[0] = test_sqroot(4, 2);
+  test[1] = test_sqroot(144, 12);
+  test[2] = test_sqroot(2704, 52);
+  test[3] = test_sqroot(3, 1.732051);
+
+  printf("\nStatus: ");
+
+  for (size_t i = 0; i < n; i++) {
+    if (!test[i]) {
+      printf(ANSI_COLOR_RED "Failed" ANSI_COLOR_RESET "\n");
+      print_bar();
+      return false;
+    }
+  }
+
+  printf(ANSI_COLOR_GREEN "Passed" ANSI_COLOR_RESET "\n");
+  print_bar();
+  return true;
+}
+
 // ! Scientific Operations
 
 
@@ -280,7 +306,11 @@ int main(void) {
     run_one_over_tests(),
     run_exponent_tests(),
     run_whole_num_tests(),
+    run_sqroot_tests(),
   };
+
+  // test_ln();
+  test_agm();
 
   size_t n = sizeof(results) / sizeof(results[0]);
   for (size_t i = 0; i < n; i++) {

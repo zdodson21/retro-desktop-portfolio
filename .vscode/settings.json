@@ -7,6 +7,11 @@
   "editor.formatOnSave": true,
   "files.associations": {
     ".vercelignore": "ignore",
-    "bitset": "c"
+    "bitset": "c",
+    "ranges": "c",
+    "forward_list": "c",
+    "future": "c",
+    "list": "c",
+    "regex": "c"
   }
 }

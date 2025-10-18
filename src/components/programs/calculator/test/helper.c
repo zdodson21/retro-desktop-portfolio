@@ -97,6 +97,25 @@ bool test_is_whole_num(double num, bool response) {
   return true;
 }
 
+bool test_sqroot(double num, double response) {
+  if (sqroot(num) != response){
+    printf(ANSI_COLOR_RED "Square Root of %f = %f: Fail" ANSI_COLOR_RESET "\n" , num, sqroot(num));
+    return false;
+  }
+
+  printf(ANSI_COLOR_GREEN "Square Root of %f = %f: Pass" ANSI_COLOR_RESET "\n" , num, sqroot(num));
+  return true;
+}
+
+bool test_ln() {
+  printf("%f", ln(2));
+}
+
+bool test_agm() {
+  printf("Testing AGM\n");
+  printf("%f\n", agm(24, 6)); // Expect 13.458171...
+}
+
 // bool has_false(size_t n, bool arr[]) {
 //   for (size_t i = 0; i < n; i++) {
 //     if (!arr[i]) {

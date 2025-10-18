@@ -13,6 +13,9 @@ bool test_div(double, double, double, bool);
 bool test_one_over(double, double, bool);
 bool test_exponent(double, double, double);
 bool test_is_whole_num(double, bool);
+bool test_sqroot(double, double);
+bool test_ln();
+bool test_agm();
 // bool has_false(size_t, bool);
 
 #endif

@@ -16,11 +16,15 @@
   #define EMSCRIPTEN_KEEPALIVE
 #endif
 
+#include <stdio.h>
 #include <stdbool.h>
 
 #define EPS 1e-12
 
-const double e = 2.718281828;
+const double e =    2.718281828;
+const double pi =   3.141592654;
+const double ln_2 = 0.693147180;
+const double m =    8.000000000;
 
 EMSCRIPTEN_KEEPALIVE
 double add(double add_a, double add_b) {
@@ -138,16 +142,82 @@ double exponent(double base, double exp) {
   return base;
 }
 
+/*
+ * Arithmetic Mean
+ */
 EMSCRIPTEN_KEEPALIVE
-double root(double root, double base) {
-  return exponent(base, 1/root);
+double am(double a, double b) {
+  return multiply(divide(1, 2), add(a, b));
+}
+
+EMSCRIPTEN_KEEPALIVE
+double sqroot(double radicand) {
+  double init_rad = radicand;
+  double a1 = add(divide(init_rad, 2), 1);
+  double b1 = divide(init_rad, a1);
+  double amin1 = a1;
+  double bmin1 = b1;
+
+  while(subtract(amin1, bmin1) > 0) {
+    double an = am(amin1, bmin1);
+    double bn = divide(init_rad, an);
+
+    amin1 = an;
+    bmin1 = bn;
+    // TODO tell it to stop when "close enough", I think that is causing the hanging
+  }
+
+  return bmin1;
+}
+
+/*
+ * Geometric Mean
+ */
+EMSCRIPTEN_KEEPALIVE
+double gm(double a, double b) {
+  return sqroot(multiply(a, b));
+}
+
+EMSCRIPTEN_KEEPALIVE
+double root(double index, double radicand) {
+  return exponent(radicand, divide(1, index));
+}
+
+/*
+ * Arithmetic-Geometric Mean
+ * https://en.wikipedia.org/wiki/Arithmetic%E2%80%93geometric_mean
+ */
+EMSCRIPTEN_KEEPALIVE
+double agm(double a, double g) {
+  for (int i = 1; i <= 5; i++) {
+    double new_a = am(a, g);
+    double new_g = gm(a, g);
+
+    a = new_a;
+    g = new_g;
+  }
+
+  return divide(add(a, g), 2);
 }
 
 EMSCRIPTEN_KEEPALIVE
 double ln(double arguement) {
-  // return logarithm(e, arguement);
-  return 0; // TODO find a formula I can use for this part
-  // TODO also see if there are any laws I follow (such as value arugement == e, 1, 0, etc.)
+  const double init_arg = arguement;
+  const double s = multiply(arguement, 256);
+
+  /*
+   TODO ensure on frontend this case returns the proper error
+   * Case for safety, frontend should return an error, should not pass through to WASM
+   */
+  if (arguement == 0) {
+    return 0;
+  }
+
+  if (arguement == 1) {
+    return 0;
+  }
+
+  return divide(pi, multiply(2, agm(1, divide(4, s)))) - multiply(m, ln_2);
 }
 
 EMSCRIPTEN_KEEPALIVE
