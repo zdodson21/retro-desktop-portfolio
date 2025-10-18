@@ -16,7 +16,6 @@
   #define EMSCRIPTEN_KEEPALIVE
 #endif
 
-#include <stdio.h>
 #include <stdbool.h>
 
 #define EPS 1e-12
