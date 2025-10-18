@@ -18,9 +18,9 @@
 
 #include <stdbool.h>
 
-#define EPS 1e-12
+#define EPS 1e-15
 
-const double e =    2.718281828;
+const double e =    2.718281828459045235360287471352;
 const double pi =   3.141592654;
 const double ln_2 = 0.693147180;
 const double m =    8.000000000;
@@ -48,18 +48,15 @@ double divide(double dividend, double divisor) {
 
   /*
    TODO delete this todo when below comment is handled in TS, leave below comment
-   * Return 0 is only here because program could break on edge case if it isn't.
-   * Any divide by 0 errors should be handled on the TypeScript side of things,
-   * without this function being called, so technically this return 0 should
-   * never actually be returned.
+   * Here for safety, Divide by 0 error should be handled on front-end
    */
   return 0;
 }
 
 EMSCRIPTEN_KEEPALIVE
 double one_over(double x) {
-  // TODO make sure the TypeScript call of this function will return an error instead of calling this function
-  // divide() contains "divide by 0 protection", so it is not needed her
+  // TODO make sure the TypeScript call of this function will return an error instead of calling this function when providing 0
+  // divide() contains "divide by 0 protection", so it is not needed here
   return divide(1, x);
 }
 
@@ -88,6 +85,13 @@ bool is_even(double x) {
   return even;
 }
 
+EMSCRIPTEN_KEEPALIVE
+double close_to_int(double x) {
+  double diff = x - (long long) x;
+  if (diff < 0) diff = -diff;
+  return diff < 1e-4;
+}
+
 /*
  * Arithmetic Mean
  */
@@ -98,27 +102,30 @@ double am(double a, double b) {
 
 EMSCRIPTEN_KEEPALIVE
 double sqroot(double radicand) {
-  // TODO should be domain error on TS side (only for < 0, == 0 is fine)
+  /*
+   TODO should be domain error on TS side (only for < 0, == 0 is fine)
+   * Both return 0, but in reality < 0 would return a domain error
+   * Returns 0 for safety, should be handled on front-end to prevent
+   * function call
+   */
   if (radicand < 0 || radicand == 0) {
     return 0;
   }
 
   double init_rad = radicand;
-  double a1 = add(divide(init_rad, 2), 1);
-  double b1 = divide(init_rad, a1);
-  double amin1 = a1;
-  double bmin1 = b1;
 
-  while(subtract(amin1, bmin1) > 0) {
-    double an = am(amin1, bmin1);
-    double bn = divide(init_rad, an);
+  double a_prev = add(divide(init_rad, 2), 1);
+  double b_prev = divide(init_rad, a_prev);
 
-    amin1 = an;
-    bmin1 = bn;
-    // TODO tell it to stop when "close enough", I think that is causing the hanging
+  for (int i = 0; i < 1000; i++) {
+    double a_next = am(a_prev, b_prev);
+    double b_next = divide(init_rad, a_next);
+
+    a_prev = a_next;
+    b_prev = b_next;
   }
 
-  return bmin1;
+  return b_prev;
 }
 
 /*
@@ -135,7 +142,7 @@ double gm(double a, double b) {
  */
 EMSCRIPTEN_KEEPALIVE
 double agm(double a, double g) {
-  for (int i = 1; i <= 5; i++) {
+  for (int i = 1; i <= 1000; i++) {
     double new_a = am(a, g);
     double new_g = gm(a, g);
 
@@ -146,6 +153,9 @@ double agm(double a, double g) {
   return divide(add(a, g), 2);
 }
 
+/*
+ * Starts to lose precision in the hundred thousandths place (5th decimal place)
+ */
 EMSCRIPTEN_KEEPALIVE
 double ln(double arguement) {
   const double init_arg = arguement;
@@ -163,7 +173,13 @@ double ln(double arguement) {
     return 0;
   }
 
-  return divide(pi, multiply(2, agm(1, divide(4, s)))) - multiply(m, ln_2);
+  double result = subtract(divide(pi, multiply(2, agm(1, divide(4, s)))), multiply(m, ln_2));
+
+  if (close_to_int(result)) {
+    return (long long) result;
+  }
+
+  return result;
 }
 
 EMSCRIPTEN_KEEPALIVE
@@ -202,7 +218,6 @@ double exponent(double base, double exp) {
   }
 
   // ! Past extra cases
-  // if (init_base != 0 && init_base != 1 && !(init_exp == 0 && init_exp == 1 && init_exp == -1)) {
   if (exp < 0) {
     exp = -exp;
   }
@@ -222,19 +237,11 @@ double exponent(double base, double exp) {
       return 1/-base;
     }
   }
-  else { // Exponent is not whole number
-    // TODO have to handle decimal exponents.
-    // I wrote down a formula in LibreOffice Math,
-    // try to interpret that, should work instead of
-    // for loop (I think)
-    // Really I shouldn't even need a conditional statement,
-    // and might be able to remove a lot of the other condtions
-    // except when init_base == 0
-
-    // The only part I MIGHT need is the if (exp < 0)
+  else { // Exponent is decimal
+    double calc_exp = multiply(exp, ln(base));
+    // e ^ calc_exp
   }
 
-  // }
   return base;
 }
 

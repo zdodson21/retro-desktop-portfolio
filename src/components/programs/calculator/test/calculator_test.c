@@ -309,7 +309,7 @@ int main(void) {
     run_sqroot_tests(),
   };
 
-  // test_ln();
+  test_ln();
   test_agm();
 
   size_t n = sizeof(results) / sizeof(results[0]);

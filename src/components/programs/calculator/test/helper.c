@@ -108,7 +108,7 @@ bool test_sqroot(double num, double response) {
 }
 
 bool test_ln() {
-  printf("%f", ln(2));
+  printf("%f\n", ln(5));
 }
 
 bool test_agm() {

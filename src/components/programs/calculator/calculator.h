@@ -7,13 +7,15 @@ double multiply(double, double);
 double divide(double, double);
 double one_over(double);
 bool is_whole_num(double);
-double exponent(double, double);
-double sqroot(double);
-double root(double, double);
+bool is_even(double);
+double close_to_int(double);
 double am(double, double);
+double sqroot(double);
 double gm(double, double);
 double agm(double, double);
 double ln(double);
 double logarithm(double, double);
+double exponent(double, double);
+double root(double, double);
 
 #endif
