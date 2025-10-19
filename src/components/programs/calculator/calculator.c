@@ -47,7 +47,6 @@ double divide(double dividend, double divisor) {
   }
 
   /*
-   TODO delete this todo when below comment is handled in TS, leave below comment
    * Here for safety, Divide by 0 error should be handled on front-end
    */
   return 0;
@@ -55,7 +54,6 @@ double divide(double dividend, double divisor) {
 
 EMSCRIPTEN_KEEPALIVE
 double one_over(double x) {
-  // TODO make sure the TypeScript call of this function will return an error instead of calling this function when providing 0
   // divide() contains "divide by 0 protection", so it is not needed here
   return divide(1, x);
 }
@@ -103,7 +101,6 @@ double am(double a, double b) {
 EMSCRIPTEN_KEEPALIVE
 double sqroot(double radicand) {
   /*
-   TODO should be domain error on TS side (only for < 0, == 0 is fine)
    * Both return 0, but in reality < 0 would return a domain error
    * Returns 0 for safety, should be handled on front-end to prevent
    * function call
@@ -157,19 +154,19 @@ double agm(double a, double g) {
  * Starts to lose precision in the hundred thousandths place (5th decimal place)
  */
 EMSCRIPTEN_KEEPALIVE
-double ln(double arguement) {
-  const double init_arg = arguement;
-  const double s = multiply(arguement, 256);
+double ln(double arg) {
+  const double init_arg = arg;
+  const double s = multiply(arg, 256);
 
   /*
    TODO ensure on frontend this case returns the proper error
    * Case for safety, frontend should return an error, should not pass through to WASM
    */
-  if (arguement == 0) {
+  if (arg <= 0) {
     return 0;
   }
 
-  if (arguement == 1) {
+  if (arg == 1) {
     return 0;
   }
 
@@ -183,8 +180,13 @@ double ln(double arguement) {
 }
 
 EMSCRIPTEN_KEEPALIVE
-double logarithm(double base, double arguement) {
-  return divide(ln(arguement), ln(base));
+double logarithm(double base, double arg) {
+  // Domain error on front end for first three cases
+  if (base <= 0 || base == 1 || arg <= 0 || arg == 1) {
+    return 0;
+  }
+
+  return divide(ln(arg), ln(base));
 }
 
 EMSCRIPTEN_KEEPALIVE
