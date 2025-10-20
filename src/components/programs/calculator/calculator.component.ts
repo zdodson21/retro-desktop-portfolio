@@ -1,11 +1,13 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, inject, OnInit } from '@angular/core';
 import { AppService } from '../../../app/app.service';
+import { CalculatorButtonPresses } from '../../../interfaces/calculator-button-presses';
 import { ToolbarButtonComponent } from '../../ui/toolbar/toolbar-button/toolbar-button.component';
 import { ToolbarItemComponent } from '../../ui/toolbar/toolbar-item/toolbar-item.component';
 import { ToolbarMenuComponent } from '../../ui/toolbar/toolbar-menu/toolbar-menu.component';
 import { WindowFrameComponent } from '../../window-frame/window-frame.component';
 import { CalculatorButtonComponent } from './components/calculator-button/calculator-button.component';
+import { lastValueFrom } from 'rxjs';
 
 @Component({
   selector: 'calculator',
@@ -18,19 +20,33 @@ export class CalculatorComponent implements OnInit {
   protected menuFocus: string = '';
   protected store: AppService = inject(AppService);
   protected memory: Array<number> = [];
+  protected firstButtonPressed: boolean = false;
+  protected currentDisplay: number | string = 0;
   protected errors: Array<string> = [
     'Divide by 0 Error', // 0
     'Domain Error', // 1
     'WASM Function Error', // 2
-    "Incomplete Code Error" // 3
+    'Incomplete Code Error', // 3
+    'TypeScript Logic Error', // 4
+  ];
+  protected operationMemory: CalculatorButtonPresses = {
+    valueA: 0,
+    valueB: undefined,
+    operation: '',
+  };
+  protected singleValueFunctions: Array<string> = [
+
+  ];
+  protected dualValueFunctions: Array<string> = [
+
   ];
 
   // ! Calculator Logic
 
   /**
    * @description finds the sum of addends a and b using WASM function
-   * @param add_a
-   * @param add_b
+   * @param add_a 1st value to add
+   * @param add_b 2nd value to add
    */
   protected add(add_a: number, add_b: number): number | string {
     const add = this.wasmExports?.add;
@@ -163,7 +179,8 @@ export class CalculatorComponent implements OnInit {
   protected exponent(base: number, exp: number): number | string {
     const exponent = this.wasmExports?.exponent;
 
-    if (this.isWholeNum(exp)) { // TODO remove when no longer needed
+    if (this.isWholeNum(exp)) {
+      // TODO remove when no longer needed
       if (typeof exponent === 'function') {
         return exponent(base, exp);
       }
@@ -223,6 +240,73 @@ export class CalculatorComponent implements OnInit {
 
   // ! DOM
 
+  /**
+   * @description called by all buttons on click. Handles interpretation of button press
+   * @param input calulator button numbers of strings (operators)
+   */
+  protected calculatorButtonHelper(input: number | string): void {
+    if (typeof input === 'number') {
+      if (this.firstButtonPressed) {
+        this.operationMemory.valueA = input;
+      }
+    } else if (typeof input === 'string') {
+      // Dictate which operation will occur
+    }
+
+    // If function and certain conditions exist then call perform operation appropriately
+
+    if (!this.firstButtonPressed) this.firstButtonPressed = true;
+  }
+
+  /**
+   * @description handles calling calculator operation functions based provided input
+   * @param operation the operation to perform
+   */
+  protected performOperation(operation: string): void {
+    let newValue: number | string | undefined;
+
+    switch (operation) {
+      case 'add':
+        if (typeof this.operationMemory.valueA === 'number' && typeof this.operationMemory.valueB === 'number')
+          newValue = this.add(this.operationMemory.valueA, this.operationMemory.valueB);
+        break;
+
+      case 'subtract':
+        if (typeof this.operationMemory.valueA === 'number' && typeof this.operationMemory.valueB === 'number')
+          newValue = this.subtract(this.operationMemory.valueA, this.operationMemory.valueB);
+        break;
+
+      case 'multiply':
+        if (typeof this.operationMemory.valueA === 'number' && typeof this.operationMemory.valueB === 'number')
+          newValue = this.multiply(this.operationMemory.valueA, this.operationMemory.valueB);
+        break;
+
+      case 'divide':
+        if (typeof this.operationMemory.valueA === 'number' && typeof this.operationMemory.valueB === 'number')
+          newValue = this.divide(this.operationMemory.valueA, this.operationMemory.valueB);
+        break;
+
+      case 'oneOver':
+        if (typeof this.operationMemory.valueA === 'number') newValue = this.oneOver(this.operationMemory.valueA);
+        break;
+
+      case 'sqRoot':
+        if (typeof this.operationMemory.valueA === 'number') newValue = this.sqRoot(this.operationMemory.valueA);
+        break;
+
+      default:
+        newValue = this.errors[4];
+    }
+
+    if (typeof newValue === 'number' || typeof newValue === 'string') {
+      this.operationMemory = {
+        valueA: newValue,
+        valueB: undefined,
+        operation: '',
+      };
+    }
+  }
+
   protected toolbarButtonHelper(event: MouseEvent, button: string): string {
     event?.stopPropagation();
     if (button === 'edit' && this.menuFocus === '') return 'edit';
@@ -240,6 +324,8 @@ export class CalculatorComponent implements OnInit {
 
   // TODO add routing for standard and scientific, if route = anything else (other than null / '' / scientific) then it should auto change to ''
   // TODO '' router param should load it as standard as well
+  // TODO can use Internet Explorer for this
+  // TODO this feature should be implemented but unreachable except by modifying the route. The button should be disabled
 
   /*
     ! WASM HTTP stuff is below here.
@@ -258,6 +344,10 @@ export class CalculatorComponent implements OnInit {
     this.loadWasm();
   }
 
+  /**
+   * @description loads WASM file
+   */
+  // TODO fix deprecated .toPromise function
   private async loadWasm() {
     try {
       const wasmBuffer = await this.http.get('wasm/calculator.wasm', { responseType: 'arraybuffer' }).toPromise();
@@ -272,6 +362,9 @@ export class CalculatorComponent implements OnInit {
     }
   }
 
+  /**
+   * @description test function to test calling WASM functions, also serves as an example
+   */
   protected callWasmFunctions() {
     if (this.wasmExports) {
       const add = this.wasmExports.add;

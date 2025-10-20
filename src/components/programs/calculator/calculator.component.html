@@ -5,7 +5,7 @@
         <div class="toolbar" (click)="menuFocus = ''">
           <toolbar-button text="Edit" [class.active]="menuFocus === 'edit'" (click)="menuFocus = toolbarButtonHelper($event, 'edit')" (mouseover)="toolbarHoverHelper('edit')">
             <toolbar-menu class="top-level-menu" [class.visible]="menuFocus === 'edit'" (click)="store.focus.set('calculator')">
-              <toolbar-item left-text="Copy"/>
+              <toolbar-item left-text="Copy" />
             </toolbar-menu>
           </toolbar-button>
 
@@ -16,69 +16,69 @@
             </toolbar-menu>
           </toolbar-button>
 
+          <div class="test"></div>
+
           <toolbar-button text="Help" [class.active]="menuFocus === 'help'" (click)="menuFocus = toolbarButtonHelper($event, 'help')" (mouseover)="toolbarHoverHelper('help')">
             <toolbar-menu class="top-level-menu" [class.visible]="menuFocus === 'help'" (click)="store.focus.set('calculator')">
-              <toolbar-item left-text="Console Log WASM" (click)="callWasmFunctions()"/>
+              <toolbar-item left-text="Console Log WASM" (click)="callWasmFunctions()" />
             </toolbar-menu>
           </toolbar-button>
         </div>
 
         <div class="calculator" (click)="menuFocus = ''">
           <div class="output">
-            <output class="calc-output">0.</output>
+            <output class="calc-output">{{ this.currentDisplay }}</output>
           </div>
 
           @if (isScientific) {
-            <div class="scientific-button-set">
-
-            </div>
+            <div class="scientific-button-set"></div>
           } @else {
             <div class="standard-button-set">
               <div class="top-row">
                 <output class="mem-output"></output>
                 <div class="buttons">
-                  <calculator-button btn-label="Back" color="dark-red" />
-                  <calculator-button btn-label="CE" color="dark-red" />
-                  <calculator-button btn-label="C" color="dark-red" />
+                  <calculator-button btn-label="Back" color="dark-red" (click)="calculatorButtonHelper('back')" />
+                  <calculator-button btn-label="CE" color="dark-red" (click)="calculatorButtonHelper('ce')" />
+                  <calculator-button btn-label="C" color="dark-red" (click)="calculatorButtonHelper('c')" />
                 </div>
               </div>
               <div class="button-set">
                 <div class="memory-buttons-column">
-                  <calculator-button btn-label="MC" color="red"/>
-                  <calculator-button btn-label="MR" color="red"/>
-                  <calculator-button btn-label="MS" color="red"/>
-                  <calculator-button btn-label="M+" color="red"/>
+                  <calculator-button btn-label="MC" color="red" (click)="calculatorButtonHelper('mc')" />
+                  <calculator-button btn-label="MR" color="red" (click)="calculatorButtonHelper('mr')" />
+                  <calculator-button btn-label="MS" color="red" (click)="calculatorButtonHelper('ms')" />
+                  <calculator-button btn-label="M+" color="red" (click)="calculatorButtonHelper('m+')" />
                 </div>
                 <div class="calc-buttons">
                   <div class="column-1">
-                    <calculator-button btn-label="7" />
-                    <calculator-button btn-label="4" />
-                    <calculator-button btn-label="1"/>
-                    <calculator-button btn-label="0" />
+                    <calculator-button btn-label="7" (click)="calculatorButtonHelper(7)" />
+                    <calculator-button btn-label="4" (click)="calculatorButtonHelper(4)" />
+                    <calculator-button btn-label="1" (click)="calculatorButtonHelper(1)" />
+                    <calculator-button btn-label="0" (click)="calculatorButtonHelper(0)" />
                   </div>
                   <div class="column-2">
-                    <calculator-button btn-label="8" />
-                    <calculator-button btn-label="5" />
-                    <calculator-button btn-label="2"/>
-                    <calculator-button btn-label="+/-" />
+                    <calculator-button btn-label="8" (click)="calculatorButtonHelper(8)" />
+                    <calculator-button btn-label="5" (click)="calculatorButtonHelper(5)" />
+                    <calculator-button btn-label="2" (click)="calculatorButtonHelper(2)" />
+                    <calculator-button btn-label="+/-" (click)="calculatorButtonHelper('+/-')" />
                   </div>
                   <div class="column-3">
-                    <calculator-button btn-label="9" />
-                    <calculator-button btn-label="6" />
-                    <calculator-button btn-label="3"/>
-                    <calculator-button btn-label="." />
+                    <calculator-button btn-label="9" (click)="calculatorButtonHelper(9)"/>
+                    <calculator-button btn-label="6" (click)="calculatorButtonHelper(6)"/>
+                    <calculator-button btn-label="3" (click)="calculatorButtonHelper(3)"/>
+                    <calculator-button btn-label="." (click)="calculatorButtonHelper('.')"/>
                   </div>
                   <div class="column-4">
-                    <calculator-button btn-label="/" color="red" />
-                    <calculator-button btn-label="*" color="red" />
-                    <calculator-button btn-label="-" color="red" />
-                    <calculator-button btn-label="+" color="red" />
+                    <calculator-button btn-label="/" color="red" (click)="calculatorButtonHelper('/')"/>
+                    <calculator-button btn-label="*" color="red" (click)="calculatorButtonHelper('*')"/>
+                    <calculator-button btn-label="-" color="red" (click)="calculatorButtonHelper('-')"/>
+                    <calculator-button btn-label="+" color="red" (click)="calculatorButtonHelper('+')"/>
                   </div>
                   <div class="column-5">
-                    <calculator-button btn-label="sqrt" color="dark-blue" />
-                    <calculator-button btn-label="%" color="dark-blue" />
-                    <calculator-button btn-label="1/x" color="dark-blue" />
-                    <calculator-button btn-label="=" color="red" />
+                    <calculator-button btn-label="sqrt" color="dark-blue" (click)="calculatorButtonHelper('sqrt')"/>
+                    <calculator-button btn-label="%" color="dark-blue" (click)="calculatorButtonHelper('%')"/>
+                    <calculator-button btn-label="1/x" color="dark-blue" (click)="calculatorButtonHelper('1/x')"/>
+                    <calculator-button btn-label="=" color="red" (click)="calculatorButtonHelper('=')"/>
                   </div>
                 </div>
               </div>
