@@ -85,7 +85,8 @@
             align-content: center;
             height: 24px;
 
-            output { // Calc Output
+            output {
+              // Calc Output
               display: block;
               width: calc(100% - 4px);
               padding: 0px 2px;
@@ -138,63 +139,120 @@
           }
 
           .standard-button-set {
-            height: calc(100% - 24px);
+            height: calc(100% - 26px);
+            // TODO set padding
 
-            $top-row-height: 20%;
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            grid-template-rows: repeat(5, 1fr);
+            gap: 8px;
 
-            .top-row {
-              @include top-row-common();
-              height: $top-row-height;
+            output {
+              @include non-button-border();
+              display: block;
+              // height: 100%;
+              // width: 100%;
+            }
 
-              output { // Memory Output
-                // TODO needs borders, width, and height
-                @include non-button-border();
-                height: 75%; // TODO temp value
-                width: 20px;
-                display: flex;
-              }
+            .control-row {
+              grid-column: span 4 / span 4;
+              display: flex;
+              justify-content: end;
+              flex-direction: row;
+              gap: 8px;
 
-              .buttons {
-                @include top-row-buttons-spacing();
-
-                calculator-button {
-                  @include button();
-                }
+              calculator-button {
+                @include button();
+                width: 20%;
               }
             }
 
-            .button-set {
-              @include button-set();
-              $memory-column-width: 18%;
-              height: calc(100% - $top-row-height);
+            calculator-button {
+              @include button();
 
-              .column {
-                @include button-column();
-                width: $memory-column-width;
+              @mixin grid-position($column, $row) {
+                grid-column-start: $column;
+                grid-row-start: $row;
               }
 
-              .memory-buttons-column {
-                @include button-column();
-                width: 18%;
-
-                calculator-button {
-                  height: 22%;
-                  @include button();
-                }
+              &.btn-mc {
+                @include grid-position(1, 2);
               }
 
-              .calc-buttons {
-                @include calc-buttons();
-                width: calc(100% - $memory-column-width - 10%);
+              &.btn-mc {
+                @include grid-position(1, 3);
+              }
 
-                .column {
-                  @include button-column();
+              &.btn-mr {
+                @include grid-position(1, 4);
+              }
 
-                  calculator-button {
-                    height: 20%;
-                    @include button();
-                  }
-                }
+              &.btn-m-plus {
+                @include grid-position(1, 5);
+              }
+
+              &.btn-7 {
+                @include grid-position(2, 2);
+              }
+
+              &.btn-4 {
+                @include grid-position(2, 3);
+              }
+
+              &.btn-1 {
+                @include grid-position(2, 4);
+              }
+
+              &.btn-0 {
+                @include grid-position(2, 5);
+              }
+
+              &.btn-8 {
+                @include grid-position(3, 2);
+              }
+
+              &.btn-5 {
+                @include grid-position(3, 3);
+              }
+
+              &.btn-2 {
+                @include grid-position(3, 4);
+              }
+
+              &.btn-pm {
+                @include grid-position(3, 5);
+              }
+
+              &.btn-9 {
+                @include grid-position(4, 2);
+              }
+
+              &.btn-6 {
+                @include grid-position(4, 3);
+              }
+
+              &.btn-3 {
+                @include grid-position(4, 4);
+              }
+
+              &.btn-dot {
+                @include grid-position(4, 5);
+              }
+
+              &.btn-sqrt {
+                @include grid-position(5, 2);
+              }
+
+              &.btn-prct {
+                @include grid-position(5, 3);
+              }
+
+              &.btn-1ovr {
+                @include grid-position(5, 4);
+              }
+
+              &.btn-eql {
+                @include grid-position(5, 5);
               }
             }
           }
