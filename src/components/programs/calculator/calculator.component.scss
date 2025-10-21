@@ -6,8 +6,8 @@
   @include program-common();
 
   window-frame {
-    width: 350px;
-    height: 350px;
+    width: 400px;
+    height: 400px;
     @include mobile-viewport();
 
     &.scientific {
@@ -64,7 +64,7 @@
         }
 
         .calculator {
-          height: calc(100% - 28px);
+          height: calc(100% - 40px);
           border-top: 2px solid $win-95-divider-bottom;
           padding: 4px;
 
@@ -85,10 +85,11 @@
             align-content: center;
             height: 24px;
 
-            output {
+            output { // Calc Output
               display: block;
               width: calc(100% - 4px);
               padding: 0px 2px;
+              @include allow-user-select();
             }
           }
 
@@ -119,27 +120,37 @@
           @mixin button-column() {
             display: flex;
             flex-direction: column;
+            justify-content: space-between;
+            padding-bottom: 8px;
           }
 
           $button-height: 0px; // TODO needs to be percent value for scaling to phone and other screens
           $button-width: 0px;
 
           @mixin button() {
+            border-top: white 2px solid;
+            border-right: black 2px solid;
+            border-bottom: black 2px solid;
+            border-left: white 2px solid;
             display: flex;
             justify-content: center;
-            align-items: center
+            align-items: center;
           }
 
           .standard-button-set {
+            height: calc(100% - 24px);
+
+            $top-row-height: 20%;
 
             .top-row {
               @include top-row-common();
+              height: $top-row-height;
 
-              output {
+              output { // Memory Output
                 // TODO needs borders, width, and height
-                // @include non-button-border();
-                // height: 40px; // TODO temp value
-                // width: 15%;
+                @include non-button-border();
+                height: 75%; // TODO temp value
+                width: 20px;
                 display: flex;
               }
 
@@ -154,16 +165,35 @@
 
             .button-set {
               @include button-set();
+              $memory-column-width: 18%;
+              height: calc(100% - $top-row-height);
+
+              .column {
+                @include button-column();
+                width: $memory-column-width;
+              }
 
               .memory-buttons-column {
                 @include button-column();
+                width: 18%;
+
+                calculator-button {
+                  height: 22%;
+                  @include button();
+                }
               }
 
               .calc-buttons {
                 @include calc-buttons();
+                width: calc(100% - $memory-column-width - 10%);
 
                 .column {
                   @include button-column();
+
+                  calculator-button {
+                    height: 20%;
+                    @include button();
+                  }
                 }
               }
             }

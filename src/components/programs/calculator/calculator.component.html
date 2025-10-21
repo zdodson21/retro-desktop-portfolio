@@ -20,7 +20,7 @@
 
           <toolbar-button text="Help" [class.active]="menuFocus === 'help'" (click)="menuFocus = toolbarButtonHelper($event, 'help')" (mouseover)="toolbarHoverHelper('help')">
             <toolbar-menu class="top-level-menu" [class.visible]="menuFocus === 'help'" (click)="store.focus.set('calculator')">
-              <toolbar-item left-text="Console Log WASM" (click)="callWasmFunctions()" />
+              <toolbar-item left-text="(Dev) Test WASM" (click)="callWasmFunctions()" />
             </toolbar-menu>
           </toolbar-button>
         </div>
@@ -45,7 +45,7 @@
                 </div>
               </div>
               <div class="button-set">
-                <div class="memory-buttons-column">
+                <div class="memory-buttons-column column">
                   <calculator-button btn-label="MC" color="red" (click)="calculatorButtonHelper('mc')" />
                   <calculator-button btn-label="MR" color="red" (click)="calculatorButtonHelper('mr')" />
                   <calculator-button btn-label="MS" color="red" (click)="calculatorButtonHelper('ms')" />
