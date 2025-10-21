@@ -1,5 +1,6 @@
 @use "../../../styles.scss" as *;
 @use "../programs.scss" as *;
+@use "../../../colors.scss" as *;
 
 .calculator-wrapper {
   @include program-common();
@@ -31,11 +32,14 @@
       }
 
       .padding {
+        padding: 0px 4px;
+        height: 100%;
 
         .toolbar {
           height: 28px;
           display: flex;
           flex-direction: row;
+          border-bottom: 2px solid $win-95-divider-top;
 
           toolbar-button {
             display: block;
@@ -55,6 +59,113 @@
 
             &.visible {
               display: block;
+            }
+          }
+        }
+
+        .calculator {
+          height: calc(100% - 28px);
+          border-top: 2px solid $win-95-divider-bottom;
+          padding: 4px;
+
+          @mixin non-button-border() {
+            border-top: black 2px solid;
+            border-right: white 2px solid;
+            border-bottom: white 2px solid;
+            border-left: black 2px solid;
+          }
+
+          .output {
+            @include non-button-border();
+            background-color: white;
+            color: black;
+            width: calc(100% - 4px);
+            display: block;
+            text-align: right;
+            align-content: center;
+            height: 24px;
+
+            output {
+              display: block;
+              width: calc(100% - 4px);
+              padding: 0px 2px;
+            }
+          }
+
+          @mixin top-row-common() {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+          }
+
+          @mixin top-row-buttons-spacing() {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+          }
+
+          @mixin button-set() {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+          }
+
+          @mixin calc-buttons() {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+          }
+
+          @mixin button-column() {
+            display: flex;
+            flex-direction: column;
+          }
+
+          $button-height: 0px; // TODO needs to be percent value for scaling to phone and other screens
+          $button-width: 0px;
+
+          @mixin button() {
+            display: flex;
+            justify-content: center;
+            align-items: center
+          }
+
+          .standard-button-set {
+
+            .top-row {
+              @include top-row-common();
+
+              output {
+                // TODO needs borders, width, and height
+                // @include non-button-border();
+                // height: 40px; // TODO temp value
+                // width: 15%;
+                display: flex;
+              }
+
+              .buttons {
+                @include top-row-buttons-spacing();
+
+                calculator-button {
+                  @include button();
+                }
+              }
+            }
+
+            .button-set {
+              @include button-set();
+
+              .memory-buttons-column {
+                @include button-column();
+              }
+
+              .calc-buttons {
+                @include calc-buttons();
+
+                .column {
+                  @include button-column();
+                }
+              }
             }
           }
         }

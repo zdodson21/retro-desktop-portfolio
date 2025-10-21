@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnInit, ViewChild } from '@angular/core';
 import { AppService } from '../../../app/app.service';
 import { CalculatorButtonPresses } from '../../../interfaces/calculator-button-presses';
 import { ToolbarButtonComponent } from '../../ui/toolbar/toolbar-button/toolbar-button.component';
@@ -7,7 +7,6 @@ import { ToolbarItemComponent } from '../../ui/toolbar/toolbar-item/toolbar-item
 import { ToolbarMenuComponent } from '../../ui/toolbar/toolbar-menu/toolbar-menu.component';
 import { WindowFrameComponent } from '../../window-frame/window-frame.component';
 import { CalculatorButtonComponent } from './components/calculator-button/calculator-button.component';
-import { lastValueFrom } from 'rxjs';
 
 @Component({
   selector: 'calculator',
@@ -20,6 +19,10 @@ export class CalculatorComponent implements OnInit {
   protected menuFocus: string = '';
   protected store: AppService = inject(AppService);
   protected memory: Array<number> = [];
+  protected displayedMemItem: number | undefined;
+  protected mode: number = 1; // 0 = Hex | 1 = Dec | 2 = Oct | 3 = Bin
+  protected subModeDec: number = 0; // 0 = Deg | 1 = Rad | 2 = Grad
+  protected subModeRest: number = 0; // 0 = Dword | 1 = Word | 2 = Byte
   protected firstButtonPressed: boolean = false;
   protected currentDisplay: number | string = 0;
   protected errors: Array<string> = [
@@ -34,12 +37,8 @@ export class CalculatorComponent implements OnInit {
     valueB: undefined,
     operation: '',
   };
-  protected singleValueFunctions: Array<string> = [
-
-  ];
-  protected dualValueFunctions: Array<string> = [
-
-  ];
+  protected singleValueFunctions: Array<string> = [];
+  protected dualValueFunctions: Array<string> = ['add', 'subtract', 'multiply', 'divide'];
 
   // ! Calculator Logic
 
@@ -238,7 +237,7 @@ export class CalculatorComponent implements OnInit {
     return this.errors[2];
   }
 
-  // ! DOM
+  // ! DOM || Calculator Logic
 
   /**
    * @description called by all buttons on click. Handles interpretation of button press
@@ -322,6 +321,13 @@ export class CalculatorComponent implements OnInit {
     }
   }
 
+  /**
+   * @description copies the value currently displayed in output
+   */
+  protected copyOutput(): void {
+    if (!this.errors.includes(this.currentDisplay.toString())) navigator.clipboard.writeText(this.currentDisplay.toString());
+  }
+
   // TODO add routing for standard and scientific, if route = anything else (other than null / '' / scientific) then it should auto change to ''
   // TODO '' router param should load it as standard as well
   // TODO can use Internet Explorer for this
@@ -329,7 +335,6 @@ export class CalculatorComponent implements OnInit {
 
   /*
     ! WASM HTTP stuff is below here.
-    ! Currently (10/15/2025) it is working, so DO NOT TOUCH IT UNLESS ADDING FUNCTION CALLING SAMPLES!!!
     ! Test thoroughly before pushing anything new to GitHub if below is modified.
     ! Any calculator logic should be written above this comment!
     ! Use below code as an example for how to "import" and call WASM functions.

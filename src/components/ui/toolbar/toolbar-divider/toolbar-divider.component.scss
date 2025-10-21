@@ -1,3 +1,5 @@
+@use "../../../../colors.scss" as *;
+
 .toolbar-divider-wrapper {
   display: flex;
   justify-content: center;
@@ -7,8 +9,8 @@
   margin: 3px 0px;
 
   .divider {
-    border-top: 2px solid #8a8a8a;
-    border-bottom: 2px solid #f1f1f1;
+    border-top: 2px solid $win-95-divider-top;
+    border-bottom: 2px solid $win-95-divider-bottom;
     width: 100%;
     height: 0px;
   }
