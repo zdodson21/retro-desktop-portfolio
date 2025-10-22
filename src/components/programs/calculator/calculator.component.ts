@@ -19,7 +19,7 @@ export class CalculatorComponent implements OnInit {
   protected menuFocus: string = '';
   protected store: AppService = inject(AppService);
   protected memory: Array<number> = [];
-  protected displayedMemItem: number | undefined;
+  protected displayedMemItem: number | undefined = 5; // TODO remove sample number
   protected mode: number = 1; // 0 = Hex | 1 = Dec | 2 = Oct | 3 = Bin
   protected subModeDec: number = 0; // 0 = Deg | 1 = Rad | 2 = Grad
   protected subModeRest: number = 0; // 0 = Dword | 1 = Word | 2 = Byte

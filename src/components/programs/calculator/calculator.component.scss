@@ -136,26 +136,32 @@
             display: flex;
             justify-content: center;
             align-items: center;
+
+            &:active {
+              border-top: black 2px solid;
+              border-right: white 2px solid;
+              border-bottom: white 2px solid;
+              border-left: black 2px solid;
+            }
           }
 
           .standard-button-set {
-            height: calc(100% - 26px);
+            height: calc(100% - 40px);
             // TODO set padding
+            padding: 8px 0px;
 
             display: grid;
-            grid-template-columns: repeat(5, 1fr);
+            grid-template-columns: repeat(6, 1fr);
             grid-template-rows: repeat(5, 1fr);
             gap: 8px;
 
             output {
               @include non-button-border();
               display: block;
-              // height: 100%;
-              // width: 100%;
             }
 
             .control-row {
-              grid-column: span 4 / span 4;
+              grid-column: span 5 / span 5;
               display: flex;
               justify-content: end;
               flex-direction: row;
@@ -239,20 +245,36 @@
                 @include grid-position(4, 5);
               }
 
-              &.btn-sqrt {
+              &.btn-div {
                 @include grid-position(5, 2);
               }
 
-              &.btn-prct {
+              &.btn-mul {
                 @include grid-position(5, 3);
               }
 
-              &.btn-1ovr {
+              &.btn-sub {
                 @include grid-position(5, 4);
               }
 
-              &.btn-eql {
+              &.btn-add {
                 @include grid-position(5, 5);
+              }
+
+              &.btn-sqrt {
+                @include grid-position(6, 2);
+              }
+
+              &.btn-prct {
+                @include grid-position(6, 3);
+              }
+
+              &.btn-1ovr {
+                @include grid-position(6, 4);
+              }
+
+              &.btn-eql {
+                @include grid-position(6, 5);
               }
             }
           }
