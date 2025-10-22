@@ -10,7 +10,7 @@ bool is_whole_num(double);
 bool is_even(double);
 double close_to_int(double);
 double am(double, double);
-double sqroot(double);
+double sq_root(double);
 double gm(double, double);
 double agm(double, double);
 double ln(double);

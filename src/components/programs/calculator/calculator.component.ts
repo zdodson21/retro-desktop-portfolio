@@ -19,7 +19,7 @@ export class CalculatorComponent implements OnInit {
   protected menuFocus: string = '';
   protected store: AppService = inject(AppService);
   protected memory: Array<number> = [];
-  protected displayedMemItem: number | undefined = 5; // TODO remove sample number
+  protected displayedMemItem: number | undefined;
   protected mode: number = 1; // 0 = Hex | 1 = Dec | 2 = Oct | 3 = Bin
   protected subModeDec: number = 0; // 0 = Deg | 1 = Rad | 2 = Grad
   protected subModeRest: number = 0; // 0 = Dword | 1 = Word | 2 = Byte
@@ -32,6 +32,7 @@ export class CalculatorComponent implements OnInit {
     'Incomplete Code Error', // 3
     'TypeScript Logic Error', // 4
   ];
+  protected modifyVal: number = 0; // 0 = A | 1 = B
   protected operationMemory: CalculatorButtonPresses = {
     valueA: 0,
     valueB: undefined,
@@ -240,21 +241,56 @@ export class CalculatorComponent implements OnInit {
   // ! DOM || Calculator Logic
 
   /**
-   * @description called by all buttons on click. Handles interpretation of button press
+   * @description called by all buttons on click. Handles interpretation of button press for any non numbers
    * @param input calulator button numbers of strings (operators)
    */
-  protected calculatorButtonHelper(input: number | string): void {
-    if (typeof input === 'number') {
-      if (this.firstButtonPressed) {
-        this.operationMemory.valueA = input;
-      }
-    } else if (typeof input === 'string') {
-      // Dictate which operation will occur
+  protected calculatorButtonHelper(input: string): void {
+    switch(input) {
+      case 'back':
+        break;
+      case 'ce': // Clears current entry (5 + 5) => CE => (5 + 6). Does not remove part of calculation
+        break;
+      case 'c': // Clears entire calculation
+        break;
+
+      case 'mc':
+        break;
+      case 'mr':
+        break;
+      case 'ms':
+        break;
+      case 'm+':
+        break;
+
+      case '+':
+        break;
+      case '-':
+        break;
+      case '*':
+        break;
+      case '/':
+        break;
+
+      case 'sqrt':
+        break;
+      case '%':
+        break;
+      case '1/x':
+        break;
+      case '=':
+        break;
     }
 
-    // If function and certain conditions exist then call perform operation appropriately
+  }
 
-    if (!this.firstButtonPressed) this.firstButtonPressed = true;
+  protected numberButtonHelper(input: number): void {
+    // TODO pressing multiple number buttons needs to piece the numbers together. Just use value A for now
+    // Pressing a number button needs to add that number to the end of the number, so something like 5 + 6 = 56
+    // Ensure proper value is set (valueA || valueB)
+      // Value A will really only be set when the calculator is reset, such as by pressing the clear button or a fresh start
+      // Value B will be set after any time equal is pressed and other applicable cases
+
+    this.currentDisplay = "" + this.currentDisplay + input; // Has to delete init value
   }
 
   /**
@@ -283,6 +319,7 @@ export class CalculatorComponent implements OnInit {
       case 'divide':
         if (typeof this.operationMemory.valueA === 'number' && typeof this.operationMemory.valueB === 'number')
           newValue = this.divide(this.operationMemory.valueA, this.operationMemory.valueB);
+        // TODO test divide by 0 with NaN instead in C
         break;
 
       case 'oneOver':

@@ -1,14 +1,26 @@
 /*
- * Emscripten is required to compile this file to WebAssembly.
- * https://emscripten.org/
- *
- * WASM Build Command (from calculator directory):
- *    emcc -Os calculator.c -o ../../../wasm/calculator.wasm --no-entry
- *
- * A makefile is available in the root of this project.
- * Run this command (from root of project) to compile this file to WebAssembly using MAKE:
- *    make calculator
- */
+  MIT License
+
+  Copyright (c) 2025 Zachary Dodson
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to deal
+  in the Software without restriction, including without limitation the rights
+  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+  copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in all
+  copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+  SOFTWARE.
+*/
 
 #if defined(__EMSCRIPTEN__)
   #include <emscripten.h>
@@ -99,7 +111,7 @@ double am(double a, double b) {
 }
 
 EMSCRIPTEN_KEEPALIVE
-double sqroot(double radicand) {
+double sq_root(double radicand) {
   /*
    * Both return 0, but in reality < 0 would return a domain error
    * Returns 0 for safety, should be handled on front-end to prevent
@@ -130,7 +142,7 @@ double sqroot(double radicand) {
  */
 EMSCRIPTEN_KEEPALIVE
 double gm(double a, double b) {
-  return sqroot(multiply(a, b));
+  return sq_root(multiply(a, b));
 }
 
 /*
@@ -255,7 +267,7 @@ double root(double index, double radicand) {
   }
 
   if (index == 2) {
-    return sqroot(radicand);
+    return sq_root(radicand);
   }
 
   return exponent(radicand, divide(1, index));

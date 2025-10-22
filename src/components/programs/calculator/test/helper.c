@@ -102,12 +102,12 @@ bool test_is_whole_num(double num, bool response) {
 }
 
 bool test_sqroot(double num, double response) {
-  if (ABS_DBL(sqroot(num) - response) > EPS){
-    printf(ANSI_COLOR_RED "Square Root of %f = %f: Fail" ANSI_COLOR_RESET "\n" , num, sqroot(num));
+  if (ABS_DBL(sq_root(num) - response) > EPS){
+    printf(ANSI_COLOR_RED "Square Root of %f = %f: Fail" ANSI_COLOR_RESET "\n" , num, sq_root(num));
     return false;
   }
 
-  printf(ANSI_COLOR_GREEN "Square Root of %f = %f: Pass" ANSI_COLOR_RESET "\n" , num, sqroot(num));
+  printf(ANSI_COLOR_GREEN "Square Root of %f = %f: Pass" ANSI_COLOR_RESET "\n" , num, sq_root(num));
   return true;
 }
 

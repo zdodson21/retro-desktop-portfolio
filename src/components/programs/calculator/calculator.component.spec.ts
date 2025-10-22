@@ -21,4 +21,6 @@ describe('CalculatorComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  // TODO if possible, I would actually like to call WASM functions here for testing. Can use same tests as in C testing program.
 });
