@@ -27,20 +27,7 @@ bool run_addition_tests() {
   test[4] = test_add(-2.3, -4.6, -6.9);
   test[5] = test_add(-2.3, 4.6, 2.3);
 
-  printf("\nStatus: ");
-
-  // size_t n = sizeof(test) / sizeof(test[0]);
-  for (int i = 0; i < n; i++) {
-    if (!test[i]) {
-      printf(ANSI_COLOR_RED "Failed" ANSI_COLOR_RESET "\n");
-      print_bar();
-      return false;
-    }
-  }
-
-  printf(ANSI_COLOR_GREEN "Passed" ANSI_COLOR_RESET "\n");
-  print_bar();
-  return true;
+  return print_status(n, test);
 }
 
 bool run_subtraction_tests() {
@@ -56,19 +43,7 @@ bool run_subtraction_tests() {
   test[4] = test_sub(-4.6, -2.3, -2.3);
   test[5] = test_sub(-4.6, 2.3, -6.9);
 
-  printf("\nStatus: ");
-
-  for (size_t i = 0; i < n; i++) {
-    if (!test[i]) {
-      printf(ANSI_COLOR_RED "Failed" ANSI_COLOR_RESET "\n");
-      print_bar();
-      return false;
-    }
-  }
-
-  printf(ANSI_COLOR_GREEN "Passed" ANSI_COLOR_RESET "\n");
-  print_bar();
-  return true;
+  return print_status(n, test);
 }
 
 bool run_multiply_tests() {
@@ -99,26 +74,14 @@ bool run_multiply_tests() {
 
   // Negative decimals
   test[12] = test_mult(-5.2, -2.3, 11.96);
-  test[13] = test_mult(-5.2, -1, -5.2);
+  test[13] = test_mult(-5.2, -1, 5.2);
   test[14] = test_mult(-5.2, 0, 0);
 
   // Positive & negative decimals
   test[15] = test_mult(-5.2, 2.3, -11.96);
   test[16] = test_mult(5.2, -2.3, -11.96);
 
-  printf("\nStatus: ");
-
-  for (size_t i = 0; i < n; i++) {
-    if (!test[i]) {
-      printf(ANSI_COLOR_RED "Failed" ANSI_COLOR_RESET "\n");
-      print_bar();
-      return false;
-    }
-  }
-
-  printf(ANSI_COLOR_GREEN "Passed" ANSI_COLOR_RESET "\n");
-  print_bar();
-  return true;
+  return print_status(n, test);
 }
 
 bool run_divide_tests() {
@@ -153,19 +116,7 @@ bool run_divide_tests() {
   test[12] = test_div(-5.2, 2.3, -2.260870, false);
   test[13] = test_div(5.2, -2.3, -2.260870, false);
 
-  printf("\nStatus: ");
-
-  for (size_t i = 0; i < n; i++) {
-    if (!test[i]) {
-      printf(ANSI_COLOR_RED "Failed" ANSI_COLOR_RESET "\n");
-      print_bar();
-      return false;
-    }
-  }
-
-  printf(ANSI_COLOR_GREEN "Passed" ANSI_COLOR_RESET "\n");
-  print_bar();
-  return true;
+  return print_status(n, test);
 }
 
 bool run_one_over_tests() {
@@ -175,22 +126,10 @@ bool run_one_over_tests() {
   bool test[n];
 
   test[0] = test_one_over(0, 0, true);
-  test[1] = test_one_over(3, 0.33, false);
+  test[1] = test_one_over(3, 0.333333, false);
   test[2] = test_one_over(500, 0.002, false);
 
-  printf("\nStatus: ");
-
-  for (size_t i = 0; i < n; i++) {
-    if (!test[i]) {
-      printf(ANSI_COLOR_RED "Failed" ANSI_COLOR_RESET "\n");
-      print_bar();
-      return false;
-    }
-  }
-
-  printf(ANSI_COLOR_GREEN "Passed" ANSI_COLOR_RESET "\n");
-  print_bar();
-  return true;
+  return print_status(n, test);
 }
 
 bool run_exponent_tests() {
@@ -218,19 +157,7 @@ bool run_exponent_tests() {
   test[16] = test_exponent(-0.3, -4, -123.456790);
   // TODO write more tests (ncluding roots like (9, 1/3, 3))
 
-  printf("\nStatus: ");
-
-  for (size_t i = 0; i < n; i++) {
-    if (!test[i]) {
-      printf(ANSI_COLOR_RED "Failed" ANSI_COLOR_RESET "\n");
-      print_bar();
-      return false;
-    }
-  }
-
-  printf(ANSI_COLOR_GREEN "Passed" ANSI_COLOR_RESET "\n");
-  print_bar();
-  return true;
+  return print_status(n, test);
 }
 
 bool run_whole_num_tests() {
@@ -247,19 +174,7 @@ bool run_whole_num_tests() {
   test[5] = test_is_whole_num(0, true);
   test[6] = test_is_whole_num(-5, true);
 
-  printf("\nStatus: ");
-
-  for (size_t i = 0; i < n; i++) {
-    if (!test[i]) {
-      printf(ANSI_COLOR_RED "Failed" ANSI_COLOR_RESET "\n");
-      print_bar();
-      return false;
-    }
-  }
-
-  printf(ANSI_COLOR_GREEN "Passed" ANSI_COLOR_RESET "\n");
-  print_bar();
-  return true;
+  return print_status(n, test);
 }
 
 bool run_sqroot_tests() {
@@ -273,19 +188,7 @@ bool run_sqroot_tests() {
   test[2] = test_sqroot(2704, 52);
   test[3] = test_sqroot(3, 1.732051);
 
-  printf("\nStatus: ");
-
-  for (size_t i = 0; i < n; i++) {
-    if (!test[i]) {
-      printf(ANSI_COLOR_RED "Failed" ANSI_COLOR_RESET "\n");
-      print_bar();
-      return false;
-    }
-  }
-
-  printf(ANSI_COLOR_GREEN "Passed" ANSI_COLOR_RESET "\n");
-  print_bar();
-  return true;
+  return print_status(n, test);
 }
 
 // ! Scientific Operations
@@ -307,6 +210,7 @@ int main(void) {
     run_exponent_tests(),
     run_whole_num_tests(),
     run_sqroot_tests(),
+    // TODO finish making tests for existing logic, ensure all tests are passing (legitimately lol)
   };
 
   test_ln();

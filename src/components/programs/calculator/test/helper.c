@@ -3,12 +3,16 @@
 #include "../calculator.h"
 #include "helper.h"
 
+#define ABS_DBL(x) ((x) < 0.0 ? -(x) : (x))
+
+#define EPS 1e-9
+
 void print_bar(void) {
   printf("-------------------\n");
 }
 
 bool test_add(double a, double b, double c) {
-  if (add(a, b) != c) {
+  if (ABS_DBL(add(a, b) - c) > EPS) {
     printf(ANSI_COLOR_RED "Add %f + %f = %f: Fail" ANSI_COLOR_RESET "\n", a, b, add(a, b));
     return false;
   }
@@ -18,7 +22,7 @@ bool test_add(double a, double b, double c) {
 }
 
 bool test_sub(double a, double b, double c) {
-  if (subtract(a, b) != c) {
+  if (ABS_DBL(subtract(a, b) - c) > EPS) {
     printf(ANSI_COLOR_RED "Subtract %f - %f = %f: Fail" ANSI_COLOR_RESET "\n", a, b, subtract(a, b));
     return false;
   }
@@ -28,7 +32,7 @@ bool test_sub(double a, double b, double c) {
 }
 
 bool test_mult(double a, double b, double c) {
-  if (multiply(a, b) != c) {
+  if (ABS_DBL(multiply(a, b) - c) > EPS) {
     printf(ANSI_COLOR_RED "Multiply %f * %f = %f: Fail" ANSI_COLOR_RESET "\n", a, b, multiply(a, b));
     return false;
   }
@@ -48,7 +52,7 @@ bool test_div(double a, double b, double c, bool test_0) {
     }
   }
 
-  if (divide(a, b) != c) {
+  if (ABS_DBL(divide(a, b) - c) > EPS) {
     printf(ANSI_COLOR_RED "Divide %f / %f = %f: Fail" ANSI_COLOR_RESET "\n", a, b, divide(a, b));
     return false;
   }
@@ -68,7 +72,7 @@ bool test_one_over(double a, double b, bool test_0) {
     }
   }
 
-  if (divide(1, a) != b) {
+  if (ABS_DBL(one_over(a) - b) > EPS) {
     printf(ANSI_COLOR_RED "1 / %f = %f: Fail" ANSI_COLOR_RESET "\n", a, divide(1, a));
     return false;
   }
@@ -78,7 +82,7 @@ bool test_one_over(double a, double b, bool test_0) {
 }
 
 bool test_exponent(double base, double exp, double sol) {
-  if (exponent(base, exp) != sol) {
+  if (ABS_DBL(exponent(base, exp) - sol) > EPS) {
     printf(ANSI_COLOR_RED "%f to the power of %f = %f: Fail" ANSI_COLOR_RESET "\n", base, exp, exponent(base, exp));
     return false;
   }
@@ -88,7 +92,7 @@ bool test_exponent(double base, double exp, double sol) {
 }
 
 bool test_is_whole_num(double num, bool response) {
-  if (is_whole_num(num) != response) {
+  if (ABS_DBL(is_whole_num(num) - response) > EPS) {
     printf(ANSI_COLOR_RED "%f is %d: Fail" ANSI_COLOR_RESET "\n", num, is_whole_num(num));
     return false;
   }
@@ -98,7 +102,7 @@ bool test_is_whole_num(double num, bool response) {
 }
 
 bool test_sqroot(double num, double response) {
-  if (sqroot(num) != response){
+  if (ABS_DBL(sqroot(num) - response) > EPS){
     printf(ANSI_COLOR_RED "Square Root of %f = %f: Fail" ANSI_COLOR_RESET "\n" , num, sqroot(num));
     return false;
   }
@@ -107,21 +111,28 @@ bool test_sqroot(double num, double response) {
   return true;
 }
 
-bool test_ln() {
+bool test_ln() { // TODO write this out
   printf("%f\n", ln(5));
 }
 
-bool test_agm() {
+bool test_agm() { // TODO write this out
   printf("Testing AGM\n");
   printf("%f\n", agm(24, 6)); // Expect 13.458171...
 }
 
-// bool has_false(size_t n, bool arr[]) {
-//   for (size_t i = 0; i < n; i++) {
-//     if (!arr[i]) {
-//       return false;
-//     }
-//   }
+// TODO get this working
+bool print_status(size_t n, bool arr[]) {
+  printf("\nStatus: ");
 
-//   return true;
-// }
+  for (size_t i = 0; i < n; i++) {
+    if (!arr[i]) {
+      printf(ANSI_COLOR_RED "Failed" ANSI_COLOR_RESET "\n");
+      print_bar();
+      return false;
+    }
+  }
+
+  printf(ANSI_COLOR_GREEN "Passed" ANSI_COLOR_RESET "\n");
+  print_bar();
+  return true;
+}

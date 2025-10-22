@@ -16,6 +16,6 @@ bool test_is_whole_num(double, bool);
 bool test_sqroot(double, double);
 bool test_ln();
 bool test_agm();
-// bool has_false(size_t, bool);
+bool print_status(size_t n, bool arr[]);
 
 #endif
