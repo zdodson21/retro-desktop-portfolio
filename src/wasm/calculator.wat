@@ -268,11 +268,11 @@
   (func (;13;) (type 1) (param f64) (result f64)
     (local f64)
     local.get 0
-    f64.const 0x0p+0 (;=0;)
-    f64.eq
-    local.get 0
     f64.const 0x1p+0 (;=1;)
     f64.eq
+    local.get 0
+    f64.const 0x0p+0 (;=0;)
+    f64.le
     i32.or
     if (result f64)  ;; label = @1
       local.get 1
@@ -317,17 +317,37 @@
       select
     end)
   (func (;14;) (type 0) (param f64 f64) (result f64)
+    (local f64)
     local.get 1
-    call 13
-    local.get 0
-    call 13
-    local.tee 0
-    f64.div
-    f64.const 0x0p+0 (;=0;)
+    f64.const 0x1p+0 (;=1;)
+    f64.eq
     local.get 0
     f64.const 0x0p+0 (;=0;)
-    f64.ne
-    select)
+    f64.le
+    i32.or
+    local.get 0
+    f64.const 0x1p+0 (;=1;)
+    f64.eq
+    local.get 1
+    f64.const 0x0p+0 (;=0;)
+    f64.le
+    i32.or
+    i32.or
+    if (result f64)  ;; label = @1
+      local.get 2
+    else
+      local.get 1
+      call 13
+      local.get 0
+      call 13
+      local.tee 0
+      f64.div
+      f64.const 0x0p+0 (;=0;)
+      local.get 0
+      f64.const 0x0p+0 (;=0;)
+      f64.ne
+      select
+    end)
   (func (;15;) (type 0) (param f64 f64) (result f64)
     (local f64 f64 i32)
     block  ;; label = @1
