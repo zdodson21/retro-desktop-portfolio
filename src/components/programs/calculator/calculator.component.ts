@@ -25,6 +25,7 @@ export class CalculatorComponent implements OnInit {
   protected subModeRest: number = 0; // 0 = Dword | 1 = Word | 2 = Byte
   protected firstButtonPressed: boolean = false;
   protected currentDisplay: number | string = 0;
+  protected displayInitState: boolean = true;
   protected errors: Array<string> = [
     'Divide by 0 Error', // 0
     'Domain Error', // 1
@@ -34,12 +35,13 @@ export class CalculatorComponent implements OnInit {
   ];
   protected modifyVal: number = 0; // 0 = A | 1 = B
   protected operationMemory: CalculatorButtonPresses = {
-    valueA: 0,
+    valueA: undefined,
     valueB: undefined,
     operation: '',
   };
   protected singleValueFunctions: Array<string> = [];
   protected dualValueFunctions: Array<string> = ['add', 'subtract', 'multiply', 'divide'];
+  // TODO remove any unused variables, functions, and console.log() (except for callWasm function).
 
   // ! Calculator Logic
 
@@ -126,7 +128,7 @@ export class CalculatorComponent implements OnInit {
    * @param radicand value to find square root of
    */
   protected sqRoot(radicand: number): number | string {
-    const sqRoot = this.wasmExports?.sqroot;
+    const sqRoot = this.wasmExports?.sq_root;
 
     if (radicand < 0) {
       return this.errors[1];
@@ -245,29 +247,59 @@ export class CalculatorComponent implements OnInit {
    * @param input calulator button numbers of strings (operators)
    */
   protected calculatorButtonHelper(input: string): void {
-    switch(input) {
+    console.log(`calculatorButtonHelper(${input}) called`);
+
+    switch (input) {
       case 'back':
+        console.log('performing Back operation');
         break;
       case 'ce': // Clears current entry (5 + 5) => CE => (5 + 6). Does not remove part of calculation
+        console.log('performing CE operation');
+        this.currentDisplay = 0;
+        this.displayInitState = true;
         break;
       case 'c': // Clears entire calculation
+        console.log('performing C operation');
+        // ? Does this clear the memory
         break;
 
       case 'mc':
+        console.log('performing MC operation');
         break;
       case 'mr':
+        console.log('performing MR operation');
         break;
       case 'ms':
+        console.log('performing MS operation');
         break;
       case 'm+':
+        console.log('performing M+ operation');
         break;
 
       case '+':
+        console.log('performing + operation');
+        if (!this.displayInitState && this.operationMemory.valueA === undefined) {
+          // Setting value A, then will set value B
+          this.operationMemory.valueA = +this.currentDisplay;
+          console.log('valueA set');
+          this.operationMemory.operation = 'add';
+          console.log('operation set');
+          this.displayInitState = true;
+        } else if (!this.displayInitState && this.operationMemory.valueA !== undefined) {
+          // Setting value B, then will solve
+          this.operationMemory.valueB = +this.currentDisplay;
+          console.log('valueB');
+          this.displayInitState = true;
+        }
+
         break;
+
       case '-':
         break;
+
       case '*':
         break;
+
       case '/':
         break;
 
@@ -278,19 +310,38 @@ export class CalculatorComponent implements OnInit {
       case '1/x':
         break;
       case '=':
+        if (this.dualValueFunctions.includes(this.operationMemory.operation) && this.operationMemory.valueB === undefined)
+          this.operationMemory.valueB = +this.currentDisplay;
+
+        this.performOperation(this.operationMemory.operation);
+        if (typeof this.operationMemory.valueA === 'string' || typeof this.operationMemory.valueA === 'number')
+          this.currentDisplay = this.operationMemory.valueA;
+
+        break;
+
+      case '.':
         break;
     }
-
   }
 
+  /**
+   * @description handles number button events
+   * @param input the value of the button pressed
+   */
   protected numberButtonHelper(input: number): void {
+    console.log(`numberButtonHelper(${input}) called`);
     // TODO pressing multiple number buttons needs to piece the numbers together. Just use value A for now
     // Pressing a number button needs to add that number to the end of the number, so something like 5 + 6 = 56
     // Ensure proper value is set (valueA || valueB)
-      // Value A will really only be set when the calculator is reset, such as by pressing the clear button or a fresh start
-      // Value B will be set after any time equal is pressed and other applicable cases
+    // Value A will really only be set when the calculator is reset, such as by pressing the clear button or a fresh start
+    // Value B will be set after any time equal is pressed and other applicable cases
 
-    this.currentDisplay = "" + this.currentDisplay + input; // Has to delete init value
+    if (this.displayInitState) {
+      this.currentDisplay = '' + input;
+      this.displayInitState = false;
+    } else {
+      this.currentDisplay = '' + this.currentDisplay + input;
+    }
   }
 
   /**
@@ -298,32 +349,44 @@ export class CalculatorComponent implements OnInit {
    * @param operation the operation to perform
    */
   protected performOperation(operation: string): void {
+    console.log(`performOperation(${operation}) called`);
     let newValue: number | string | undefined;
 
     switch (operation) {
       case 'add':
         if (typeof this.operationMemory.valueA === 'number' && typeof this.operationMemory.valueB === 'number')
           newValue = this.add(this.operationMemory.valueA, this.operationMemory.valueB);
+
+        console.log(`added ${this.operationMemory.valueA} and ${this.operationMemory.valueB} = ${newValue}`);
         break;
 
       case 'subtract':
         if (typeof this.operationMemory.valueA === 'number' && typeof this.operationMemory.valueB === 'number')
           newValue = this.subtract(this.operationMemory.valueA, this.operationMemory.valueB);
+
+        console.log(`subtracted ${this.operationMemory.valueA} - ${this.operationMemory.valueB} = ${newValue}`);
         break;
 
       case 'multiply':
         if (typeof this.operationMemory.valueA === 'number' && typeof this.operationMemory.valueB === 'number')
           newValue = this.multiply(this.operationMemory.valueA, this.operationMemory.valueB);
+
+        console.log(`multiplied ${this.operationMemory.valueA} * ${this.operationMemory.valueB} = ${newValue}`);
         break;
 
       case 'divide':
         if (typeof this.operationMemory.valueA === 'number' && typeof this.operationMemory.valueB === 'number')
           newValue = this.divide(this.operationMemory.valueA, this.operationMemory.valueB);
         // TODO test divide by 0 with NaN instead in C
+
+        console.log(`divide ${this.operationMemory.valueA} / ${this.operationMemory.valueB} = ${newValue}`);
         break;
 
       case 'oneOver':
         if (typeof this.operationMemory.valueA === 'number') newValue = this.oneOver(this.operationMemory.valueA);
+        break;
+
+      case 'percent':
         break;
 
       case 'sqRoot':
@@ -343,6 +406,11 @@ export class CalculatorComponent implements OnInit {
     }
   }
 
+  /**
+   * @description helps set toolbar menu focus
+   * @param event mouse event
+   * @param button label for the button and its menu
+   */
   protected toolbarButtonHelper(event: MouseEvent, button: string): string {
     event?.stopPropagation();
     if (button === 'edit' && this.menuFocus === '') return 'edit';
@@ -352,6 +420,10 @@ export class CalculatorComponent implements OnInit {
     return '';
   }
 
+  /**
+   * @description assists with toolbar button hover events
+   * @param button label for the button and its menu
+   */
   protected toolbarHoverHelper(button: string): void {
     if (this.menuFocus === 'edit' || this.menuFocus === 'view' || this.menuFocus === 'help') {
       this.menuFocus = button;
