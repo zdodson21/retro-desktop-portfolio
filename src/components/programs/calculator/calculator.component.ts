@@ -290,7 +290,6 @@ export class CalculatorComponent implements OnInit {
           this.operationMemory.valueB = +this.currentDisplay;
           console.log('valueB');
           this.displayInitState = true;
-          // Test CLI
         }
 
         break;
