@@ -59,6 +59,7 @@
   ie-route,
   li,
   em,
+  b,
   time,
   summary {
     font-family: Georgia, "Times New Roman", Times, serif;
@@ -69,5 +70,21 @@
 @mixin site-mobile-support($max-width) {
   @media (max-aspect-ratio: 1/1) {
     max-width: $max-width;
+  }
+}
+
+@mixin set-img-size($max-width: 100%) {
+  max-width: $max-width;
+  margin: 0px calc((100% - $max-width) / 2);
+
+  @media (max-aspect-ratio: 1/1) {
+    $max-width: calc($max-width + 40%);
+
+    @if $max-width > 95% {
+      $max-width: 90%;
+    }
+
+    max-width: calc($max-width);
+    margin: 0px calc((100% - $max-width) / 2);
   }
 }

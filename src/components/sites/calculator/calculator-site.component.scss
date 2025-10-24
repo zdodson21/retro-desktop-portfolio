@@ -1,0 +1,21 @@
+@use "../sites.scss" as *;
+
+.calculator-site-wrapper {
+  @include site-common();
+
+  section {
+    &.formulas {
+      .img-container {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+
+        img {
+          border: 2px solid black;
+          @include set-img-size(30%);
+        }
+      }
+    }
+  }
+}

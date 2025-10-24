@@ -1,21 +1,5 @@
 @use "../sites.scss" as *;
 
-@mixin set-img-size($max-width: 100%) {
-  max-width: $max-width;
-  margin: 0px calc((100% - $max-width) / 2);
-
-  @media (max-aspect-ratio: 1/1) {
-    $max-width: calc($max-width + 40%);
-
-    @if $max-width > 95% {
-      $max-width: 90%;
-    }
-
-    max-width: calc($max-width);
-    margin: 0px calc((100% - $max-width) / 2);
-  }
-}
-
 .hax-chat-agent-wrapper {
   @include site-common();
 

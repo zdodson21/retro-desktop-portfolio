@@ -3,14 +3,10 @@ import { ActivatedRoute, Params, Router, RouterOutlet } from '@angular/router';
 import { AlertShutdownComponent } from '../components/alerts/alert-shutdown/alert-shutdown.component';
 import { DesktopEnvironmentComponent } from '../components/desktop/desktop-environment/desktop-environment.component';
 import { ShutdownScreenComponent } from '../components/desktop/shutdown-screen/shutdown-screen.component';
-import { MsdosPromptComponent } from '../components/programs/msdos-prompt/msdos-prompt.component';
-import { StartMenuComponent } from '../components/start/start-menu/start-menu.component';
-import { TaskbarBaseComponent } from '../components/taskbar/taskbar-base/taskbar-base.component';
-import { SystemService } from '../services/system/system.service';
-import { AppService } from './app.service';
-import { SettingsService } from '../services/settings/settings.service';
-import { AboutMeSite } from '../components/sites/about-me/about-me.component';
 import { InternetExplorerService } from '../components/programs/internet-explorer/internet-explorer.service';
+import { MsdosPromptComponent } from '../components/programs/msdos-prompt/msdos-prompt.component';
+import { AboutMeSite } from '../components/sites/about-me/about-me.component';
+import { CalculatorSiteComponent } from '../components/sites/calculator/calculator-site.component';
 import { ErrorSite } from '../components/sites/error-site/error-site.component';
 import { HaxAuditSite } from '../components/sites/hax-audit/hax-audit.component';
 import { HaxChatAgentSite } from '../components/sites/hax-chat-agent/hax-chat-agent.component';
@@ -18,7 +14,11 @@ import { OpenSourceContributionsSite } from '../components/sites/open-source-con
 import { RetroDesktopPortfolioSite } from '../components/sites/retro-desktop-portfolio/retro-desktop-portfolio.component';
 import { SecretSite } from '../components/sites/secret-site/secret-site.component';
 import { SmallProjectsSite } from '../components/sites/small-projects/small-projects.component';
-import { CalculatorSiteComponent } from '../components/sites/calculator/calculator.component';
+import { StartMenuComponent } from '../components/start/start-menu/start-menu.component';
+import { TaskbarBaseComponent } from '../components/taskbar/taskbar-base/taskbar-base.component';
+import { SettingsService } from '../services/settings/settings.service';
+import { SystemService } from '../services/system/system.service';
+import { AppService } from './app.service';
 
 @Component({
   selector: 'app-root',
@@ -38,7 +38,7 @@ import { CalculatorSiteComponent } from '../components/sites/calculator/calculat
     OpenSourceContributionsSite,
     RetroDesktopPortfolioSite,
     SecretSite,
-    SmallProjectsSite
+    SmallProjectsSite,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',

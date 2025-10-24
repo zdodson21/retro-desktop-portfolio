@@ -2,7 +2,9 @@ import { Component, ElementRef, inject, signal, ViewChild, WritableSignal } from
 import { ActivatedRoute, Router } from '@angular/router';
 import { AppService } from '../../../app/app.service';
 import { DNS, SiteList } from '../../../interfaces/site-list';
+import { SystemService } from '../../../services/system/system.service';
 import { AboutMeSite } from '../../sites/about-me/about-me.component';
+import { CalculatorSiteComponent } from '../../sites/calculator/calculator-site.component';
 import { IeRouteComponent } from '../../sites/components/ie-route/ie-route.component';
 import { ErrorSite } from '../../sites/error-site/error-site.component';
 import { HaxAuditSite } from '../../sites/hax-audit/hax-audit.component';
@@ -12,6 +14,7 @@ import { RetroDesktopPortfolioSite } from '../../sites/retro-desktop-portfolio/r
 import { SecretSite } from '../../sites/secret-site/secret-site.component';
 import { SmallProjectsSite } from '../../sites/small-projects/small-projects.component';
 import { ToolbarButtonComponent } from '../../ui/toolbar/toolbar-button/toolbar-button.component';
+import { ToolbarDividerComponent } from '../../ui/toolbar/toolbar-divider/toolbar-divider.component';
 import { ToolbarDropoutComponent } from '../../ui/toolbar/toolbar-dropout/toolbar-dropout.component';
 import { ToolbarItemComponent } from '../../ui/toolbar/toolbar-item/toolbar-item.component';
 import { ToolbarMenuComponent } from '../../ui/toolbar/toolbar-menu/toolbar-menu.component';
@@ -19,9 +22,6 @@ import { WindowFrameComponent } from '../../window-frame/window-frame.component'
 import { CloseSidebarButtonComponent } from './components/close-sidebar-button/close-sidebar-button.component';
 import { StandardButtonComponent } from './components/standard-button/standard-button.component';
 import { InternetExplorerService } from './internet-explorer.service';
-import { ToolbarDividerComponent } from '../../ui/toolbar/toolbar-divider/toolbar-divider.component';
-import { SystemService } from '../../../services/system/system.service';
-import { CalculatorSiteComponent } from '../../sites/calculator/calculator.component';
 
 @Component({
   selector: 'internet-explorer',
@@ -354,6 +354,6 @@ export class InternetExplorerComponent {
    * @description opens share menu on mobile devices (Android & iOS)
    */
   protected openShareMenu() {
-    navigator.share({url: `${this.systemService.webAddress}/programs?internet-explorer=${this.IEService.displayedSite()}`});
+    navigator.share({ url: `${this.systemService.webAddress}/programs?internet-explorer=${this.IEService.displayedSite()}` });
   }
 }
