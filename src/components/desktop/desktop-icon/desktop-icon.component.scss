@@ -12,7 +12,7 @@
 
   img {
     @include icon-common();
-    height: 45px;
+    width: 45px;
     image-rendering: pixelated;
   }
 

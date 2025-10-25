@@ -82,4 +82,6 @@ export class SystemService {
   public systemCores: number = navigator.hardwareConcurrency;
 
   public webAddress: string = `${globalThis.location.protocol}//${globalThis.location.host}`;
+
+  public readonly versionNum: string = '1.1.0';
 }
