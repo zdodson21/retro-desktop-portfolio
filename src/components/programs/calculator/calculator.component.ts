@@ -319,7 +319,17 @@ export class CalculatorComponent implements OnInit {
 
         break;
 
+      case '+/-':
+        console.log(typeof this.currentDisplay);
+        if (!this.errors.includes(this.currentDisplay.toString())) this.currentDisplay = -+this.currentDisplay;
+        console.log(this.currentDisplay);
+        
+        break;
+
       case '.':
+        if (!this.errors.includes(this.currentDisplay.toString())) this.currentDisplay += ".";
+        this.displayInitState = false;
+
         break;
     }
   }
