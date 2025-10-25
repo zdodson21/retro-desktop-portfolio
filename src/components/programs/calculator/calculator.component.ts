@@ -451,8 +451,7 @@ export class CalculatorComponent implements OnInit {
   private wasmModule: WebAssembly.Module | undefined;
   private wasmInstance: WebAssembly.Instance | undefined;
   private wasmExports: any;
-
-  constructor(private http: HttpClient) {}
+  private http: HttpClient = inject(HttpClient);
 
   ngOnInit(): void {
     this.loadWasm();
