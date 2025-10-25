@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, inject, OnInit, ViewChild } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { AppService } from '../../../app/app.service';
 import { CalculatorButtonPresses } from '../../../interfaces/calculator-button-presses';
 import { ToolbarButtonComponent } from '../../ui/toolbar/toolbar-button/toolbar-button.component';
@@ -434,7 +434,7 @@ export class CalculatorComponent implements OnInit {
    * @description copies the value currently displayed in output
    */
   protected copyOutput(): void {
-    if (!this.errors.includes(this.currentDisplay.toString())) navigator.clipboard.writeText(this.currentDisplay.toString());
+    navigator.clipboard.writeText(this.currentDisplay.toString());
   }
 
   // TODO add routing for standard and scientific, if route = anything else (other than null / '' / scientific) then it should auto change to ''
