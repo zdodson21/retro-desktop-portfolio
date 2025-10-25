@@ -18,12 +18,12 @@ export class CalculatorComponent implements OnInit {
   protected isScientific: boolean = false;
   protected menuFocus: string = '';
   protected store: AppService = inject(AppService);
-  protected memory: Array<number> = [];
-  protected displayedMemItem: number | undefined;
+  protected memory: number | undefined;
   protected mode: number = 1; // 0 = Hex | 1 = Dec | 2 = Oct | 3 = Bin
   protected subModeDec: number = 0; // 0 = Deg | 1 = Rad | 2 = Grad
   protected subModeRest: number = 0; // 0 = Dword | 1 = Word | 2 = Byte
   protected firstButtonPressed: boolean = false;
+  protected pastSolutions: Array<number> = [];
   protected currentDisplay: number | string = 0;
   protected displayInitState: boolean = true;
   protected errors: Array<string> = [
@@ -39,7 +39,7 @@ export class CalculatorComponent implements OnInit {
     valueB: undefined,
     operation: '',
   };
-  protected singleValueFunctions: Array<string> = [];
+  protected singleValueFunctions: Array<string> = ['sqrt', '%', '1/x'];
   protected dualValueFunctions: Array<string> = ['add', 'subtract', 'multiply', 'divide'];
   // TODO remove any unused variables, functions, and console.log() (except for callWasm function).
 
@@ -265,15 +265,27 @@ export class CalculatorComponent implements OnInit {
 
       case 'mc':
         console.log('performing MC operation');
+        this.memory = undefined;
+
         break;
       case 'mr':
         console.log('performing MR operation');
+        if (typeof this.memory === 'number') this.currentDisplay = this.memory;
+
         break;
       case 'ms':
         console.log('performing MS operation');
+        if (!this.errors.includes(this.currentDisplay.toString())) this.memory = +this.currentDisplay;
+
         break;
       case 'm+':
         console.log('performing M+ operation');
+        if (typeof this.memory === 'undefined') {
+          this.memory = 0 + +this.currentDisplay;
+        } else {
+          this.memory += +this.currentDisplay;
+        }
+
         break;
 
       case '+':
@@ -305,10 +317,13 @@ export class CalculatorComponent implements OnInit {
 
       case 'sqrt':
         break;
+
       case '%':
         break;
+
       case '1/x':
         break;
+
       case '=':
         if (this.dualValueFunctions.includes(this.operationMemory.operation) && this.operationMemory.valueB === undefined)
           this.operationMemory.valueB = +this.currentDisplay;
@@ -323,7 +338,7 @@ export class CalculatorComponent implements OnInit {
         console.log(typeof this.currentDisplay);
         if (!this.errors.includes(this.currentDisplay.toString())) this.currentDisplay = -+this.currentDisplay;
         console.log(this.currentDisplay);
-        
+
         break;
 
       case '.':
@@ -331,6 +346,10 @@ export class CalculatorComponent implements OnInit {
         this.displayInitState = false;
 
         break;
+
+      case 'pi':
+        this.currentDisplay = '' + 3.14159265359;
+        this.displayInitState = false;
     }
   }
 

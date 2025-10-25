@@ -36,7 +36,11 @@
             </div>
           } @else {
             <div class="standard-button-set">
-              <output>{{ displayedMemItem }}</output>
+              <div class="mem">
+                <p>
+                  @if (typeof memory === 'number') { M }
+                </p>
+              </div>
 
               <div class="control-row">
                 <calculator-button btn-label="Back" color="dark-red" (click)="calculatorButtonHelper('back')" />
