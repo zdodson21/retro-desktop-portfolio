@@ -31,6 +31,7 @@ export class CalculatorComponent implements OnInit {
   protected operation: string = ''; // Operation to perform
   protected operationNum: number = 0; // Number to be used in operation. Allows pressing equal repeatedly
   protected useOpNum: boolean = false;
+  protected calcPerformed: boolean = false;
 
   // ! Display
   protected currentDisplay: number | string = 0;
@@ -313,6 +314,7 @@ export class CalculatorComponent implements OnInit {
         if (!this.errorDisplayed()) this.seqMem.push(+this.currentDisplay);
 
         this.displayInitState = true;
+        this.calcPerformed = false;
 
         break;
 
@@ -323,6 +325,7 @@ export class CalculatorComponent implements OnInit {
         if (!this.errorDisplayed()) this.seqMem.push(+this.currentDisplay);
 
         this.displayInitState = true;
+        this.calcPerformed = false;
 
         break;
 
@@ -333,6 +336,7 @@ export class CalculatorComponent implements OnInit {
         if (!this.errorDisplayed()) this.seqMem.push(+this.currentDisplay);
 
         this.displayInitState = true;
+        this.calcPerformed = false;
 
         break;
 
@@ -343,6 +347,7 @@ export class CalculatorComponent implements OnInit {
         if (!this.errorDisplayed()) this.seqMem.push(+this.currentDisplay);
 
         this.displayInitState = true;
+        this.calcPerformed = false;
 
         break;
 
@@ -420,7 +425,12 @@ export class CalculatorComponent implements OnInit {
   protected numberButtonHelper(input: number): void {
     console.log(`numberButtonHelper(${input}) called`);
 
-    this.operationNum = 0;
+    if (this.calcPerformed) {
+      this.operationNum = 0;
+      this.operation = '';
+      this.calcPerformed = false;
+      console.log(`${this.operation}`)
+    }
 
     if (this.displayInitState) {
       this.currentDisplay = '' + input;
@@ -462,6 +472,7 @@ export class CalculatorComponent implements OnInit {
         if (typeof quotient === 'number') this.seqMem.push(quotient);
 
         this.currentDisplay = quotient;
+        this.calcPerformed = true;
 
         break;
 
@@ -474,13 +485,14 @@ export class CalculatorComponent implements OnInit {
         if (typeof solution === 'number') this.seqMem.push(solution);
 
         this.currentDisplay = solution;
+        this.calcPerformed = true;
 
         break;
 
       // ! Scientific Operations
 
       default:
-        this.currentDisplay = this.errors[4];
+        if (operation !== '') this.currentDisplay = this.errors[4];
     }
 
     console.log(this.seqMem);
@@ -519,6 +531,7 @@ export class CalculatorComponent implements OnInit {
 
     if (typeof solution === 'number') this.seqMem.push(solution);
 
+    this.calcPerformed = true;
     this.currentDisplay = solution;
   }
 
