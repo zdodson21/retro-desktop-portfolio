@@ -278,6 +278,7 @@ export class CalculatorComponent implements OnInit {
         console.log('performing C(lear) operation');
         this.seqMem = [];
         this.operation = '';
+        this.calcPerformed = false;
         this.currentDisplay = 0;
         this.displayInitState = true;
         break;
@@ -397,8 +398,13 @@ export class CalculatorComponent implements OnInit {
         break;
 
       case '.':
-        if (!this.errorDisplayed()) this.currentDisplay += ".";
-        this.displayInitState = false;
+        if (this.displayInitState) {
+          this.currentDisplay = "0" + '.';
+          this.displayInitState = false;
+        } else {
+          this.currentDisplay += '.';
+        }
+
         break;
 
       // ! Variables
@@ -477,6 +483,11 @@ export class CalculatorComponent implements OnInit {
         break;
 
       case 'percent':
+        // https://devblogs.microsoft.com/oldnewthing/20080110-00/?p=23853
+        // TODO find percent of number before 5%, this is the number that should used in calculation
+        // Ex: 72 + 5% = 75.6. 5% of 72 = 3.6
+
+
         break;
 
       case 'sqrt':
@@ -572,11 +583,11 @@ export class CalculatorComponent implements OnInit {
   // TODO this feature should be implemented but unreachable except by modifying the route. The button should be disabled
 
   /*
-    ! WASM HTTP stuff is below here.
-    ! Test thoroughly before pushing anything new to GitHub if below is modified.
-    ! Any calculator logic should be written above this comment!
-    ! Use below code as an example for how to "import" and call WASM functions.
-  */
+   ! WASM HTTP stuff is below here.
+   ! Test thoroughly before pushing anything new to GitHub if below is modified.
+   ! Any calculator logic should be written above this comment!
+   ! Use below code as an example for how to "import" and call WASM functions.
+   */
   private wasmModule: WebAssembly.Module | undefined;
   private wasmInstance: WebAssembly.Instance | undefined;
   private wasmExports: any;
