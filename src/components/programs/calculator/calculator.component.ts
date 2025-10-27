@@ -1,7 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, inject, OnInit } from '@angular/core';
 import { AppService } from '../../../app/app.service';
-import { CalculatorButtonPresses } from '../../../interfaces/calculator-button-presses';
 import { ToolbarButtonComponent } from '../../ui/toolbar/toolbar-button/toolbar-button.component';
 import { ToolbarItemComponent } from '../../ui/toolbar/toolbar-item/toolbar-item.component';
 import { ToolbarMenuComponent } from '../../ui/toolbar/toolbar-menu/toolbar-menu.component';
@@ -15,17 +14,29 @@ import { CalculatorButtonComponent } from './components/calculator-button/calcul
   styleUrl: './calculator.component.scss',
 })
 export class CalculatorComponent implements OnInit {
+  // ! Window Management / Control
   protected isScientific: boolean = false;
   protected menuFocus: string = '';
   protected store: AppService = inject(AppService);
-  protected memory: number | undefined;
+
+  // ! Calculator Modes
   protected mode: number = 1; // 0 = Hex | 1 = Dec | 2 = Oct | 3 = Bin
   protected subModeDec: number = 0; // 0 = Deg | 1 = Rad | 2 = Grad
   protected subModeRest: number = 0; // 0 = Dword | 1 = Word | 2 = Byte
-  protected firstButtonPressed: boolean = false;
-  protected pastSolutions: Array<number> = [];
+
+  // ! Memory
+  protected memory: number | undefined; // Calculator memory
+  protected seqMem: Array<number> = []; // Memory of all calculations
+
+  protected operation: string = ''; // Operation to perform
+  protected operationNum: number = 0; // Number to be used in operation. Allows pressing equal repeatedly
+  protected useOpNum: boolean = false;
+
+  // ! Display
   protected currentDisplay: number | string = 0;
   protected displayInitState: boolean = true;
+
+  // ! Errors
   protected errors: Array<string> = [
     'Divide by 0 Error', // 0
     'Domain Error', // 1
@@ -33,14 +44,7 @@ export class CalculatorComponent implements OnInit {
     'Incomplete Code Error', // 3
     'TypeScript Logic Error', // 4
   ];
-  protected modifyVal: number = 0; // 0 = A | 1 = B
-  protected operationMemory: CalculatorButtonPresses = {
-    valueA: undefined,
-    valueB: undefined,
-    operation: '',
-  };
-  protected singleValueFunctions: Array<string> = ['sqrt', '%', '1/x'];
-  protected dualValueFunctions: Array<string> = ['add', 'subtract', 'multiply', 'divide'];
+
   // TODO remove any unused variables, functions, and console.log() (except for callWasm function).
 
   // ! Calculator Logic
@@ -51,10 +55,10 @@ export class CalculatorComponent implements OnInit {
    * @param add_b 2nd value to add
    */
   protected add(add_a: number, add_b: number): number | string {
-    const add = this.wasmExports?.add;
+    const wasmAdd = this.wasmExports?.add;
 
-    if (typeof add === 'function') {
-      return add(add_a, add_b);
+    if (typeof wasmAdd === 'function') {
+      return wasmAdd(add_a, add_b);
     }
 
     return this.errors[2];
@@ -66,10 +70,10 @@ export class CalculatorComponent implements OnInit {
    * @param subtrahend value to subtract by
    */
   protected subtract(minuend: number, subtrahend: number): number | string {
-    const subtract = this.wasmExports?.subtract;
+    const wasmSubtract = this.wasmExports?.subtract;
 
-    if (typeof subtract === 'function') {
-      return subtract(minuend, subtrahend);
+    if (typeof wasmSubtract === 'function') {
+      return wasmSubtract(minuend, subtrahend);
     }
 
     return this.errors[2];
@@ -250,70 +254,95 @@ export class CalculatorComponent implements OnInit {
     console.log(`calculatorButtonHelper(${input}) called`);
 
     switch (input) {
+      // ! Clearing controls
+
       case 'back':
         console.log('performing Back operation');
+        // TODO this one, no idea what it does
         break;
-      case 'ce': // Clears current entry (5 + 5) => CE => (5 + 6). Does not remove part of calculation
-        console.log('performing CE operation');
+
+      case 'ce': // Clears current entry on display
+        console.log('performing C(lear) E(ntry) operation');
+        this.currentDisplay = 0;
+        // TODO figure out what happens in 95 when pressing CE then = when operation and num are previously defined
+        this.displayInitState = true;
+        break;
+
+        case 'c': // Clears entire calculation
+        console.log('performing C(lear) operation');
+        this.seqMem = [];
+        this.operation = '';
         this.currentDisplay = 0;
         this.displayInitState = true;
         break;
-      case 'c': // Clears entire calculation
-        console.log('performing C operation');
-        // ? Does this clear the memory
-        break;
+
+      // ! Memory Controls
 
       case 'mc':
-        console.log('performing MC operation');
+        // console.log('performing MC operation');
         this.memory = undefined;
-
         break;
+
       case 'mr':
-        console.log('performing MR operation');
+        // console.log('performing MR operation');
         if (typeof this.memory === 'number') this.currentDisplay = this.memory;
-
         break;
+
       case 'ms':
-        console.log('performing MS operation');
-        if (!this.errors.includes(this.currentDisplay.toString())) this.memory = +this.currentDisplay;
-
+        // console.log('performing MS operation');
+        if (!this.errorDisplayed()) this.memory = +this.currentDisplay;
         break;
+
       case 'm+':
-        console.log('performing M+ operation');
+        // console.log('performing M+ operation');
         if (typeof this.memory === 'undefined') {
           this.memory = 0 + +this.currentDisplay;
         } else {
           this.memory += +this.currentDisplay;
         }
-
         break;
+
+      // ! Arithmetic Operations
 
       case '+':
         console.log('performing + operation');
-        if (!this.displayInitState && this.operationMemory.valueA === undefined) {
-          // Setting value A, then will set value B
-          this.operationMemory.valueA = +this.currentDisplay;
-          console.log('valueA set');
-          this.operationMemory.operation = 'add';
-          console.log('operation set');
-          this.displayInitState = true;
-        } else if (!this.displayInitState && this.operationMemory.valueA !== undefined) {
-          // Setting value B, then will solve
-          this.operationMemory.valueB = +this.currentDisplay;
-          console.log('valueB');
-          this.displayInitState = true;
-        }
 
+        this.useOpNum = false;
+        this.operation = 'add';
+
+        if (!this.errorDisplayed()) this.seqMem.push(+this.currentDisplay);
+
+        this.displayInitState = true;
         break;
 
       case '-':
+        this.useOpNum = false;
+        this.operation = 'subtract';
+
+        if (!this.errorDisplayed()) this.seqMem.push(+this.currentDisplay);
+
+        this.displayInitState = true;
         break;
 
       case '*':
+        this.useOpNum = false;
+        this.operation = 'multiply';
+
+        if (!this.errorDisplayed()) this.seqMem.push(+this.currentDisplay);
+
+        this.displayInitState = true;
         break;
 
       case '/':
+        this.useOpNum = false;
+        this.operation = 'divide';
+
+        if (!this.errorDisplayed()) this.seqMem.push(+this.currentDisplay);
+
+        this.displayInitState = true;
         break;
+
+      // ! Single Value Operations
 
       case 'sqrt':
         break;
@@ -324,33 +353,47 @@ export class CalculatorComponent implements OnInit {
       case '1/x':
         break;
 
+      // ! Solve
+
       case '=':
-        if (this.dualValueFunctions.includes(this.operationMemory.operation) && this.operationMemory.valueB === undefined)
-          this.operationMemory.valueB = +this.currentDisplay;
+        if (!this.useOpNum) {
+          this.operationNum = +this.currentDisplay;
+          this.useOpNum = true;
+        }
 
-        this.performOperation(this.operationMemory.operation);
-        if (typeof this.operationMemory.valueA === 'string' || typeof this.operationMemory.valueA === 'number')
-          this.currentDisplay = this.operationMemory.valueA;
+        if (this.seqMem[this.seqMem.length - 1] !== this.operationNum && this.useOpNum) this.seqMem.push(this.operationNum);
 
+        if (this.seqMem.length >= 2) this.performOperation(this.operation);
         break;
 
-      case '+/-':
-        console.log(typeof this.currentDisplay);
-        if (!this.errors.includes(this.currentDisplay.toString())) this.currentDisplay = -+this.currentDisplay;
-        console.log(this.currentDisplay);
+      // ! Value Modifiers
 
+      case '+/-': // Switch between positive and negative
+        console.log(typeof this.currentDisplay);
+        if (!this.errorDisplayed()) this.currentDisplay = -+this.currentDisplay;
+        console.log(this.currentDisplay);
         break;
 
       case '.':
-        if (!this.errors.includes(this.currentDisplay.toString())) this.currentDisplay += ".";
+        if (!this.errorDisplayed()) this.currentDisplay += ".";
         this.displayInitState = false;
-
         break;
+
+      // ! Variables
 
       case 'pi':
         this.currentDisplay = '' + 3.14159265359;
         this.displayInitState = false;
+        break;
     }
+  }
+
+  /**
+   * @description Determines if an error is currently displayed
+   * @returns boolean
+   */
+  protected errorDisplayed(): boolean {
+    return this.errors.includes(this.currentDisplay.toString()) ? true : false;
   }
 
   /**
@@ -359,11 +402,6 @@ export class CalculatorComponent implements OnInit {
    */
   protected numberButtonHelper(input: number): void {
     console.log(`numberButtonHelper(${input}) called`);
-    // TODO pressing multiple number buttons needs to piece the numbers together. Just use value A for now
-    // Pressing a number button needs to add that number to the end of the number, so something like 5 + 6 = 56
-    // Ensure proper value is set (valueA || valueB)
-    // Value A will really only be set when the calculator is reset, such as by pressing the clear button or a fresh start
-    // Value B will be set after any time equal is pressed and other applicable cases
 
     if (this.displayInitState) {
       this.currentDisplay = '' + input;
@@ -379,60 +417,75 @@ export class CalculatorComponent implements OnInit {
    */
   protected performOperation(operation: string): void {
     console.log(`performOperation(${operation}) called`);
-    let newValue: number | string | undefined;
 
     switch (operation) {
       case 'add':
-        if (typeof this.operationMemory.valueA === 'number' && typeof this.operationMemory.valueB === 'number')
-          newValue = this.add(this.operationMemory.valueA, this.operationMemory.valueB);
-
-        console.log(`added ${this.operationMemory.valueA} and ${this.operationMemory.valueB} = ${newValue}`);
+        this.dualValueHelper('add');
         break;
 
       case 'subtract':
-        if (typeof this.operationMemory.valueA === 'number' && typeof this.operationMemory.valueB === 'number')
-          newValue = this.subtract(this.operationMemory.valueA, this.operationMemory.valueB);
-
-        console.log(`subtracted ${this.operationMemory.valueA} - ${this.operationMemory.valueB} = ${newValue}`);
+        this.dualValueHelper('subtract');
         break;
 
       case 'multiply':
-        if (typeof this.operationMemory.valueA === 'number' && typeof this.operationMemory.valueB === 'number')
-          newValue = this.multiply(this.operationMemory.valueA, this.operationMemory.valueB);
-
-        console.log(`multiplied ${this.operationMemory.valueA} * ${this.operationMemory.valueB} = ${newValue}`);
+        this.dualValueHelper('multiply');
         break;
 
       case 'divide':
-        if (typeof this.operationMemory.valueA === 'number' && typeof this.operationMemory.valueB === 'number')
-          newValue = this.divide(this.operationMemory.valueA, this.operationMemory.valueB);
-        // TODO test divide by 0 with NaN instead in C
-
-        console.log(`divide ${this.operationMemory.valueA} / ${this.operationMemory.valueB} = ${newValue}`);
+        this.dualValueHelper('divide');
         break;
 
       case 'oneOver':
-        if (typeof this.operationMemory.valueA === 'number') newValue = this.oneOver(this.operationMemory.valueA);
+
         break;
 
       case 'percent':
         break;
 
       case 'sqRoot':
-        if (typeof this.operationMemory.valueA === 'number') newValue = this.sqRoot(this.operationMemory.valueA);
+
         break;
 
       default:
-        newValue = this.errors[4];
+        this.currentDisplay = this.errors[4];
     }
 
-    if (typeof newValue === 'number' || typeof newValue === 'string') {
-      this.operationMemory = {
-        valueA: newValue,
-        valueB: undefined,
-        operation: '',
-      };
+    this.displayInitState = true;
+  }
+
+  /**
+   * @description determines and performs operations that require two values
+   * @param operation operation to perform (ex: add, subtract, multiply, divide, etc.)
+   */
+  protected dualValueHelper(operation: string): void {
+    const VALUE_1 = this.seqMem[this.seqMem.length - 2];
+    const VALUE_2 = this.seqMem[this.seqMem.length - 1];
+    let solution: number | string;
+
+    switch(operation) {
+      case 'add':
+        solution = this.add(VALUE_1, VALUE_2);
+        break;
+
+      case 'subtract':
+        solution = this.subtract(VALUE_1, VALUE_2);
+        break;
+
+      case 'multiply':
+        solution = this.multiply(VALUE_1, VALUE_2);
+        break;
+
+      case 'divide':
+        solution = this.divide(VALUE_1, VALUE_2);
+        break;
+
+      default:
+        solution = this.errors[4];
     }
+
+    if (typeof solution === 'number') this.seqMem.push(solution);
+
+    this.currentDisplay = solution;
   }
 
   /**
