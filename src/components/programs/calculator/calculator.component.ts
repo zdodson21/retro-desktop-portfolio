@@ -36,13 +36,18 @@ export class CalculatorComponent implements OnInit {
   protected currentDisplay: number | string = 0;
   protected displayInitState: boolean = true;
 
-  // ! Errors
+  // ! Arrays
   protected errors: Array<string> = [
     'Divide by 0 Error', // 0
     'Domain Error', // 1
     'WASM Function Error', // 2
     'Incomplete Code Error', // 3
     'TypeScript Logic Error', // 4
+  ];
+
+  protected singleValOperations: Array<string> = [
+    'sqrt',
+    '1/x',
   ];
 
   // TODO remove any unused variables, functions, and console.log() (except for callWasm function).
@@ -278,41 +283,37 @@ export class CalculatorComponent implements OnInit {
 
       // ! Memory Controls
 
-      case 'mc':
-        // console.log('performing MC operation');
+      case 'mc': // memory clear
         this.memory = undefined;
         break;
 
-      case 'mr':
-        // console.log('performing MR operation');
+      case 'mr': // memory recall
         if (typeof this.memory === 'number') this.currentDisplay = this.memory;
         break;
 
-      case 'ms':
-        // console.log('performing MS operation');
+      case 'ms': // memory save
         if (!this.errorDisplayed()) this.memory = +this.currentDisplay;
         break;
 
-      case 'm+':
-        // console.log('performing M+ operation');
+      case 'm+': // add to memory value
         if (typeof this.memory === 'undefined') {
           this.memory = 0 + +this.currentDisplay;
         } else {
           this.memory += +this.currentDisplay;
         }
+
         break;
 
       // ! Arithmetic Operations
 
       case '+':
-        console.log('performing + operation');
-
         this.useOpNum = false;
         this.operation = 'add';
 
         if (!this.errorDisplayed()) this.seqMem.push(+this.currentDisplay);
 
         this.displayInitState = true;
+
         break;
 
       case '-':
@@ -322,6 +323,7 @@ export class CalculatorComponent implements OnInit {
         if (!this.errorDisplayed()) this.seqMem.push(+this.currentDisplay);
 
         this.displayInitState = true;
+
         break;
 
       case '*':
@@ -331,6 +333,7 @@ export class CalculatorComponent implements OnInit {
         if (!this.errorDisplayed()) this.seqMem.push(+this.currentDisplay);
 
         this.displayInitState = true;
+
         break;
 
       case '/':
@@ -340,23 +343,37 @@ export class CalculatorComponent implements OnInit {
         if (!this.errorDisplayed()) this.seqMem.push(+this.currentDisplay);
 
         this.displayInitState = true;
+
         break;
 
       // ! Single Value Operations
 
       case 'sqrt':
+        this.useOpNum = false;
+        this.operation = 'sqrt';
+
+        if (!this.errorDisplayed()) this.seqMem.push(+this.currentDisplay);
+        if (this.seqMem.length > 0) this.performOperation(this.operation);
+
         break;
 
       case '%':
         break;
 
       case '1/x':
+        this.useOpNum = false;
+        this.operation = '1/x';
+
+        if (!this.errorDisplayed()) this.seqMem.push(+this.currentDisplay);
+        if (this.seqMem.length > 0) this.performOperation(this.operation);
+
         break;
 
       // ! Solve
 
       case '=':
-        if (!this.useOpNum) {
+        // TODO create a condition for math has been solved, but number button is pressed, then = is pressed. It is just putting the last result in currentDisplay
+        if (!this.useOpNum && !this.singleValOperations.includes(this.operation)) {
           this.operationNum = +this.currentDisplay;
           this.useOpNum = true;
         }
@@ -382,7 +399,7 @@ export class CalculatorComponent implements OnInit {
       // ! Variables
 
       case 'pi':
-        this.currentDisplay = '' + 3.14159265359;
+        this.currentDisplay = 3.14159265359;
         this.displayInitState = false;
         break;
     }
@@ -403,6 +420,8 @@ export class CalculatorComponent implements OnInit {
   protected numberButtonHelper(input: number): void {
     console.log(`numberButtonHelper(${input}) called`);
 
+    this.operationNum = 0;
+
     if (this.displayInitState) {
       this.currentDisplay = '' + input;
       this.displayInitState = false;
@@ -419,6 +438,8 @@ export class CalculatorComponent implements OnInit {
     console.log(`performOperation(${operation}) called`);
 
     switch (operation) {
+      // ! Standard Operations
+
       case 'add':
         this.dualValueHelper('add');
         break;
@@ -435,21 +456,34 @@ export class CalculatorComponent implements OnInit {
         this.dualValueHelper('divide');
         break;
 
-      case 'oneOver':
+      case '1/x':
+        let quotient: number | string = this.oneOver(this.seqMem[this.seqMem.length - 1]);
+
+        if (typeof quotient === 'number') this.seqMem.push(quotient);
+
+        this.currentDisplay = quotient;
 
         break;
 
       case 'percent':
         break;
 
-      case 'sqRoot':
+      case 'sqrt':
+        let solution: number | string = this.sqRoot(this.seqMem[this.seqMem.length - 1]);
+
+        if (typeof solution === 'number') this.seqMem.push(solution);
+
+        this.currentDisplay = solution;
 
         break;
+
+      // ! Scientific Operations
 
       default:
         this.currentDisplay = this.errors[4];
     }
 
+    console.log(this.seqMem);
     this.displayInitState = true;
   }
 
