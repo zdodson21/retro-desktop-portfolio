@@ -53,6 +53,10 @@ export class WelcomeComponent implements OnInit {
     globalThis.open('https://github.com/zdodson21');
   }
 
+  protected linkedinButtonHelper(): void {
+    globalThis.open('https://www.linkedin.com/in/zach-dodson-psu/');
+  }
+
   /**
    * @description Displays next message from tips[], if number goes over array length it will go back to
    * 0
