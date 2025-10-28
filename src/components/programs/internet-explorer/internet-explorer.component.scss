@@ -53,6 +53,7 @@ $status-bar-height: 5%;
         display: flex;
         align-items: center;
         justify-content: center;
+        flex-shrink: 0;
 
         .bar {
           height: 80%;
