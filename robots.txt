@@ -1,7 +1,6 @@
 # -----------
 # Block GenAI
 # List acquired from: https://www.cyberciti.biz/web-developer/block-openai-bard-bing-ai-crawler-bots-using-robots-txt-file/
-# TODO block IP address ranges in Vercel firewall
 
 # Apple
 User-agent: Applebot
