@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { StartItemComponent } from '../../start/start-item/start-item.component';
 import { WindowFrameComponent } from '../../window-frame/window-frame.component';
+import { SystemService } from '../../../services/system/system.service';
 
 @Component({
   selector: 'program-menu',
@@ -8,4 +9,6 @@ import { WindowFrameComponent } from '../../window-frame/window-frame.component'
   templateUrl: './program-menu.component.html',
   styleUrl: './program-menu.component.scss',
 })
-export class ProgramMenuComponent {}
+export class ProgramMenuComponent {
+  protected systemService: SystemService = inject(SystemService);
+}

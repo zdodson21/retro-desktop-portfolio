@@ -1,5 +1,5 @@
 <div class="calculator-wrapper">
-  <window-frame [class.scientific]="isScientific" window-title="Calculator" focus-name="calculator" window-icon="assets/icons/calculator.svg" [prevent-resizing]="true">
+  <window-frame [class.scientific]="isScientific" window-title="Calculator" focus-name="calculator" window-icon="assets/icons/calculator.svg" [prevent-resizing]="systemService.isMobile() ? false : true">
     <div class="frame-contents">
       <div class="padding">
         <div class="toolbar" (click)="menuFocus = ''">
