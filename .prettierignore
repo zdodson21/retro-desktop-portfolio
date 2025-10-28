@@ -25,6 +25,7 @@ karma.conf.js
 package-lock.json
 package.json
 README.md
+robots.txt
 tsconfig.app.json
 tsconfig.json
 tsconfig.spec.json
