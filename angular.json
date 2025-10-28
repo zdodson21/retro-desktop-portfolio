@@ -30,7 +30,8 @@
                 "glob": "**/*",
                 "input": "public"
               },
-              "src/wasm"
+              "src/wasm",
+              "src/robots.txt"
             ],
             "styles": [
               "src/styles.scss",
