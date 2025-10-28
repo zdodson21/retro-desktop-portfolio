@@ -71,6 +71,13 @@ double one_over(double x) {
 }
 
 EMSCRIPTEN_KEEPALIVE
+double percent(double value, double percent) {
+  double init_percent = percent;
+  percent = divide(percent, 100);
+  return multiply(value, percent);
+}
+
+EMSCRIPTEN_KEEPALIVE
 bool is_whole_num(double x) {
   long long int_part = (long long) x;
 

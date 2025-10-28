@@ -46,12 +46,7 @@ export class CalculatorComponent implements OnInit {
     'TypeScript Logic Error', // 4
   ];
 
-  protected singleValOperations: Array<string> = [
-    'sqrt',
-    '1/x',
-  ];
-
-  // TODO remove any unused variables, functions, and console.log() (except for callWasm function).
+  protected singleValOperations: Array<string> = ['sqrt', '1/x'];
 
   // ! Calculator Logic
 
@@ -63,9 +58,7 @@ export class CalculatorComponent implements OnInit {
   protected add(add_a: number, add_b: number): number | string {
     const wasmAdd = this.wasmExports?.add;
 
-    if (typeof wasmAdd === 'function') {
-      return wasmAdd(add_a, add_b);
-    }
+    if (typeof wasmAdd === 'function') return wasmAdd(add_a, add_b);
 
     return this.errors[2];
   }
@@ -78,9 +71,7 @@ export class CalculatorComponent implements OnInit {
   protected subtract(minuend: number, subtrahend: number): number | string {
     const wasmSubtract = this.wasmExports?.subtract;
 
-    if (typeof wasmSubtract === 'function') {
-      return wasmSubtract(minuend, subtrahend);
-    }
+    if (typeof wasmSubtract === 'function') return wasmSubtract(minuend, subtrahend);
 
     return this.errors[2];
   }
@@ -91,11 +82,9 @@ export class CalculatorComponent implements OnInit {
    * @param prod_b
    */
   protected multiply(prod_a: number, prod_b: number): number | string {
-    const multiply = this.wasmExports?.multiply;
+    const wasmMultiply = this.wasmExports?.multiply;
 
-    if (typeof multiply === 'function') {
-      return multiply(prod_a, prod_b);
-    }
+    if (typeof wasmMultiply === 'function') return wasmMultiply(prod_a, prod_b);
 
     return this.errors[2];
   }
@@ -106,12 +95,12 @@ export class CalculatorComponent implements OnInit {
    * @param divisor value to divide by
    */
   protected divide(divided: number, divisor: number): number | string {
-    const divide = this.wasmExports?.divide;
+    const wasmDivide = this.wasmExports?.divide;
 
     if (divisor === 0) {
       return this.errors[0];
-    } else if (typeof divide === 'function') {
-      return divide(divided, divisor);
+    } else if (typeof wasmDivide === 'function') {
+      return wasmDivide(divided, divisor);
     }
 
     return this.errors[2];
@@ -122,13 +111,21 @@ export class CalculatorComponent implements OnInit {
    * @param x divisor of dividend 1
    */
   protected oneOver(x: number): number | string {
-    const oneOver = this.wasmExports?.one_over;
+    const wasmOneOver = this.wasmExports?.one_over;
 
     if (x === 0) {
       return this.errors[0];
-    } else if (typeof oneOver === 'function') {
-      return oneOver(x);
+    } else if (typeof wasmOneOver === 'function') {
+      return wasmOneOver(x);
     }
+
+    return this.errors[2];
+  }
+
+  protected percent(x: number, percent: number): number | string {
+    const wasmPercent = this.wasmExports?.percent;
+
+    if (typeof wasmPercent === 'function') return wasmPercent(x, percent);
 
     return this.errors[2];
   }
@@ -138,12 +135,12 @@ export class CalculatorComponent implements OnInit {
    * @param radicand value to find square root of
    */
   protected sqRoot(radicand: number): number | string {
-    const sqRoot = this.wasmExports?.sq_root;
+    const wasmSqRoot = this.wasmExports?.sq_root;
 
     if (radicand < 0) {
       return this.errors[1];
-    } else if (typeof sqRoot === 'function') {
-      return sqRoot(radicand);
+    } else if (typeof wasmSqRoot === 'function') {
+      return wasmSqRoot(radicand);
     }
 
     return this.errors[2];
@@ -154,12 +151,12 @@ export class CalculatorComponent implements OnInit {
    * @param arg value to find natural logarithm of
    */
   protected ln(arg: number): number | string {
-    const ln = this.wasmExports?.ln;
+    const wasmLn = this.wasmExports?.ln;
 
     if (arg <= 0) {
       return this.errors[1];
-    } else if (typeof ln === 'function') {
-      return ln(arg);
+    } else if (typeof wasmLn === 'function') {
+      return wasmLn(arg);
     }
 
     return this.errors[2];
@@ -171,13 +168,13 @@ export class CalculatorComponent implements OnInit {
    * @param arg value that base ^ exponent is equal to
    */
   protected log(base: number, arg: number): number | string {
-    const log = this.wasmExports?.log;
+    const wasmLog = this.wasmExports?.log;
 
     // https://mathsathome.com/logarithm-laws/
     if (base <= 0 || base === 1 || arg <= 0) {
       return this.errors[1];
-    } else if (typeof log === 'function') {
-      return log(base, arg);
+    } else if (typeof wasmLog === 'function') {
+      return wasmLog(base, arg);
     }
 
     return this.errors[2];
@@ -189,12 +186,12 @@ export class CalculatorComponent implements OnInit {
    * @param exp exponent value
    */
   protected exponent(base: number, exp: number): number | string {
-    const exponent = this.wasmExports?.exponent;
+    const wasmExponent = this.wasmExports?.exponent;
 
     if (this.isWholeNum(exp)) {
       // TODO remove when no longer needed
-      if (typeof exponent === 'function') {
-        return exponent(base, exp);
+      if (typeof wasmExponent === 'function') {
+        return wasmExponent(base, exp);
       }
     } else {
       return this.errors[3];
@@ -209,12 +206,12 @@ export class CalculatorComponent implements OnInit {
    * @param radicand value to find index root of
    */
   protected root(index: number, radicand: number): number | string {
-    const root = this.wasmExports?.root;
+    const wasmRoot = this.wasmExports?.root;
 
     if (this.isEven(index) && radicand < 0) {
       return this.errors[1];
-    } else if (typeof root === 'function') {
-      return root(index, radicand);
+    } else if (typeof wasmRoot === 'function') {
+      return wasmRoot(index, radicand);
     }
 
     return this.errors[2];
@@ -227,10 +224,10 @@ export class CalculatorComponent implements OnInit {
    * @param x value
    */
   protected isWholeNum(x: number): boolean | string {
-    const isWholeNum = this.wasmExports?.is_whole_num;
+    const wasmIsWholeNum = this.wasmExports?.is_whole_num;
 
-    if (typeof isWholeNum === 'function') {
-      return isWholeNum(x);
+    if (typeof wasmIsWholeNum === 'function') {
+      return wasmIsWholeNum(x);
     }
 
     return this.errors[2];
@@ -241,10 +238,10 @@ export class CalculatorComponent implements OnInit {
    * @param x value
    */
   protected isEven(x: number): boolean | string {
-    const isEven = this.wasmExports?.is_even;
+    const wasmIsEven = this.wasmExports?.is_even;
 
-    if (typeof isEven === 'function') {
-      return isEven(x);
+    if (typeof wasmIsEven === 'function') {
+      return wasmIsEven(x);
     }
 
     return this.errors[2];
@@ -263,19 +260,16 @@ export class CalculatorComponent implements OnInit {
       // ! Clearing controls
 
       case 'back':
-        console.log('performing Back operation');
-        // TODO this one, no idea what it does
+        let string = this.currentDisplay.toString();
+        this.currentDisplay = string.substring(0, string.length - 1);
         break;
 
       case 'ce': // Clears current entry on display
-        console.log('performing C(lear) E(ntry) operation');
         this.currentDisplay = 0;
-        // TODO figure out what happens in 95 when pressing CE then = when operation and num are previously defined
         this.displayInitState = true;
         break;
 
-        case 'c': // Clears entire calculation
-        console.log('performing C(lear) operation');
+      case 'c': // Clears entire calculation
         this.seqMem = [];
         this.operation = '';
         this.calcPerformed = false;
@@ -364,6 +358,12 @@ export class CalculatorComponent implements OnInit {
         break;
 
       case '%':
+        this.useOpNum = false;
+
+        if (this.seqMem.length > 0 && !this.errorDisplayed()) {
+          this.currentDisplay = this.percent(this.seqMem[this.seqMem.length - 1], +this.currentDisplay);
+        }
+
         break;
 
       case '1/x':
@@ -378,7 +378,6 @@ export class CalculatorComponent implements OnInit {
       // ! Solve
 
       case '=':
-        // TODO create a condition for math has been solved, but number button is pressed, then = is pressed. It is just putting the last result in currentDisplay
         if (!this.useOpNum && !this.singleValOperations.includes(this.operation)) {
           this.operationNum = +this.currentDisplay;
           this.useOpNum = true;
@@ -399,7 +398,7 @@ export class CalculatorComponent implements OnInit {
 
       case '.':
         if (this.displayInitState) {
-          this.currentDisplay = "0" + '.';
+          this.currentDisplay = '0' + '.';
           this.displayInitState = false;
         } else {
           this.currentDisplay += '.';
@@ -435,7 +434,7 @@ export class CalculatorComponent implements OnInit {
       this.operationNum = 0;
       this.operation = '';
       this.calcPerformed = false;
-      console.log(`${this.operation}`)
+      console.log(`${this.operation}`);
     }
 
     if (this.displayInitState) {
@@ -482,14 +481,6 @@ export class CalculatorComponent implements OnInit {
 
         break;
 
-      case 'percent':
-        // https://devblogs.microsoft.com/oldnewthing/20080110-00/?p=23853
-        // TODO find percent of number before 5%, this is the number that should used in calculation
-        // Ex: 72 + 5% = 75.6. 5% of 72 = 3.6
-
-
-        break;
-
       case 'sqrt':
         let solution: number | string = this.sqRoot(this.seqMem[this.seqMem.length - 1]);
 
@@ -519,7 +510,7 @@ export class CalculatorComponent implements OnInit {
     const VALUE_2 = this.seqMem[this.seqMem.length - 1];
     let solution: number | string;
 
-    switch(operation) {
+    switch (operation) {
       case 'add':
         solution = this.add(VALUE_1, VALUE_2);
         break;

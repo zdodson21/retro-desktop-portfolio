@@ -6,6 +6,7 @@ double subtract(double, double);
 double multiply(double, double);
 double divide(double, double);
 double one_over(double);
+double percent(double, double);
 bool is_whole_num(double);
 bool is_even(double);
 double close_to_int(double);
