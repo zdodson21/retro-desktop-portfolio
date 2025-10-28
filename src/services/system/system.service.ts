@@ -4,7 +4,7 @@ import { Injectable, WritableSignal, signal } from '@angular/core';
   providedIn: 'root',
 })
 export class SystemService {
-  public userAgent: string = navigator.userAgent;
+  public readonly userAgent: string = navigator.userAgent;
 
   public viewportWidth: WritableSignal<number> = signal(globalThis.innerWidth);
   public viewportHeight: WritableSignal<number> = signal(globalThis.innerHeight);
@@ -79,9 +79,9 @@ export class SystemService {
     return false;
   }
 
-  public systemCores: number = navigator.hardwareConcurrency;
+  public readonly systemCores: number = navigator.hardwareConcurrency;
 
-  public webAddress: string = `${globalThis.location.protocol}//${globalThis.location.host}`;
+  public readonly webAddress: string = `${globalThis.location.protocol}//${globalThis.location.host}`;
 
   public readonly versionNum: string = '1.1.0';
 }

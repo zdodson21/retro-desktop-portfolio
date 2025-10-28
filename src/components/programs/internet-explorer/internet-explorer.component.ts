@@ -1,4 +1,4 @@
-import { Component, ElementRef, inject, signal, ViewChild, WritableSignal } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, inject, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AppService } from '../../../app/app.service';
 import { DNS, SiteList } from '../../../interfaces/site-list';
@@ -48,10 +48,10 @@ import { InternetExplorerService } from './internet-explorer.service';
   templateUrl: './internet-explorer.component.html',
   styleUrl: './internet-explorer.component.scss',
 })
-export class InternetExplorerComponent {
+export class InternetExplorerComponent implements AfterViewInit {
   @ViewChild('windowFrame') private windowFrame?: WindowFrameComponent;
   @ViewChild('addressBarInput') private addressBarInput?: ElementRef<HTMLInputElement>;
-  @ViewChild('siteContent') protected siteContent?: ElementRef<HTMLElement>;
+  @ViewChild('viewport') protected viewport?: ElementRef<HTMLDivElement>;
   @ViewChild('searchBarInput') private searchBarInput?: ElementRef<HTMLInputElement>;
 
   private route: ActivatedRoute = inject(ActivatedRoute);
@@ -131,7 +131,7 @@ export class InternetExplorerComponent {
   }
 
   protected scrollToTop(): void {
-    this.siteContent?.nativeElement.scrollTo(0, 0);
+    this.viewport?.nativeElement.scrollTo(0, 0);
   }
 
   /**

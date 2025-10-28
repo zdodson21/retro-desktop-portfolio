@@ -1,4 +1,4 @@
-import { Component, Input, inject } from '@angular/core';
+import { Component, Input, OnInit, inject } from '@angular/core';
 import { AppService } from '../../../app/app.service';
 import { Programs } from '../../../interfaces/open-programs.interface';
 import { Router, ActivatedRoute, Params } from '@angular/router';
@@ -10,7 +10,7 @@ import { WindowService } from '../../../services/window/window.service';
   templateUrl: './start-subitem.component.html',
   styleUrl: './start-subitem.component.scss',
 })
-export class StartSubitemComponent {
+export class StartSubitemComponent implements OnInit {
   @Input({ alias: 'icon', required: true }) public src: string;
   @Input({ alias: 'focus-name', required: true }) public focusName: string;
   @Input({ alias: 'program-name', required: true }) public programName: string;

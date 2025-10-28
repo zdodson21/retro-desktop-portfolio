@@ -1,4 +1,5 @@
 import {
+  AfterContentInit,
   Component,
   effect,
   ElementRef,
@@ -21,7 +22,7 @@ import { WindowService } from '../../services/window/window.service';
   templateUrl: './window-frame.component.html',
   styleUrl: './window-frame.component.scss',
 })
-export class WindowFrameComponent {
+export class WindowFrameComponent implements AfterContentInit {
   /**
    * @description prevents movement, resizing, and hides minimize & view buttons when true
    */
@@ -35,9 +36,9 @@ export class WindowFrameComponent {
   @Input({ alias: 'percent-height' }) public percentHeight: number;
   @Input({ alias: 'percent-width' }) public percentWidth: number;
 
-  @ViewChild('viewButton') private viewButtonRef!: ElementRef;
-  @ViewChild('minimizeButton') private minimizeButtonRef!: ElementRef;
-  @ViewChild('wrapper') private wrapperRef!: ElementRef;
+  @ViewChild('viewButton') private viewButtonRef!: ElementRef<HTMLButtonElement>;
+  @ViewChild('minimizeButton') private minimizeButtonRef!: ElementRef<HTMLButtonElement>;
+  @ViewChild('wrapper') private wrapperRef!: ElementRef<HTMLDivElement>;
 
   // Element control
   private store: AppService = inject(AppService);
@@ -53,8 +54,8 @@ export class WindowFrameComponent {
   protected isElementMinimized: WritableSignal<boolean> = signal(false);
 
   // Buttons
-  private viewItem: HTMLElement;
-  private minimizeItem: HTMLElement;
+  private viewItem: HTMLButtonElement;
+  private minimizeItem: HTMLButtonElement;
 
   private isMinimized: boolean = false;
   public isFullSize: boolean = false;

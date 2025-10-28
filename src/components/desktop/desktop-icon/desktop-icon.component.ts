@@ -1,4 +1,4 @@
-import { Component, effect, inject, Input, signal, WritableSignal } from '@angular/core';
+import { Component, effect, inject, Input, OnInit, signal, WritableSignal } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { AppService } from '../../../app/app.service';
 import { Programs } from '../../../interfaces/open-programs.interface';
@@ -10,7 +10,7 @@ import { WindowService } from '../../../services/window/window.service';
   templateUrl: './desktop-icon.component.html',
   styleUrl: './desktop-icon.component.scss',
 })
-export class DesktopIconComponent {
+export class DesktopIconComponent implements OnInit {
   @Input({ alias: 'icon-src' }) public src: string;
   @Input({ alias: 'icon-text' }) public text: string;
   @Input({ alias: 'icon-focus-name' }) public iconFocusName: string;

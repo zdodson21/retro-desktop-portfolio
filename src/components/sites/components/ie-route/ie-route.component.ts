@@ -1,4 +1,4 @@
-import { Component, ElementRef, inject, Input, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, inject, Input, ViewChild } from '@angular/core';
 import { InternetExplorerService } from '../../../programs/internet-explorer/internet-explorer.service';
 import { ActivatedRoute, Router } from '@angular/router';
 
@@ -8,8 +8,8 @@ import { ActivatedRoute, Router } from '@angular/router';
   templateUrl: './ie-route.component.html',
   styleUrl: './ie-route.component.scss',
 })
-export class IeRouteComponent {
-  @ViewChild('a') private a?: ElementRef<HTMLElement>;
+export class IeRouteComponent implements AfterViewInit {
+  @ViewChild('a') private a?: ElementRef<HTMLAnchorElement>;
 
   @Input({ alias: 'domain', required: true }) public domain: string;
   @Input({ alias: 'tld', required: true }) public tld: string;

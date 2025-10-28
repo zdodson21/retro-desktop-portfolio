@@ -1,4 +1,4 @@
-import { Component, ElementRef, inject, signal, ViewChild, WritableSignal } from '@angular/core';
+import { Component, ElementRef, inject, OnInit, signal, ViewChild, WritableSignal } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { AppService } from '../../../app/app.service';
 import { SystemService } from '../../../services/system/system.service';
@@ -12,7 +12,7 @@ import { SettingsService } from '../../../services/settings/settings.service';
   templateUrl: './welcome.component.html',
   styleUrl: './welcome.component.scss',
 })
-export class WelcomeComponent {
+export class WelcomeComponent implements OnInit {
   @ViewChild('checkBox') private checkBox?: ElementRef<HTMLInputElement>;
   private store: AppService = inject(AppService);
   private windowService: WindowService = inject(WindowService);

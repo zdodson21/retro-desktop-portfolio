@@ -1,4 +1,4 @@
-import { Component, Input, inject } from '@angular/core';
+import { Component, Input, OnInit, inject } from '@angular/core';
 import { AppService } from '../../../app/app.service';
 import { Programs } from '../../../interfaces/open-programs.interface';
 import { Router, ActivatedRoute, Params } from '@angular/router';
@@ -10,7 +10,7 @@ import { WindowService } from '../../../services/window/window.service';
   templateUrl: './start-item.component.html',
   styleUrl: './start-item.component.scss',
 })
-export class StartItemComponent {
+export class StartItemComponent implements OnInit {
   @Input({ alias: 'icon', required: true }) public src: string;
   @Input({ alias: 'focus-name', required: true }) public focusName: string;
   @Input({ alias: 'program-name', required: true }) public programName: string;

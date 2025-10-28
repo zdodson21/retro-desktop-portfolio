@@ -7,7 +7,7 @@ export class SettingsService {
   public isSoundEnabled: WritableSignal<boolean> = signal(false);
   public customBackgroundColor: WritableSignal<string> = signal('');
 
-  public localStorageValues: Array<string> = [
+  public readonly localStorageValues: Array<string> = [
     /*
       Display "Welcome" program on web application start up.
 

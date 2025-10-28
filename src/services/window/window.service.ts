@@ -8,7 +8,7 @@ export class WindowService {
   public openPrograms: OpenPrograms = signal([]);
   public minimizedPrograms: WritableSignal<string[]> = signal([]);
 
-  public mobilePercents = {
+  public readonly mobilePercents = {
     width: 90,
     height: 80,
   };
