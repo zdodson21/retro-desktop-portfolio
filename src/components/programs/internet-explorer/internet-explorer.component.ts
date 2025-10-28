@@ -12,7 +12,6 @@ import { HaxChatAgentSite } from '../../sites/hax-chat-agent/hax-chat-agent.comp
 import { OpenSourceContributionsSite } from '../../sites/open-source-contributions/open-source-contributions.component';
 import { RetroDesktopPortfolioSite } from '../../sites/retro-desktop-portfolio/retro-desktop-portfolio.component';
 import { SecretSite } from '../../sites/secret-site/secret-site.component';
-import { SmallProjectsSite } from '../../sites/small-projects/small-projects.component';
 import { ToolbarButtonComponent } from '../../ui/toolbar/toolbar-button/toolbar-button.component';
 import { ToolbarDividerComponent } from '../../ui/toolbar/toolbar-divider/toolbar-divider.component';
 import { ToolbarDropoutComponent } from '../../ui/toolbar/toolbar-dropout/toolbar-dropout.component';
@@ -36,7 +35,6 @@ import { InternetExplorerService } from './internet-explorer.service';
     OpenSourceContributionsSite,
     RetroDesktopPortfolioSite,
     SecretSite,
-    SmallProjectsSite,
     StandardButtonComponent,
     ToolbarButtonComponent,
     ToolbarDividerComponent,

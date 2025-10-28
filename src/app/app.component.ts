@@ -13,7 +13,6 @@ import { HaxChatAgentSite } from '../components/sites/hax-chat-agent/hax-chat-ag
 import { OpenSourceContributionsSite } from '../components/sites/open-source-contributions/open-source-contributions.component';
 import { RetroDesktopPortfolioSite } from '../components/sites/retro-desktop-portfolio/retro-desktop-portfolio.component';
 import { SecretSite } from '../components/sites/secret-site/secret-site.component';
-import { SmallProjectsSite } from '../components/sites/small-projects/small-projects.component';
 import { StartMenuComponent } from '../components/start/start-menu/start-menu.component';
 import { TaskbarBaseComponent } from '../components/taskbar/taskbar-base/taskbar-base.component';
 import { SettingsService } from '../services/settings/settings.service';
@@ -38,7 +37,6 @@ import { AppService } from './app.service';
     OpenSourceContributionsSite,
     RetroDesktopPortfolioSite,
     SecretSite,
-    SmallProjectsSite,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
