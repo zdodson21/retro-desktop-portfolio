@@ -1,6 +1,6 @@
 # Zach's Website
 
-[Website URL](https://retro-desktop-portfolio.vercel.app)
+[Website URL](https://zachdodson.me)
 
 ## Description
 
