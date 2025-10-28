@@ -5,7 +5,7 @@
         <div class="toolbar" (click)="menuFocus = ''">
           <toolbar-button text="Edit" [class.active]="menuFocus === 'edit'" (click)="menuFocus = toolbarButtonHelper($event, 'edit')" (mouseover)="toolbarHoverHelper('edit')">
             <toolbar-menu class="top-level-menu" [class.visible]="menuFocus === 'edit'" (click)="store.focus.set('calculator')">
-              <toolbar-item left-text="Copy" (click)="copyOutput()"/>
+              <toolbar-item left-text="Copy" (click)="copyOutput()" />
             </toolbar-menu>
           </toolbar-button>
 
@@ -38,7 +38,9 @@
             <div class="standard-button-set">
               <div class="mem">
                 <p>
-                  @if (typeof memory === 'number') { M }
+                  @if (typeof memory === 'number') {
+                    M
+                  }
                 </p>
               </div>
 

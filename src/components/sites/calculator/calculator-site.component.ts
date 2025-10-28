@@ -6,7 +6,7 @@ import { SystemService } from '../../../services/system/system.service';
   selector: 'calculator-site',
   imports: [AIeComponent],
   templateUrl: './calculator-site.component.html',
-  styleUrl: './calculator-site.component.scss'
+  styleUrl: './calculator-site.component.scss',
 })
 export class CalculatorSiteComponent {
   protected systemService: SystemService = inject(SystemService);
