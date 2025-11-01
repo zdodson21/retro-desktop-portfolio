@@ -88,6 +88,9 @@ export class AIeComponent {
     } else if (this.href.includes('linkedin.com')) {
       this.IEStore.statusBarIcon.set('assets/icons/linkedin.png');
       return true;
+    } else if (this.href.includes('youtube.com')) {
+      this.IEStore.statusBarIcon.set('assets/icons/youtube.svg')
+      return true;
     }
 
     return false;
