@@ -41,10 +41,10 @@ export class CalculatorComponent implements OnInit {
 
   // ! Arrays
   protected errors: Array<string> = [
-    'Divide by 0 Error', // 0
-    'Domain Error', // 1
-    'WASM Function Error', // 2
-    'Incomplete Code Error', // 3
+    'Cannot divide by 0.', // 0 | Divide by 0 Error
+    'Result of function is undefined.', // 1 | Domain Error
+    'Could not call WASM function.', // 2
+    'Function code incomplete.', // 3
     'TypeScript Logic Error', // 4
   ];
 
@@ -263,7 +263,13 @@ export class CalculatorComponent implements OnInit {
 
       case 'back':
         let string = this.currentDisplay.toString();
-        this.currentDisplay = string.substring(0, string.length - 1);
+        if (!this.errorDisplayed()) {
+          if (this.currentDisplay.toString().length === 1) {
+            this.currentDisplay = 0;
+          } else {
+            this.currentDisplay = string.substring(0, string.length - 1);
+          }
+        }
         break;
 
       case 'ce': // Clears current entry on display
