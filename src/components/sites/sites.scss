@@ -27,6 +27,10 @@
     justify-content: center;
     flex-wrap: wrap;
     margin: 8px 0px 16px 0px;
+
+    img {
+      border: 1px solid black;
+    }
   }
 
   nav {
@@ -61,7 +65,9 @@
   em,
   b,
   time,
-  summary {
+  summary,
+  th,
+  td {
     font-family: Georgia, "Times New Roman", Times, serif;
     @include font-readability();
   }
