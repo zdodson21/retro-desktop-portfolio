@@ -1,0 +1,76 @@
+<!-- prettier-ignore -->
+<article class="py-weather-site-wrapper">
+  <header>
+    <h1>Py Weather</h1>
+    <div class="badges">
+      <img src="assets/badges/python.svg" alt="python badge">
+      <img src="assets/badges/jinja.svg" alt="jinja badge">
+      <img src="assets/badges/bash.svg" alt="bash badge">
+      <img src="assets/badges/raspberry-pi.svg" alt="raspberry pi badge">
+      <img src="assets/badges/linux.svg" alt="linux badge">
+      <img src="assets/badges/html5.svg" alt="html badge">
+      <img src="assets/badges/sass.svg" alt="sass badge">
+      <img src="assets/badges/playwright.svg" alt="playwright badge">
+      <img src="assets/badges/penpot.svg" alt="penpot badge">
+      <nav>
+        <a-ie href="https://github.com/zdodson21/py-weather">Project Repository</a-ie>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <section class="description">
+      <h2>Description:</h2>
+      <p>
+        Inspired by a <a-ie href="https://www.youtube.com/watch?v=65sda565l9Y">similar project by AKZ DEV</a-ie>
+        I utilized Python combined with the <a-ie href="https://jinja.palletsprojects.com/en/stable/">Jinja templating engine</a-ie>
+        to create a weather dashboard. This dashboard is designed to run on Raspberry Pi computers to enable users to create their
+        own home-made weather displays along side being simple to modify so users can use their preferred (supported) language and
+        units of measurement.
+      </p>
+    </section>
+
+    <section class="details">
+      <h2>Details:</h2>
+
+      <section class="steps-taken">
+        <section class="program-creation">
+          <h3>Software Development</h3>
+          <ul>
+            <li>
+              Utilized Python combined with the Jinja templating engine to call the
+              <a-ie href="https://openweathermap.org/api/one-call-3">Open Weather One Call API</a-ie>,
+              <a-ie href="https://openweathermap.org/api/air-pollution">Air Quality API</a-ie>, and
+              <a-ie href="https://openweathermap.org/api/geocoding-api">Geocoding API</a-ie>.
+              Data is decoded into human readable and usable values, which are populated into the template.html.j2 file.
+            </li>
+            <li>
+              Created a prototype user-interface using the <a-ie href="https://penpot.app/">Penpot design software</a-ie>, then utilized
+              the SASS style sheet language to improve developer experience of modifying the user interface while supporting various screen
+              sizes.
+            </li>
+          </ul>
+        </section>
+
+        <section class="rasp-pi-config">
+          <h3>Raspberry Pi / Linux Configuration</h3>
+
+          <ul>
+            <li>
+              Combined Bash and Python scripting to ensure program can be started natively or via SSH
+              <ul>
+                <li>
+                  Bash: Used for anything relating to the system, such as ensuring variables are correct, requiring the user to use the
+                  Python virtual environment, displaying the dashboard image, calling Python scripts on a set timer, and more.
+                </li>
+                <li>
+                  Python: Used for creating an output HTML file with data filled in from the Open Weather APIs and obtaining a screenshot
+                  of the rendered dashboard.
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </section>
+      </section>
+    </section>
+  </main>
+</article>

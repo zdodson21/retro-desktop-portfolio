@@ -11,6 +11,7 @@ import { ErrorSite } from '../components/sites/error-site/error-site.component';
 import { HaxAuditSite } from '../components/sites/hax-audit/hax-audit.component';
 import { HaxChatAgentSite } from '../components/sites/hax-chat-agent/hax-chat-agent.component';
 import { OpenSourceContributionsSite } from '../components/sites/open-source-contributions/open-source-contributions.component';
+import { PyWeatherSite } from '../components/sites/py-weather/py-weather.component';
 import { RetroDesktopPortfolioSite } from '../components/sites/retro-desktop-portfolio/retro-desktop-portfolio.component';
 import { SecretSite } from '../components/sites/secret-site/secret-site.component';
 import { StartMenuComponent } from '../components/start/start-menu/start-menu.component';
@@ -37,6 +38,7 @@ import { AppService } from './app.service';
     OpenSourceContributionsSite,
     RetroDesktopPortfolioSite,
     SecretSite,
+    PyWeatherSite,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',

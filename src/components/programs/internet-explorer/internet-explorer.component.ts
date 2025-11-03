@@ -10,6 +10,7 @@ import { ErrorSite } from '../../sites/error-site/error-site.component';
 import { HaxAuditSite } from '../../sites/hax-audit/hax-audit.component';
 import { HaxChatAgentSite } from '../../sites/hax-chat-agent/hax-chat-agent.component';
 import { OpenSourceContributionsSite } from '../../sites/open-source-contributions/open-source-contributions.component';
+import { PyWeatherSite } from '../../sites/py-weather/py-weather.component';
 import { RetroDesktopPortfolioSite } from '../../sites/retro-desktop-portfolio/retro-desktop-portfolio.component';
 import { SecretSite } from '../../sites/secret-site/secret-site.component';
 import { ToolbarButtonComponent } from '../../ui/toolbar/toolbar-button/toolbar-button.component';
@@ -33,6 +34,7 @@ import { InternetExplorerService } from './internet-explorer.service';
     HaxChatAgentSite,
     IeRouteComponent,
     OpenSourceContributionsSite,
+    PyWeatherSite,
     RetroDesktopPortfolioSite,
     SecretSite,
     StandardButtonComponent,

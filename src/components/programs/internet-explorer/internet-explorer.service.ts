@@ -41,11 +41,11 @@ export class InternetExplorerService {
       tld: 'os',
     },
     {
-      domain: 'retro-desktop-portfolio',
+      domain: 'py-weather',
       tld: 'net',
     },
     {
-      domain: 'small-projects',
+      domain: 'retro-desktop-portfolio',
       tld: 'net',
     },
   ];

@@ -62,7 +62,11 @@
                 <toolbar-menu>
                   <toolbar-item left-text="Retro Desktop Portfolio" (click)="routerNavigator('retro-desktop-portfolio')" />
                   <toolbar-divider />
+                  <!-- Additional Site Programs -->
                   <toolbar-item left-text="Calculator" (click)="routerNavigator('calculator')" />
+                  <toolbar-divider />
+                  <!-- Independent Projects -->
+                  <toolbar-item left-text="Py-Weather" (click)="routerNavigator('py-weather')" />
                 </toolbar-menu>
               </toolbar-dropout>
 
@@ -214,6 +218,9 @@
             }
             @case ('open-source-contributions') {
               <open-source-contributions />
+            }
+            @case ('py-weather') {
+              <py-weather />
             }
             @case ('retro-desktop-portfolio') {
               <retro-desktop-portfolio />

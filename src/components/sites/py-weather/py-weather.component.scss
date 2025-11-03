@@ -1,0 +1,54 @@
+@use "../sites.scss" as *;
+
+.py-weather-site-wrapper {
+  @include site-common();
+
+  main {
+    .user-interface {
+      table {
+        @mixin cell-borders() {
+          border: black solid 1px;
+
+          &:is(:first-child) {
+            border-left: 2px solid black;
+          }
+
+          &:is(:last-child) {
+            border-right: 2px solid black;
+          }
+        }
+
+        display: block;
+        width: 100%;
+
+        tr {
+          display: flex;
+          flex-direction: row;
+          width: 100%;
+
+          th {
+            @include cell-borders();
+
+            border-top: 2px solid black;
+            display: block;
+            width: 50%;
+          }
+
+          td {
+            @include cell-borders();
+            display: block;
+            width: 50%;
+
+            figure {
+              margin: 12px;
+
+              figcaption {
+                text-align: center;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
