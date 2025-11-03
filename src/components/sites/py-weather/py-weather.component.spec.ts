@@ -28,9 +28,9 @@ describe('PyWeatherComponent', () => {
       let hasPython = false;
 
       badges.forEach((element) => {
-      if (element.getAttribute('src')?.includes('python.svg')) {
-        hasPython = true;
-      }
+        if (element.getAttribute('src')?.includes('python.svg')) {
+          hasPython = true;
+        }
       });
 
       expect(hasPython).toBeTruthy();
@@ -41,9 +41,9 @@ describe('PyWeatherComponent', () => {
       let hasJinja = false;
 
       badges.forEach((element) => {
-      if (element.getAttribute('src')?.includes('jinja.svg')) {
-        hasJinja = true;
-      }
+        if (element.getAttribute('src')?.includes('jinja.svg')) {
+          hasJinja = true;
+        }
       });
 
       expect(hasJinja).toBeTruthy();
@@ -54,9 +54,9 @@ describe('PyWeatherComponent', () => {
       let hasBash = false;
 
       badges.forEach((element) => {
-      if (element.getAttribute('src')?.includes('bash.svg')) {
-        hasBash = true;
-      }
+        if (element.getAttribute('src')?.includes('bash.svg')) {
+          hasBash = true;
+        }
       });
 
       expect(hasBash).toBeTruthy();
@@ -67,9 +67,9 @@ describe('PyWeatherComponent', () => {
       let hasRaspberryPi = false;
 
       badges.forEach((element) => {
-      if (element.getAttribute('src')?.includes('raspberry-pi.svg')) {
-        hasRaspberryPi = true;
-      }
+        if (element.getAttribute('src')?.includes('raspberry-pi.svg')) {
+          hasRaspberryPi = true;
+        }
       });
 
       expect(hasRaspberryPi).toBeTruthy();
@@ -80,9 +80,9 @@ describe('PyWeatherComponent', () => {
       let hasLinux = false;
 
       badges.forEach((element) => {
-      if (element.getAttribute('src')?.includes('linux.svg')) {
-        hasLinux = true;
-      }
+        if (element.getAttribute('src')?.includes('linux.svg')) {
+          hasLinux = true;
+        }
       });
 
       expect(hasLinux).toBeTruthy();
@@ -93,9 +93,9 @@ describe('PyWeatherComponent', () => {
       let hasHTML5 = false;
 
       badges.forEach((element) => {
-      if (element.getAttribute('src')?.includes('html5.svg')) {
-        hasHTML5 = true;
-      }
+        if (element.getAttribute('src')?.includes('html5.svg')) {
+          hasHTML5 = true;
+        }
       });
 
       expect(hasHTML5).toBeTruthy();
@@ -106,9 +106,9 @@ describe('PyWeatherComponent', () => {
       let hasSASS = false;
 
       badges.forEach((element) => {
-      if (element.getAttribute('src')?.includes('sass.svg')) {
-        hasSASS = true;
-      }
+        if (element.getAttribute('src')?.includes('sass.svg')) {
+          hasSASS = true;
+        }
       });
 
       expect(hasSASS).toBeTruthy();
@@ -119,9 +119,9 @@ describe('PyWeatherComponent', () => {
       let hasFirefox = false;
 
       badges.forEach((element) => {
-      if (element.getAttribute('src')?.includes('playwright.svg')) {
-        hasFirefox = true;
-      }
+        if (element.getAttribute('src')?.includes('playwright.svg')) {
+          hasFirefox = true;
+        }
       });
 
       expect(hasFirefox).toBeTruthy();
@@ -132,9 +132,9 @@ describe('PyWeatherComponent', () => {
       let hasPenpot = false;
 
       badges.forEach((element) => {
-      if (element.getAttribute('src')?.includes('penpot.svg')) {
-        hasPenpot = true;
-      }
+        if (element.getAttribute('src')?.includes('penpot.svg')) {
+          hasPenpot = true;
+        }
       });
 
       expect(hasPenpot).toBeTruthy();
