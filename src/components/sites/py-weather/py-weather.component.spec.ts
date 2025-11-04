@@ -139,5 +139,18 @@ describe('PyWeatherComponent', () => {
 
       expect(hasPenpot).toBeTruthy();
     });
+
+    it('should contain Jupyter badge', () => {
+      const badges = compiled.querySelectorAll('.badges img');
+      let hasJupyter = false;
+
+      badges.forEach((element) => {
+        if (element.getAttribute('src')?.includes('jupyter.svg')) {
+          hasJupyter = true;
+        }
+      });
+
+      expect(hasJupyter).toBeTruthy();
+    });
   });
 });
