@@ -37,17 +37,17 @@ describe('RetroDesktopPortfolioSite', () => {
       expect(hasHTML5).toBeTruthy();
     });
 
-    it('should contain SCSS badge', () => {
+    it('should contain Typescript badge', () => {
       const badges = compiled.querySelectorAll('.badges img');
-      let hasHTML5 = false;
+      let hasTypescript = false;
 
       badges.forEach((element) => {
-        if (element.getAttribute('src')?.includes('scss.svg')) {
-          hasHTML5 = true;
+        if (element.getAttribute('src')?.includes('typescript.svg')) {
+          hasTypescript = true;
         }
       });
 
-      expect(hasHTML5).toBeTruthy();
+      expect(hasTypescript).toBeTruthy();
     });
 
     it('should contain HTML5 badge', () => {
@@ -61,6 +61,32 @@ describe('RetroDesktopPortfolioSite', () => {
       });
 
       expect(hasHTML5).toBeTruthy();
+    });
+
+    it('should contain SCSS badge', () => {
+      const badges = compiled.querySelectorAll('.badges img');
+      let hasHTML5 = false;
+
+      badges.forEach((element) => {
+        if (element.getAttribute('src')?.includes('scss.svg')) {
+          hasHTML5 = true;
+        }
+      });
+
+      expect(hasHTML5).toBeTruthy();
+    });
+
+    it('should contain css3 badge', () => {
+      const badges = compiled.querySelectorAll('.badges img');
+      let hasCSS3 = false;
+
+      badges.forEach((element) => {
+        if (element.getAttribute('src')?.includes('css3.svg')) {
+          hasCSS3 = true;
+        }
+      });
+
+      expect(hasCSS3).toBeTruthy();
     });
 
     it('should contain C badge', () => {
@@ -89,6 +115,19 @@ describe('RetroDesktopPortfolioSite', () => {
       expect(hasWASM).toBeTruthy();
     });
 
+    it('should contain Git badge', () => {
+      const badges = compiled.querySelectorAll('.badges img');
+      let hasGit = false;
+
+      badges.forEach((element) => {
+        if (element.getAttribute('src')?.includes('git.svg')) {
+          hasGit = true;
+        }
+      });
+
+      expect(hasGit).toBeTruthy();
+    });
+
     it('should contain GitHub badge', () => {
       const badges = compiled.querySelectorAll('.badges img');
       let hasGitHub = false;
@@ -113,6 +152,19 @@ describe('RetroDesktopPortfolioSite', () => {
       });
 
       expect(hasVercel).toBeTruthy();
+    });
+
+    it('should contain Cloudflare badge', () => {
+      const badges = compiled.querySelectorAll('.badges img');
+      let hasCloudflare = false;
+
+      badges.forEach((element) => {
+        if (element.getAttribute('src')?.includes('cloudflare.svg')) {
+          hasCloudflare = true;
+        }
+      });
+
+      expect(hasCloudflare).toBeTruthy();
     });
 
     it('should contain GitHub Actions badge', () => {
@@ -152,19 +204,6 @@ describe('RetroDesktopPortfolioSite', () => {
       });
 
       expect(hasPrettier).toBeTruthy();
-    });
-
-    it('should contain Cloudflare badge', () => {
-      const badges = compiled.querySelectorAll('.badges img');
-      let hasCloudflare = false;
-
-      badges.forEach((element) => {
-        if (element.getAttribute('src')?.includes('cloudflare.svg')) {
-          hasCloudflare = true;
-        }
-      });
-
-      expect(hasCloudflare).toBeTruthy();
     });
 
     it('should contain Docker badge', () => {
