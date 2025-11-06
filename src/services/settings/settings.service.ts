@@ -9,12 +9,22 @@ export class SettingsService {
 
   public readonly localStorageValues: Array<string> = [
     /*
-      Display "Welcome" program on web application start up.
-
-      Possible values:
-        * "yes": displays welcome program on start up | (set by default on first page visit).
-        * "no": prevents display of welcome program on start up.
-    */
+     * Display "Welcome" program on web application start up.
+     *
+     * Possible values:
+     *   "yes" (default): displays welcome program on start up.
+     *   "no":            prevents display of welcome program on start up.
+     */
     'openWelcomeOnStartup', // 0
+
+    /*
+     * All pages in the "Internet Explorer" program will be displayed
+     * using a "dark mode" theme
+     *
+     * Possible values:
+     *   "enabled":            dark mode theming will be used
+     *   "disabled" (default): dark mode theming will not be used
+     */
+    'internetExplorerDarkMode', // 1
   ];
 }
