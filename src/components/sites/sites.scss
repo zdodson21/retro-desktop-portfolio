@@ -69,14 +69,13 @@
 
     a {
       color: #00a2e7;
-
-      // TODO fix the anchor color in calculator site not changing for some reason
+      
       &:hover {
-        color: #ca1a70;
+        color: #f34399;
       }
 
       &:visited {
-        color: #ca1a70;
+        color: #f34399;
       }
     }
 

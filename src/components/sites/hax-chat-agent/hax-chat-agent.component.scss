@@ -146,4 +146,12 @@
       }
     }
   }
+
+  &.dark-mode {
+    details {
+      &:not(:last-child) {
+        border-color: white;
+      }
+    }
+  }
 }
