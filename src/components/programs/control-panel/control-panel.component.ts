@@ -11,10 +11,6 @@ import { SystemService } from '../../../services/system/system.service';
 export class ControlPanelComponent {
   private systemService: SystemService = inject(SystemService);
 
-  protected setColor(): void {
-    localStorage.setItem('backgroundColor', '#FFFF00');
-  }
-
   protected clearLocalStorage(): void {
     if (globalThis.confirm('This will reset this web application back to its initial state. Continue?')) {
       localStorage.clear();

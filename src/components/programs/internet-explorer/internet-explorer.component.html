@@ -7,6 +7,7 @@
             <div class="bar"></div>
           </div>
 
+          <!-- TODO clicking into toolbar area isn't setting focus??? -->
           <toolbar-button text="File" [class.active]="menuFocus === 'file'" (click)="menuFocus = toolbarButtonHelper($event, 'file')" (mouseover)="toolbarHoverHelper('file')">
             <toolbar-menu class="top-level-menu" [class.visible]="menuFocus === 'file'" (click)="store.focus.set('internet-explorer')">
               <toolbar-item left-text="Print" (click)="printButtonHelper()" [right-text]="getPrintCommand()" />
@@ -53,7 +54,7 @@
               <toolbar-divider />
 
               <!-- TODO add click event handler -->
-              <toolbar-item left-text="Dark Mode" />
+              <toolbar-item left-text="Dark Mode" (click)="setDarkMode()"/>
 
               <toolbar-divider />
 

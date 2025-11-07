@@ -10,7 +10,7 @@ export class InternetExplorerService {
   public browserHistory: WritableSignal<DNS> = signal([]);
   public sidebar: WritableSignal<boolean> = signal(false);
   public displayedSite: WritableSignal<string> = signal('about-me');
-  public darkMode: WritableSignal<boolean> = signal(true); // TODO set false
+  public darkMode: WritableSignal<boolean> = signal(false);
 
   /*
     List:

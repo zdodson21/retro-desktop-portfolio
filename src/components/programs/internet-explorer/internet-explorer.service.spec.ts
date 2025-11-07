@@ -21,6 +21,10 @@ describe('InternetExplorerService', () => {
     expect(service.statusBarContent()).toBe('Ready');
   });
 
+  it('should be set to light mode by default', () => {
+    expect(service.darkMode()).toBeFalse();
+  });
+
   it('should have empty browser history by default', () => {
     expect(service.browserHistory.length).toEqual(0);
   });
@@ -31,5 +35,9 @@ describe('InternetExplorerService', () => {
 
   it('should have at least one possible site', () => {
     expect(service.possibleSites.length).toBeGreaterThan(0);
+  });
+
+  it('should open to "about-me" page first', () => {
+    expect(service.displayedSite()).toBe('about-me')
   });
 });

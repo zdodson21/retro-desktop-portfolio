@@ -1,7 +1,8 @@
-import { AfterViewInit, Component, ElementRef, inject, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, inject, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AppService } from '../../../app/app.service';
 import { DNS, SiteList } from '../../../interfaces/site-list';
+import { SettingsService } from '../../../services/settings/settings.service';
 import { SystemService } from '../../../services/system/system.service';
 import { AboutMeSite } from '../../sites/about-me/about-me.component';
 import { CalculatorSiteComponent } from '../../sites/calculator/calculator-site.component';
@@ -48,7 +49,7 @@ import { InternetExplorerService } from './internet-explorer.service';
   templateUrl: './internet-explorer.component.html',
   styleUrl: './internet-explorer.component.scss',
 })
-export class InternetExplorerComponent implements AfterViewInit {
+export class InternetExplorerComponent implements OnInit, AfterViewInit {
   @ViewChild('windowFrame') private windowFrame?: WindowFrameComponent;
   @ViewChild('addressBarInput') private addressBarInput?: ElementRef<HTMLInputElement>;
   @ViewChild('viewport') protected viewport?: ElementRef<HTMLDivElement>;
@@ -59,12 +60,23 @@ export class InternetExplorerComponent implements AfterViewInit {
   protected store: AppService = inject(AppService);
   protected IEService: InternetExplorerService = inject(InternetExplorerService);
   protected systemService: SystemService = inject(SystemService);
+  private settings: SettingsService = inject(SettingsService);
   protected sidebarContent: number = 0; // 0 = search, 1 = favorites, 2 = history
-  // protected displayedSite: WritableSignal<string> = signal('about-me');
   protected statusBarContent: string = 'Ready';
   protected goButtonHovered: boolean = false;
   protected searchResults: DNS = [];
   protected menuFocus: string = '';
+
+  ngOnInit() {
+    if (
+      localStorage.getItem(this.settings.localStorageValues[1]) === null ||
+      localStorage.getItem(this.settings.localStorageValues[1]) === ''
+    ) {
+      localStorage.setItem(this.settings.localStorageValues[1], 'disabled');
+    }
+
+    console.log(localStorage.getItem(this.settings.localStorageValues[1]));
+  }
 
   ngAfterViewInit() {
     this.route.queryParamMap.subscribe((params) => {
@@ -90,6 +102,15 @@ export class InternetExplorerComponent implements AfterViewInit {
 
       this.IEService.statusBarContent.set('Ready');
     });
+
+    if (
+      localStorage.getItem(this.settings.localStorageValues[1]) === null ||
+      localStorage.getItem(this.settings.localStorageValues[1]) === 'disabled'
+    )
+      this.IEService.darkMode.set(false);
+    else {
+      this.IEService.darkMode.set(true);
+    }
   }
 
   /**
@@ -361,6 +382,14 @@ export class InternetExplorerComponent implements AfterViewInit {
    * @description sets (or unsets) dark mode based on local storage value
    */
   protected setDarkMode(): void {
+    const LS_VALUE = this.settings.localStorageValues[1];
 
+    if (localStorage.getItem(LS_VALUE) === 'disabled') {
+      localStorage.setItem(LS_VALUE, 'enabled');
+      this.IEService.darkMode.set(true);
+    } else {
+      localStorage.setItem(LS_VALUE, 'disabled');
+      this.IEService.darkMode.set(false);
+    }
   }
 }
