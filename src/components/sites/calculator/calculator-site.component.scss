@@ -6,15 +6,7 @@
   section {
     &.formulas {
       .img-container {
-        display: flex;
-        width: 100%;
-        justify-content: center;
-        align-items: center;
-
-        img {
-          border: 2px solid black;
-          @include set-img-size(30%);
-        }
+        @include full-img-container(30%);
       }
     }
   }
