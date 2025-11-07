@@ -18,6 +18,7 @@ out
 .gitignore
 .prettierignore
 .prettierrc
+calculator_test
 Dockerfile
 electron.js
 forge.config.js

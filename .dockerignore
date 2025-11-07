@@ -20,6 +20,7 @@ out
 .prettierignore
 .prettierrc
 .vercelignore
+calculator_test
 electron.js
 makefile
 README.md
