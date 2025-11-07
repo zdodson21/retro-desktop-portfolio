@@ -1,6 +1,7 @@
 @use "../sites.scss" as *;
 
 .error-site-wrapper {
+  @include site-common();
   max-width: 75%;
   padding: 24px;
   @include site-mobile-support(75%);

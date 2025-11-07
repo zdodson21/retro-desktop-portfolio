@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { AIeComponent } from '../components/a-ie/a-ie.component';
+import { InternetExplorerService } from '../../programs/internet-explorer/internet-explorer.service';
 
 @Component({
   selector: 'py-weather',
@@ -7,4 +8,6 @@ import { AIeComponent } from '../components/a-ie/a-ie.component';
   templateUrl: './py-weather.component.html',
   styleUrl: './py-weather.component.scss',
 })
-export class PyWeatherSite {}
+export class PyWeatherSite {
+  protected IEService: InternetExplorerService = inject(InternetExplorerService);
+}

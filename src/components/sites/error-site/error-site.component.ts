@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { InternetExplorerService } from '../../programs/internet-explorer/internet-explorer.service';
 
 @Component({
   selector: 'error-site',
@@ -6,4 +7,6 @@ import { Component } from '@angular/core';
   templateUrl: './error-site.component.html',
   styleUrl: './error-site.component.scss',
 })
-export class ErrorSite {}
+export class ErrorSite {
+  protected IEService: InternetExplorerService = inject(InternetExplorerService);
+}

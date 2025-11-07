@@ -353,7 +353,14 @@ export class InternetExplorerComponent implements AfterViewInit {
   /**
    * @description opens share menu on mobile devices (Android & iOS)
    */
-  protected openShareMenu() {
+  protected openShareMenu(): void {
     navigator.share({ url: `${this.systemService.webAddress}/programs?internet-explorer=${this.IEService.displayedSite()}` });
+  }
+
+  /**
+   * @description sets (or unsets) dark mode based on local storage value
+   */
+  protected setDarkMode(): void {
+
   }
 }

@@ -349,6 +349,10 @@ $status-bar-height: 5%;
           border-style: inset;
           @include allow-user-select();
 
+          &.dark-mode {
+            background-color: #202020;
+          }
+
           &.sidebar-open {
             width: 78%;
           }

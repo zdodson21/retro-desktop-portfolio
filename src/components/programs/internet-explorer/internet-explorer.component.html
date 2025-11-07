@@ -52,6 +52,11 @@
 
               <toolbar-divider />
 
+              <!-- TODO add click event handler -->
+              <toolbar-item left-text="Dark Mode" />
+
+              <toolbar-divider />
+
               <toolbar-item left-text="Full Screen" [disabled]="windowFrame.isFullSize" (click)="fullscreenHandler()" />
             </toolbar-menu>
           </toolbar-button>
@@ -202,7 +207,7 @@
           }
         </div>
 
-        <div #viewport class="viewport">
+        <div #viewport class="viewport" [class.dark-mode]="IEService.darkMode()">
           @switch (IEService.displayedSite()) {
             @case ('about-me') {
               <about-me />
