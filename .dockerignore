@@ -21,4 +21,7 @@ out
 .prettierrc
 .vercelignore
 electron.js
+makefile
 README.md
+*.spec.ts
+*.md

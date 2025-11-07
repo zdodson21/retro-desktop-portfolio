@@ -22,5 +22,6 @@ Dockerfile
 electron.js
 forge.config.js
 karma.conf.js
+makefile
 *.spec.ts
 *.md
