@@ -1,4 +1,12 @@
 a {
+  &.dark-mode {
+    color: #00a2e7;
+
+    &:active, &:visited {
+      color: #ca1a70;
+    }
+  }
+
   &.in-site {
     font-family: Georgia, "Times New Roman", Times, serif;
   }

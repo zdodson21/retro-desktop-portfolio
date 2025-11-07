@@ -13,7 +13,7 @@ export class AIeComponent {
   @Input({ alias: 'not-in-site' }) public notInSite: boolean = false;
 
   private systemService: SystemService = inject(SystemService);
-  private IEStore: InternetExplorerService = inject(InternetExplorerService);
+  protected IEStore: InternetExplorerService = inject(InternetExplorerService);
   private prevIcon: string;
   private prevValue: string;
 

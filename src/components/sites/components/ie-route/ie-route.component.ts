@@ -17,7 +17,7 @@ export class IeRouteComponent implements AfterViewInit {
 
   private route: ActivatedRoute = inject(ActivatedRoute);
   private router: Router = inject(Router);
-  private IEService: InternetExplorerService = inject(InternetExplorerService);
+  protected IEService: InternetExplorerService = inject(InternetExplorerService);
   private prevValue: string;
 
   /**

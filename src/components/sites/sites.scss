@@ -57,9 +57,6 @@
     h6,
     p,
     figcaption,
-    a,
-    a-ie,
-    ie-route,
     li,
     em,
     b,
@@ -68,6 +65,19 @@
     th,
     td {
       color: white;
+    }
+
+    a {
+      color: #00a2e7;
+
+      // TODO fix the anchor color in calculator site not changing for some reason
+      &:hover {
+        color: #ca1a70;
+      }
+
+      &:visited {
+        color: #ca1a70;
+      }
     }
 
     .badges {

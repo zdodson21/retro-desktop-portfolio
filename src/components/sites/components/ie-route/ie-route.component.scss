@@ -3,8 +3,28 @@ a {
   text-decoration: underline;
   cursor: pointer;
 
+  &.dark-mode {
+    color: #00a2e7;
+
+    &:hover {
+      color: #ca1a70;
+    }
+
+    &:visited {
+      color: #ca1a70;
+    }
+  }
+
   &.in-site {
     font-family: Georgia, "Times New Roman", Times, serif;
+  }
+
+  &.not-in-site {
+    color: #0000ee;
+
+    &:hover {
+    color: #551a8b;
+  }
   }
 
   &:hover {
