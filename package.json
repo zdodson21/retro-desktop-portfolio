@@ -26,7 +26,8 @@
     "forge:linux": "electron-forge make --platform linux",
     "forge:windows": "electron-forge make --platform win32",
     "forge:mac": "electron-forge make --platform darwin",
-    "forge:all": "npm run forge:linux && npm run forge:windows && npm run forge:mac"
+    "forge:all": "npm run forge:linux && npm run forge:windows && npm run forge:mac",
+    "php": "php -S localhost:3000"
   },
   "private": true,
   "dependencies": {
