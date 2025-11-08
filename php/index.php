@@ -1,5 +1,11 @@
 <?php
   $mistakes = 0;
+  // TODO make call to database to get value for $mistakes
+    // Add condition for if it cannot get value
+  // TODO set mistakes variable, then send that value back to tell database to update to that value
+    // Add condition for it it cannot set
+
+  // Would be nice if there is some sort of identifier for the user so they don't add multiple times
 ?>
 
 <!DOCTYPE html>
@@ -13,10 +19,10 @@
   <h1>Uh Oh!</h1>
   <p>
     It appears you navigated to the wrong website. The correct URL is <a href="https://zachdodson.me">zachdodson.me</a>,
-    not <a href="https://zachdobson.me">zachdobson.me</a>!
+    not <a href="why.php">zachdobson.me</a>!
   </p>
   <?php
-    echo "Number of people who also made this mistake 🙁: $mistakes";
+    echo "<p>Number of people who also made this mistake 🙁: $mistakes</p>";
   ?>
 </body>
 </html>
