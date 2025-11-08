@@ -256,8 +256,6 @@ export class CalculatorComponent implements OnInit {
    * @param input calulator button numbers of strings (operators)
    */
   protected calculatorButtonHelper(input: string): void {
-    console.log(`calculatorButtonHelper(${input}) called`);
-
     switch (input) {
       // ! Clearing controls
 
@@ -399,9 +397,7 @@ export class CalculatorComponent implements OnInit {
       // ! Value Modifiers
 
       case '+/-': // Switch between positive and negative
-        console.log(typeof this.currentDisplay);
         if (!this.errorDisplayed()) this.currentDisplay = -+this.currentDisplay;
-        console.log(this.currentDisplay);
         break;
 
       case '.':
@@ -436,13 +432,10 @@ export class CalculatorComponent implements OnInit {
    * @param input the value of the button pressed
    */
   protected numberButtonHelper(input: number): void {
-    console.log(`numberButtonHelper(${input}) called`);
-
     if (this.calcPerformed) {
       this.operationNum = 0;
       this.operation = '';
       this.calcPerformed = false;
-      console.log(`${this.operation}`);
     }
 
     if (this.displayInitState) {
@@ -458,8 +451,6 @@ export class CalculatorComponent implements OnInit {
    * @param operation the operation to perform
    */
   protected performOperation(operation: string): void {
-    console.log(`performOperation(${operation}) called`);
-
     switch (operation) {
       // ! Standard Operations
 
@@ -505,7 +496,6 @@ export class CalculatorComponent implements OnInit {
         if (operation !== '') this.currentDisplay = this.errors[4];
     }
 
-    console.log(this.seqMem);
     this.displayInitState = true;
   }
 
