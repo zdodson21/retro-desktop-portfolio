@@ -38,6 +38,6 @@ describe('InternetExplorerService', () => {
   });
 
   it('should open to "about-me" page first', () => {
-    expect(service.displayedSite()).toBe('about-me')
+    expect(service.displayedSite()).toBe('about-me');
   });
 });

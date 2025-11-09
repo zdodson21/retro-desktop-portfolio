@@ -4,7 +4,8 @@ a {
   &.dark-mode {
     color: #00a2e7;
 
-    &:active, &:visited {
+    &:active,
+    &:visited {
       color: #f34399;
     }
   }

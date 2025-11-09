@@ -86,7 +86,7 @@ export class IeRouteComponent implements AfterViewInit, OnInit {
    */
   protected setVisited(): void {
     if (!this.notInSite) {
-      if (!this.visited) this.visited = true
+      if (!this.visited) this.visited = true;
       if (!this.convertedArray.includes(this.domain)) this.convertedArray.push(this.domain);
       this.stringArray = JSON.stringify(this.convertedArray);
       localStorage.setItem(this.settings.localStorageValues[2], this.stringArray);
