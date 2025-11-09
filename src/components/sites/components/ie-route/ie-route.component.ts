@@ -85,9 +85,11 @@ export class IeRouteComponent implements AfterViewInit, OnInit {
    * @description sets visited value in local storage and in component scope
    */
   protected setVisited(): void {
-    if (!this.visited) this.visited = true
-    if (!this.convertedArray.includes(this.domain)) this.convertedArray.push(this.domain);
-    this.stringArray = JSON.stringify(this.convertedArray);
-    localStorage.setItem(this.settings.localStorageValues[2], this.stringArray);
+    if (!this.notInSite) {
+      if (!this.visited) this.visited = true
+      if (!this.convertedArray.includes(this.domain)) this.convertedArray.push(this.domain);
+      this.stringArray = JSON.stringify(this.convertedArray);
+      localStorage.setItem(this.settings.localStorageValues[2], this.stringArray);
+    }
   }
 }
