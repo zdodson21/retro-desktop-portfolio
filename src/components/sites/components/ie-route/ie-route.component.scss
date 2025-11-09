@@ -1,33 +1,40 @@
+@use "../../../../colors.scss" as *;
+@use "../site-component.scss" as *;
+
 a {
-  color: #0000ee;
+  color: $hyperlink-unvisited;
   text-decoration: underline;
   cursor: pointer;
 
   &.dark-mode {
-    color: #00a2e7;
+    color: $hyperlink-dark-unvisited;
 
     &:hover {
-      color: #f34399;
+      color: $hyperlink-dark-visited;
     }
 
     &:visited {
-      color: #f34399;
+      color: $hyperlink-dark-visited;
     }
   }
 
   &.in-site {
-    font-family: Georgia, "Times New Roman", Times, serif;
+    font-family: $hyperlink-font;
+  }
+
+  &.visited {
+    color: $hyperlink-dark-visited;
   }
 
   &.not-in-site {
-    color: #0000ee;
+    color: $hyperlink-unvisited;
 
     &:hover {
-    color: #551a8b;
-  }
+    color: $hyperlink-visited;
+    }
   }
 
   &:hover {
-    color: #551a8b;
+    color: $hyperlink-visited;
   }
 }

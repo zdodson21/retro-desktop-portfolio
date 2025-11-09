@@ -37,8 +37,10 @@
         <figcaption>Local Storage Values</figcaption>
         <ul>
           @for (item of settings.localStorageValues; track $index) {
-            <em>{{ item }}</em>
-            = {{ getLocalStorageVal(item) }}
+            <li>
+              <em>{{ item }}</em>
+              = {{ getLocalStorageVal(item) }}
+            </li>
           }
         </ul>
       </figure>

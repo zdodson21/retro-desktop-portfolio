@@ -22,7 +22,24 @@ describe('SettingsService', () => {
     expect(service.customBackgroundColor()).toEqual('');
   });
 
-  it('should contain at least one local storage value', () => {
-    expect(service.localStorageValues.length).toBeGreaterThan(0);
+  describe('Local Storage', () => {
+    it('should contain at least one local storage value', () => {
+      expect(service.localStorageValues.length).toBeGreaterThan(0);
+    });
+
+    // Checking to make sure each exists and is the right index, would break everywhere else it is used
+    // since they are called by index value rather than directly by name.
+
+    it('index 0 should be openWelcomeOnStartup', () => {
+      expect(service.localStorageValues[0]).toBe('openWelcomeOnStartup');
+    });
+
+    it('index 1 should be internetExplorerDarkMode', () => {
+      expect(service.localStorageValues[1]).toBe('internetExplorerDarkMode');
+    });
+
+    it('index 2 should be ieVisitedSites', () => {
+      expect(service.localStorageValues[2]).toBe('ieVisitedSites');
+    });
   });
 });

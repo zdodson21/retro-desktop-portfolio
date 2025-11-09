@@ -75,7 +75,12 @@ export class InternetExplorerComponent implements OnInit, AfterViewInit {
       localStorage.setItem(this.settings.localStorageValues[1], 'disabled');
     }
 
-    console.log(localStorage.getItem(this.settings.localStorageValues[1]));
+    if (
+      localStorage.getItem(this.settings.localStorageValues[2]) === null ||
+      localStorage.getItem(this.settings.localStorageValues[2]) === ''
+    ) {
+      localStorage.setItem(this.settings.localStorageValues[2], '[]');
+    }
   }
 
   ngAfterViewInit() {

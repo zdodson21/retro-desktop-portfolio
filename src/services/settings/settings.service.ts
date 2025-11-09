@@ -1,4 +1,4 @@
-import { Injectable, signal, WritableSignal } from '@angular/core';
+import { Injectable, OnInit, signal, WritableSignal } from '@angular/core';
 
 @Injectable({
   providedIn: 'root',
@@ -26,5 +26,15 @@ export class SettingsService {
      *   "disabled" (default): dark mode theming will not be used
      */
     'internetExplorerDarkMode', // 1
+
+    /*
+     * "Array" holding values of "sites" that have been visited
+     *
+     * Possible values:
+     *   []:    Initial value, no site values
+     *   [...]: Any sites within the sites list
+     *
+     */
+    'ieVisitedSites', // 2
   ];
 }
