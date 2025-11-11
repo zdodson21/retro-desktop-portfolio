@@ -169,7 +169,7 @@ export class WindowFrameComponent implements AfterContentInit {
    * @description maintains a full size program window even when browser size is changed
    */
   @HostListener('window:resize')
-  private helpMaintainSize(): void {
+  protected helpMaintainSize(): void {
     if (this.isFullSize) this.helpSetFullSize();
     if (!this.isFullSize) this.setWindowSize();
 
