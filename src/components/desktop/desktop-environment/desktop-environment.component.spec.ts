@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { DesktopEnvironmentComponent } from './desktop-environment.component';
 import { provideRouter } from '@angular/router';
+import { DesktopEnvironmentComponent } from './desktop-environment.component';
 
 describe('DesktopEnvironmentComponent', () => {
   let component: DesktopEnvironmentComponent;
@@ -21,6 +21,20 @@ describe('DesktopEnvironmentComponent', () => {
 
   it('should create component', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('must be wrapped', () => {
+    expect(compiled.querySelector('.desktop-environment-wrapper')).toBeTruthy();
+  })
+
+  describe('vital container existence', () => {
+    it('must contain programs container', () => {
+      expect(compiled.querySelector('.programs')).toBeTruthy();
+    });
+
+    it('must contain icons wrapper', () => {
+      expect(compiled.querySelector('.icons')).toBeTruthy();
+    });
   });
 
   describe('Desktop Icon Focuses', () => {

@@ -23,13 +23,23 @@ describe('DesktopIconComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  describe('Active State', () => {
-    // it('should not be focused by default', () => {
-    //   expect(component.isElementFocused()).toBeFalsy();
-    // });
+  it('must be wrapped', () => {
+    expect(compiled.querySelector('.desktop-icon-wrapper')).toBeTruthy();
+  })
 
+  describe('Active State', () => {
     it('wrapper should not have .active by default', () => {
       expect(compiled.querySelector('.desktop-icon-wrapper')?.classList.contains('active')).toBeFalsy();
     });
   });
+
+  describe('Structure', () => {
+    it('must contain img tag for icon', () => {
+      expect(compiled.querySelector('img')).toBeTruthy();
+    })
+
+    it('must contain p-tag for text', () => {
+      expect(compiled.querySelector('p')).toBeTruthy();
+    })
+  })
 });
