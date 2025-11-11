@@ -40,4 +40,8 @@ describe('InternetExplorerService', () => {
   it('should open to "about-me" page first', () => {
     expect(service.displayedSite()).toBe('about-me');
   });
+
+  it('should be set to light mode by default', () => {
+    expect(service.darkMode()).toBeFalse();
+  })
 });
