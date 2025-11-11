@@ -16,8 +16,6 @@
             </toolbar-menu>
           </toolbar-button>
 
-          <div class="test"></div>
-
           <toolbar-button text="Help" [class.active]="menuFocus === 'help'" (click)="menuFocus = toolbarButtonHelper($event, 'help')" (mouseover)="toolbarHoverHelper('help')">
             <toolbar-menu class="top-level-menu" [class.visible]="menuFocus === 'help'" (click)="store.focus.set('calculator')">
               <toolbar-item left-text="(Dev) Test WASM" (click)="callWasmFunctions()" />
