@@ -95,5 +95,11 @@ describe('AppComponent', () => {
     });
   });
 
-  // TODO test to ensure every site can be created in the print selection???
+  describe('Print selection', () => {
+    it('must have print section', () => {
+      expect(compiled.querySelector('.print-selection')).toBeTruthy();
+    });
+
+    // TODO test to ensure every site can be created in the print selection???
+  })
 });

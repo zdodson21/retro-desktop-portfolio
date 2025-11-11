@@ -71,7 +71,7 @@ export class AppComponent {
    *              updating on window dimension changes.
    */
   @HostListener('window:resize')
-  private onResize(): void {
+  protected onResize(): void {
     this.systemService.viewportWidth.set(globalThis.innerWidth);
     this.systemService.viewportHeight.set(globalThis.innerHeight);
   }
