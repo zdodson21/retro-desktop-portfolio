@@ -23,6 +23,10 @@ describe('AlertShutdownComponent', () => {
     expect(component).toBeTruthy();
   });
 
+  it('must be wrapped', () => {
+    expect(compiled.querySelector('.alert-shutdown-wrapper')).toBeTruthy();
+  })
+
   describe('<window-frame>', () => {
     it('window-title should be "Shut Down Windows"', () => {
       expect(compiled.querySelector('window-frame')?.getAttribute('window-title')).toBe('Shut Down Windows');
@@ -31,6 +35,8 @@ describe('AlertShutdownComponent', () => {
     it('focus-name should be "shutdown-alert"', () => {
       expect(compiled.querySelector('window-frame')?.getAttribute('focus-name')).toBe('shutdown-alert');
     });
+
+    // TODO should be set to [alert]=true
   });
 
   describe('Frame Contents', () => {
@@ -39,9 +45,30 @@ describe('AlertShutdownComponent', () => {
     });
   });
 
-  // describe('Logic', () => {
-  //   it('starts with formValue = 0', () => {
-  //     expect(component.formValue).toBe(0);
-  //   });
-  // });
+  describe('Form', () => {
+    describe('Shutdown', () => {
+      it('should exist', () => {
+        expect(compiled.querySelector('#shutdown')).toBeTruthy();
+      })
+
+      // TODO Should have value 0
+
+      // TODO should be selected by default
+    })
+
+    describe('Restart', () => {
+      it('should exist', () => {
+        expect(compiled.querySelector('#restart')).toBeTruthy();
+      })
+
+      // TODO should have value 1
+    })
+
+    // describe('MSDOS Mode', () => {
+    //   it('should exist', () => {
+    //     expect(compiled.querySelector('#msdos-mode')).toBeTruthy();
+    //   })
+    //   TODO should have value 2
+    // })
+  })
 });
