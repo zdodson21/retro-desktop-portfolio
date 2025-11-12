@@ -14,7 +14,7 @@ describe('WindowsExplorerService', () => {
     expect(service).toBeTruthy();
   });
 
-  it('should not have a focused icon', () => {
+  it('should not have a focused icon by default', () => {
     expect(service.focusedIcon()).toBe('');
   });
 });
