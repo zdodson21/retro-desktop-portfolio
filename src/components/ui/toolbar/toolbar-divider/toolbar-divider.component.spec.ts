@@ -23,9 +23,9 @@ describe('ToolbarDividerComponent', () => {
 
   it('should be wrapped', () => {
     expect(compiled.querySelector('.toolbar-divider-wrapper')).toBeTruthy();
-  })
+  });
 
   it('must have the divider', () => {
     expect(compiled.querySelector('.toolbar-divider-wrapper .divider')).toBeTruthy();
-  })
+  });
 });

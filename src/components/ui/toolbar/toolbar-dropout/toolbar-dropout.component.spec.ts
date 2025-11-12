@@ -41,7 +41,7 @@ describe('ToolbarDropoutComponent', () => {
       });
 
       // TODO test to make sure text renders in appropriate spot when text var is set
-    })
+    });
 
     describe('arrow img', () => {
       it('must exist', () => {
@@ -53,7 +53,9 @@ describe('ToolbarDropoutComponent', () => {
       });
 
       it('must have black arrow by default', () => {
-        expect(compiled.querySelector('.toolbar-dropout-wrapper img')?.getAttribute('src')).toBe('assets/icons/submenu-arrow.svg',);
+        expect(compiled.querySelector('.toolbar-dropout-wrapper img')?.getAttribute('src')).toBe(
+          'assets/icons/submenu-arrow.svg',
+        );
       });
 
       // todo test hover

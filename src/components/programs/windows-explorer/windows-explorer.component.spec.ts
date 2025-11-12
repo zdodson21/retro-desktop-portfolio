@@ -48,6 +48,6 @@ describe('WindowsExplorerComponent', () => {
 
     it('should have main content space', () => {
       expect(compiled.querySelector('.contents')).toBeTruthy();
-    })
+    });
   });
 });

@@ -53,7 +53,7 @@ describe('WindowFrameComponent', () => {
     describe('Buttons', () => {
       it('must be wrapped', () => {
         expect(compiled.querySelector('.controls')).toBeTruthy();
-      })
+      });
 
       describe('minimize', () => {
         it('should exist by default', () => {

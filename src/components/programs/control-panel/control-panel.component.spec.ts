@@ -44,6 +44,6 @@ describe('ControlPanelComponent', () => {
 
     it('must have frame-contents wrapper', () => {
       expect(compiled.querySelector('window-frame .frame-contents')).toBeTruthy();
-    })
+    });
   });
 });

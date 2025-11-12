@@ -25,7 +25,7 @@ describe('DesktopEnvironmentComponent', () => {
 
   it('must be wrapped', () => {
     expect(compiled.querySelector('.desktop-environment-wrapper')).toBeTruthy();
-  })
+  });
 
   describe('vital container existence', () => {
     it('must contain programs container', () => {

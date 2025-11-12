@@ -25,7 +25,7 @@ describe('DesktopIconComponent', () => {
 
   it('must be wrapped', () => {
     expect(compiled.querySelector('.desktop-icon-wrapper')).toBeTruthy();
-  })
+  });
 
   describe('Active State', () => {
     it('wrapper should not have .active by default', () => {
@@ -36,10 +36,10 @@ describe('DesktopIconComponent', () => {
   describe('Structure', () => {
     it('must contain img tag for icon', () => {
       expect(compiled.querySelector('img')).toBeTruthy();
-    })
+    });
 
     it('must contain p-tag for text', () => {
       expect(compiled.querySelector('p')).toBeTruthy();
-    })
-  })
+    });
+  });
 });

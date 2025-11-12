@@ -24,13 +24,13 @@ describe('StartSubdropoutComponent', () => {
 
   it('should have a container', () => {
     expect(compiled.querySelector('.container')).toBeTruthy();
-  })
+  });
 
   it('should have subdropout wrapper', () => {
     expect(compiled.querySelector('.container .start-subdropout-wrapper')).toBeTruthy();
-  })
+  });
 
   it('should have space for menu', () => {
     expect(compiled.querySelector('.container .menu-space')).toBeTruthy();
-  })
+  });
 });

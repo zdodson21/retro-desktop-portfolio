@@ -44,6 +44,6 @@ describe('SystemMonitorComponent', () => {
 
     it('should have frame-contents container', () => {
       expect(compiled.querySelector('window-frame .frame-contents')).toBeTruthy();
-    })
+    });
   });
 });

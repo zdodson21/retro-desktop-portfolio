@@ -25,11 +25,11 @@ describe('StartMenuComponent', () => {
 
   it('should be wrapped', () => {
     expect(compiled.querySelector('.start-menu-wrapper')).toBeTruthy();
-  })
+  });
 
   it('should have proper img on left side', () => {
-    expect(compiled.querySelector('.win-95-bar img')?.getAttribute('src')).toBe('assets/windows-95-text-start-menu.svg')
-  })
+    expect(compiled.querySelector('.win-95-bar img')?.getAttribute('src')).toBe('assets/windows-95-text-start-menu.svg');
+  });
 
   it('should contain start-shutdown component', () => {
     expect(compiled.querySelector('start-shutdown')).toBeTruthy();
@@ -43,9 +43,9 @@ describe('StartMenuComponent', () => {
       expect(startItem.getAttribute('focus-name')).toBeTruthy();
     });
 
-    SUBITEMS.forEach(subitem => {
+    SUBITEMS.forEach((subitem) => {
       expect(subitem.getAttribute('focus-name')).toBeTruthy();
-    })
+    });
   });
 
   it('should have an icon set on every <start-item> and subitem', () => {
@@ -56,9 +56,9 @@ describe('StartMenuComponent', () => {
       expect(startItem.getAttribute('icon')).toBeTruthy();
     });
 
-    SUBITEMS.forEach(subitem => {
+    SUBITEMS.forEach((subitem) => {
       expect(subitem.getAttribute('icon')).toBeTruthy();
-    })
+    });
   });
 
   it('should have a program-name set on every <start-item> and subitem', () => {
@@ -69,8 +69,8 @@ describe('StartMenuComponent', () => {
       expect(startItem.getAttribute('program-name')).toBeTruthy();
     });
 
-    SUBITEMS.forEach(subitem => {
+    SUBITEMS.forEach((subitem) => {
       expect(subitem.getAttribute('program-name')).toBeTruthy();
-    })
+    });
   });
 });

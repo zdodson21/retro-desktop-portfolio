@@ -30,22 +30,22 @@ describe('HelpButtonComponent', () => {
     describe('Square', () => {
       it('must exist', () => {
         expect(compiled.querySelector('.square')).toBeTruthy();
-      })
+      });
 
       it('must not be active', () => {
         expect(compiled.querySelector('.square.active')).toBeFalsy();
         expect(compiled.querySelector('.inner-square.active')).toBeFalsy();
-      })
-    })
+      });
+    });
 
     describe('Text', () => {
       it('must exist', () => {
         expect(compiled.querySelector('p')).toBeTruthy();
-      })
+      });
 
       it('must not be active by default', () => {
         expect(compiled.querySelector('p.active')).toBeFalsy();
-      })
-    })
+      });
+    });
   });
 });

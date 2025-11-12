@@ -25,7 +25,7 @@ describe('WindowsHelpComponent', () => {
 
   it('should be wrapped', () => {
     expect(compiled.querySelector('.windows-help-wrapper')).toBeTruthy();
-  })
+  });
 
   describe('Structure', () => {
     describe('Window Frame', () => {
@@ -37,13 +37,13 @@ describe('WindowsHelpComponent', () => {
         expect(compiled.querySelector('window-frame')?.getAttribute('focus-name')).toBe('help');
       });
 
-      it('should have proper window icon', () =>{
+      it('should have proper window icon', () => {
         expect(compiled.querySelector('window-frame')?.getAttribute('window-icon')).toBe('assets/icons/windows-help.svg');
-      })
-    })
+      });
+    });
 
     it('should have frame contents wrapper', () => {
       expect(compiled.querySelector('window-frame .frame-contents')).toBeTruthy();
-    })
-  })
+    });
+  });
 });

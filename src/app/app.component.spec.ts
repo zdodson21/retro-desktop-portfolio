@@ -101,5 +101,5 @@ describe('AppComponent', () => {
     });
 
     // TODO test to ensure every site can be created in the print selection???
-  })
+  });
 });

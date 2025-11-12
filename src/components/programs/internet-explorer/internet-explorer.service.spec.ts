@@ -43,5 +43,5 @@ describe('InternetExplorerService', () => {
 
   it('should be set to light mode by default', () => {
     expect(service.darkMode()).toBeFalse();
-  })
+  });
 });

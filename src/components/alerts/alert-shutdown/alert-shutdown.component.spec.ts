@@ -25,7 +25,7 @@ describe('AlertShutdownComponent', () => {
 
   it('must be wrapped', () => {
     expect(compiled.querySelector('.alert-shutdown-wrapper')).toBeTruthy();
-  })
+  });
 
   describe('<window-frame>', () => {
     it('window-title should be "Shut Down Windows"', () => {
@@ -49,20 +49,20 @@ describe('AlertShutdownComponent', () => {
     describe('Shutdown', () => {
       it('should exist', () => {
         expect(compiled.querySelector('#shutdown')).toBeTruthy();
-      })
+      });
 
       // TODO Should have value 0
 
       // TODO should be selected by default
-    })
+    });
 
     describe('Restart', () => {
       it('should exist', () => {
         expect(compiled.querySelector('#restart')).toBeTruthy();
-      })
+      });
 
       // TODO should have value 1
-    })
+    });
 
     // describe('MSDOS Mode', () => {
     //   it('should exist', () => {
@@ -70,5 +70,5 @@ describe('AlertShutdownComponent', () => {
     //   })
     //   TODO should have value 2
     // })
-  })
+  });
 });

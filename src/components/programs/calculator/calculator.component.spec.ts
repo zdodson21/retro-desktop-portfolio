@@ -36,39 +36,39 @@ describe('CalculatorComponent', () => {
 
       it('focus-name should be "calculator"', () => {
         expect(compiled.querySelector('window-frame')?.getAttribute('focus-name')).toBe('calculator');
-      })
+      });
 
       it('must have proper icon path', () => {
         expect(compiled.querySelector('window-frame')?.getAttribute('window-icon')).toBe('assets/icons/calculator.svg');
-      })
+      });
     });
 
     it('must have a frame-contents wrapper', () => {
       expect(compiled.querySelector('window-frame .frame-contents')).toBeTruthy();
-    })
+    });
 
     it('must have a toolbar', () => {
       expect(compiled.querySelector('.toolbar')).toBeTruthy();
-    })
+    });
 
     it('must have calculator section', () => {
       expect(compiled.querySelector('.calculator')).toBeTruthy();
-    })
+    });
 
     it('must display standard button set by default', () => {
       expect(compiled.querySelector('.standard-button-set')).toBeTruthy();
-    })
+    });
 
     it('must not display scientific button set by default', () => {
       expect(compiled.querySelector('.scientific-button-set')).toBeFalsy();
-    })
+    });
   });
 
   // describe('button labels', () => {
   //   const STD_LABELS = [];
 
   //   it('must contain standard button labels', () => {
-       // TODO test forEach calculator button expect one of them to have the appropriate label
+  // TODO test forEach calculator button expect one of them to have the appropriate label
   //   })
 
   //    const SCI_LABELS = [];

@@ -111,7 +111,9 @@ describe('ProgramMenuComponent', () => {
       });
 
       it('should have proper icon', () => {
-        expect(compiled.querySelector('.internet-explorer-start-item')?.getAttribute('icon')).toBe('assets/icons/internet-explorer.svg');
+        expect(compiled.querySelector('.internet-explorer-start-item')?.getAttribute('icon')).toBe(
+          'assets/icons/internet-explorer.svg',
+        );
       });
 
       it('should have proper program name', () => {
@@ -147,7 +149,9 @@ describe('ProgramMenuComponent', () => {
       });
 
       it('should have proper icon', () => {
-        expect(compiled.querySelector('.system-monitor-start-item')?.getAttribute('icon')).toBe('assets/icons/system-monitor.svg');
+        expect(compiled.querySelector('.system-monitor-start-item')?.getAttribute('icon')).toBe(
+          'assets/icons/system-monitor.svg',
+        );
       });
 
       it('should have proper program name', () => {
@@ -165,7 +169,9 @@ describe('ProgramMenuComponent', () => {
       });
 
       it('should have proper icon', () => {
-        expect(compiled.querySelector('.windows-explorer-start-item')?.getAttribute('icon')).toBe('assets/icons/windows-explorer.svg');
+        expect(compiled.querySelector('.windows-explorer-start-item')?.getAttribute('icon')).toBe(
+          'assets/icons/windows-explorer.svg',
+        );
       });
 
       it('should have proper program name', () => {

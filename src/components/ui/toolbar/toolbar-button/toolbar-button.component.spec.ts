@@ -38,5 +38,5 @@ describe('ToolbarButtonComponent', () => {
 
   it('should have space for menu', () => {
     expect(compiled.querySelector('.container .menu-space')).toBeTruthy();
-  })
+  });
 });

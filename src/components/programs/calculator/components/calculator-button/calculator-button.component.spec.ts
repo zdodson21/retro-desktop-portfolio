@@ -24,9 +24,9 @@ describe('CalculatorButtonComponent', () => {
 
   it('should be wrapped', () => {
     expect(compiled.querySelector('.calculator-button-wrapper')).toBeTruthy();
-  })
+  });
 
   it('should have space for button text label', () => {
     expect(compiled.querySelector('p')).toBeTruthy();
-  })
+  });
 });

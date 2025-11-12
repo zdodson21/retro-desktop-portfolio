@@ -23,11 +23,11 @@ describe('TaskbarProgramComponent', () => {
 
   it('should be wrapped', () => {
     expect(compiled.querySelector('.taskbar-program-wrapper')).toBeTruthy();
-  })
+  });
 
   // TODO test for image
 
   it('should have space for text', () => {
     expect(compiled.querySelector('.taskbar-program-wrapper p')).toBeTruthy();
-  })
+  });
 });

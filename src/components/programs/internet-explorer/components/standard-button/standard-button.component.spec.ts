@@ -40,5 +40,5 @@ describe('StandardButtonComponent', () => {
 
   it('should have a space for text', () => {
     expect(compiled.querySelector('.standard-button-wrapper p')).toBeTruthy();
-  })
+  });
 });

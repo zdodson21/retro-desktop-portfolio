@@ -27,5 +27,5 @@ describe('TaskbarClockComponent', () => {
 
   it('should have space for clock', () => {
     expect(compiled.querySelector('.clock-wrapper p')).toBeTruthy();
-  })
+  });
 });

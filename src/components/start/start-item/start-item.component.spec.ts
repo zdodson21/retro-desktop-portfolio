@@ -25,13 +25,13 @@ describe('StartItemComponent', () => {
 
   it('should be wrapped', () => {
     expect(compiled.querySelector('.start-item-wrapper')).toBeTruthy();
-  })
+  });
 
   it('must have an img space', () => {
     expect(compiled.querySelector('.start-item-wrapper img')).toBeTruthy();
-  })
+  });
 
   it('must have text space', () => {
     expect(compiled.querySelector('.start-item-wrapper p')).toBeTruthy();
-  })
+  });
 });

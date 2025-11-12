@@ -25,13 +25,13 @@ describe('FileIconComponent', () => {
 
   it('should have wrapper', () => {
     expect(compiled.querySelector('.file-icon-wrapper')).toBeTruthy();
-  })
+  });
 
   it('should have spot for icon', () => {
     expect(compiled.querySelector('.file-icon-wrapper img')).toBeTruthy();
-  })
+  });
 
   it('should have spot for text', () => {
     expect(compiled.querySelector('.file-icon-wrapper p')).toBeTruthy();
-  })
+  });
 });

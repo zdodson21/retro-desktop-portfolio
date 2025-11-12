@@ -24,5 +24,5 @@ describe('ToolbarMenuComponent', () => {
 
   it('should have wrapper', () => {
     expect(compiled.querySelector('.toolbar-menu-wrapper')).toBeTruthy();
-  })
+  });
 });

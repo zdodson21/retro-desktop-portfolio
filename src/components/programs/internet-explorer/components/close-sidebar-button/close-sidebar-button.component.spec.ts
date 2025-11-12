@@ -27,6 +27,6 @@ describe('CloseSidebarButtonComponent', () => {
   });
 
   it('should have proper icon', () => {
-    expect(compiled.querySelector('img')?.getAttribute('src')).toBe('assets/icons/close-button.svg')
-  })
+    expect(compiled.querySelector('img')?.getAttribute('src')).toBe('assets/icons/close-button.svg');
+  });
 });

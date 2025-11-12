@@ -23,7 +23,7 @@ describe('TaskbarStartComponent', () => {
 
   it('should have wrapper', () => {
     expect(compiled.querySelector('.taskbar-start-wrapper')).toBeTruthy();
-  })
+  });
 
   describe('Design', () => {
     it('should have the proper icon', () => {

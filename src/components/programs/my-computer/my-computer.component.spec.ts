@@ -38,7 +38,7 @@ describe('MyComputerComponent', () => {
       });
 
       it('should have proper icon path', () => {
-        expect(compiled.querySelector('window-frame')?.getAttribute('window-icon')).toBe('assets/icons/my-computer.svg')
+        expect(compiled.querySelector('window-frame')?.getAttribute('window-icon')).toBe('assets/icons/my-computer.svg');
       });
 
       // TODO test prevent resizing true and hide buttons true
@@ -49,9 +49,9 @@ describe('MyComputerComponent', () => {
     });
   });
 
-  it ('should use proper image', () => {
+  it('should use proper image', () => {
     expect(compiled.querySelector('.left .img-wrapper img')?.getAttribute('src')).toBe('assets/monitor-image.png');
-  })
+  });
 
   describe('Sections', () => {
     it('should have proper sections', () => {
@@ -61,7 +61,7 @@ describe('MyComputerComponent', () => {
       let registered = false;
       let computer = false;
 
-      captions.forEach(item => {
+      captions.forEach((item) => {
         if (item.innerText === captionTexts[0]) system = true;
         if (item.innerText === captionTexts[1]) registered = true;
         if (item.innerText === captionTexts[2]) computer = true;
@@ -70,6 +70,6 @@ describe('MyComputerComponent', () => {
       expect(system).toBeTrue();
       expect(registered).toBeTrue();
       expect(computer).toBeTrue();
-    })
-  })
+    });
+  });
 });
