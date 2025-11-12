@@ -21,6 +21,10 @@ describe('TaskbarStartComponent', () => {
     expect(component).toBeTruthy();
   });
 
+  it('should have wrapper', () => {
+    expect(compiled.querySelector('.taskbar-start-wrapper')).toBeTruthy();
+  })
+
   describe('Design', () => {
     it('should have the proper icon', () => {
       expect(compiled.querySelector('.contents > img')?.getAttribute('src')).toBe('assets/icons/start.svg');

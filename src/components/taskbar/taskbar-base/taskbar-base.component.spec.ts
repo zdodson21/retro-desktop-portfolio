@@ -21,6 +21,10 @@ describe('TaskbarBaseComponent', () => {
     expect(component).toBeTruthy();
   });
 
+  it('should have a wrapper', () => {
+    expect(compiled.querySelector('.taskbar-base-wrapper')).toBeTruthy();
+  })
+
   describe('Left Side Class', () => {
     it('should contain <taskbar-start>', () => {
       expect(compiled.querySelector('.left-side > taskbar-start')).toBeTruthy();

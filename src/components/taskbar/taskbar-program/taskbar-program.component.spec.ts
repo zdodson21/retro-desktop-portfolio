@@ -4,6 +4,7 @@ import { TaskbarProgramComponent } from './taskbar-program.component';
 describe('TaskbarProgramComponent', () => {
   let component: TaskbarProgramComponent;
   let fixture: ComponentFixture<TaskbarProgramComponent>;
+  let compiled: HTMLElement;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -12,6 +13,7 @@ describe('TaskbarProgramComponent', () => {
 
     fixture = TestBed.createComponent(TaskbarProgramComponent);
     component = fixture.componentInstance;
+    compiled = fixture.nativeElement as HTMLElement;
     fixture.detectChanges();
   });
 
@@ -19,7 +21,13 @@ describe('TaskbarProgramComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  // it('should not be focused by default', () => {
-  //   expect(component.isProgramFocused()).toBeFalsy();
-  // });
+  it('should be wrapped', () => {
+    expect(compiled.querySelector('.taskbar-program-wrapper')).toBeTruthy();
+  })
+
+  // TODO test for image
+
+  it('should have space for text', () => {
+    expect(compiled.querySelector('.taskbar-program-wrapper p')).toBeTruthy();
+  })
 });
