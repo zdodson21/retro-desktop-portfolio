@@ -23,6 +23,14 @@ describe('HaxAuditSite', () => {
     expect(component).toBeTruthy();
   });
 
+  it('should have wrapper', () => {
+    expect(compiled.querySelector('.hax-audit-site-wrapper')).toBeTruthy();
+  });
+
+  it('should not be in dark mode by default', () => {
+    expect(compiled.querySelector('.dark-mode')).toBeFalsy();
+  });
+
   describe('badges', () => {
     it('should contain JavaScript badge', () => {
       const badges = compiled.querySelectorAll('.badges img');

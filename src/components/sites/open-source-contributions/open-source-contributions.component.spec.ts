@@ -5,6 +5,7 @@ import { OpenSourceContributionsSite } from './open-source-contributions.compone
 describe('OpenSourceContributionsSite', () => {
   let component: OpenSourceContributionsSite;
   let fixture: ComponentFixture<OpenSourceContributionsSite>;
+  let compiled: HTMLElement;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -14,10 +15,19 @@ describe('OpenSourceContributionsSite', () => {
 
     fixture = TestBed.createComponent(OpenSourceContributionsSite);
     component = fixture.componentInstance;
+    compiled = fixture.nativeElement as HTMLElement;
     fixture.detectChanges();
   });
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should have wrapper', () => {
+    expect(compiled.querySelector('.osc-site-wrapper')).toBeTruthy();
+  });
+
+  it('should not be in dark mode by default', () => {
+    expect(compiled.querySelector('.dark-mode')).toBeFalsy();
   });
 });

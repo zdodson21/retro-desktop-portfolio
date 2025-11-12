@@ -23,6 +23,14 @@ describe('HaxChatAgentSite', () => {
     expect(component).toBeTruthy();
   });
 
+  it('should have wrapper', () => {
+    expect(compiled.querySelector('.hax-chat-agent-site-wrapper')).toBeTruthy();
+  });
+
+  it('should not be in dark mode by default', () => {
+    expect(compiled.querySelector('.dark-mode')).toBeFalsy();
+  });
+
   describe('badges', () => {
     it('should contain Lit badge', () => {
       const badges = compiled.querySelectorAll('.badges img');

@@ -23,6 +23,14 @@ describe('RetroDesktopPortfolioSite', () => {
     expect(component).toBeTruthy();
   });
 
+  it('should have wrapper', () => {
+    expect(compiled.querySelector('.portfolio-site-wrapper')).toBeTruthy();
+  });
+
+  it('should not be in dark mode by default', () => {
+    expect(compiled.querySelector('.dark-mode')).toBeFalsy();
+  });
+
   describe('badges', () => {
     it('should contain Angular badge', () => {
       const badges = compiled.querySelectorAll('.badges img');

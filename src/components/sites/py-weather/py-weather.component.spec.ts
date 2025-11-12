@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { PyWeatherSite } from './py-weather.component';
 
 describe('PyWeatherComponent', () => {
@@ -20,6 +19,14 @@ describe('PyWeatherComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should have wrapper', () => {
+    expect(compiled.querySelector('.py-weather-site-wrapper')).toBeTruthy();
+  });
+
+  it('should not be in dark mode by default', () => {
+    expect(compiled.querySelector('.dark-mode')).toBeFalsy();
   });
 
   describe('badges', () => {
