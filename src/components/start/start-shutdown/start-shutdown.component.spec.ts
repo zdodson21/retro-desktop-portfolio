@@ -21,6 +21,10 @@ describe('StartShutdownComponent', () => {
     expect(component).toBeTruthy();
   });
 
+  it('should be wrapped', () => {
+    expect(compiled.querySelector('.start-shutdown-wrapper')).toBeTruthy();
+  })
+
   it('should have the proper icon', () => {
     expect(compiled.querySelector('.start-shutdown-wrapper > img')?.getAttribute('src')).toBe('assets/icons/shutdown.svg');
   });

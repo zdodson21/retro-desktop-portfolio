@@ -21,7 +21,15 @@ describe('StartDropdownComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  // it('should have the proper arrow icon', () => {
-  //   expect(compiled.querySelector('.arrow')?.getAttribute('src')).toBe('assets/icons/submenu-arrow.svg');
-  // });
+  it('should be in container', () => {
+    expect(compiled.querySelector('.container')).toBeTruthy();
+  });
+
+  it('must have dropdown wrapper', () => {
+    expect(compiled.querySelector('.container .start-dropdown-wrapper')).toBeTruthy();
+  });
+
+  it('must have menu area', () => {
+    expect(compiled.querySelector('.container .menu-space')).toBeTruthy();
+  });
 });

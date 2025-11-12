@@ -23,15 +23,54 @@ describe('StartMenuComponent', () => {
     expect(component).toBeTruthy();
   });
 
+  it('should be wrapped', () => {
+    expect(compiled.querySelector('.start-menu-wrapper')).toBeTruthy();
+  })
+
+  it('should have proper img on left side', () => {
+    expect(compiled.querySelector('.win-95-bar img')?.getAttribute('src')).toBe('assets/windows-95-text-start-menu.svg')
+  })
+
   it('should contain start-shutdown component', () => {
     expect(compiled.querySelector('start-shutdown')).toBeTruthy();
   });
 
-  it('should have a focus-name set on every <start-item>', () => {
+  it('should have a focus-name set on every <start-item> and subitem', () => {
     const START_ITEMS: NodeListOf<Element> = compiled.querySelectorAll('start-item');
+    const SUBITEMS: NodeListOf<Element> = compiled.querySelectorAll('start-subitem');
 
     START_ITEMS.forEach((startItem) => {
       expect(startItem.getAttribute('focus-name')).toBeTruthy();
     });
+
+    SUBITEMS.forEach(subitem => {
+      expect(subitem.getAttribute('focus-name')).toBeTruthy();
+    })
+  });
+
+  it('should have an icon set on every <start-item> and subitem', () => {
+    const START_ITEMS: NodeListOf<Element> = compiled.querySelectorAll('start-item');
+    const SUBITEMS: NodeListOf<Element> = compiled.querySelectorAll('start-subitem');
+
+    START_ITEMS.forEach((startItem) => {
+      expect(startItem.getAttribute('icon')).toBeTruthy();
+    });
+
+    SUBITEMS.forEach(subitem => {
+      expect(subitem.getAttribute('icon')).toBeTruthy();
+    })
+  });
+
+  it('should have a program-name set on every <start-item> and subitem', () => {
+    const START_ITEMS: NodeListOf<Element> = compiled.querySelectorAll('start-item');
+    const SUBITEMS: NodeListOf<Element> = compiled.querySelectorAll('start-subitem');
+
+    START_ITEMS.forEach((startItem) => {
+      expect(startItem.getAttribute('program-name')).toBeTruthy();
+    });
+
+    SUBITEMS.forEach(subitem => {
+      expect(subitem.getAttribute('program-name')).toBeTruthy();
+    })
   });
 });
