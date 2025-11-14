@@ -16,6 +16,10 @@
 
               <toolbar-dropout text="Send">
                 <toolbar-menu>
+                  <toolbar-item left-text="Copy Page URL" (click)="copyURLToClipboard()" />
+
+                  <toolbar-divider></toolbar-divider>
+
                   <toolbar-item left-text="Page by Email..." (click)="mailButtonHelper()" />
                   @if (systemService.isMobile()) {
                     <toolbar-item left-text="Share Menu" (click)="openShareMenu()" />

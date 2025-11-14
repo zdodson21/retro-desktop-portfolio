@@ -178,7 +178,7 @@ export class InternetExplorerComponent implements OnInit, AfterViewInit {
    */
   protected mailButtonHelper(): void {
     if (!this.dnsContainsSite(this.IEService.displayedSite())) {
-      if (globalThis.confirm('An error page is currently being displayed, are you sure you wish it in an email?')) {
+      if (globalThis.confirm('An error page is currently being displayed, are you sure you wish to send it in an email?')) {
         globalThis.open(
           `mailto:person?subject=Check%20Out%20This%20Webpage&body=${this.systemService.webAddress}/programs?internet-explorer=${this.IEService.displayedSite()}`,
           '_blank',
@@ -395,6 +395,23 @@ export class InternetExplorerComponent implements OnInit, AfterViewInit {
     } else {
       localStorage.setItem(LS_VALUE, 'disabled');
       this.IEService.darkMode.set(false);
+    }
+  }
+
+  /**
+   * @description copys current site URL (web app URL (not IE)) to clipboard
+   */
+  protected copyURLToClipboard(): void {
+    if (!this.dnsContainsSite(this.IEService.displayedSite())) {
+      if (globalThis.confirm('An error page is currently being displayed, are you sure you wish to copy URL to clipboard?')) {
+        navigator.clipboard.writeText(
+          `${this.systemService.webAddress}/programs?internet-explorer=${this.IEService.displayedSite()}`,
+        );
+      }
+    } else {
+      navigator.clipboard.writeText(
+        `${this.systemService.webAddress}/programs?internet-explorer=${this.IEService.displayedSite()}`,
+      );
     }
   }
 }
