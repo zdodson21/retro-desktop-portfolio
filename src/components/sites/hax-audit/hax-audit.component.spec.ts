@@ -58,6 +58,19 @@ describe('HaxAuditSite', () => {
       expect(hasNode).toBeTruthy();
     });
 
+    it('should contain NPM badge', () => {
+      const badges = compiled.querySelectorAll('.badges img');
+      let hasNPM = false;
+
+      badges.forEach((element) => {
+        if (element.getAttribute('src')?.includes('npm.svg')) {
+          hasNPM = true;
+        }
+      });
+
+      expect(hasNPM).toBeTruthy();
+    });
+
     it('should contain VS Code badge', () => {
       const badges = compiled.querySelectorAll('.badges img');
       let hasVSCode = false;
