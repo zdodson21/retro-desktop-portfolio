@@ -83,5 +83,5 @@ export class SystemService {
 
   public readonly webAddress: string = `${globalThis.location.protocol}//${globalThis.location.host}`;
 
-  public readonly versionNum: string = '1.1.0';
+  public readonly versionNum: string = '1.1.1';
 }
