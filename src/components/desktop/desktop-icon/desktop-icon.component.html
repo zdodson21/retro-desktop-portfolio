@@ -1,4 +1,8 @@
 <div class="desktop-icon-wrapper" [class.active]="isElementFocused()" (click)="singleClickHandler($event)" (dblclick)="dblClickHandler($event)">
   <img [src]="src" alt="{{ text }} Icon" />
-  <p>{{ text }}</p>
+  @if (nickName) {
+    <p>{{ nickName }}</p>
+  } @else {
+    <p>{{ text }}</p>
+  }
 </div>

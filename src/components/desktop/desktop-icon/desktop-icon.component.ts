@@ -15,6 +15,7 @@ export class DesktopIconComponent implements OnInit {
   @Input({ alias: 'icon-text' }) public text: string;
   @Input({ alias: 'icon-focus-name' }) public iconFocusName: string;
   @Input({ alias: 'focus-name' }) public focusName: string; // The focus name of the program that opens on double click
+  @Input({ alias: 'nick-name' }) public nickName: string; // Another name to be displayed for the icon
 
   private store: AppService = inject(AppService);
   private windowService: WindowService = inject(WindowService);
