@@ -402,16 +402,37 @@ export class InternetExplorerComponent implements OnInit, AfterViewInit {
    * @description copys current site URL (web app URL (not IE)) to clipboard
    */
   protected copyURLToClipboard(): void {
+    let copied: boolean = false;
+
     if (!this.dnsContainsSite(this.IEService.displayedSite())) {
       if (globalThis.confirm('An error page is currently being displayed, are you sure you wish to copy URL to clipboard?')) {
         navigator.clipboard.writeText(
           `${this.systemService.webAddress}/programs?internet-explorer=${this.IEService.displayedSite()}`,
         );
+
+        copied = true;
       }
     } else {
       navigator.clipboard.writeText(
         `${this.systemService.webAddress}/programs?internet-explorer=${this.IEService.displayedSite()}`,
       );
+
+      copied = true;
+    }
+
+    if (copied) {
+      let currIcon: string = this.IEService.statusBarIcon();
+      let currContent: string = this.IEService.statusBarContent();
+
+      let copyIconPath: string = 'assets/icons/internet-explorer/copy-button.svg';
+
+      this.IEService.statusBarIcon.set(copyIconPath);
+      this.IEService.statusBarContent.set(this.IEService.copyText);
+
+      setTimeout(() => {
+        if (this.IEService.statusBarIcon() === copyIconPath) this.IEService.statusBarIcon.set(currIcon);
+        if (this.IEService.statusBarContent() === this.IEService.copyText) this.IEService.statusBarContent.set(currContent);
+      }, 1000);
     }
   }
 }

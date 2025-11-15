@@ -11,6 +11,7 @@ export class InternetExplorerService {
   public sidebar: WritableSignal<boolean> = signal(false);
   public displayedSite: WritableSignal<string> = signal('about-me');
   public darkMode: WritableSignal<boolean> = signal(false);
+  public readonly copyText: string = 'Copied current site URL to clipboard!'
 
   /*
     List:

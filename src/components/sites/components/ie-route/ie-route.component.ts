@@ -56,7 +56,9 @@ export class IeRouteComponent implements AfterViewInit, OnInit {
    */
   protected unhover(): void {
     if (!this.notInSite) {
-      if (this.prevValue === '') {
+      if (this.IEService.statusBarIcon() !== 'assets/icons/html-file.svg') this.IEService.statusBarIcon.set('assets/icons/html-file.svg');
+
+      if (this.prevValue === '' || this.prevValue === this.IEService.copyText) { // TODO issue here with improper text displaying when hovering over numerous items
         this.IEService.statusBarContent.set('Ready');
       } else {
         this.IEService.statusBarContent.set(this.prevValue);

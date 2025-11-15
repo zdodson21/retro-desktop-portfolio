@@ -13,7 +13,7 @@ export class AIeComponent {
   @Input({ alias: 'not-in-site' }) public notInSite: boolean = false;
 
   private systemService: SystemService = inject(SystemService);
-  protected IEStore: InternetExplorerService = inject(InternetExplorerService);
+  protected IEService: InternetExplorerService = inject(InternetExplorerService);
   private prevIcon: string;
   private prevValue: string;
 
@@ -21,8 +21,8 @@ export class AIeComponent {
    * @description set status bar content to href
    */
   protected hover(): void {
-    this.prevIcon = this.IEStore.statusBarIcon();
-    this.prevValue = this.IEStore.statusBarContent();
+    this.prevIcon = this.IEService.statusBarIcon();
+    this.prevValue = this.IEService.statusBarContent();
     let setValue: string = '';
 
     if (!this.checkSpecialString()) {
@@ -59,22 +59,27 @@ export class AIeComponent {
           setValue = 'assets/icons/internet-explorer/internet-globe.svg';
       }
 
-      this.IEStore.statusBarIcon.set(setValue);
+      this.IEService.statusBarIcon.set(setValue);
     }
 
-    this.IEStore.statusBarContent.set(`${this.href}`);
+    this.IEService.statusBarContent.set(`${this.href}`);
   }
 
   /**
    * @description set status bar content value to previous (pre-hover) value
    */
   protected unhover(): void {
-    this.IEStore.statusBarIcon.set(this.prevIcon);
-
-    if (this.prevValue === '') {
-      this.IEStore.statusBarContent.set('Ready');
+    if (this.prevIcon === 'assets/icons/internet-explorer/copy-button.svg') {
+      this.IEService.statusBarIcon.set('assets/icons/html-file.svg')
     } else {
-      this.IEStore.statusBarContent.set(this.prevValue);
+      this.IEService.statusBarIcon.set(this.prevIcon);
+    }
+
+
+    if (this.prevValue === '' || this.prevValue === this.IEService.copyText) {
+      this.IEService.statusBarContent.set('Ready');
+    } else {
+      this.IEService.statusBarContent.set(this.prevValue);
     }
 
     this.prevIcon = '';
@@ -83,13 +88,13 @@ export class AIeComponent {
 
   private checkSpecialString(): boolean {
     if (this.href.includes('github.com')) {
-      this.IEStore.statusBarIcon.set('assets/icons/github-mark.svg');
+      this.IEService.statusBarIcon.set('assets/icons/github-mark.svg');
       return true;
     } else if (this.href.includes('linkedin.com')) {
-      this.IEStore.statusBarIcon.set('assets/icons/linkedin.png');
+      this.IEService.statusBarIcon.set('assets/icons/linkedin.png');
       return true;
     } else if (this.href.includes('youtube.com')) {
-      this.IEStore.statusBarIcon.set('assets/icons/youtube.svg');
+      this.IEService.statusBarIcon.set('assets/icons/youtube.svg');
       return true;
     }
 
