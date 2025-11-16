@@ -194,6 +194,13 @@ export class InternetExplorerComponent implements OnInit, AfterViewInit {
   }
 
   /**
+   * @description helper function for the 'New Message...' button in the Tools menu
+   */
+  protected newMessageHelper(): void {
+    globalThis.open(`mailto:person`, '_blank');
+  }
+
+  /**
    * @description Open browser print dialog to print site content
    */
   protected printButtonHelper(): void {

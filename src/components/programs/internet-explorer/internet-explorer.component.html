@@ -117,7 +117,7 @@
               <toolbar-dropout text="Mail and News">
                 <toolbar-menu>
                   <!-- TODO figure out something maybe for Read Mail -->
-                  <!-- TODO add New Message (just open default mail client to a blank email draft) -->
+                  <toolbar-item left-text="New Message..." (click)="newMessageHelper()"/>
                   <toolbar-item left-text="Send a Link..." (click)="copyURLToClipboard()"/>
                   <toolbar-item left-text="Send Page..." (click)="mailButtonHelper()"/>
                   <!-- TODO Maybe a Show related links that auto populates search with a specific term per site -->
