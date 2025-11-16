@@ -331,7 +331,7 @@ export class InternetExplorerComponent implements OnInit, AfterViewInit {
   }
 
   /**
-   * @description called when search function input detects keypress, updaing search results array to display any matches
+   * @description called when search function input detects keypress, updating search results array to display any matches
    */
   protected searchHelper() {
     this.searchResults = [];
@@ -404,7 +404,7 @@ export class InternetExplorerComponent implements OnInit, AfterViewInit {
   }
 
   /**
-   * @description copys current site URL (web app URL (not IE)) to clipboard
+   * @description copies current site URL (web app URL (not IE)) to clipboard
    */
   protected copyURLToClipboard(): void {
     let copied: boolean = false;
