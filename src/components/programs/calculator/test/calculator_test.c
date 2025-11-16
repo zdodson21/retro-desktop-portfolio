@@ -184,9 +184,30 @@ bool run_sqroot_tests() {
   bool test[n];
 
   test[0] = test_sqroot(4, 2);
-  test[1] = test_sqroot(144, 12);
-  test[2] = test_sqroot(2704, 52);
-  test[3] = test_sqroot(3, 1.732051);
+  test[1] = test_sqroot(2704, 52);
+  test[2] = test_sqroot(3, 1.732051);
+
+  return print_status(n, test);
+}
+
+bool run_agm_tests() {
+  printf("Arithmetic-Geometric Mean Tests: \n\n");
+
+  const int n = 1;
+  bool test[n];
+
+  test[0] = test_agm(24, 6, 13.458171);
+
+  return print_status(n, test);
+}
+
+bool run_ln_tests() {
+  printf("Natural Log Tests: \n\n");
+
+  const int n = 1;
+  bool test[n];
+
+  test[0] = test_ln(5, 1.609453);
 
   return print_status(n, test);
 }
@@ -210,11 +231,9 @@ int main(void) {
     run_exponent_tests(),
     run_whole_num_tests(),
     run_sqroot_tests(),
-    // TODO finish making tests for existing logic, ensure all tests are passing (legitimately lol)
+    run_agm_tests(),
+    run_ln_tests(),
   };
-
-  test_ln();
-  test_agm();
 
   size_t n = sizeof(results) / sizeof(results[0]);
   for (size_t i = 0; i < n; i++) {

@@ -102,7 +102,7 @@ bool test_is_whole_num(double num, bool response) {
 }
 
 bool test_sqroot(double num, double response) {
-  if (ABS_DBL(sq_root(num) - response) > EPS){
+  if (ABS_DBL(sq_root(num) - response) > EPS) {
     printf(ANSI_COLOR_RED "Square Root of %f = %f: Fail" ANSI_COLOR_RESET "\n" , num, sq_root(num));
     return false;
   }
@@ -111,16 +111,26 @@ bool test_sqroot(double num, double response) {
   return true;
 }
 
-bool test_ln() { // TODO write this out
-  printf("%f\n", ln(5));
+bool test_ln(double in, double result) { // TODO write this out
+  if (ABS_DBL(ln(in) - result) > EPS) {
+    printf(ANSI_COLOR_RED "Natural Log of %f = %f: Fail" ANSI_COLOR_RESET "\n", in, ln(in));
+    return false;
+  }
+
+  printf(ANSI_COLOR_GREEN "Natural Log of %f = %f: True" ANSI_COLOR_RESET "\n", in, ln(in));
+  return true;
 }
 
-bool test_agm() { // TODO write this out
-  printf("Testing AGM\n");
-  printf("%f\n", agm(24, 6)); // Expect 13.458171...
+bool test_agm(double a, double g, double result) { // TODO write this out
+  if (ABS_DBL(agm(a, g) - result) > EPS) {
+    printf(ANSI_COLOR_RED "Arithmetic-Geometric Mean of %f & %f = %f: Fail" ANSI_COLOR_RESET "\n", a, g, agm(a, g));
+    return false;
+  }
+
+  printf(ANSI_COLOR_GREEN "Arithmetic-Geometric Mean of %f & %f = %f: Success" ANSI_COLOR_RESET "\n", a, g, agm(a, g));
+  return true;
 }
 
-// TODO get this working
 bool print_status(size_t n, bool arr[]) {
   printf("\nStatus: ");
 

@@ -6,16 +6,16 @@
 #define ANSI_COLOR_RESET "\x1b[0m"
 
 void print_bar(void);
-bool test_add(double, double, double);
-bool test_sub(double, double, double);
-bool test_mult(double, double, double);
-bool test_div(double, double, double, bool);
-bool test_one_over(double, double, bool);
-bool test_exponent(double, double, double);
-bool test_is_whole_num(double, bool);
-bool test_sqroot(double, double);
-bool test_ln();
-bool test_agm();
+bool test_add(double a, double b, double c);
+bool test_sub(double a, double b, double c);
+bool test_mult(double a, double b, double c);
+bool test_div(double a, double b, double c, bool test_0);
+bool test_one_over(double a, double b, bool test_0);
+bool test_exponent(double base, double exp, double sol);
+bool test_is_whole_num(double num, bool response);
+bool test_sqroot(double num, double response);
+bool test_ln(double in, double result);
+bool test_agm(double a, double g, double expected_result);
 bool print_status(size_t n, bool arr[]);
 
 #endif

@@ -189,6 +189,8 @@ double ln(double arg) {
     return 0;
   }
 
+  // Even with this mess it is still just an approximate value
+  // Precision to hundred thousandths place
   double result = subtract(divide(pi, multiply(2, agm(1, divide(4, s)))), multiply(m, ln_2));
 
   if (close_to_int(result)) {
