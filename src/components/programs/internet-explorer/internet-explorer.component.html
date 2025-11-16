@@ -111,6 +111,21 @@
               </toolbar-dropout>
             </toolbar-menu>
           </toolbar-button>
+
+          <toolbar-button text="Tools" [class.active]="menuFocus === 'tools'" (click)="menuFocus = toolbarButtonHelper($event, 'tools')" (mouseover)="toolbarHoverHelper('tools')">
+            <toolbar-menu class="top-level-menu" [class.visible]="menuFocus === 'tools'" (click)="store.focus.set('internet-explorer')">
+              <toolbar-dropout text="Mail and News">
+                <toolbar-menu>
+                  <!-- TODO figure out something maybe for Read Mail -->
+                  <!-- TODO add New Message (just open default mail client to a blank email draft) -->
+                  <toolbar-item left-text="Send a Link..." (click)="copyURLToClipboard()"/>
+                  <toolbar-item left-text="Send Page..." (click)="mailButtonHelper()"/>
+                  <!-- TODO Maybe a Show related links that auto populates search with a specific term per site -->
+                  <!-- Above would require some additions to search feature (such as tag words per site, added to DNS) -->
+                </toolbar-menu>
+              </toolbar-dropout>
+            </toolbar-menu>
+          </toolbar-button>
         </div>
         <img src="assets/ie-top-right.png" alt="Windows 95 Icon" />
       </div>

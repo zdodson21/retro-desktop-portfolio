@@ -135,12 +135,13 @@ export class InternetExplorerComponent implements OnInit, AfterViewInit {
     if (button === 'file' && this.menuFocus === '') return 'file';
     if (button === 'view' && this.menuFocus === '') return 'view';
     if (button === 'favorites' && this.menuFocus === '') return 'favorites';
+    if (button === 'tools' && this.menuFocus === '') return 'tools';
 
     return '';
   }
 
   protected toolbarHoverHelper(button: string): void {
-    if (this.menuFocus === 'file' || this.menuFocus === 'view' || this.menuFocus === 'favorites') {
+    if (this.menuFocus === 'file' || this.menuFocus === 'view' || this.menuFocus === 'favorites' || this.menuFocus === 'tools') {
       this.menuFocus = button;
     }
   }
