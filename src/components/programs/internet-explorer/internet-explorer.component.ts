@@ -366,6 +366,10 @@ export class InternetExplorerComponent implements OnInit, AfterViewInit {
     if (!this.windowFrame?.isFullSize) this.windowFrame?.viewButtonHandler();
   }
 
+  protected closeHandler(): void {
+    this.windowFrame?.closeButtonHandler();
+  }
+
   /**
    * @description Formats site domain strings into words
    */

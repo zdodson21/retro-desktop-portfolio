@@ -26,6 +26,10 @@
                   }
                 </toolbar-menu>
               </toolbar-dropout>
+
+              <toolbar-divider />
+
+              <toolbar-item left-text="Close" (click)="closeHandler()" />
             </toolbar-menu>
           </toolbar-button>
 
@@ -57,11 +61,7 @@
 
               <toolbar-divider />
 
-              <!-- TODO add click event handler -->
               <toolbar-item left-text="Dark Mode" (click)="setDarkMode()" />
-
-              <toolbar-divider />
-
               <toolbar-item left-text="Full Screen" [disabled]="windowFrame.isFullSize" (click)="fullscreenHandler()" />
             </toolbar-menu>
           </toolbar-button>
@@ -72,10 +72,14 @@
                 <toolbar-menu>
                   <!-- Website -->
                   <toolbar-item left-text="Retro Desktop Portfolio" (click)="routerNavigator('retro-desktop-portfolio')" />
+
                   <toolbar-divider />
+
                   <!-- Additional Site Programs -->
                   <toolbar-item left-text="Calculator" (click)="routerNavigator('calculator')" />
+
                   <toolbar-divider />
+
                   <!-- Independent Projects -->
                   <toolbar-item left-text="Py-Weather" (click)="routerNavigator('py-weather')" />
                 </toolbar-menu>
@@ -93,10 +97,16 @@
 
               <toolbar-dropout text="Open Source">
                 <toolbar-menu>
+                  <!-- General Contributions -->
                   <toolbar-item left-text="Open Source Contributions" (click)="routerNavigator('open-source-contributions')" />
                   <toolbar-divider />
+                  <!-- Big Contributions -->
                   <toolbar-item left-text="HAX Chat Agent" (click)="routerNavigator('hax-chat-agent')" />
                   <toolbar-item left-text="HAX Audit" (click)="routerNavigator('hax-audit')" />
+                  <toolbar-divider />
+                  <!-- My Open Source Projects -->
+                  <toolbar-item left-text="Calculator Library" (click)="routerNavigator('calculator')" />
+                  <toolbar-item left-text="Py-Weather" (click)="routerNavigator('py-weather')" />
                 </toolbar-menu>
               </toolbar-dropout>
             </toolbar-menu>
@@ -126,7 +136,7 @@
           <div class="divider"></div>
         </div>
         <div class="share-buttons buttons">
-          <standard-button button-name="copy" (click)="copyURLToClipboard()"/>
+          <standard-button button-name="copy" (click)="copyURLToClipboard()" />
           <standard-button button-name="mail" (click)="mailButtonHelper()" />
           <standard-button button-name="print" (click)="printButtonHelper()" />
         </div>
