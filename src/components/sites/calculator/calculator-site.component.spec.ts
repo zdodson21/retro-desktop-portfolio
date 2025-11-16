@@ -57,6 +57,19 @@ describe('CalculatorComponent', () => {
       expect(hasWasm).toBeTruthy();
     });
 
+    it('should contain Libreoffice Math badge', () => {
+      const badges = compiled.querySelectorAll('.badges img');
+      let hasMath = false;
+
+      badges.forEach((element) => {
+        if (element.getAttribute('src')?.includes('libreoffice-math.svg')) {
+          hasMath = true;
+        }
+      });
+
+      expect(hasMath).toBeTruthy();
+    });
+
     it('should contain Angular badge', () => {
       const badges = compiled.querySelectorAll('.badges img');
       let hasAngular = false;

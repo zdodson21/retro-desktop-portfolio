@@ -44,4 +44,7 @@ describe('InternetExplorerService', () => {
   it('should be set to light mode by default', () => {
     expect(service.darkMode()).toBeFalse();
   });
+
+  // TODO test that sites in DNS are sorted alphabetically
+  // TODO test each site in DNS, ensure tags are sorted alphabetically
 });
