@@ -200,7 +200,7 @@ export class WindowFrameComponent implements AfterContentInit {
    * @description handles close button functionality
    * @param event MouseEvent
    */
-  protected closeButtonHandler(event?: MouseEvent): void {
+  public closeButtonHandler(event?: MouseEvent): void {
     event?.stopPropagation();
     this.store.focus.set('');
 

@@ -1,7 +1,7 @@
 <!-- prettier-ignore -->
 <article class="calculator-site-wrapper" [class.dark-mode]="IEService.darkMode()">
   <header>
-    <h1>Calculator (Retro Desktop Portfolio Program)</h1>
+    <h1>Calculator Library / Program</h1>
     <div class="badges">
       <img src="assets/badges/c.svg" alt="c language badge">
       <img src="assets/badges/wasm.svg" alt="web assembly badge">
@@ -11,49 +11,52 @@
       <img src="assets/badges/scss.svg" alt="scss badge" />
     </div>
     <nav>
-      <a-ie href="https://github.com/zdodson21/retro-desktop-portfolio/tree/main/src/components/programs/calculator">
-        Component Source Code
-      </a-ie>
       <a-ie href="https://github.com/zdodson21/calculator-library.wasm">
         Library Source Code
       </a-ie>
+
+      <a-ie href="https://github.com/zdodson21/retro-desktop-portfolio/tree/main/src/components/programs/calculator">
+        Angular Component Source Code
+      </a-ie>
+
       <a [href]="`${systemService.webAddress}/programs?calculator`">
-        Open Caluclator (will close all other programs)
+        Open Calculator Program (will close all other programs)
       </a>
     </nav>
   </header>
   <main>
     <section class="description">
       <h2>Description</h2>
+
       <p>
-        Developed using C compiled to WebAssembly alongside Angular, the calculator program is a faithful recreation of the
-        calculator program from Windows 95. Angular is used to handle any logic on the frontend, then calls functions from a
-        WebAssembly file to handle any mathematical logic.
-      </p>
-      <p>
-        <b>Note:</b> Some calculator logic is based on approximations (currently), so it should not be used for any
-        calculations that require extreme precision.
+        C mathematics library with a WebAssembly compilation target,
+        but can also be used as a C library with the provided header file.
+        This is the library used for the Calculator program on this web application (accessible from start menu /
+        clicking the "Open Calculator" link above).
       </p>
     </section>
 
     <section class="why-wasm">
-      <h2>Why C and WebAssembly? Why not Natively with Angular / TypeScript?</h2>
+      <h2>Why C and WebAssembly?</h2>
+
       <p>
-        This is one of those projects I wanted to complete to learn new skills, not just to complete it in the most practical way.
-        Because a calculator relies on backend logic, I figured it would be the best program to recreate to learn C, compiling, and
-        WebAssembly. Angular and TypeScript are still used for both the frontend and ensuring any functions in WebAssembly can be called
-        safely.
+        This project was originally intended for use just in my personal website as a project to improve my math skills.
+        Because the calculator logic itself does not need a front-end for input,
+        I decided to use C with a WebAssembly compilation target instead of Angular / TypeScript to keep the front-end
+        logic separate from the back-end, while also learning about the C programming language and WebAssembly.
+        When the library was capable of performing all calculations required for the "Standard" calculator mode,
+        I decided to open source the project and move it into its own repository so others could use it.
       </p>
+
       <p>
-        Is this the most practical way to create a calculator for the web? Probably not, Typescript would likely be plenty fast enough
-        to handle the mathematical logic required, but it taught me a lot about programming in a lower-level language such as C, how
-        compiling works, and provided a better understanding of how WebAssembly works. And technically it should be "faster" than handling
-        the math logic with TypeScript, which is a (marginal) benefit.
+        <b>Note: </b> the library is not in a complete state. I wish to complete it soon to improve precision of some functions as
+        well as adding support for various scientific calculator functions and modes. However, this project is not a priority to me
+        over other projects. I will likely try to complete the library during 2026.
       </p>
     </section>
 
     <section class="formulas">
-      <h2>Forumlas used</h2>
+      <h2>Formulas used</h2>
 
       <h3>Exponent</h3>
       <div class="img-container">
@@ -73,10 +76,42 @@
 
     <section class="binary-download">
       <h2>WASM Binary Download</h2>
+
       <p>
-        I have provided the calculator code on GitHub in its own repository.
-        You can find that <a-ie href="https://github.com/zdodson21/c-calculator-wasm-library">here</a-ie>.
+        The calculator library code can be viewed and downloaded from
+        <a-ie href="https://github.com/zdodson21/calculator-library.wasm">here</a-ie>.
       </p>
+
+      <details class="license">
+        <summary>License</summary>
+        <p>MIT License</p>
+
+        <p>Copyright (c) 2025 Zachary Dodson</p>
+
+        <p>
+          Permission is hereby granted, free of charge, to any person obtaining a copy
+          of this software and associated documentation files (the "Software"), to deal
+          in the Software without restriction, including without limitation the rights
+          to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+          copies of the Software, and to permit persons to whom the Software is
+          furnished to do so, subject to the following conditions:
+        </p>
+
+        <p>
+          The above copyright notice and this permission notice shall be included in all
+          copies or substantial portions of the Software.
+        </p>
+
+        <p>
+          THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+          IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+          FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+          AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+          LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+          OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+          SOFTWARE.
+        </p>
+      </details>
     </section>
   </main>
 </article>

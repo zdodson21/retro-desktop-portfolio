@@ -31,31 +31,42 @@
       <h2>Description</h2>
       <p>
         This is the project you are currently viewing.
-        This Windows 95 themed web application created using the Angular framework.
+        This Windows 95 themed web application uses the Angular framework.
       </p>
     </section>
 
     <section class="features-highlight">
       <h2>Features Highlight:</h2>
+
       <section class="window-frame">
         <h3>Window Frame Component</h3>
         <p>
           The Window Frame component is arguably the most important component in this whole project.
-          It is a wrapper I developed that enables me painlessly make any HTML content act as a "window",
+          It is a wrapper I developed that enables me to painlessly make any HTML content act as a "window",
           similar to how program windows work on many operating systems.
           It enables the content to be viewed, moved, scaled, closed, minimized, etc.
           Every program in this web app is wrapped by a window-frame component.
         </p>
       </section>
+
       <section class="internet-explorer">
         <h3>Internet Explorer Component</h3>
         <p>
           Replicating Internet Explorer was the best and most efficient way to enable the "portfolio"
           aspect of this web application. Any project I wish to describe in detail can be given its own "website",
           which can be rendered within the Internet Explorer component.
-          This keeps all portfolio content in one easily accessible location.
+          This keeps all portfolio content in one accessible location.
           The use of Angular Routing also makes each project's web page simple to share with others
-          (try clicking on the "Mail" button above!).
+          (try clicking on the "Copy" or "Mail" buttons above!).
+        </p>
+      </section>
+
+      <section class="calculator">
+        <h3>Calculator Program Component</h3>
+        <p>
+          Inspired by Windows 95's calculator, I developed a <ie-route domain="calculator" tld="net">calculator function library</ie-route>
+          using C and compiling it to WebAssembly, and connected to the front-end of this web app using Angular and TypeScript. The
+          calculator program can be accessed from the Start Menu under Programs > Accessories.
         </p>
       </section>
     </section>
@@ -64,17 +75,10 @@
       <h3>Routing Implementation</h3>
       <p>
         Routing was one part that lead me to choose Angular for this project.
-        I knew I wanted to be able to access this web application and quickly load any programs I wished to use with ease,
+        I knew I wanted to be able to access this web application and quickly load any programs from the URL bar,
         which routing enables. Each program opens when it is added as a parameter to the "programs" query,
         which in some cases can then be used to render components in certain ways (for example, <em>system-monitor</em> does
         not use any parameters, but <em>internet-explorer</em> does use parameters to render "websites").
-      </p>
-      <p>
-        If you are confused, I suggest opening various programs from the Start menu and watching the web address in the URL bar.
-        It will change based on what programs are open, and in certain cases (such as <em>internet-explorer</em>) affect how
-        the program is rendered as well. This behavior allows anyone to open programs from their browser's address bar
-        without first rendering the web app. This feature will be more useful as more programs are created and added
-        (such as a calculator or paint program).
       </p>
     </section>
 
@@ -103,47 +107,23 @@
         Not all tech used for this project is "essential" to its operation.
         This idea mainly focuses on Electron and Docker. While this website primarily serves as my portfolio,
         I also wanted it to serve as a "code sandbox" I could utilize to learn new technologies.
-        This design philosophy allowed me to easily incorporate Electron packaging and Docker containerization.
-      </p>
-      <p>
-        A future feature that will follow this philosophy will be the calculator.
-        Ideally, I would like to write the calculator program logic in
-        <em>C</em>, then compile it to <em>WebAssembly</em>
-        so it can be used by the calculator front-end (Angular component).
-        This isn't the most practical or efficient way to complete the task or writing a calculator,
-        but it will give me a start in learning the C programming language and gaining a better understanding of WebAssembly.
-        If this route does not work, then I will resort to creating the calculator in TypeScript instead.
+        This design philosophy allowed me to easily incorporate features such as Electron, Docker, and WebAssembly.
       </p>
     </section>
 
-    <section class="story-time">
-      <h2>Story Time</h2>
+    <section class="why-win-95">
+      <h2>Why the Windows 95 theme and functionality?</h2>
       <p>
-        Why did I create this web application?
-        That is the question that has many answers.
-        First, I didn't want to blend in with others by creating a website made up of a few pages,
-        some text, pictures, and being "made with React".
-        I wanted to stand out, and creating a "standard website" seemed too simple and would have
-        been a project that wouldn't have benefitted me much as a developer.
-        I preferred to make something that would challenge me to learn new things
-        (such as a new framework with Angular, new languages with TypeScript and SCSS,
-        new concepts such as unit testing, browser routing, Electron application bundling, Docker containerization, etc.).
+        First, I did not want to create what looked or felt like "just another website". I wanted to avoid blending in with other
+        developers who create a simple multi-page website using React (not that there is anything wrong with that!). Instead,
+        I wanted to stand out.
       </p>
       <p>
-        Second, I originally thought of the general idea for this web application
-        (themeing and functionality similar to Windows 95) in 2023, while I was still in college.
-        Unfortunately for me, I was not the first to come up with the idea of creating a website with this theme,
-        but that gave me the motivation to create the best version of a Windows 95 themed website I had ever used.
-        I hope I have achieved this goal, but that is up for any users to decide.
-      </p>
-      <p>
-        Finally, I have always liked the visual style of Windows 95,
-        which is part of the reason I chose to style this web application around that theme.
-        But the idea of creating a web application that felt like using an operating system
-        brought fourth numerous expected and unexpected challenges, all of which taught me new skills,
-        programming techniques, and general aspects of software design. People tend to say that one
-        of the best ways to learn software design is by creating a clone of another piece of software,
-        so I chose an operating system for the numerous logic and design challenges I would have to face.
+        Second, I wanted the development of my website to challenge me to learn new skills, which was a goal I achieved. The creation
+        of this website taught me new skills / improved my existing skills, such as Angular, HTML, SCSS / CSS, TypeScript & JavaScript,
+        C, Web Assembly, programming logic, graphic design softwares, cross browser development, and much more. A simple multi page website
+        can only teach the developer so much. Creating a web application that replicate the look and feel of an operating system can teach
+        much more.
       </p>
     </section>
 
@@ -151,17 +131,24 @@
       <h2>Post Release Features:</h2>
 
       <section class="calculator">
-        @if (systemService.isMobile()) {
-          <h3>Calculator Program (Located in Start Menu > Mobile Program Menu)</h3>
-        } @else {
-          <h3>Calculator Program (Located in Start Menu > Programs > Accessories)</h3>
-        }
+        <h3>
+          Calculator Library /  Program
+          @if(systemService.isMobile()) {
+            (Located in Start Menu > Mobile Program Menu)
+          } @else {
+            (Located in Start Menu > Programs > Accessories)
+          }
+        </h3>
+
         <nav>
           <ie-route domain="calculator" tld="net">
             Project Description
           </ie-route>
           <a-ie href="https://github.com/zdodson21/retro-desktop-portfolio/tree/main/src/components/programs/calculator">
             Calculator Program Repository
+          </a-ie>
+          <a-ie href="https://github.com/zdodson21/calculator-library.wasm">
+            Library Source Code
           </a-ie>
         </nav>
         <p>

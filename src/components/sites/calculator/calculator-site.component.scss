@@ -9,5 +9,15 @@
         @include full-img-container(30%);
       }
     }
+
+    &.binary-download {
+      details {
+        p {
+          &:not(:last-child) {
+            margin-bottom: 16px;
+          }
+        }
+      }
+    }
   }
 }
