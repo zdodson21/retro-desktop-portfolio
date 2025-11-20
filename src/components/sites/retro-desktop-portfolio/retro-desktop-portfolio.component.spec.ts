@@ -175,6 +175,32 @@ describe('RetroDesktopPortfolioSite', () => {
       expect(hasCloudflare).toBeTruthy();
     });
 
+    it('should contain Google badge', () => {
+      const badges = compiled.querySelectorAll('.badges img');
+      let hasGoogle = false;
+
+      badges.forEach((element) => {
+        if (element.getAttribute('src')?.includes('google.svg')) {
+          hasGoogle = true;
+        }
+      });
+
+      expect(hasGoogle).toBeTruthy();
+    });
+
+    it('should contain Bing badge', () => {
+      const badges = compiled.querySelectorAll('.badges img');
+      let hasBing = false;
+
+      badges.forEach((element) => {
+        if (element.getAttribute('src')?.includes('bing.svg')) {
+          hasBing = true;
+        }
+      });
+
+      expect(hasBing).toBeTruthy();
+    });
+
     it('should contain GitHub Actions badge', () => {
       const badges = compiled.querySelectorAll('.badges img');
       let hasGitHubActions = false;
