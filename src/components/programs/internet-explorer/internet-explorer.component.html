@@ -164,7 +164,12 @@
         <p>Address</p>
         <div class="search-input">
           <img src="assets/icons/html-file.svg" alt="html file icon" />
-          <input #addressBarInput type="text" name="address-bar" id="address-bar" (keypress)="inputKeyInputHelper($event)" data-1p-ignore data-lpignore="true" />
+          <input #addressBarInput type="text" list="addressBar" name="address-bar" id="address-bar" (keypress)="inputKeyInputHelper($event)" data-1p-ignore data-lpignore="true" />
+          <datalist id="addressBar">
+            @for (site of IEService.possibleSites; track $index) {
+              <option value="http://{{ site.domain }}.{{ site.tld }}"></option>
+            }
+          </datalist>
         </div>
         <button (mouseover)="goButtonHovered = true" (mouseleave)="goButtonHovered = false" (click)="goButtonHelper()">
           <img [src]="goButtonHovered ? 'assets/icons/internet-explorer/go-button.svg' : 'assets/icons/internet-explorer/gray-go-button.svg'" [alt]="goButtonHovered ? 'go button' : 'gray go button'" />
