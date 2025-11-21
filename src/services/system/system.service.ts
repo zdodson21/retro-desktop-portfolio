@@ -16,7 +16,7 @@ export class SystemService {
   public getBrowser(): string {
     if (this.userAgent.includes('DuckDuckGo')) {
       return 'DuckDuckGo';
-    } else if (this.userAgent.includes('Valve SteamGameOverlay')) {
+    } else if (this.userAgent.includes('Valve Steam GameOverlay')) {
       return 'Steam';
     } else if (this.userAgent.includes('Edg/')) {
       return 'Microsoft Edge';
