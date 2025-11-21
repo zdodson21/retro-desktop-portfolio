@@ -54,6 +54,9 @@ export class AIeComponent {
         case 'Safari':
           setValue = 'assets/icons/safari.svg';
           break;
+        case 'Steam':
+          setValue = 'assets/icons/steam.svg';
+          break;
 
         default:
           setValue = 'assets/icons/internet-explorer/internet-globe.svg';
