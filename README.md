@@ -215,9 +215,9 @@ npm run cap:start
 
 To build Android app:
 
-```bash
-npm run cap:build
-```
+1. Open Android Studio
+2. In the top tool bar, click on `Build > Generate App Bundles or APKs > Generate APKs`
+3. Move the built APK onto your phone, install it (you may have to configure your settings to install apps from "unsupported" sources).
 
 ## Electron
 
