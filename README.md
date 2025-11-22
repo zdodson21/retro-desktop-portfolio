@@ -199,6 +199,26 @@ From there you can access this project in your browser at either the network add
 
 ---
 
+## Capacitor (Android Building)
+
+To sync project:
+
+```bash
+npm run cap:sync
+```
+
+To start Android app (must utilize JDK21 and emulator must be configured through Android Studio):
+
+```bash
+npm run cap:start
+```
+
+To build Android app:
+
+```bash
+npm run cap:build
+```
+
 ## Electron
 
 **Note:** If you complete any local builds of this project as an Electron application, you will be missing any environment variables required for signing and live server / database features. Local builds of this project not provided through an official source (such as GitHub) should be considered "offline-only" builds.
