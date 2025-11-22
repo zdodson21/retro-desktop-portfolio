@@ -29,8 +29,7 @@
     "forge:all": "npm run forge:linux && npm run forge:windows && npm run forge:mac",
     "php": "php -S localhost:3000",
     "cap:sync": "ng build && npx cap sync android",
-    "cap:start": "ng build && npx cap sync android && npx cap run android",
-    "cap:build": "ng build && npx cap sync android && npx cap build android"
+    "cap:start": "ng build && npx cap sync android && npx cap run android"
   },
   "private": true,
   "dependencies": {
