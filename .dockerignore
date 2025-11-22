@@ -9,6 +9,7 @@
 .vercel
 .vscode
 .windsurf
+android
 coverage
 dist
 node_modules
@@ -22,6 +23,7 @@ out
 .prettierrc
 .vercelignore
 calculator_test
+capacitor.config.ts
 electron.js
 makefile
 README.md

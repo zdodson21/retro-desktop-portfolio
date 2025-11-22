@@ -8,11 +8,13 @@
 .vercel
 .vscode
 .windsurf
+android
 coverage
 dist
 node_modules
 php
 out
+
 .dockerignore
 .editorconfig
 .env
@@ -20,6 +22,7 @@ out
 .prettierignore
 .prettierrc
 calculator_test
+capacitor.config.ts
 Dockerfile
 electron.js
 forge.config.js
