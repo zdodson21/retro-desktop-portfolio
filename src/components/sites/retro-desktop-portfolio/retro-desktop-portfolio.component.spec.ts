@@ -162,6 +162,32 @@ describe('RetroDesktopPortfolioSite', () => {
       expect(hasVercel).toBeTruthy();
     });
 
+    it('should contain capacitor badge', () => {
+      const badges = compiled.querySelectorAll('.badges img');
+      let hasCapacitor = false;
+
+      badges.forEach((element) => {
+        if (element.getAttribute('src')?.includes('capacitor.svg')) {
+          hasCapacitor = true;
+        }
+      });
+
+      expect(hasCapacitor).toBeTruthy();
+    });
+
+    it('should contain Android Studio badge', () => {
+      const badges = compiled.querySelectorAll('.badges img');
+      let hasAndroidStudio = false;
+
+      badges.forEach((element) => {
+        if (element.getAttribute('src')?.includes('android-studio.svg')) {
+          hasAndroidStudio = true;
+        }
+      });
+
+      expect(hasAndroidStudio).toBeTruthy();
+    });
+
     it('should contain Cloudflare badge', () => {
       const badges = compiled.querySelectorAll('.badges img');
       let hasCloudflare = false;
