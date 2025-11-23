@@ -165,7 +165,7 @@ export class CalculatorComponent implements OnInit {
   }
 
   /**
-   * @description finds exponent of base and arguement using WASM function
+   * @description finds exponent of base and argument using WASM function
    * @param base value to find exponent of (the subscript part)
    * @param arg value that base ^ exponent is equal to
    */
@@ -253,7 +253,7 @@ export class CalculatorComponent implements OnInit {
 
   /**
    * @description called by all buttons on click. Handles interpretation of button press for any non numbers
-   * @param input calulator button numbers of strings (operators)
+   * @param input calculator button numbers of strings (operators)
    */
   protected calculatorButtonHelper(input: string): void {
     switch (input) {
@@ -299,7 +299,7 @@ export class CalculatorComponent implements OnInit {
 
       case 'm+': // add to memory value
         if (typeof this.memory === 'undefined') {
-          this.memory = 0 + +this.currentDisplay;
+          this.memory = +this.currentDisplay;
         } else {
           this.memory += +this.currentDisplay;
         }
@@ -424,7 +424,7 @@ export class CalculatorComponent implements OnInit {
    * @returns boolean
    */
   protected errorDisplayed(): boolean {
-    return this.errors.includes(this.currentDisplay.toString()) ? true : false;
+    return this.errors.includes(this.currentDisplay.toString());
   }
 
   /**
