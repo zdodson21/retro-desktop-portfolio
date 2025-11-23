@@ -199,7 +199,9 @@ From there you can access this project in your browser at either the network add
 
 ---
 
-## Capacitor (Android Building)
+## Capacitor (Mobile App Building)
+
+### Android Building
 
 To sync project:
 
