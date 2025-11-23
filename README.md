@@ -274,7 +274,3 @@ npm run forge:mac
 ## Is This Repository Open Source?
 
 No. Because this is my portfolio web application, which contains numerous aspects (such as pictures and descriptions) of my life and projects, this repository is not open source. It is "code-available", meaning anyone can view the code to see how all the pieces function, but no one is permitted to copy, modify, or redistribute this code without my permission.
-
-## Can I Contribute to this Repository?
-
-No*. I will not be accepting any pull requests submitted to this repository (not that I expect any for a personal website). However, if you have a suggestion for how code could be written better, you are welcome to submit a pull request. Any pull requests or issues submitted will be taken as suggestions, and no pull requests will be merged.
