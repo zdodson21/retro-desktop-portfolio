@@ -39,6 +39,9 @@ export class AIeComponent {
         case 'Google Chrome':
           setValue = 'assets/icons/chrome.svg';
           break;
+        case 'Ladybird':
+          setValue = 'assets/icons/ladybird.png';
+          break;
         case 'Microsoft Edge':
           setValue = 'assets/icons/edge.svg';
           break;

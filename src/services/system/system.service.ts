@@ -18,6 +18,8 @@ export class SystemService {
       return 'DuckDuckGo';
     } else if (this.userAgent.includes('Valve Steam GameOverlay')) {
       return 'Steam';
+    } else if (this.userAgent.includes('Ladybird')) {
+      return 'Ladybird';
     } else if (this.userAgent.includes('Edg/')) {
       return 'Microsoft Edge';
     } else if (this.userAgent.includes('Brave/') || this.isBrave()) {
