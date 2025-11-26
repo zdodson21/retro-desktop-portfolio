@@ -94,7 +94,7 @@ export class AIeComponent {
       this.IEService.statusBarIcon.set('assets/icons/github-mark.svg');
       return true;
     } else if (this.href.includes('linkedin.com')) {
-      this.IEService.statusBarIcon.set('assets/icons/linkedin.png');
+      this.IEService.statusBarIcon.set('assets/icons/linkedin.svg');
       return true;
     } else if (this.href.includes('youtube.com')) {
       this.IEService.statusBarIcon.set('assets/icons/youtube.svg');
