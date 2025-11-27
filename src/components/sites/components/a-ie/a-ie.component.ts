@@ -76,11 +76,10 @@ export class AIeComponent {
    */
   protected unhover(): void {
     if (this.prevIcon === 'assets/icons/internet-explorer/copy-button.svg') {
-      this.IEService.statusBarIcon.set('assets/icons/html-file.svg')
+      this.IEService.statusBarIcon.set('assets/icons/html-file.svg');
     } else {
       this.IEService.statusBarIcon.set(this.prevIcon);
     }
-
 
     if (this.prevValue === '' || this.prevValue === this.IEService.copyText) {
       this.IEService.statusBarContent.set('Ready');

@@ -5,10 +5,10 @@ const config: CapacitorConfig = {
   appName: "Zach Dodson's Portfolio",
   webDir: 'dist/retro-desktop-portfolio/browser',
   plugins: {
-    "EdgeToEdge": {
-      "backgroundColor": "#000000"
-    }
-  }
+    EdgeToEdge: {
+      backgroundColor: '#000000',
+    },
+  },
 };
 
 export default config;
