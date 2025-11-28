@@ -383,6 +383,10 @@ $status-bar-height: 5%;
         img {
           width: 20px;
           @include icon-common();
+
+          &[src='assets/icons/windows-help.svg'] {
+            width: 16px;
+          }
         }
 
         .status {

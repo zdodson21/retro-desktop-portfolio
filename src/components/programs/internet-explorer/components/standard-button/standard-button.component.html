@@ -1,4 +1,4 @@
-<button class="standard-button-wrapper" (mouseover)="hovered = true" (mouseleave)="hovered = false">
+<button class="standard-button-wrapper" (mouseover)="hover()" (mouseleave)="unhover()">
   <div class="img">
     <img [src]="hovered ? `assets/icons/internet-explorer/${buttonName}-button.svg` : `assets/icons/internet-explorer/gray-${buttonName}-button.svg`" [alt]="hovered ? `${buttonName} icon` : `gray ${buttonName} icon`" />
   </div>

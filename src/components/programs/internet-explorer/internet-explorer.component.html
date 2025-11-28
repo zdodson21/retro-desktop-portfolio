@@ -82,7 +82,7 @@
 
                   <!-- Independent Projects -->
                   <toolbar-item left-text="Py-Weather" (click)="routerNavigator('py-weather')" />
-                  <toolbar-item left-text="QR Maker" (click)="routerNavigator('qr-maker')"/>
+                  <toolbar-item left-text="QR Maker" (click)="routerNavigator('qr-maker')" />
                 </toolbar-menu>
               </toolbar-dropout>
 
@@ -108,7 +108,7 @@
                   <!-- My Open Source Projects -->
                   <toolbar-item left-text="Calculator Library" (click)="routerNavigator('calculator')" />
                   <toolbar-item left-text="Py-Weather" (click)="routerNavigator('py-weather')" />
-                  <toolbar-item left-text="QR Maker" (click)="routerNavigator('qr-maker')"/>
+                  <toolbar-item left-text="QR Maker" (click)="routerNavigator('qr-maker')" />
                 </toolbar-menu>
               </toolbar-dropout>
             </toolbar-menu>
@@ -137,25 +137,25 @@
           <div class="bar"></div>
         </div>
         <div class="explorer-buttons buttons">
-          <standard-button button-name="stop" (click)="routerNavigator('error')" />
-          <standard-button button-name="refresh" (click)="refreshButtonHelper()" />
-          <standard-button button-name="home" (click)="routerNavigator('about-me')" />
+          <standard-button button-name="stop" button-hint="Display error page (refresh to undo)." (click)="routerNavigator('error')" />
+          <standard-button button-name="refresh" button-hint="Scroll to top of current page." (click)="refreshButtonHelper()" />
+          <standard-button button-name="home" button-hint='Navigate to "About Me" Page,' (click)="routerNavigator('about-me')" />
         </div>
         <div class="divider-container">
           <div class="divider"></div>
         </div>
         <div class="go-to-buttons buttons">
-          <standard-button button-name="search" (click)="openCloseSidebar(0)" />
-          <standard-button button-name="favorites" (click)="openCloseSidebar(1)" />
-          <standard-button button-name="history" (click)="openCloseSidebar(2)" />
+          <standard-button button-name="search" button-hint="Open Search menu." (click)="openCloseSidebar(0)" />
+          <standard-button button-name="favorites" button-hint="Open Favorites menu." (click)="openCloseSidebar(1)" />
+          <standard-button button-name="history" button-hint="Open History menu." (click)="openCloseSidebar(2)" />
         </div>
         <div class="divider-container">
           <div class="divider"></div>
         </div>
         <div class="share-buttons buttons">
-          <standard-button button-name="copy" (click)="copyURLToClipboard()" />
-          <standard-button button-name="mail" (click)="mailButtonHelper()" />
-          <standard-button button-name="print" (click)="printButtonHelper()" />
+          <standard-button button-name="copy" button-hint="Copy URL to current site to clipboard." (click)="copyURLToClipboard()" />
+          <standard-button button-name="mail" button-hint="Send URL to current site via Email client." (click)="mailButtonHelper()" />
+          <standard-button button-name="print" button-hint="Print current page." (click)="printButtonHelper()" />
         </div>
       </div>
 
