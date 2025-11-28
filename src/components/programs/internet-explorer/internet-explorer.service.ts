@@ -104,6 +104,17 @@ export class InternetExplorerService {
       ],
     },
     {
+      domain: 'qr-maker',
+      tld: 'com',
+      tags: [
+        'android',
+        'android studio',
+        'dart',
+        'flutter',
+        'linux',
+      ]
+    },
+    {
       domain: 'retro-desktop-portfolio',
       tld: 'net',
       tags: [

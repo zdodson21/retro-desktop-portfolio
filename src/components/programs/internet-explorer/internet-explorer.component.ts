@@ -23,6 +23,7 @@ import { WindowFrameComponent } from '../../window-frame/window-frame.component'
 import { CloseSidebarButtonComponent } from './components/close-sidebar-button/close-sidebar-button.component';
 import { StandardButtonComponent } from './components/standard-button/standard-button.component';
 import { InternetExplorerService } from './internet-explorer.service';
+import { QrMakerSite } from '../../sites/qr-maker/qr-maker.component';
 
 @Component({
   selector: 'internet-explorer',
@@ -36,6 +37,7 @@ import { InternetExplorerService } from './internet-explorer.service';
     IeRouteComponent,
     OpenSourceContributionsSite,
     PyWeatherSite,
+    QrMakerSite,
     RetroDesktopPortfolioSite,
     SecretSite,
     StandardButtonComponent,

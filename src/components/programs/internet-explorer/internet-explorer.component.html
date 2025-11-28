@@ -82,6 +82,7 @@
 
                   <!-- Independent Projects -->
                   <toolbar-item left-text="Py-Weather" (click)="routerNavigator('py-weather')" />
+                  <toolbar-item left-text="QR Maker" (click)="routerNavigator('qr-maker')"/>
                 </toolbar-menu>
               </toolbar-dropout>
 
@@ -107,6 +108,7 @@
                   <!-- My Open Source Projects -->
                   <toolbar-item left-text="Calculator Library" (click)="routerNavigator('calculator')" />
                   <toolbar-item left-text="Py-Weather" (click)="routerNavigator('py-weather')" />
+                  <toolbar-item left-text="QR Maker" (click)="routerNavigator('qr-maker')"/>
                 </toolbar-menu>
               </toolbar-dropout>
             </toolbar-menu>
@@ -263,6 +265,9 @@
             }
             @case ('py-weather') {
               <py-weather />
+            }
+            @case ('qr-maker') {
+              <qr-maker />
             }
             @case ('retro-desktop-portfolio') {
               <retro-desktop-portfolio />
