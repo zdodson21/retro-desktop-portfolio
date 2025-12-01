@@ -38,6 +38,7 @@ describe('CalculatorComponent', () => {
       badges.forEach((element) => {
         if (element.getAttribute('src')?.includes('c.svg')) {
           hasC = true;
+          return;
         }
       });
 
@@ -51,6 +52,7 @@ describe('CalculatorComponent', () => {
       badges.forEach((element) => {
         if (element.getAttribute('src')?.includes('wasm.svg')) {
           hasWasm = true;
+          return;
         }
       });
 
@@ -64,6 +66,7 @@ describe('CalculatorComponent', () => {
       badges.forEach((element) => {
         if (element.getAttribute('src')?.includes('libreoffice-math.svg')) {
           hasMath = true;
+          return;
         }
       });
 
@@ -77,6 +80,7 @@ describe('CalculatorComponent', () => {
       badges.forEach((element) => {
         if (element.getAttribute('src')?.includes('angular.svg')) {
           hasAngular = true;
+          return;
         }
       });
 
@@ -90,6 +94,7 @@ describe('CalculatorComponent', () => {
       badges.forEach((element) => {
         if (element.getAttribute('src')?.includes('typescript.svg')) {
           hasTypeScript = true;
+          return;
         }
       });
 
@@ -103,6 +108,7 @@ describe('CalculatorComponent', () => {
       badges.forEach((element) => {
         if (element.getAttribute('src')?.includes('html5.svg')) {
           hasHtml5 = true;
+          return;
         }
       });
 
@@ -116,6 +122,7 @@ describe('CalculatorComponent', () => {
       badges.forEach((element) => {
         if (element.getAttribute('src')?.includes('scss.svg')) {
           hasScss = true;
+          return;
         }
       });
 

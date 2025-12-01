@@ -39,6 +39,7 @@ describe('HaxChatAgentSite', () => {
       badges.forEach((element) => {
         if (element.getAttribute('src')?.includes('lit.svg')) {
           hasLit = true;
+          return;
         }
       });
 
@@ -52,6 +53,7 @@ describe('HaxChatAgentSite', () => {
       badges.forEach((element) => {
         if (element.getAttribute('src')?.includes('html5.svg')) {
           hasHTML5 = true;
+          return;
         }
       });
 
@@ -65,6 +67,7 @@ describe('HaxChatAgentSite', () => {
       badges.forEach((element) => {
         if (element.getAttribute('src')?.includes('css3.svg')) {
           hasCSS3 = true;
+          return;
         }
       });
 
@@ -78,6 +81,7 @@ describe('HaxChatAgentSite', () => {
       badges.forEach((element) => {
         if (element.getAttribute('src')?.includes('javascript.svg')) {
           hasJavaScript = true;
+          return;
         }
       });
 

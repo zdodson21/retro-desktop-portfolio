@@ -37,6 +37,7 @@ describe('QrMakerComponent', () => {
       badges.forEach((element) => {
         if (element.getAttribute('src')?.includes('flutter.svg')) {
           hasFlutter = true;
+          return;
         }
       });
 
@@ -50,6 +51,7 @@ describe('QrMakerComponent', () => {
       badges.forEach((element) => {
         if (element.getAttribute('src')?.includes('dart.svg')) {
           hasDart = true;
+          return;
         }
       });
 
@@ -63,6 +65,7 @@ describe('QrMakerComponent', () => {
       badges.forEach((element) => {
         if (element.getAttribute('src')?.includes('android.svg')) {
           hasAndroid = true;
+          return;
         }
       });
 
@@ -76,10 +79,25 @@ describe('QrMakerComponent', () => {
       badges.forEach((element) => {
         if (element.getAttribute('src')?.includes('linux.svg')) {
           hasLinux = true;
+          return;
         }
       });
 
       expect(hasLinux).toBeTruthy();
+    });
+
+    it('should contain Windows badge', () => {
+      const badges = compiled.querySelectorAll('.badges img');
+      let hasWindows = false;
+
+      badges.forEach((element) => {
+        if (element.getAttribute('src')?.includes('windows.svg')) {
+          hasWindows = true;
+          return;
+        }
+      });
+
+      expect(hasWindows).toBeTruthy();
     });
 
     it('should contain Android Studio badge', () => {
@@ -89,10 +107,25 @@ describe('QrMakerComponent', () => {
       badges.forEach((element) => {
         if (element.getAttribute('src')?.includes('android-studio.svg')) {
           hasAndroidStudio = true;
+          return;
         }
       });
 
       expect(hasAndroidStudio).toBeTruthy();
+    });
+
+    it('should contain Visual Studio badge', () => {
+      const badges = compiled.querySelectorAll('.badges img');
+      let hasVisualStudio = false;
+
+      badges.forEach((element) => {
+        if (element.getAttribute('src')?.includes('visual-studio.svg')) {
+          hasVisualStudio = true;
+          return;
+        }
+      });
+
+      expect(hasVisualStudio).toBeTruthy();
     });
   });
 });

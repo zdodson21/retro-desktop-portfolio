@@ -7,16 +7,15 @@
       <img src="assets/badges/dart.svg" alt="dart badge">
       <img src="assets/badges/android.svg" alt="android badge">
       <img src="assets/badges/linux.svg" alt="linux badge">
+      <img src="assets/badges/windows.svg" alt="windows badge">
       <img src="assets/badges/android-studio.svg" alt="android studio badge">
+      <img src="assets/badges/visual-studio.svg" alt="visual studio badge">
     </div>
     <nav>
       <a-ie href="https://github.com/zdodson21/qr_maker">
         Project Repository
       </a-ie>
     </nav>
-    <p>
-      Note: Work in progress. Linux version works but is not feature complete. Android and Windows versions are WIP.
-    </p>
   </header>
   <main>
     <section class="description">
@@ -28,6 +27,27 @@
         </li>
         <li>
           Users can save QR code generating strings to their device, enabling them to quickly generate QR codes from their saved options. One use case is to quickly share multiple hyperlinks to different pages on a website.
+        </li>
+      </ul>
+    </section>
+
+    <section class="known-issues">
+      <h2>Known Issues</h2>
+
+      <p>
+        Because I would like to move onto other projects, these issues are known but will not be fixed soon. I will likely fix them
+        at some point in the future, but I have other projects I would like to work on for the time being.
+      </p>
+
+      <ul>
+        <li>
+          The Windows build of this application returns an error when trying to save QR code as image. This is likely a permissions issue,
+          but will not be fixed soon due to Windows not being a primary build target.
+        </li>
+        <li>
+          The Android build of this application was also returning an error when trying to save QR code as an image. Again, this is likely
+          caused by a permissions issue. For now the button is disabled on Android devices (mobile version is intended to be used to display
+          QR codes using the "Select" menu).
         </li>
       </ul>
     </section>

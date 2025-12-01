@@ -34,15 +34,16 @@ describe('RetroDesktopPortfolioSite', () => {
   describe('badges', () => {
     it('should contain Angular badge', () => {
       const badges = compiled.querySelectorAll('.badges img');
-      let hasHTML5 = false;
+      let hasAngular = false;
 
       badges.forEach((element) => {
         if (element.getAttribute('src')?.includes('angular.svg')) {
-          hasHTML5 = true;
+          hasAngular = true;
+          return;
         }
       });
 
-      expect(hasHTML5).toBeTruthy();
+      expect(hasAngular).toBeTruthy();
     });
 
     it('should contain Typescript badge', () => {
@@ -52,6 +53,7 @@ describe('RetroDesktopPortfolioSite', () => {
       badges.forEach((element) => {
         if (element.getAttribute('src')?.includes('typescript.svg')) {
           hasTypescript = true;
+          return;
         }
       });
 
@@ -65,6 +67,7 @@ describe('RetroDesktopPortfolioSite', () => {
       badges.forEach((element) => {
         if (element.getAttribute('src')?.includes('html5.svg')) {
           hasHTML5 = true;
+          return;
         }
       });
 
@@ -73,15 +76,16 @@ describe('RetroDesktopPortfolioSite', () => {
 
     it('should contain SCSS badge', () => {
       const badges = compiled.querySelectorAll('.badges img');
-      let hasHTML5 = false;
+      let hasSCSS = false;
 
       badges.forEach((element) => {
         if (element.getAttribute('src')?.includes('scss.svg')) {
-          hasHTML5 = true;
+          hasSCSS = true;
+          return;
         }
       });
 
-      expect(hasHTML5).toBeTruthy();
+      expect(hasSCSS).toBeTruthy();
     });
 
     it('should contain css3 badge', () => {
@@ -91,6 +95,7 @@ describe('RetroDesktopPortfolioSite', () => {
       badges.forEach((element) => {
         if (element.getAttribute('src')?.includes('css3.svg')) {
           hasCSS3 = true;
+          return;
         }
       });
 
@@ -104,6 +109,7 @@ describe('RetroDesktopPortfolioSite', () => {
       badges.forEach((element) => {
         if (element.getAttribute('src')?.includes('c.svg')) {
           hasC = true;
+          return;
         }
       });
 
@@ -117,6 +123,7 @@ describe('RetroDesktopPortfolioSite', () => {
       badges.forEach((element) => {
         if (element.getAttribute('src')?.includes('wasm.svg')) {
           hasWASM = true;
+          return;
         }
       });
 
@@ -130,6 +137,7 @@ describe('RetroDesktopPortfolioSite', () => {
       badges.forEach((element) => {
         if (element.getAttribute('src')?.includes('git.svg')) {
           hasGit = true;
+          return;
         }
       });
 
@@ -143,6 +151,7 @@ describe('RetroDesktopPortfolioSite', () => {
       badges.forEach((element) => {
         if (element.getAttribute('src')?.includes('github.svg')) {
           hasGitHub = true;
+          return;
         }
       });
 
@@ -156,6 +165,7 @@ describe('RetroDesktopPortfolioSite', () => {
       badges.forEach((element) => {
         if (element.getAttribute('src')?.includes('vercel.svg')) {
           hasVercel = true;
+          return;
         }
       });
 
@@ -169,6 +179,7 @@ describe('RetroDesktopPortfolioSite', () => {
       badges.forEach((element) => {
         if (element.getAttribute('src')?.includes('capacitor.svg')) {
           hasCapacitor = true;
+          return;
         }
       });
 
@@ -182,6 +193,7 @@ describe('RetroDesktopPortfolioSite', () => {
       badges.forEach((element) => {
         if (element.getAttribute('src')?.includes('android-studio.svg')) {
           hasAndroidStudio = true;
+          return;
         }
       });
 
@@ -195,6 +207,7 @@ describe('RetroDesktopPortfolioSite', () => {
       badges.forEach((element) => {
         if (element.getAttribute('src')?.includes('cloudflare.svg')) {
           hasCloudflare = true;
+          return;
         }
       });
 
@@ -208,6 +221,7 @@ describe('RetroDesktopPortfolioSite', () => {
       badges.forEach((element) => {
         if (element.getAttribute('src')?.includes('google.svg')) {
           hasGoogle = true;
+          return;
         }
       });
 
@@ -221,6 +235,7 @@ describe('RetroDesktopPortfolioSite', () => {
       badges.forEach((element) => {
         if (element.getAttribute('src')?.includes('bing.svg')) {
           hasBing = true;
+          return;
         }
       });
 
@@ -234,6 +249,7 @@ describe('RetroDesktopPortfolioSite', () => {
       badges.forEach((element) => {
         if (element.getAttribute('src')?.includes('github-actions.svg')) {
           hasGitHubActions = true;
+          return;
         }
       });
 
@@ -247,6 +263,7 @@ describe('RetroDesktopPortfolioSite', () => {
       badges.forEach((element) => {
         if (element.getAttribute('src')?.includes('jasmine.svg')) {
           hasJasmine = true;
+          return;
         }
       });
 
@@ -260,6 +277,7 @@ describe('RetroDesktopPortfolioSite', () => {
       badges.forEach((element) => {
         if (element.getAttribute('src')?.includes('prettier.svg')) {
           hasPrettier = true;
+          return;
         }
       });
 
@@ -273,6 +291,7 @@ describe('RetroDesktopPortfolioSite', () => {
       badges.forEach((element) => {
         if (element.getAttribute('src')?.includes('docker.svg')) {
           hasDocker = true;
+          return;
         }
       });
 
@@ -286,6 +305,7 @@ describe('RetroDesktopPortfolioSite', () => {
       badges.forEach((element) => {
         if (element.getAttribute('src')?.includes('electron.svg')) {
           hasElectron = true;
+          return;
         }
       });
 
@@ -299,6 +319,7 @@ describe('RetroDesktopPortfolioSite', () => {
       badges.forEach((element) => {
         if (element.getAttribute('src')?.includes('aseprite.svg')) {
           hasAseprite = true;
+          return;
         }
       });
 
@@ -312,6 +333,7 @@ describe('RetroDesktopPortfolioSite', () => {
       badges.forEach((element) => {
         if (element.getAttribute('src')?.includes('gimp.svg')) {
           hasGIMP = true;
+          return;
         }
       });
 

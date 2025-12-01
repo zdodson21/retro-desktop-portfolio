@@ -39,6 +39,7 @@ describe('HaxAuditSite', () => {
       badges.forEach((element) => {
         if (element.getAttribute('src')?.includes('javascript.svg')) {
           hasJavaScript = true;
+          return;
         }
       });
 
@@ -52,6 +53,7 @@ describe('HaxAuditSite', () => {
       badges.forEach((element) => {
         if (element.getAttribute('src')?.includes('node.svg')) {
           hasNode = true;
+          return;
         }
       });
 
@@ -65,6 +67,7 @@ describe('HaxAuditSite', () => {
       badges.forEach((element) => {
         if (element.getAttribute('src')?.includes('npm.svg')) {
           hasNPM = true;
+          return;
         }
       });
 
@@ -78,6 +81,7 @@ describe('HaxAuditSite', () => {
       badges.forEach((element) => {
         if (element.getAttribute('src')?.includes('vscode.svg')) {
           hasVSCode = true;
+          return;
         }
       });
 

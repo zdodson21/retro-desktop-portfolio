@@ -37,6 +37,7 @@ describe('PyWeatherComponent', () => {
       badges.forEach((element) => {
         if (element.getAttribute('src')?.includes('python.svg')) {
           hasPython = true;
+          return;
         }
       });
 
@@ -50,6 +51,7 @@ describe('PyWeatherComponent', () => {
       badges.forEach((element) => {
         if (element.getAttribute('src')?.includes('jinja.svg')) {
           hasJinja = true;
+          return;
         }
       });
 
@@ -63,6 +65,7 @@ describe('PyWeatherComponent', () => {
       badges.forEach((element) => {
         if (element.getAttribute('src')?.includes('bash.svg')) {
           hasBash = true;
+          return;
         }
       });
 
@@ -76,6 +79,7 @@ describe('PyWeatherComponent', () => {
       badges.forEach((element) => {
         if (element.getAttribute('src')?.includes('raspberry-pi.svg')) {
           hasRaspberryPi = true;
+          return;
         }
       });
 
@@ -89,6 +93,7 @@ describe('PyWeatherComponent', () => {
       badges.forEach((element) => {
         if (element.getAttribute('src')?.includes('linux.svg')) {
           hasLinux = true;
+          return;
         }
       });
 
@@ -102,6 +107,7 @@ describe('PyWeatherComponent', () => {
       badges.forEach((element) => {
         if (element.getAttribute('src')?.includes('html5.svg')) {
           hasHTML5 = true;
+          return;
         }
       });
 
@@ -115,6 +121,7 @@ describe('PyWeatherComponent', () => {
       badges.forEach((element) => {
         if (element.getAttribute('src')?.includes('sass.svg')) {
           hasSASS = true;
+          return;
         }
       });
 
@@ -128,6 +135,7 @@ describe('PyWeatherComponent', () => {
       badges.forEach((element) => {
         if (element.getAttribute('src')?.includes('playwright.svg')) {
           hasFirefox = true;
+          return;
         }
       });
 
@@ -141,6 +149,7 @@ describe('PyWeatherComponent', () => {
       badges.forEach((element) => {
         if (element.getAttribute('src')?.includes('penpot.svg')) {
           hasPenpot = true;
+          return;
         }
       });
 
@@ -154,6 +163,7 @@ describe('PyWeatherComponent', () => {
       badges.forEach((element) => {
         if (element.getAttribute('src')?.includes('jupyter.svg')) {
           hasJupyter = true;
+          return;
         }
       });
 
