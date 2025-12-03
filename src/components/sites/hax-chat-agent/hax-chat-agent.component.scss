@@ -38,7 +38,6 @@
       img {
         display: block;
         height: auto;
-        @include set-img-size();
 
         &[src="assets/images/chat-agent.png"] {
           @include set-img-size(50%);

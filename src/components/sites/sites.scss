@@ -49,22 +49,7 @@
   }
 
   &.dark-mode {
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6,
-    p,
-    figcaption,
-    li,
-    em,
-    b,
-    time,
-    summary,
-    th,
-    td,
-    math {
+    * {
       color: white;
     }
 
@@ -89,24 +74,7 @@
 }
 
 @mixin set-font() {
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6,
-  p,
-  figcaption,
-  a,
-  a-ie,
-  ie-route,
-  li,
-  em,
-  b,
-  time,
-  summary,
-  th,
-  td {
+  *{
     font-family: Georgia, "Times New Roman", Times, serif;
     @include font-readability();
   }
