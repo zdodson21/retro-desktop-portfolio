@@ -40,7 +40,7 @@ export class AIeComponent {
           setValue = 'assets/icons/chrome.svg';
           break;
         case 'Ladybird':
-          setValue = 'assets/icons/ladybird.png';
+          setValue = 'assets/icons/ladybird.svg';
           break;
         case 'Microsoft Edge':
           setValue = 'assets/icons/edge.svg';

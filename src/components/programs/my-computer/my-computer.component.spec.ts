@@ -50,7 +50,7 @@ describe('MyComputerComponent', () => {
   });
 
   it('should use proper image', () => {
-    expect(compiled.querySelector('.left .img-wrapper img')?.getAttribute('src')).toBe('assets/monitor-image.png');
+    expect(compiled.querySelector('.left .img-wrapper img')?.getAttribute('src')).toBe('assets/monitor-image.webp');
   });
 
   describe('Sections', () => {
