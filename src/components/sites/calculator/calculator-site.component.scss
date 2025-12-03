@@ -4,9 +4,16 @@
   @include site-common();
 
   section {
-    &.formulas {
-      .img-container {
-        @include full-img-container(30%);
+    .formula-container, .agmean {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 24px;
+
+      &.agmean {
+        gap: 16px;
+        margin-bottom: -16px;
       }
     }
 
