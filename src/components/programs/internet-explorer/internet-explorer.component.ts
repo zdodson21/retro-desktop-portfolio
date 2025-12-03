@@ -12,6 +12,7 @@ import { HaxAuditSite } from '../../sites/hax-audit/hax-audit.component';
 import { HaxChatAgentSite } from '../../sites/hax-chat-agent/hax-chat-agent.component';
 import { OpenSourceContributionsSite } from '../../sites/open-source-contributions/open-source-contributions.component';
 import { PyWeatherSite } from '../../sites/py-weather/py-weather.component';
+import { QrMakerSite } from '../../sites/qr-maker/qr-maker.component';
 import { RetroDesktopPortfolioSite } from '../../sites/retro-desktop-portfolio/retro-desktop-portfolio.component';
 import { SecretSite } from '../../sites/secret-site/secret-site.component';
 import { ToolbarButtonComponent } from '../../ui/toolbar/toolbar-button/toolbar-button.component';
@@ -23,7 +24,6 @@ import { WindowFrameComponent } from '../../window-frame/window-frame.component'
 import { CloseSidebarButtonComponent } from './components/close-sidebar-button/close-sidebar-button.component';
 import { StandardButtonComponent } from './components/standard-button/standard-button.component';
 import { InternetExplorerService } from './internet-explorer.service';
-import { QrMakerSite } from '../../sites/qr-maker/qr-maker.component';
 
 @Component({
   selector: 'internet-explorer',
@@ -180,19 +180,17 @@ export class InternetExplorerComponent implements OnInit, AfterViewInit {
    * @description Open user's email client with current URL plus current internet-explorer route. Eliminate other routes for email URL.
    */
   protected mailButtonHelper(): void {
-    if (!this.dnsContainsSite(this.IEService.displayedSite())) {
-      if (globalThis.confirm('An error page is currently being displayed, are you sure you wish to send it in an email?')) {
-        globalThis.open(
-          `mailto:person?subject=Check%20Out%20This%20Webpage&body=${this.systemService.webAddress}/programs?internet-explorer=${this.IEService.displayedSite()}`,
-          '_blank',
-        );
-      }
-    } else {
-      globalThis.open(
-        `mailto:person?subject=Check%20Out%20This%20Webpage&body=${this.systemService.webAddress}/programs?internet-explorer=${this.IEService.displayedSite()}`,
-        '_blank',
-      );
+    if (
+      !this.dnsContainsSite(this.IEService.displayedSite()) &&
+      !globalThis.confirm('An error page is currently being displayed, are you sure you wish to send it in an email?')
+    ) {
+      return;
     }
+
+    globalThis.open(
+      `mailto:person?subject=Check%20Out%20This%20Webpage&body=${this.systemService.webAddress}/programs?internet-explorer=${this.IEService.displayedSite()}`,
+      '_blank',
+    );
   }
 
   /**
@@ -418,21 +416,18 @@ export class InternetExplorerComponent implements OnInit, AfterViewInit {
   protected copyURLToClipboard(): void {
     let copied: boolean = false;
 
-    if (!this.dnsContainsSite(this.IEService.displayedSite())) {
-      if (globalThis.confirm('An error page is currently being displayed, are you sure you wish to copy URL to clipboard?')) {
-        navigator.clipboard.writeText(
-          `${this.systemService.webAddress}/programs?internet-explorer=${this.IEService.displayedSite()}`,
-        );
-
-        copied = true;
-      }
-    } else {
-      navigator.clipboard.writeText(
-        `${this.systemService.webAddress}/programs?internet-explorer=${this.IEService.displayedSite()}`,
-      );
-
-      copied = true;
+    if (
+      !this.dnsContainsSite(this.IEService.displayedSite()) &&
+      !globalThis.confirm('An error page is currently being displayed, are you sure you wish to copy URL to clipboard?')
+    ) {
+      return;
     }
+
+    navigator.clipboard.writeText(
+      `${this.systemService.webAddress}/programs?internet-explorer=${this.IEService.displayedSite()}`,
+    );
+
+    copied = true;
 
     if (copied) {
       let currIcon: string = this.IEService.statusBarIcon();

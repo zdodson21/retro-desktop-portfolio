@@ -1,8 +1,8 @@
 import { Component, inject, signal, WritableSignal } from '@angular/core';
+import { AppService } from '../../../app/app.service';
+import { IeRouteComponent } from '../../sites/components/ie-route/ie-route.component';
 import { WindowFrameComponent } from '../../window-frame/window-frame.component';
 import { HelpButtonComponent } from './components/help-button/help-button.component';
-import { IeRouteComponent } from '../../sites/components/ie-route/ie-route.component';
-import { AppService } from '../../../app/app.service';
 
 @Component({
   selector: 'help',
@@ -19,9 +19,7 @@ export class HelpComponent {
    * @param num Number tip from top to bottom, starting with 0
    */
   protected setCurrentTopic(num: number): void {
-    if (this.currentTopic() !== num) {
-      this.currentTopic.set(num);
-    }
+    if (this.currentTopic() !== num) this.currentTopic.set(num);
   }
 
   protected openIE(event: MouseEvent): void {

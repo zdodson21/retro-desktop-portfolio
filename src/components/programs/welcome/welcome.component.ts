@@ -110,9 +110,7 @@ export class WelcomeComponent implements OnInit {
 
     const INDEX = this.windowService.openPrograms().findIndex((program) => program.focusName === 'welcome');
 
-    if (INDEX !== -1) {
-      this.windowService.openPrograms().splice(INDEX, 1);
-    }
+    if (INDEX !== -1) this.windowService.openPrograms().splice(INDEX, 1);
 
     const CURRENT_PARAMS: Params = { ...this.route.snapshot.queryParams };
     delete CURRENT_PARAMS['welcome'];

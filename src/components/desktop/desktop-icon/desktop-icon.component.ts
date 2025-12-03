@@ -45,6 +45,7 @@ export class DesktopIconComponent implements OnInit {
    */
   public singleClickHandler(event: MouseEvent): void {
     event?.stopPropagation();
+
     this.store.focus.set(this.iconFocusName);
     this.isElementFocused.set(true);
   }
