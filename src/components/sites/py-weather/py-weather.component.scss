@@ -1,4 +1,5 @@
 @use "../sites.scss" as *;
+@use "../site-images.scss" as *;
 
 .py-weather-site-wrapper {
   @include site-common();
