@@ -48,3 +48,7 @@ Thumbs.db
 
 # Compiled C Files
 calculator_test
+
+# CSS Files
+*.css
+*.css.map
