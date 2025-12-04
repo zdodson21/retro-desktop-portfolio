@@ -62,7 +62,7 @@ export class AIeComponent {
           break;
 
         default:
-          setValue = 'assets/icons/internet-explorer/internet-globe.svg';
+          setValue = 'assets/icons/internet-explorer/internet-globe.webp';
       }
 
       this.IEService.statusBarIcon.set(setValue);

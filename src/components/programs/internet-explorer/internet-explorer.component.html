@@ -174,7 +174,7 @@
           </datalist>
         </div>
         <button (mouseover)="goButtonHovered = true" (mouseleave)="goButtonHovered = false" (click)="goButtonHelper()">
-          <img [src]="goButtonHovered ? 'assets/icons/internet-explorer/go-button.svg' : 'assets/icons/internet-explorer/gray-go-button.svg'" [alt]="goButtonHovered ? 'go button' : 'gray go button'" />
+          <img [src]="goButtonHovered ? 'assets/icons/internet-explorer/go-button.webp' : 'assets/icons/internet-explorer/gray-go-button.webp'" [alt]="goButtonHovered ? 'go button' : 'gray go button'" />
           <p>Go</p>
         </button>
       </div>
@@ -293,13 +293,13 @@
         <div class="box"></div>
         <div class="connection">
           @if (['hax-audit', 'hax-chat-agent', 'open-source-contributions'].includes(IEService.displayedSite())) {
-            <img src="assets/icons/internet-explorer/internet-globe.svg" alt="internet icon" />
+            <img src="assets/icons/internet-explorer/internet-globe.webp" alt="internet icon" />
             <p>Internet</p>
           } @else if (!dnsContainsSite(IEService.displayedSite())) {
-            <img src="assets/icons/internet-explorer/connection-issue.svg" alt="error icon" />
+            <img src="assets/icons/internet-explorer/connection-issue.webp" alt="error icon" />
             <p>Connection Error</p>
           } @else {
-            <img src="assets/icons/network-neighborhood.svg" alt="network neighborhood icon" />
+            <img src="assets/icons/network-neighborhood.webp" alt="network neighborhood icon" />
             <p>Local intranet</p>
           }
         </div>
