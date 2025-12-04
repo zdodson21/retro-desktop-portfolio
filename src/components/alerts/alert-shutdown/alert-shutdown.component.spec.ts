@@ -41,7 +41,7 @@ describe('AlertShutdownComponent', () => {
 
   describe('Frame Contents', () => {
     it('should have correct file path and name for img', () => {
-      expect(compiled.querySelector('.left-side > img')?.getAttribute('src')).toBe('assets/icons/shutdown-alert.svg');
+      expect(compiled.querySelector('.left-side > img')?.getAttribute('src')).toBe('assets/icons/shutdown-alert.webp');
     });
   });
 

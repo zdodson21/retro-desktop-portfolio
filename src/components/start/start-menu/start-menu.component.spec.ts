@@ -28,7 +28,7 @@ describe('StartMenuComponent', () => {
   });
 
   it('should have proper img on left side', () => {
-    expect(compiled.querySelector('.win-95-bar img')?.getAttribute('src')).toBe('assets/windows-95-text-start-menu.svg');
+    expect(compiled.querySelector('.win-95-bar img')?.getAttribute('src')).toBe('assets/windows-95-text-start-menu.webp');
   });
 
   it('should contain start-shutdown component', () => {

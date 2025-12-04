@@ -31,22 +31,22 @@ export class AIeComponent {
           setValue = 'assets/icons/brave.svg';
           break;
         case 'DuckDuckGo':
-          setValue = 'assets/icons/duckduckgo.svg';
+          setValue = 'assets/icons/duckduckgo.webp';
           break;
         case 'Firefox':
-          setValue = 'assets/icons/firefox.svg';
+          setValue = 'assets/icons/firefox.webp';
           break;
         case 'Google Chrome':
           setValue = 'assets/icons/chrome.svg';
           break;
         case 'Ladybird':
-          setValue = 'assets/icons/ladybird.svg';
+          setValue = 'assets/icons/ladybird.webp';
           break;
         case 'Microsoft Edge':
           setValue = 'assets/icons/edge.svg';
           break;
         case 'Opera':
-          setValue = 'assets/icons/opera.svg';
+          setValue = 'assets/icons/opera.webp';
           break;
         case 'Opera GX':
           setValue = 'assets/icons/opera-gx.svg';
@@ -55,7 +55,7 @@ export class AIeComponent {
           setValue = 'assets/icons/samsung-browser.svg';
           break;
         case 'Safari':
-          setValue = 'assets/icons/safari.svg';
+          setValue = 'assets/icons/safari.webp';
           break;
         case 'Steam':
           setValue = 'assets/icons/steam.svg';
