@@ -38,7 +38,7 @@ describe('ControlPanelComponent', () => {
       });
 
       it('must have proper icon path', () => {
-        expect(compiled.querySelector('window-frame')?.getAttribute('window-icon')).toBe('assets/icons/control-panel.svg');
+        expect(compiled.querySelector('window-frame')?.getAttribute('window-icon')).toBe('assets/icons/control-panel.webp');
       });
     });
 

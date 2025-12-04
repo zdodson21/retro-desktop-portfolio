@@ -39,7 +39,7 @@ describe('CalculatorComponent', () => {
       });
 
       it('must have proper icon path', () => {
-        expect(compiled.querySelector('window-frame')?.getAttribute('window-icon')).toBe('assets/icons/calculator.svg');
+        expect(compiled.querySelector('window-frame')?.getAttribute('window-icon')).toBe('assets/icons/calculator.webp');
       });
     });
 

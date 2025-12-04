@@ -6,7 +6,7 @@
 {
   programName: 'Control Panel',
   focusName: 'control-panel',
-  iconPath: 'assets/icons/control-panel.svg'
+  iconPath: 'assets/icons/control-panel.webp'
 }
 ```
 
@@ -16,7 +16,7 @@
 {
   programName: 'Help',
   focusName: 'help',
-  iconPath: 'assets/icons/help.svg'
+  iconPath: 'assets/icons/help.webp'
 }
 ```
 

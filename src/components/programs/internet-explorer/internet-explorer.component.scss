@@ -384,7 +384,7 @@ $status-bar-height: 5%;
           width: 20px;
           @include icon-common();
 
-          &[src='assets/icons/windows-help.svg'] {
+          &[src='assets/icons/windows-help.webp'] {
             width: 16px;
           }
         }

@@ -43,7 +43,7 @@ export class AIeComponent {
           setValue = 'assets/icons/ladybird.webp';
           break;
         case 'Microsoft Edge':
-          setValue = 'assets/icons/edge.svg';
+          setValue = 'assets/icons/edge.webp';
           break;
         case 'Opera':
           setValue = 'assets/icons/opera.webp';

@@ -39,7 +39,7 @@ describe('ProgramMenuComponent', () => {
       });
 
       it('should have proper window-icon', () => {
-        expect(compiled.querySelector('window-frame')?.getAttribute('window-icon')).toBe('assets/icons/program-folder.svg');
+        expect(compiled.querySelector('window-frame')?.getAttribute('window-icon')).toBe('assets/icons/program-folder.webp');
       });
     });
 
@@ -57,7 +57,7 @@ describe('ProgramMenuComponent', () => {
       });
 
       it('should have proper icon', () => {
-        expect(compiled.querySelector('.calculator-start-item')?.getAttribute('icon')).toBe('assets/icons/calculator.svg');
+        expect(compiled.querySelector('.calculator-start-item')?.getAttribute('icon')).toBe('assets/icons/calculator.webp');
       });
 
       it('should have proper program name', () => {
@@ -75,7 +75,7 @@ describe('ProgramMenuComponent', () => {
       });
 
       it('should have proper icon', () => {
-        expect(compiled.querySelector('.control-panel-start-item')?.getAttribute('icon')).toBe('assets/icons/control-panel.svg');
+        expect(compiled.querySelector('.control-panel-start-item')?.getAttribute('icon')).toBe('assets/icons/control-panel.webp');
       });
 
       it('should have proper program name', () => {
@@ -93,7 +93,7 @@ describe('ProgramMenuComponent', () => {
       });
 
       it('should have proper icon', () => {
-        expect(compiled.querySelector('.help-start-item')?.getAttribute('icon')).toBe('assets/icons/help.svg');
+        expect(compiled.querySelector('.help-start-item')?.getAttribute('icon')).toBe('assets/icons/help.webp');
       });
 
       it('should have proper program name', () => {

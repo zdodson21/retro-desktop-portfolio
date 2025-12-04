@@ -76,7 +76,7 @@ export class ProgramsWrapperComponent {
         this.windowService.openPrograms().push({
           programName: 'Calculator',
           focusName: 'calculator',
-          iconPath: 'assets/icons/calculator.svg',
+          iconPath: 'assets/icons/calculator.webp',
         });
       }
 
@@ -87,7 +87,7 @@ export class ProgramsWrapperComponent {
         this.windowService.openPrograms().push({
           programName: 'Control Panel',
           focusName: 'control-panel',
-          iconPath: 'assets/icons/control-panel.svg',
+          iconPath: 'assets/icons/control-panel.webp',
         });
       }
 
@@ -95,7 +95,7 @@ export class ProgramsWrapperComponent {
         this.windowService.openPrograms().push({
           programName: 'Windows Help',
           focusName: 'help',
-          iconPath: 'assets/icons/windows-help.svg',
+          iconPath: 'assets/icons/windows-help.webp',
         });
       }
 
@@ -128,7 +128,7 @@ export class ProgramsWrapperComponent {
         this.windowService.openPrograms().push({
           programName: 'Mobile Program Menu',
           focusName: 'program-menu',
-          iconPath: 'assets/icons/program-folder.svg',
+          iconPath: 'assets/icons/program-folder.webp',
         });
       }
 
@@ -150,7 +150,7 @@ export class ProgramsWrapperComponent {
         this.windowService.openPrograms().push({
           programName: 'Taskbar Properties',
           focusName: 'taskbar-properties',
-          iconPath: 'assets/icons/taskbar-properties.svg',
+          iconPath: 'assets/icons/taskbar-properties.webp',
         });
       }
 

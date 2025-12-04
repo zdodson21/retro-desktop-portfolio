@@ -38,7 +38,7 @@ describe('WindowsHelpComponent', () => {
       });
 
       it('should have proper window icon', () => {
-        expect(compiled.querySelector('window-frame')?.getAttribute('window-icon')).toBe('assets/icons/windows-help.svg');
+        expect(compiled.querySelector('window-frame')?.getAttribute('window-icon')).toBe('assets/icons/windows-help.webp');
       });
     });
 
