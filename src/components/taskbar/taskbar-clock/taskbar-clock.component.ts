@@ -16,9 +16,11 @@ export class TaskbarClockComponent {
       let halfOfDay: string = 'AM';
 
       let hour: number = time.getHours();
-      if (hour > 12) {
+      if (hour >= 12) {
         hour -= 12;
         halfOfDay = 'PM';
+      } else if (hour === 0) {
+        hour = 12;
       }
 
       let minute: number | string = time.getMinutes();
