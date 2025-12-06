@@ -38,7 +38,7 @@ describe('MyComputerComponent', () => {
       });
 
       it('should have proper icon path', () => {
-        expect(compiled.querySelector('window-frame')?.getAttribute('window-icon')).toBe('assets/icons/my-computer.svg');
+        expect(compiled.querySelector('window-frame')?.getAttribute('window-icon')).toBe('assets/icons/my-computer.webp');
       });
 
       // TODO test prevent resizing true and hide buttons true

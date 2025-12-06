@@ -27,7 +27,7 @@ describe('TaskbarStartComponent', () => {
 
   describe('Design', () => {
     it('should have the proper icon', () => {
-      expect(compiled.querySelector('.contents > img')?.getAttribute('src')).toBe('assets/icons/start.svg');
+      expect(compiled.querySelector('.contents > img')?.getAttribute('src')).toBe('assets/icons/start.webp');
     });
 
     it('should have proper text', () => {

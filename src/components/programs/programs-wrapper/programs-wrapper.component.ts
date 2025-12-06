@@ -106,7 +106,7 @@ export class ProgramsWrapperComponent {
         this.windowService.openPrograms().push({
           programName: 'Internet Explorer',
           focusName: 'internet-explorer',
-          iconPath: 'assets/icons/internet-explorer.svg',
+          iconPath: 'assets/icons/internet-explorer.webp',
         });
       }
 
@@ -117,7 +117,7 @@ export class ProgramsWrapperComponent {
         this.windowService.openPrograms().push({
           programName: 'My Computer',
           focusName: 'my-computer',
-          iconPath: 'assets/icons/my-computer.svg',
+          iconPath: 'assets/icons/my-computer.webp',
         });
       }
 
@@ -139,7 +139,7 @@ export class ProgramsWrapperComponent {
         this.windowService.openPrograms().push({
           programName: 'System Monitor',
           focusName: 'system-monitor',
-          iconPath: 'assets/icons/system-monitor.svg',
+          iconPath: 'assets/icons/system-monitor.webp',
         });
       }
 
