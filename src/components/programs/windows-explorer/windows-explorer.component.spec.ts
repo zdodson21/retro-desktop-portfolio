@@ -38,7 +38,7 @@ describe('WindowsExplorerComponent', () => {
       });
 
       it('should have proper window-icon', () => {
-        expect(compiled.querySelector('window-frame')?.getAttribute('window-icon')).toBe('assets/icons/windows-explorer.svg');
+        expect(compiled.querySelector('window-frame')?.getAttribute('window-icon')).toBe('assets/icons/windows-explorer.webp');
       });
     });
 

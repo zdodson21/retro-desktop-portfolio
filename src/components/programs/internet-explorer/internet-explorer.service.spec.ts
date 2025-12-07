@@ -14,7 +14,7 @@ describe('InternetExplorerService', () => {
   });
 
   it('should have the proper status bar icon', () => {
-    expect(service.statusBarIcon()).toBe('assets/icons/html-file.svg');
+    expect(service.statusBarIcon()).toBe('assets/icons/html-file.webp');
   });
 
   it('should have status bar content set to "ready" by default', () => {

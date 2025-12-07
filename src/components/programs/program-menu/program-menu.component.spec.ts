@@ -170,7 +170,7 @@ describe('ProgramMenuComponent', () => {
 
       it('should have proper icon', () => {
         expect(compiled.querySelector('.windows-explorer-start-item')?.getAttribute('icon')).toBe(
-          'assets/icons/windows-explorer.svg',
+          'assets/icons/windows-explorer.webp',
         );
       });
 

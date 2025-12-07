@@ -1,5 +1,5 @@
 <div class="internet-explorer-wrapper">
-  <window-frame #windowFrame window-title="Internet Explorer" focus-name="internet-explorer" window-icon="assets/icons/html-file.svg" [percent-width]="70" [percent-height]="90">
+  <window-frame #windowFrame window-title="Internet Explorer" focus-name="internet-explorer" window-icon="assets/icons/html-file.webp" [percent-width]="70" [percent-height]="90">
     <div class="frame-contents">
       <div class="toolbar" (click)="menuFocus = ''">
         <div class="toolbar-buttons">
@@ -165,7 +165,7 @@
         </div>
         <p>Address</p>
         <div class="search-input">
-          <img src="assets/icons/html-file.svg" alt="html file icon" />
+          <img src="assets/icons/html-file.webp" alt="html file icon" />
           <input #addressBarInput type="search" list="addressBar" name="address-bar" id="address-bar" (keypress)="inputKeyInputHelper($event)" data-1p-ignore data-lpignore="true" />
           <datalist id="addressBar">
             @for (site of IEService.possibleSites; track $index) {
@@ -216,7 +216,7 @@
                   <ul>
                     @for (site of IEService.possibleSites; track $index) {
                       <li>
-                        <img src="assets/icons/html-file.svg" alt="html file icon" />
+                        <img src="assets/icons/html-file.webp" alt="html file icon" />
                         <ie-route domain="{{ site.domain }}" tld="{{ site.tld }}" [not-in-site]="true" (click)="scrollToTop()" />
                       </li>
                     }

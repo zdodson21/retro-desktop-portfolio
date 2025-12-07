@@ -1,5 +1,5 @@
 <div class="windows-explorer-wrapper">
-  <window-frame window-title="Windows Explorer" focus-name="windows-explorer" window-icon="assets/icons/windows-explorer.svg" [percent-width]="50" [percent-height]="70">
+  <window-frame window-title="Windows Explorer" focus-name="windows-explorer" window-icon="assets/icons/windows-explorer.webp" [percent-width]="50" [percent-height]="70">
     <div class="frame-contents">
       <div class="padding">
         <!-- <div class="location-bar">
@@ -7,7 +7,7 @@
         </div> -->
         <div class="contents">
           @for (site of IEService.possibleSites; track $index) {
-            <file-icon focus-name="internet-explorer" assoc-prog-name="Internet Explorer" assoc-prog-icon-src="assets/icons/internet-explorer.webp" [path]="site.domain" icon-src="assets/icons/html-file.svg" [file-name]="site.domain" file-type="html" />
+            <file-icon focus-name="internet-explorer" assoc-prog-name="Internet Explorer" assoc-prog-icon-src="assets/icons/internet-explorer.webp" [path]="site.domain" icon-src="assets/icons/html-file.webp" [file-name]="site.domain" file-type="html" />
           }
         </div>
       </div>

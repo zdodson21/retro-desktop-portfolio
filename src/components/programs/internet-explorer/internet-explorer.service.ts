@@ -5,7 +5,7 @@ import { DNS } from '../../../interfaces/site-list';
   providedIn: 'root',
 })
 export class InternetExplorerService {
-  public statusBarIcon: WritableSignal<string> = signal('assets/icons/html-file.svg');
+  public statusBarIcon: WritableSignal<string> = signal('assets/icons/html-file.webp');
   public statusBarContent: WritableSignal<string> = signal('Ready');
   public browserHistory: WritableSignal<DNS> = signal([]);
   public sidebar: WritableSignal<boolean> = signal(false);

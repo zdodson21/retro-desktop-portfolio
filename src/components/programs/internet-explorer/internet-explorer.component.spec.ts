@@ -38,7 +38,7 @@ describe('InternetExplorerComponent', () => {
       });
 
       it('must have proper icon path', () => {
-        expect(compiled.querySelector('window-frame')?.getAttribute('window-icon')).toBe('assets/icons/html-file.svg');
+        expect(compiled.querySelector('window-frame')?.getAttribute('window-icon')).toBe('assets/icons/html-file.webp');
       });
     });
 

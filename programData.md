@@ -66,6 +66,6 @@
 {
   programName: 'Windows Explorer',
   focusName: 'windows-explorer',
-  iconPath: 'assets/icons/windows-explorer.svg'
+  iconPath: 'assets/icons/windows-explorer.webp'
 }
 ```

@@ -76,7 +76,7 @@ export class AIeComponent {
    */
   protected unhover(): void {
     if (this.prevIcon === 'assets/icons/internet-explorer/copy-button.svg') {
-      this.IEService.statusBarIcon.set('assets/icons/html-file.svg');
+      this.IEService.statusBarIcon.set('assets/icons/html-file.webp');
     } else {
       this.IEService.statusBarIcon.set(this.prevIcon);
     }
