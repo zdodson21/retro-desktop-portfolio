@@ -19,6 +19,7 @@ import { TaskbarBaseComponent } from '../components/taskbar/taskbar-base/taskbar
 import { SettingsService } from '../services/settings/settings.service';
 import { SystemService } from '../services/system/system.service';
 import { AppService } from './app.service';
+import { QrMakerSite } from '../components/sites/qr-maker/qr-maker.component';
 
 @Component({
   selector: 'app-root',
@@ -36,6 +37,7 @@ import { AppService } from './app.service';
     HaxAuditSite,
     HaxChatAgentSite,
     OpenSourceContributionsSite,
+    QrMakerSite,
     RetroDesktopPortfolioSite,
     SecretSite,
     PyWeatherSite,
@@ -57,7 +59,7 @@ export class AppComponent {
 
     setTimeout(() => {
       const CURRENT_PARAMS: Params = { ...this.route.snapshot.queryParams };
-      
+
       if (Object.keys(CURRENT_PARAMS).length === 0 && (openWelcome === null || openWelcome === 'yes')) {
         this.router.navigate(['programs'], {
           relativeTo: this.route,
