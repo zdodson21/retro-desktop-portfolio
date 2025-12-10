@@ -1,0 +1,17 @@
+@use "../programs.scss" as *;
+@use "../../../styles.scss" as *;
+
+.paint-wrapper {
+  @include program-common();
+
+  window-frame {
+    width: 80%;
+    height: 90%;
+    @include mobile-viewport();
+
+    .frame-contents {
+      @include text-common();
+      @include frame-contents-common();
+    }
+  }
+}

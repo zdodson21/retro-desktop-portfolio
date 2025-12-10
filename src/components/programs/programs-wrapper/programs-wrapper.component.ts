@@ -1,17 +1,18 @@
 import { Component, inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { AppService } from '../../../app/app.service';
+import { WindowService } from '../../../services/window/window.service';
 import { CalculatorComponent } from '../calculator/calculator.component';
 import { ControlPanelComponent } from '../control-panel/control-panel.component';
 import { HelpComponent } from '../help/help.component';
 import { InternetExplorerComponent } from '../internet-explorer/internet-explorer.component';
 import { MyComputerComponent } from '../my-computer/my-computer.component';
+import { PaintProgram } from '../paint/paint.component';
+import { ProgramMenuComponent } from '../program-menu/program-menu.component';
 import { SystemMonitorComponent } from '../system-monitor/system-monitor.component';
 import { TaskbarPropertiesComponent } from '../taskbar-properties/taskbar-properties.component';
 import { WelcomeComponent } from '../welcome/welcome.component';
 import { WindowsExplorerComponent } from '../windows-explorer/windows-explorer.component';
-import { ProgramMenuComponent } from '../program-menu/program-menu.component';
-import { WindowService } from '../../../services/window/window.service';
 
 @Component({
   selector: 'app-programs-wrapper',
@@ -21,6 +22,7 @@ import { WindowService } from '../../../services/window/window.service';
     HelpComponent,
     InternetExplorerComponent,
     MyComputerComponent,
+    PaintProgram,
     ProgramMenuComponent,
     SystemMonitorComponent,
     TaskbarPropertiesComponent,
@@ -52,6 +54,7 @@ export class ProgramsWrapperComponent {
     help: false,
     internetExplorer: false,
     myComputer: false,
+    paint: false,
     programMenu: false,
     systemMonitor: false,
     taskbarProperties: false,
@@ -66,6 +69,7 @@ export class ProgramsWrapperComponent {
       this.programs.help = 'help' in params;
       this.programs.internetExplorer = 'internet-explorer' in params;
       this.programs.myComputer = 'my-computer' in params;
+      this.programs.paint = 'paint' in params;
       this.programs.programMenu = 'program-menu' in params;
       this.programs.systemMonitor = 'system-monitor' in params;
       this.programs.taskbarProperties = 'taskbar-properties' in params;
@@ -118,6 +122,14 @@ export class ProgramsWrapperComponent {
           programName: 'My Computer',
           focusName: 'my-computer',
           iconPath: 'assets/icons/my-computer.webp',
+        });
+      }
+
+      if ('paint' in params && !this.windowService.openPrograms().some((programs) => programs.focusName === 'paint')) {
+        this.windowService.openPrograms().push({
+          programName: 'Paint',
+          focusName: 'paint',
+          iconPath: 'assets/icons/paint.webp',
         });
       }
 
