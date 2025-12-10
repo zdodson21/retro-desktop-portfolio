@@ -1,6 +1,7 @@
 @use "../../../styles.scss" as *;
 @use "../programs.scss" as *;
 @use "../../../colors.scss" as *;
+@use "../toolbar.scss" as *;
 
 .calculator-wrapper {
   @include program-common();
@@ -18,49 +19,13 @@
       @include text-common();
       @include frame-contents-common();
 
-      @mixin hover-handling() {
-        &:hover,
-        &:focus {
-          border-style: outset solid solid outset;
-          border-color: white #7d7c7c #7d7c7c white;
-        }
-
-        &:active {
-          border-style: solid inset inset solid;
-          border-color: #7d7c7c white white #7d7c7c;
-        }
-      }
-
       .padding {
         padding: 0px 4px;
         height: 100%;
 
         .toolbar {
-          height: 28px;
-          display: flex;
-          flex-direction: row;
+          @include toolbar-common();
           border-bottom: 2px solid $win-95-divider-top;
-
-          toolbar-button {
-            display: block;
-            height: 22px;
-            border: 2px transparent solid;
-            border-radius: 0;
-            @include hover-handling();
-
-            &.active {
-              border-style: solid inset inset solid;
-              border-color: #7d7c7c white white #7d7c7c;
-            }
-          }
-
-          .top-level-menu {
-            display: none;
-
-            &.visible {
-              display: block;
-            }
-          }
         }
 
         .calculator {

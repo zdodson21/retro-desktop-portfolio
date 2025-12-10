@@ -1,6 +1,7 @@
 @use "../../../styles.scss" as *;
 @use "../programs.scss" as *;
 @use "../../../colors.scss" as *;
+@use "../toolbar.scss" as *;
 
 $toolbar-height: 28px;
 $standard-button-height: 56px;
@@ -75,32 +76,9 @@ $status-bar-height: 5%;
         border-right: 1px white solid;
 
         .toolbar-buttons {
-          display: flex;
-          align-items: center;
-          flex-direction: row;
+          @include toolbar-common();
           height: 100%;
           width: calc(100% - 28px);
-
-          toolbar-button {
-            display: block;
-            height: 22px;
-            border: 2px transparent solid;
-            border-radius: 0;
-            @include hover-handling();
-
-            &.active {
-              border-style: solid inset inset solid;
-              border-color: #7d7c7c white white #7d7c7c;
-            }
-          }
-
-          .top-level-menu {
-            display: none;
-
-            &.visible {
-              display: block;
-            }
-          }
         }
 
         img {

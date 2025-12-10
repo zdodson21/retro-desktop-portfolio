@@ -1,5 +1,6 @@
 @use "../programs.scss" as *;
 @use "../../../styles.scss" as *;
+@use "../toolbar.scss" as *;
 
 .paint-wrapper {
   @include program-common();
