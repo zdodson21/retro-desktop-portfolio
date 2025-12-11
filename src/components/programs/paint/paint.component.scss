@@ -1,6 +1,7 @@
 @use "../programs.scss" as *;
 @use "../../../styles.scss" as *;
 @use "../toolbar.scss" as *;
+@use "../../../colors.scss" as *;
 
 .paint-wrapper {
   @include program-common();
@@ -13,6 +14,20 @@
     .frame-contents {
       @include text-common();
       @include frame-contents-common();
+
+      .padding {
+        padding: 0px 2px;
+        height: 100%;
+
+        .toolbar {
+          @include toolbar-common();
+          border-bottom: 2px solid $win-95-divider-top;
+        }
+
+        .paint {
+          border-top: 2px solid $win-95-divider-bottom;
+        }
+      }
     }
   }
 }

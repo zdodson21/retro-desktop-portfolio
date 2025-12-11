@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { WindowFrameComponent } from '../../window-frame/window-frame.component';
+import { PaintService } from './paint.service';
+import { Coordinates } from '../../../interfaces/coordinates';
 
 @Component({
   selector: 'paint',
@@ -8,5 +10,9 @@ import { WindowFrameComponent } from '../../window-frame/window-frame.component'
   styleUrl: './paint.component.scss',
 })
 export class PaintProgram {
-
+  protected paintService: PaintService = inject(PaintService);
+  protected coord: Coordinates = {
+    x: 0,
+    y: 0,
+  };
 }
