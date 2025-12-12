@@ -1,16 +1,68 @@
 <div class="paint-wrapper">
-  <window-frame window-title="Paint" focus-name="paint" window-icon="assets/icons/paint.webp" [percent-width]="80" [percent-height]="90">
+  <window-frame #windowFrame window-title="Paint" focus-name="paint" window-icon="assets/icons/paint.webp" [percent-width]="80" [percent-height]="90">
     <div class="frame-contents">
       <div class="padding">
-        <div class="toolbar">
+        <div class="toolbar" (click)="menuFocus = ''">
+          <toolbar-button text="File" [class.active]="menuFocus === 'file'" (click)="menuFocus = toolbarButtonHelper($event, 'file')" (mouseover)="toolbarHoverHelper('file')">
+            <toolbar-menu class="top-level-menu" [class.visible]="menuFocus === 'file'" (click)="store.focus.set('paint')">
+              <!-- TODO add functionality -->
+              <toolbar-item left-text="New" (click)="setNewCanvas()"/>
+              <toolbar-item left-text="Save" (click)="saveDrawing()"/>
 
+              <toolbar-divider />
+
+              <toolbar-item left-text="Print" (click)="printDrawing()"/>
+
+              <toolbar-divider />
+
+              <toolbar-item left-text="Send" (click)="sendDrawing()"/>
+
+              <toolbar-divider />
+
+              <toolbar-item left-text="Exit" (click)="exitHandler()"/>
+            </toolbar-menu>
+          </toolbar-button>
+
+          <toolbar-button text="Edit" [class.active]="menuFocus === 'edit'" (click)="menuFocus = toolbarButtonHelper($event, 'edit')" (mouseover)="toolbarHoverHelper('edit')">
+            <toolbar-menu class="top-level-menu" [class.visible]="menuFocus === 'edit'" (click)="store.focus.set('paint')">
+              <!-- TODO add functionality -->
+              <toolbar-item left-text="Undo" (click)="undoHandler()" />
+              <toolbar-item left-text="Repeat" (click)="repeatHandler()" />
+            </toolbar-menu>
+          </toolbar-button>
+
+          <toolbar-button text="View" [class.active]="menuFocus === 'view'" (click)="menuFocus = toolbarButtonHelper($event, 'view')" (mouseover)="toolbarHoverHelper('view')">
+            <toolbar-menu class="top-level-menu" [class.visible]="menuFocus === 'view'" (click)="store.focus.set('paint')">
+              <!-- TODO add functionality -->
+              <toolbar-item left-text="Zoom" (click)="zoomHandler()" />
+            </toolbar-menu>
+          </toolbar-button>
+
+          <toolbar-button text="Image" [class.active]="menuFocus === 'image'" (click)="menuFocus = toolbarButtonHelper($event, 'image')" (mouseover)="toolbarHoverHelper('image')">
+            <toolbar-menu class="top-level-menu" [class.visible]="menuFocus === 'image'" (click)="store.focus.set('paint')">
+              <!-- TODO add functionality -->
+              <toolbar-item left-text="Clear Image" (click)="setNewCanvas()" />
+            </toolbar-menu>
+          </toolbar-button>
+
+          <!-- <toolbar-button text="Options" [class.active]="menuFocus === 'options'" (click)="menuFocus = toolbarButtonHelper($event, 'options')" (mouseover)="toolbarHoverHelper('options')">
+            <toolbar-menu class="top-level-menu" [class.visible]="menuFocus === 'options'" (click)="store.focus.set('paint')">
+
+            </toolbar-menu>
+          </toolbar-button> -->
+
+          <!-- <toolbar-button text="Help" [class.active]="menuFocus === 'help'" (click)="menuFocus = toolbarButtonHelper($event, 'help')" (mouseover)="toolbarHoverHelper('help')">
+            <toolbar-menu class="top-level-menu" [class.visible]="menuFocus === 'help'" (click)="store.focus.set('paint')">
+
+            </toolbar-menu>
+          </toolbar-button> -->
         </div>
 
-        <div class="paint">
+        <div class="paint" (click)="menuFocus = ''">
 
         </div>
-        <div class="status-bar">
-          
+        <div class="status-bar" (click)="menuFocus = ''">
+
         </div>
       </div>
     </div>
