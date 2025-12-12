@@ -9,6 +9,7 @@ on:
       - 'package.json'
       - 'package-lock.json'
       - '.github'
+      - 'angular.json'
   pull_request:
     branches: [main]
     paths:
@@ -17,6 +18,7 @@ on:
       - 'package.json'
       - 'package-lock.json'
       - '.github'
+      - 'angular.json'
 
 jobs:
   test:
