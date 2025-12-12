@@ -19,13 +19,20 @@
         padding: 0px 2px;
         height: 100%;
 
+        $bar-heights: 28px;
+
         .toolbar {
-          @include toolbar-common();
+          @include toolbar-common($bar-heights);
           border-bottom: 2px solid $win-95-divider-top;
         }
 
         .paint {
+          height: calc(100% - (2 * $bar-heights) - 2px);
           border-top: 2px solid $win-95-divider-bottom;
+        }
+
+        .status-bar {
+          height: $bar-heights;
         }
       }
     }
