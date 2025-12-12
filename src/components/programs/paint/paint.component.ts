@@ -1,23 +1,16 @@
 import { Component, inject, ViewChild } from '@angular/core';
+import { AppService } from '../../../app/app.service';
 import { Coordinates } from '../../../interfaces/coordinates';
 import { ToolbarButtonComponent } from '../../ui/toolbar/toolbar-button/toolbar-button.component';
 import { ToolbarDividerComponent } from '../../ui/toolbar/toolbar-divider/toolbar-divider.component';
-import { ToolbarDropoutComponent } from '../../ui/toolbar/toolbar-dropout/toolbar-dropout.component';
 import { ToolbarItemComponent } from '../../ui/toolbar/toolbar-item/toolbar-item.component';
 import { ToolbarMenuComponent } from '../../ui/toolbar/toolbar-menu/toolbar-menu.component';
 import { WindowFrameComponent } from '../../window-frame/window-frame.component';
 import { PaintService } from './paint.service';
-import { AppService } from '../../../app/app.service';
 
 @Component({
   selector: 'paint',
-  imports: [
-    ToolbarButtonComponent,
-    ToolbarDividerComponent,
-    ToolbarItemComponent,
-    ToolbarMenuComponent,
-    WindowFrameComponent,
-  ],
+  imports: [ToolbarButtonComponent, ToolbarDividerComponent, ToolbarItemComponent, ToolbarMenuComponent, WindowFrameComponent],
   templateUrl: './paint.component.html',
   styleUrl: './paint.component.scss',
 })
@@ -28,7 +21,7 @@ export class PaintProgram {
   protected paintService: PaintService = inject(PaintService);
 
   protected menuFocus: string = '';
-  private readonly toolbarButtons = ['file', 'edit', 'view', 'image', 'options', 'help'];
+  private readonly toolbarButtons: Array<string> = ['file', 'edit', 'view', 'image', 'options', 'help'];
 
   protected coord: Coordinates = {
     x: 0,
@@ -59,30 +52,22 @@ export class PaintProgram {
   /**
    * @description clears HTML canvas
    */
-  protected setNewCanvas(): void {
-
-  }
+  protected setNewCanvas(): void {}
 
   /**
    * @description saves HTML canvas drawing to PNG
    */
-  protected saveDrawing(): void {
-
-  }
+  protected saveDrawing(): void {}
 
   /**
    * @description opens HTML canvas drawing in browser printer dialog
    */
-  protected printDrawing(): void {
-
-  }
+  protected printDrawing(): void {}
 
   /**
    * @description opens email client with HTML canvas drawing prepopulated
    */
-  protected sendDrawing(): void {
-
-  }
+  protected sendDrawing(): void {}
 
   /**
    * @description Closes Paint window
@@ -94,23 +79,15 @@ export class PaintProgram {
   /**
    * @description undoes recent operations
    */
-  protected undoHandler(): void {
-
-  }
+  protected undoHandler(): void {}
 
   /**
    * @description repeats undone operations
    */
-  protected repeatHandler(): void {
-
-  }
+  protected repeatHandler(): void {}
 
   /**
    * @description zooms HTML canvas
    */
-  protected zoomHandler(): void {
-
-  }
-
-
+  protected zoomHandler(): void {}
 }

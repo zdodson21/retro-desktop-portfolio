@@ -1,12 +1,12 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, inject, OnInit } from '@angular/core';
 import { AppService } from '../../../app/app.service';
+import { SystemService } from '../../../services/system/system.service';
 import { ToolbarButtonComponent } from '../../ui/toolbar/toolbar-button/toolbar-button.component';
 import { ToolbarItemComponent } from '../../ui/toolbar/toolbar-item/toolbar-item.component';
 import { ToolbarMenuComponent } from '../../ui/toolbar/toolbar-menu/toolbar-menu.component';
 import { WindowFrameComponent } from '../../window-frame/window-frame.component';
 import { CalculatorButtonComponent } from './components/calculator-button/calculator-button.component';
-import { SystemService } from '../../../services/system/system.service';
 
 @Component({
   selector: 'calculator',
@@ -18,6 +18,7 @@ export class CalculatorComponent implements OnInit {
   // ! Window Management / Control
   protected isScientific: boolean = false;
   protected menuFocus: string = '';
+  private readonly toolbarButtons: Array<string> = ['edit', 'view', 'help'];
   protected store: AppService = inject(AppService);
   protected systemService: SystemService = inject(SystemService);
 
@@ -542,9 +543,8 @@ export class CalculatorComponent implements OnInit {
    */
   protected toolbarButtonHelper(event: MouseEvent, button: string): string {
     event?.stopPropagation();
-    if (button === 'edit' && this.menuFocus === '') return 'edit';
-    if (button === 'view' && this.menuFocus === '') return 'view';
-    if (button === 'help' && this.menuFocus === '') return 'help';
+
+    if (this.menuFocus === '' && this.toolbarButtons.includes(button)) return button;
 
     return '';
   }
@@ -554,9 +554,7 @@ export class CalculatorComponent implements OnInit {
    * @param button label for the button and its menu
    */
   protected toolbarHoverHelper(button: string): void {
-    if (this.menuFocus === 'edit' || this.menuFocus === 'view' || this.menuFocus === 'help') {
-      this.menuFocus = button;
-    }
+    if (this.toolbarButtons.includes(this.menuFocus)) this.menuFocus = button;
   }
 
   /**
