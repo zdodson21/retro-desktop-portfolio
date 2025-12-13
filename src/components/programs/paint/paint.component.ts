@@ -23,31 +23,34 @@ export class PaintProgram implements AfterViewInit {
   protected menuFocus: string = '';
   private readonly toolbarButtons: Array<string> = ['file', 'edit', 'view', 'image', 'options', 'help'];
 
-  protected coord: Coordinates = {
-    x: 0,
-    y: 0,
-  };
-
-  @ViewChild('canvas') private canvas?: ElementRef<HTMLCanvasElement>;
+  @ViewChild('canvas') private canvas: ElementRef<HTMLCanvasElement>;
   private ctx: CanvasRenderingContext2D;
+  protected coord: Coordinates = { x: 0, y: 0 };
 
   ngAfterViewInit(): void {
-    this.ctx = this.canvas?.nativeElement.getContext("2d") as CanvasRenderingContext2D;
-    this.drawRectangle(10, 10, 100, 100, "yellow", "red") // TODO remove
+    this.ctx = this.canvas.nativeElement.getContext('2d') as CanvasRenderingContext2D;
+    this.drawRectangle(10, 10, 100, 100, 'yellow', 'red'); // TODO remove
   }
 
   // ! Canvas Functions
 
-  protected operationStart(): void {
+  protected performOperation(): void {}
 
-  }
+  /**
+   * @description draw straight lines in canvas space
+   * @protected
+   */
+  protected drawLine(startX: number, startY: number, endX: number, endY: number, strokeColor: string): void {
+    this.ctx.strokeStyle = strokeColor;
 
-  protected operationEnd(): void {
-
+    this.ctx.beginPath();
+    this.ctx.moveTo(startX, startY);
+    this.ctx.lineTo(endX, endY);
+    this.ctx.stroke();
   }
 
   /**
-   * @description draws rectangles in Canvas space
+   * @description draws rectangles in canvas space
    * @protected
    * @param startX starting x coordinate
    * @param startY starting y coordinate
@@ -56,7 +59,14 @@ export class PaintProgram implements AfterViewInit {
    * @param fillColor color for rectangle fill
    * @param borderColor color for rectangle stroke
    */
-  protected drawRectangle(startX: number, startY: number, endX: number, endY: number, fillColor: string | null, strokeColor: string | null): void {
+  protected drawRectangle(
+    startX: number,
+    startY: number,
+    endX: number,
+    endY: number,
+    fillColor: string | null,
+    strokeColor: string | null,
+  ): void {
     if (fillColor !== null) {
       this.ctx.fillStyle = fillColor;
       this.ctx.fillRect(startX, startY, endX, endY);
@@ -64,13 +74,14 @@ export class PaintProgram implements AfterViewInit {
 
     if (strokeColor !== null) {
       this.ctx.strokeStyle = strokeColor;
-      // TODO linewidth?
+      this.ctx.lineWidth = 1;
       this.ctx.strokeRect(startX, startY, endX, endY);
     }
   }
 
   /**
    * @description draws ellipses
+   * @protected
    * @param startX starting x coordinate
    * @param startY starting y coordinate
    * @param endX ending x coordinate
@@ -78,15 +89,20 @@ export class PaintProgram implements AfterViewInit {
    * @param fillColor color for ellipse fill
    * @param borderColor color for ellipse stroke
    */
-  protected drawEllipse(startX: number, startY: number, endX: number, endY: number, fillColor: string | null, strokeColor: string | null): void {
+  protected drawEllipse(
+    startX: number,
+    startY: number,
+    endX: number,
+    endY: number,
+    fillColor: string | null,
+    strokeColor: string | null,
+  ): void {
     // TODO ellipse fill
     if (fillColor !== null) {
-
     }
 
     // TODO ellipse stroke
     if (strokeColor !== null) {
-
     }
   }
 
@@ -94,6 +110,7 @@ export class PaintProgram implements AfterViewInit {
 
   /**
    * @description support toolbar button operations
+   * @protected
    * @param event Mouse event
    * @param button button label string
    */
@@ -107,6 +124,7 @@ export class PaintProgram implements AfterViewInit {
 
   /**
    * @description support toolbar button hover operations
+   * @protected
    * @param button button label string
    */
   protected toolbarHoverHelper(button: string): void {
@@ -115,26 +133,33 @@ export class PaintProgram implements AfterViewInit {
 
   /**
    * @description clears HTML canvas
+   * @protected
    */
-  protected setNewCanvas(): void {}
+  protected setNewCanvas(): void {
+    this.ctx.clearRect(0, 0, this.canvas.nativeElement.width, this.canvas.nativeElement.height);
+  }
 
   /**
    * @description saves HTML canvas drawing to PNG
+   * @protected
    */
   protected saveDrawing(): void {}
 
   /**
    * @description opens HTML canvas drawing in browser printer dialog
+   * @protected
    */
   protected printDrawing(): void {}
 
   /**
    * @description opens email client with HTML canvas drawing prepopulated
+   * @protected
    */
   protected sendDrawing(): void {}
 
   /**
    * @description Closes Paint window
+   * @protected
    */
   protected exitHandler(): void {
     this.windowFrame?.closeButtonHandler();
@@ -142,16 +167,19 @@ export class PaintProgram implements AfterViewInit {
 
   /**
    * @description undoes recent operations
+   * @protected
    */
   protected undoHandler(): void {}
 
   /**
    * @description repeats undone operations
+   * @protected
    */
   protected repeatHandler(): void {}
 
   /**
    * @description zooms HTML canvas
+   * @protected
    */
   protected zoomHandler(): void {}
 }

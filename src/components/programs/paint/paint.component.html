@@ -68,16 +68,20 @@
               <canvas #canvas width="1024" height="768"></canvas>
             </div>
           </div>
-          <div class="bottom">
 
+          <div class="bottom">
+            <!-- Color picker goes here -->
           </div>
         </div>
+        
         <div class="status-bar" (click)="menuFocus = ''">
           <div class="description">
 
           </div>
-          <div class="coordinates">
 
+          <div class="coordinates">
+            <img src="assets/icons/paint/coord-icon.svg" alt="coordinates icon">
+            <p>{{ coord.x }},{{ coord.y }}</p>
           </div>
         </div>
       </div>
