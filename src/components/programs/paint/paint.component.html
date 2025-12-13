@@ -60,7 +60,9 @@
 
         <div class="paint" (click)="menuFocus = ''">
           <div class="top">
-            <div class="tools"></div>
+            <div class="tools">
+              <!-- Tool buttons go here -->
+            </div>
 
             <div class="canvas-container">
               <canvas #canvas width="1024" height="768"></canvas>
@@ -68,7 +70,20 @@
           </div>
 
           <div class="bottom">
-            <!-- Color picker goes here -->
+            <div class="selected-colors"></div>
+            <div class="color-rows">
+              <div class="row top-row">
+                @for (color of paintService.topColorRow; track $index) {
+                  <paint-color-option [color]="color" />
+                }
+              </div>
+
+              <div class="row bottom-row">
+                @for (color of paintService.bottomColorRow; track $index) {
+                  <paint-color-option [color]="color" />
+                }
+              </div>
+            </div>
           </div>
         </div>
 

@@ -7,10 +7,11 @@ import { ToolbarItemComponent } from '../../ui/toolbar/toolbar-item/toolbar-item
 import { ToolbarMenuComponent } from '../../ui/toolbar/toolbar-menu/toolbar-menu.component';
 import { WindowFrameComponent } from '../../window-frame/window-frame.component';
 import { PaintService } from './paint.service';
+import { PaintColorOptionComponent } from './components/paint-color-option/paint-color-option.component';
 
 @Component({
   selector: 'paint',
-  imports: [ToolbarButtonComponent, ToolbarDividerComponent, ToolbarItemComponent, ToolbarMenuComponent, WindowFrameComponent],
+  imports: [PaintColorOptionComponent , ToolbarButtonComponent, ToolbarDividerComponent, ToolbarItemComponent, ToolbarMenuComponent, WindowFrameComponent],
   templateUrl: './paint.component.html',
   styleUrl: './paint.component.scss',
 })
