@@ -4,7 +4,8 @@
   @include site-common();
 
   section {
-    .formula-container, .agmean {
+    .formula-container,
+    .agmean {
       display: flex;
       flex-direction: column;
       justify-content: center;

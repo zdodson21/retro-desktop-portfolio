@@ -11,8 +11,7 @@ describe('PaintComponent', () => {
     await TestBed.configureTestingModule({
       imports: [PaintProgram],
       providers: [provideRouter([])],
-    })
-    .compileComponents();
+    }).compileComponents();
 
     fixture = TestBed.createComponent(PaintProgram);
     component = fixture.componentInstance;
@@ -50,5 +49,21 @@ describe('PaintComponent', () => {
     it('must have space for toolbar', () => {
       expect(compiled.querySelector('.toolbar')).toBeTruthy();
     });
-  })
+
+    describe('Canvas', () => {
+      const CANVAS_DOM_PATH = '.paint > .top > .canvas-container > canvas';
+
+      it('must exist in proper spot', () => {
+        expect(compiled.querySelector(CANVAS_DOM_PATH)).toBeTruthy();
+      });
+
+      it('must have proper width', () => {
+        expect(compiled.querySelector(CANVAS_DOM_PATH)?.getAttribute('width')).toBe('1024');
+      });
+
+      it('must have proper height', () => {
+        expect(compiled.querySelector(CANVAS_DOM_PATH)?.getAttribute('height')).toBe('768');
+      });
+    });
+  });
 });

@@ -136,7 +136,7 @@ export class InternetExplorerComponent implements OnInit, AfterViewInit {
   protected toolbarButtonHelper(event: MouseEvent, button: string): string {
     event?.stopPropagation();
 
-    if (this.menuFocus === '' && this.toolbarButtons.includes(button)) return button
+    if (this.menuFocus === '' && this.toolbarButtons.includes(button)) return button;
 
     return '';
   }

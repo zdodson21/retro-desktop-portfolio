@@ -6,6 +6,4 @@ import { Component } from '@angular/core';
   templateUrl: './paint-tool.component.html',
   styleUrl: './paint-tool.component.scss',
 })
-export class PaintToolComponent {
-
-}
+export class PaintToolComponent {}

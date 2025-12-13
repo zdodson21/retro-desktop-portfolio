@@ -6,6 +6,4 @@ import { Component } from '@angular/core';
   templateUrl: './color-option.component.html',
   styleUrl: './color-option.component.scss',
 })
-export class ColorOptionComponent {
-
-}
+export class ColorOptionComponent {}

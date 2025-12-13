@@ -26,10 +26,10 @@ export class StandardButtonComponent {
     this.text = `${firstChar}${restOfString}`;
   }
 
-  protected hover(): void  {
+  protected hover(): void {
     this.hovered = true;
 
-    if (this.IEService.statusBarIcon() !== 'assets/icons/windows-help.webp'){
+    if (this.IEService.statusBarIcon() !== 'assets/icons/windows-help.webp') {
       this.prevIcon = this.IEService.statusBarIcon();
     }
 
@@ -39,7 +39,7 @@ export class StandardButtonComponent {
 
     console.log(this.prevIcon);
 
-    this.IEService.statusBarIcon.set('assets/icons/windows-help.webp')
+    this.IEService.statusBarIcon.set('assets/icons/windows-help.webp');
     this.IEService.statusBarContent.set(this.buttonHint);
   }
 

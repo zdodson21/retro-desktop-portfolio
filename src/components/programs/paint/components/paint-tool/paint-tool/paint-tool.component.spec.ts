@@ -8,9 +8,8 @@ describe('PaintToolComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [PaintToolComponent]
-    })
-    .compileComponents();
+      imports: [PaintToolComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(PaintToolComponent);
     component = fixture.componentInstance;

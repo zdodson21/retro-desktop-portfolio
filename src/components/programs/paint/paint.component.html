@@ -6,20 +6,20 @@
           <toolbar-button text="File" [class.active]="menuFocus === 'file'" (click)="menuFocus = toolbarButtonHelper($event, 'file')" (mouseover)="toolbarHoverHelper('file')">
             <toolbar-menu class="top-level-menu" [class.visible]="menuFocus === 'file'" (click)="store.focus.set('paint')">
               <!-- TODO add functionality -->
-              <toolbar-item left-text="New" (click)="setNewCanvas()"/>
-              <toolbar-item left-text="Save" (click)="saveDrawing()"/>
+              <toolbar-item left-text="New" (click)="setNewCanvas()" />
+              <toolbar-item left-text="Save" (click)="saveDrawing()" />
 
               <toolbar-divider />
 
-              <toolbar-item left-text="Print" (click)="printDrawing()"/>
+              <toolbar-item left-text="Print" (click)="printDrawing()" />
 
               <toolbar-divider />
 
-              <toolbar-item left-text="Send" (click)="sendDrawing()"/>
+              <toolbar-item left-text="Send" (click)="sendDrawing()" />
 
               <toolbar-divider />
 
-              <toolbar-item left-text="Exit" (click)="exitHandler()"/>
+              <toolbar-item left-text="Exit" (click)="exitHandler()" />
             </toolbar-menu>
           </toolbar-button>
 
@@ -60,9 +60,7 @@
 
         <div class="paint" (click)="menuFocus = ''">
           <div class="top">
-            <div class="tools">
-
-            </div>
+            <div class="tools"></div>
 
             <div class="canvas-container">
               <canvas #canvas width="1024" height="768"></canvas>
@@ -73,14 +71,12 @@
             <!-- Color picker goes here -->
           </div>
         </div>
-        
-        <div class="status-bar" (click)="menuFocus = ''">
-          <div class="description">
 
-          </div>
+        <div class="status-bar" (click)="menuFocus = ''">
+          <div class="description"></div>
 
           <div class="coordinates">
-            <img src="assets/icons/paint/coord-icon.svg" alt="coordinates icon">
+            <img src="assets/icons/paint/coord-icon.svg" alt="coordinates icon" />
             <p>{{ coord.x }},{{ coord.y }}</p>
           </div>
         </div>
