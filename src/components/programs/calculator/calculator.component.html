@@ -16,11 +16,14 @@
             </toolbar-menu>
           </toolbar-button>
 
-          <toolbar-button text="Help" [class.active]="menuFocus === 'help'" (click)="menuFocus = toolbarButtonHelper($event, 'help')" (mouseover)="toolbarHoverHelper('help')">
-            <toolbar-menu class="top-level-menu" [class.visible]="menuFocus === 'help'" (click)="store.focus.set('calculator')">
-              <toolbar-item left-text="(Dev) Test WASM" (click)="callWasmFunctions()" />
-            </toolbar-menu>
-          </toolbar-button>
+          <!-- TODO continue here, get this to work properly -->
+          @if (devMode) {
+            <toolbar-button text="Help" [class.active]="menuFocus === 'help'" (click)="menuFocus = toolbarButtonHelper($event, 'help')" (mouseover)="toolbarHoverHelper('help')">
+              <toolbar-menu class="top-level-menu" [class.visible]="menuFocus === 'help'" (click)="store.focus.set('calculator')">
+                <toolbar-item left-text="(Dev) Test WASM" (click)="callWasmFunctions()" />
+              </toolbar-menu>
+            </toolbar-button>
+          }
         </div>
 
         <div class="calculator" (click)="menuFocus = ''">

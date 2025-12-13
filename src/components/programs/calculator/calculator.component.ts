@@ -7,6 +7,7 @@ import { ToolbarItemComponent } from '../../ui/toolbar/toolbar-item/toolbar-item
 import { ToolbarMenuComponent } from '../../ui/toolbar/toolbar-menu/toolbar-menu.component';
 import { WindowFrameComponent } from '../../window-frame/window-frame.component';
 import { CalculatorButtonComponent } from './components/calculator-button/calculator-button.component';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'calculator',
@@ -21,6 +22,7 @@ export class CalculatorComponent implements OnInit {
   private readonly toolbarButtons: Array<string> = ['edit', 'view', 'help'];
   protected store: AppService = inject(AppService);
   protected systemService: SystemService = inject(SystemService);
+  protected devMode: boolean = environment.devMode;
 
   // ! Calculator Modes
   protected mode: number = 1; // 0 = Hex | 1 = Dec | 2 = Oct | 3 = Bin
