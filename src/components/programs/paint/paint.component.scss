@@ -29,6 +29,25 @@
         .paint {
           height: calc(100% - (2 * $bar-heights) - 2px);
           border-top: 2px solid $win-95-divider-bottom;
+
+          .top {
+            display: flex;
+            flex-direction: row;
+
+            $tool-width: 20px; // TODO set
+
+            .tools {
+              width: $tool-width;
+            }
+
+            .canvas-container {
+              width: calc(100% - $tool-width);
+
+              canvas {
+                background-color: white;
+              }
+            }
+          }
         }
 
         .status-bar {

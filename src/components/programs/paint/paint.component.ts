@@ -1,4 +1,4 @@
-import { Component, inject, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, inject, ViewChild } from '@angular/core';
 import { AppService } from '../../../app/app.service';
 import { Coordinates } from '../../../interfaces/coordinates';
 import { ToolbarButtonComponent } from '../../ui/toolbar/toolbar-button/toolbar-button.component';
@@ -14,7 +14,7 @@ import { PaintService } from './paint.service';
   templateUrl: './paint.component.html',
   styleUrl: './paint.component.scss',
 })
-export class PaintProgram {
+export class PaintProgram implements AfterViewInit {
   @ViewChild('windowFrame') private windowFrame?: WindowFrameComponent;
 
   protected store: AppService = inject(AppService);
@@ -27,6 +27,70 @@ export class PaintProgram {
     x: 0,
     y: 0,
   };
+
+  @ViewChild('canvas') private canvas?: ElementRef<HTMLCanvasElement>;
+  private ctx: CanvasRenderingContext2D;
+
+  ngAfterViewInit(): void {
+    this.ctx = this.canvas?.nativeElement.getContext("2d") as CanvasRenderingContext2D;
+    this.drawRectangle(10, 10, 100, 100, "yellow", "red") // TODO remove
+  }
+
+  // ! Canvas Functions
+
+  protected operationStart(): void {
+
+  }
+
+  protected operationEnd(): void {
+
+  }
+
+  /**
+   * @description draws rectangles in Canvas space
+   * @protected
+   * @param startX starting x coordinate
+   * @param startY starting y coordinate
+   * @param endX ending x coordinate
+   * @param endY ending y coordinate
+   * @param fillColor color for rectangle fill
+   * @param borderColor color for rectangle stroke
+   */
+  protected drawRectangle(startX: number, startY: number, endX: number, endY: number, fillColor: string | null, strokeColor: string | null): void {
+    if (fillColor !== null) {
+      this.ctx.fillStyle = fillColor;
+      this.ctx.fillRect(startX, startY, endX, endY);
+    }
+
+    if (strokeColor !== null) {
+      this.ctx.strokeStyle = strokeColor;
+      // TODO linewidth?
+      this.ctx.strokeRect(startX, startY, endX, endY);
+    }
+  }
+
+  /**
+   * @description draws ellipses
+   * @param startX starting x coordinate
+   * @param startY starting y coordinate
+   * @param endX ending x coordinate
+   * @param endY ending y coordinate
+   * @param fillColor color for ellipse fill
+   * @param borderColor color for ellipse stroke
+   */
+  protected drawEllipse(startX: number, startY: number, endX: number, endY: number, fillColor: string | null, strokeColor: string | null): void {
+    // TODO ellipse fill
+    if (fillColor !== null) {
+
+    }
+
+    // TODO ellipse stroke
+    if (strokeColor !== null) {
+
+    }
+  }
+
+  // ! Toolbar functions
 
   /**
    * @description support toolbar button operations
