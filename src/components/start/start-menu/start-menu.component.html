@@ -32,11 +32,15 @@
                 <start-subitem icon="assets/icons/windows-explorer.webp" program-name="Windows Explorer" focus-name="windows-explorer" />
               </start-submenu>
             </start-subdropout>
-            <!-- <start-subdropout icon="assets/icons/control-panel.webp" text="In Development">
-              <start-submenu>
-                <start-subitem icon="assets/icons/paint.webp" program-name="Paint" focus-name="paint" />
-              </start-submenu>
-            </start-subdropout> -->
+
+            @if (devMode) {
+              <start-subdropout icon="assets/icons/control-panel.webp" text="In Development">
+                <start-submenu>
+                  <start-subitem icon="assets/icons/paint.webp" program-name="Paint" focus-name="paint" />
+                </start-submenu>
+              </start-subdropout>
+            }
+
             <start-subitem icon="assets/icons/internet-explorer.webp" program-name="Internet Explorer" focus-name="internet-explorer" />
             <!-- <start-subitem icon="assets/icons/msdos.webp" program-name="MSDOS Prompt" focus-name="msdos-prompt" /> -->
             <start-subitem icon="assets/icons/windows-explorer.webp" program-name="Windows Explorer" focus-name="windows-explorer" />

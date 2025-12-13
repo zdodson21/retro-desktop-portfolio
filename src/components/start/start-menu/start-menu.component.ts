@@ -1,4 +1,4 @@
-import { Component, effect, ElementRef, inject, Renderer2 } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { AppService } from '../../../app/app.service';
 import { StartDropoutComponent } from '../start-dropdown/start-dropout.component';
 import { StartItemComponent } from '../start-item/start-item.component';
@@ -7,6 +7,7 @@ import { StartSubdropoutComponent } from '../start-subdropout/start-subdropout.c
 import { StartSubitemComponent } from '../start-subitem/start-subitem.component';
 import { StartSubmenuComponent } from '../start-submenu/start-submenu.component';
 import { SystemService } from '../../../services/system/system.service';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'start-menu',
@@ -24,6 +25,7 @@ import { SystemService } from '../../../services/system/system.service';
 export class StartMenuComponent {
   private store: AppService = inject(AppService);
   protected systemService: SystemService = inject(SystemService);
+  protected devMode: boolean = environment.devMode;
 
   /**
    * @description sets focus to "start-menu"
