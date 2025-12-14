@@ -32,8 +32,8 @@ export class PaintProgram implements AfterViewInit {
   protected currDescription: string = 'For Help, click Help Topics on the Help Menu';
 
   ngAfterViewInit(): void {
-    this.ctx = this.canvas.nativeElement.getContext('2d') as CanvasRenderingContext2D;
-    this.drawRectangle(10, 10, 100, 100, 'yellow', 'red'); // TODO remove, here for canvas testing
+    this.ctx = this.canvas?.nativeElement.getContext('2d') as CanvasRenderingContext2D;
+    // this.drawRectangle(10, 10, 100, 100, 'yellow', 'red'); // TODO remove, here for canvas testing
   }
 
   // ! Canvas Functions

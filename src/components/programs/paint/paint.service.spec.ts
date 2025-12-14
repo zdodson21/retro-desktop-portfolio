@@ -59,11 +59,11 @@ describe('PaintService', () => {
 
   describe('Default', () => {
     it('primary color should be black', () => {
-      expect(service.primaryColor).toBe('#000000');
+      expect(service.primaryColor()).toBe('#000000');
     });
 
     it('secondary color should be white', () => {
-      expect(service.secondaryColor).toBe('#FFFFFF');
+      expect(service.secondaryColor()).toBe('#FFFFFF');
     });
 
     it('selected tool should be "pencil"', () => {
