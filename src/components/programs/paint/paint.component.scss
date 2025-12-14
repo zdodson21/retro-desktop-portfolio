@@ -27,15 +27,20 @@
         }
 
         .paint {
-          height: calc(100% - (2 * $bar-heights) - 2px);
+          height: calc(100% - (2 * $bar-heights) - 6px);
           border-top: 2px solid $win-95-divider-bottom;
+          border-bottom: 2px solid $win-95-divider-top;
+
+          $bottom-height: 52px;
 
           .top {
             display: flex;
             flex-direction: row;
+            height: calc(100% - $bottom-height - 6px);
+            border-bottom: 2px solid $win-95-divider-top;
 
             // Set based on width of canvas, tool area should expand when canvas area reaches its max-width (1024)
-            $tool-width: 20px; // TODO set
+            $tool-width: 20px;
 
             .tools {
               width: $tool-width;
@@ -51,20 +56,67 @@
           }
 
           .bottom {
-            .selected-colors {
+            $color-square-gap: 3px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: $color-square-gap;
+            height: $bottom-height;
+            border-top: 2px solid $win-95-divider-bottom;
 
+            @mixin set-color-box() {
+              $dimension: 16px;
+
+              display: block;
+              width: $dimension;
+              height: $dimension;
+            }
+
+            .selected-colors {
+              // TODO refine before publish, fine for now.
+              background-color: #E0E0E0;
+
+              $black-border: 2px solid black;
+              $white-border: 2px solid white;
+              border-top: $black-border;
+              border-right: $white-border;
+              border-bottom: $white-border;
+              border-left: $black-border;
+
+              width: 38px;
+              height: 38px;
+
+              paint-color-option {
+                @include set-color-box();
+
+                &.secondary {
+                  position: relative;
+                  top: 14px;
+                  left: 14px;
+                }
+
+                &.primary {
+                  position: relative;
+                  bottom: 10px;
+                  left: 6px;
+                }
+              }
             }
 
             .color-rows {
-
+              display: flex;
+              flex-direction: column;
+              gap: $color-square-gap;
+              height: 38px;
             }
 
             .row {
+              display: flex;
+              flex-direction: row;
+              gap: $color-square-gap;
 
               paint-color-option {
-                display: block;
-                width: 24px;
-                height: 24px;
+                @include set-color-box();
               }
             }
           }
@@ -72,8 +124,14 @@
 
         .status-bar {
           height: $bar-heights;
+          background-color: $win-95-grey;
+          display: flex;
+          flex-direction: row;
+          font-size: 12px;
+          border-top: 2px solid $win-95-divider-bottom;
 
           .description {
+            align-content: center;
           }
 
           .coordinates {
@@ -81,6 +139,10 @@
             flex-direction: row;
             align-items: center;
             gap: 2px;
+
+            img {
+              @include icon-common();
+            }
           }
         }
       }

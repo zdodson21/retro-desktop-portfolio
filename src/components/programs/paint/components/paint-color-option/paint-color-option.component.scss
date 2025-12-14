@@ -1,4 +1,9 @@
 .paint-color-option-wrapper {
   height: 100%;
   width: 100%;
+
+  border-top: 2px inset black;
+  border-right: 2px solid white;
+  border-bottom: 2px solid white;
+  border-left: 2px inset black;
 }

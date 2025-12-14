@@ -1,10 +1,10 @@
-import { Injectable } from '@angular/core';
+import { Injectable, signal, WritableSignal } from '@angular/core';
 
 @Injectable({
   providedIn: 'root',
 })
 export class PaintService {
-  public topColorRow: Array<string> = [
+  public readonly topColorRow: Array<string> = [
     '#000000',
     '#808080',
     '#800000',
@@ -21,7 +21,7 @@ export class PaintService {
     '#804000',
   ];
 
-  public bottomColorRow: Array<string> = [
+  public readonly bottomColorRow: Array<string> = [
     '#FFFFFF',
     '#C0C0C0',
     '#FF0000',
@@ -38,8 +38,8 @@ export class PaintService {
     '#FF8040',
   ];
 
-  public primaryColor: string = '#000000';
-  public secondaryColor: string = '#FFFFFF';
+  public primaryColor: WritableSignal<string> = signal('#000000');
+  public secondaryColor: WritableSignal<string> = signal('#FFFFFF');
 
   public currTool: string = 'pencil';
 }

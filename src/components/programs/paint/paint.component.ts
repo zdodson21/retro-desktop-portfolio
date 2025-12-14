@@ -8,10 +8,11 @@ import { ToolbarMenuComponent } from '../../ui/toolbar/toolbar-menu/toolbar-menu
 import { WindowFrameComponent } from '../../window-frame/window-frame.component';
 import { PaintService } from './paint.service';
 import { PaintColorOptionComponent } from './components/paint-color-option/paint-color-option.component';
+import { DisableRightClickDirective } from '../../../directives/disable-right-click/disable-right-click.directive';
 
 @Component({
   selector: 'paint',
-  imports: [PaintColorOptionComponent , ToolbarButtonComponent, ToolbarDividerComponent, ToolbarItemComponent, ToolbarMenuComponent, WindowFrameComponent],
+  imports: [PaintColorOptionComponent, ToolbarButtonComponent, ToolbarDividerComponent, ToolbarItemComponent, ToolbarMenuComponent, WindowFrameComponent, DisableRightClickDirective],
   templateUrl: './paint.component.html',
   styleUrl: './paint.component.scss',
 })
@@ -28,14 +29,22 @@ export class PaintProgram implements AfterViewInit {
   private ctx: CanvasRenderingContext2D;
   protected coord: Coordinates = { x: 0, y: 0 };
 
+  protected currDescription: string = 'For Help, click Help Topics on the Help Menu';
+
   ngAfterViewInit(): void {
     this.ctx = this.canvas.nativeElement.getContext('2d') as CanvasRenderingContext2D;
-    this.drawRectangle(10, 10, 100, 100, 'yellow', 'red'); // TODO remove
+    this.drawRectangle(10, 10, 100, 100, 'yellow', 'red'); // TODO remove, here for canvas testing
   }
 
   // ! Canvas Functions
 
   protected performOperation(): void {}
+
+  protected setColors(event: MouseEvent, color: string, setPrimary: boolean = true): void {
+    event.preventDefault;
+
+    setPrimary ? this.paintService.primaryColor.set(color) : this.paintService.secondaryColor.set(color);
+  }
 
   /**
    * @description draw straight lines in canvas space

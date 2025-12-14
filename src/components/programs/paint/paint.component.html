@@ -65,22 +65,26 @@
             </div>
 
             <div class="canvas-container">
-              <canvas #canvas width="1024" height="768"></canvas>
+              <!-- <canvas #canvas width="1024" height="768"></canvas> -->
             </div>
           </div>
 
           <div class="bottom">
-            <div class="selected-colors"></div>
+            <div class="selected-colors">
+              <paint-color-option class="secondary" [color]="paintService.secondaryColor()" DisableRightClick />
+              <paint-color-option class="primary" [color]="paintService.primaryColor()" DisableRightClick />
+            </div>
+
             <div class="color-rows">
               <div class="row top-row">
                 @for (color of paintService.topColorRow; track $index) {
-                  <paint-color-option [color]="color" />
+                  <paint-color-option [color]="color" (click)="paintService.primaryColor.set(color)" (auxclick)="paintService.secondaryColor.set(color)" DisableRightClick />
                 }
               </div>
 
               <div class="row bottom-row">
                 @for (color of paintService.bottomColorRow; track $index) {
-                  <paint-color-option [color]="color" />
+                  <paint-color-option [color]="color" (click)="paintService.primaryColor.set(color)" (auxclick)="paintService.secondaryColor.set(color)" DisableRightClick />
                 }
               </div>
             </div>
@@ -88,7 +92,9 @@
         </div>
 
         <div class="status-bar" (click)="menuFocus = ''">
-          <div class="description"></div>
+          <div class="description">
+            <p>{{ currDescription }}</p>
+          </div>
 
           <div class="coordinates">
             <img src="assets/icons/paint/coord-icon.svg" alt="coordinates icon" />
