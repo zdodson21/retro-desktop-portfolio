@@ -8,6 +8,7 @@ import { ToolbarMenuComponent } from '../../ui/toolbar/toolbar-menu/toolbar-menu
 import { WindowFrameComponent } from '../../window-frame/window-frame.component';
 import { CalculatorButtonComponent } from './components/calculator-button/calculator-button.component';
 import { environment } from '../../../environments/environment';
+import { lastValueFrom } from 'rxjs';
 
 @Component({
   selector: 'calculator',
@@ -592,7 +593,7 @@ export class CalculatorComponent implements OnInit {
   // TODO fix deprecated .toPromise function
   private async loadWasm() {
     try {
-      const wasmBuffer = await this.http.get('wasm/calculator.wasm', { responseType: 'arraybuffer' }).toPromise();
+      const wasmBuffer = await lastValueFrom(this.http.get('wasm/calculator.wasm', { responseType: 'arraybuffer' }))
 
       const module = await WebAssembly.instantiate(wasmBuffer as ArrayBuffer);
       this.wasmModule = module;
