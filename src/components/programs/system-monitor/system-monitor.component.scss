@@ -46,8 +46,15 @@
         li {
           list-style-type: none;
 
+          &.open-program {
+            &:not(:last-child) {
+              border-bottom: dashed black 2px;
+            }
+          }
+
           &:not(:last-child) {
-            margin-bottom: 8px;
+            padding-bottom: 4px;
+            margin-bottom: 4px;
           }
         }
       }

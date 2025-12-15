@@ -51,17 +51,17 @@
       <figure class="program-states">
         <div class="open-programs">
           <figcaption>Open Programs</figcaption>
+          <ul>
           @for (program of windowService.openPrograms(); track program) {
-            <ul>
-              <li>
+              <li class="open-program">
                 <em>{{ program.programName }}</em>
+                <ul>
+                  <li>Focus Name: {{ program.focusName }}</li>
+                  <li>Icon Path: {{ program.iconPath }}</li>
+                </ul>
               </li>
-              <ul>
-                <li>Focus Name: {{ program.focusName }}</li>
-                <li>Icon Path: {{ program.iconPath }}</li>
-              </ul>
-            </ul>
-          }
+            }
+          </ul>
         </div>
         <div class="minimized-programs">
           <figcaption>Minimized Programs</figcaption>
