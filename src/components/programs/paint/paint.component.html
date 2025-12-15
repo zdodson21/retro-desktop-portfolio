@@ -82,6 +82,7 @@
             <div class="color-rows">
               <div class="row top-row">
                 @for (color of paintService.topColorRow; track $index) {
+                  <!-- TODO create a "listen for long press" directive -->
                   <paint-color-option [color]="color" (click)="paintService.primaryColor.set(color)" (auxclick)="paintService.secondaryColor.set(color)" DisableRightClick />
                 }
               </div>
