@@ -1,5 +1,5 @@
-@use "../../styles.scss" as *;
-@use "../../font.scss" as *;
+@use "../../scss/styles.scss" as *;
+@use "../../scss/font.scss" as *;
 
 @mixin site-common() {
   height: calc(100% - 8px);

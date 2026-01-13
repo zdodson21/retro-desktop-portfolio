@@ -1,5 +1,5 @@
 @use "../taskbar.scss" as *;
-@use "../../../colors.scss" as *;
+@use "../../../scss/colors.scss" as *;
 
 .taskbar-program-wrapper {
   @include taskbar-item-common();

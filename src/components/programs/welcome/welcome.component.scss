@@ -1,8 +1,8 @@
-@use "../../../styles.scss" as *;
+@use "../../../scss/styles.scss" as *;
 @use "../programs.scss" as *;
-@use "../../../colors.scss" as *;
+@use "../../../scss/colors.scss" as *;
 @use "../../ui/control-button.scss" as *;
-@use "../../../font.scss" as *;
+@use "../../../scss/font.scss" as *;
 
 .welcome-wrapper {
   @include program-common();

@@ -1,5 +1,5 @@
-@use "../colors.scss" as *;
-@use "../print.scss" as *;
+@use "../scss/colors.scss" as *;
+@use "../scss/print.scss" as *;
 
 .app-wrapper {
   background-color: $win-95-dark-cyan;

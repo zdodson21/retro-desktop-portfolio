@@ -1,7 +1,7 @@
 @use "../programs.scss" as *;
-@use "../../../styles.scss" as *;
+@use "../../../scss/styles.scss" as *;
 @use "../toolbar.scss" as *;
-@use "../../../colors.scss" as *;
+@use "../../../scss/colors.scss" as *;
 
 $black-border: 2px solid black;
 $white-border: 2px solid white;
