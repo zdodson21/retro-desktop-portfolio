@@ -9,15 +9,15 @@
     <div class="controls">
       @if (!hideButtons) {
         <div class="no-gap">
-          <button #minimizeButton class="minimize-button" (click)="minimizeButtonHandler($event)">
+          <button #minimizeButton class="minimize-button" (click)="minimizeButtonHandler($event)" [ariaLabel]="`Minimize ${focusName} window`">
             <img src="assets/icons/minimize-button.svg" alt="minimize icon" />
           </button>
-          <button #viewButton class="view-button" (click)="viewButtonHandler()" [disabled]="preventResizing">
+          <button #viewButton class="view-button" (click)="viewButtonHandler()" [disabled]="preventResizing" [ariaLabel]="isFullSize ? `Shrink ${focusName} window` : `Maximize ${focusName} window`">
             <img [src]="viewIcon" [alt]="isFullSize ? 'Window shrink button icon' : 'Window maximize button icon'" />
           </button>
         </div>
       }
-      <button class="close-button" (click)="closeButtonHandler($event)">
+      <button class="close-button" (click)="closeButtonHandler($event)" [ariaLabel]="`Close ${focusName} window`">
         <img src="assets/icons/close-button.svg" alt="close icon" />
       </button>
     </div>

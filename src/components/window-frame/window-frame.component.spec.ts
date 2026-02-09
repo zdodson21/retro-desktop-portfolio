@@ -96,4 +96,19 @@ describe('WindowFrameComponent', () => {
   it('must have space for window contents', () => {
     expect(compiled.querySelector('.window-body')).toBeTruthy();
   });
+
+  describe('Accessibility', () => {
+    describe('Window control buttons', () => {
+      it('should all have aria labels', () => {
+        const BUTTONS: NodeListOf<HTMLButtonElement> = compiled.querySelectorAll('button');
+        let allHaveAriaLabels: boolean = true;
+
+        BUTTONS.forEach(item => {
+          if (item.ariaLabel === null || item.ariaLabel === '') allHaveAriaLabels = false;
+        });
+
+        expect(allHaveAriaLabels).toBeTruthy();
+      });
+    });
+  });
 });

@@ -8,38 +8,38 @@
           </div>
 
           <!-- TODO clicking into toolbar area isn't setting focus??? -->
-          <toolbar-button text="File" [class.active]="menuFocus === 'file'" (click)="menuFocus = toolbarButtonHelper($event, 'file')" (mouseover)="toolbarHoverHelper('file')">
+          <toolbar-button text="File" [class.active]="menuFocus === 'file'" (click)="menuFocus = toolbarButtonHelper($event, 'file')" (mouseover)="toolbarHoverHelper('file')" [ariaLabel]="'Display file menu options'">
             <toolbar-menu class="top-level-menu" [class.visible]="menuFocus === 'file'" (click)="store.focus.set('internet-explorer')">
-              <toolbar-item left-text="Print" (click)="printButtonHelper()" [right-text]="getPrintCommand()" />
+              <toolbar-item left-text="Print" (click)="printButtonHelper()" [right-text]="getPrintCommand()" [ariaLabel]="`Print ${IEService.displayedSite()} web page`" />
 
               <toolbar-divider />
 
               <toolbar-dropout text="Send">
                 <toolbar-menu>
-                  <toolbar-item left-text="Copy Page URL" (click)="copyURLToClipboard()" />
+                  <toolbar-item left-text="Copy Page URL" (click)="copyURLToClipboard()" [ariaLabel]="`Copy ${IEService.displayedSite()} page URL`" />
 
                   <toolbar-divider></toolbar-divider>
 
-                  <toolbar-item left-text="Page by Email..." (click)="mailButtonHelper()" />
+                  <toolbar-item left-text="Page by Email..." (click)="mailButtonHelper()" [ariaLabel]="`Send ${IEService.displayedSite()} page URL via email`" />
                   @if (systemService.isMobile()) {
-                    <toolbar-item left-text="Share Menu" (click)="openShareMenu()" />
+                    <toolbar-item left-text="Share Menu" (click)="openShareMenu()" [ariaLabel]="`Open mobile device share menu to share ${IEService.displayedSite()} page URL`" />
                   }
                 </toolbar-menu>
               </toolbar-dropout>
 
               <toolbar-divider />
 
-              <toolbar-item left-text="Close" (click)="closeHandler()" />
+              <toolbar-item left-text="Close" (click)="closeHandler()" [ariaLabel]="`Close internet explorer window`" />
             </toolbar-menu>
           </toolbar-button>
 
-          <toolbar-button text="View" [class.active]="menuFocus === 'view'" (click)="menuFocus = toolbarButtonHelper($event, 'view')" (mouseover)="toolbarHoverHelper('view')">
+          <toolbar-button text="View" [class.active]="menuFocus === 'view'" (click)="menuFocus = toolbarButtonHelper($event, 'view')" (mouseover)="toolbarHoverHelper('view')" [ariaLabel]="'Display view menu options'">
             <toolbar-menu class="top-level-menu" [class.visible]="menuFocus === 'view'" (click)="store.focus.set('internet-explorer')">
               <toolbar-dropout text="Explorer Bar">
                 <toolbar-menu>
-                  <toolbar-item left-text="Search" (click)="openCloseSidebar(0, true)" [disabled]="sidebarContent === 0 && IEService.sidebar()" />
-                  <toolbar-item left-text="Favorites" (click)="openCloseSidebar(1, true)" [disabled]="sidebarContent === 1 && IEService.sidebar()" />
-                  <toolbar-item left-text="History" (click)="openCloseSidebar(2, true)" [disabled]="sidebarContent === 2 && IEService.sidebar()" />
+                  <toolbar-item left-text="Search" (click)="openCloseSidebar(0, true)" [disabled]="sidebarContent === 0 && IEService.sidebar()" [ariaLabel]="'Open search menu'" />
+                  <toolbar-item left-text="Favorites" (click)="openCloseSidebar(1, true)" [disabled]="sidebarContent === 1 && IEService.sidebar()" [ariaLabel]="'Open favorites menu'" />
+                  <toolbar-item left-text="History" (click)="openCloseSidebar(2, true)" [disabled]="sidebarContent === 2 && IEService.sidebar()" [ariaLabel]="'Open history menu'" />
                 </toolbar-menu>
               </toolbar-dropout>
 
@@ -47,42 +47,42 @@
 
               <toolbar-dropout text="Go To">
                 <toolbar-menu>
-                  <toolbar-item left-text="Home Page" (click)="routerNavigator('about-me')" />
+                  <toolbar-item left-text="Home Page" (click)="routerNavigator('about-me')" [ariaLabel]="'Display About Me page'" />
                   <toolbar-divider />
                   @for (site of IEService.possibleSites; track $index) {
-                    <toolbar-item [left-text]="formatButtonString(site.domain)" (click)="routerNavigator(site.domain)" />
+                    <toolbar-item [left-text]="formatButtonString(site.domain)" (click)="routerNavigator(site.domain)" [ariaLabel]="`Display ${site.domain} page`" />
                   }
                 </toolbar-menu>
               </toolbar-dropout>
 
-              <toolbar-item left-text="Stop" (click)="routerNavigator('error')" />
+              <toolbar-item left-text="Stop" (click)="routerNavigator('error')" [ariaLabel]="'Display error page'" />
 
-              <toolbar-item left-text="Refresh" (click)="refreshButtonHelper()" />
+              <toolbar-item left-text="Refresh" (click)="refreshButtonHelper()" [ariaLabel]="'Refresh current web address'" />
 
               <toolbar-divider />
 
-              <toolbar-item left-text="Dark Mode" (click)="setDarkMode()" />
-              <toolbar-item left-text="Full Screen" [disabled]="windowFrame.isFullSize" (click)="fullscreenHandler()" />
+              <toolbar-item left-text="Dark Mode" (click)="setDarkMode()" [ariaLabel]="`Switch to ${IEService.darkMode() ? 'light mode' : 'dark mode'}`" />
+              <toolbar-item left-text="Full Screen" [disabled]="windowFrame.isFullSize" (click)="fullscreenHandler()" [ariaLabel]="windowFrame.isFullSize ? 'Exit full size view' : 'Enter full size view'" />
             </toolbar-menu>
           </toolbar-button>
 
-          <toolbar-button text="Favorites" [class.active]="menuFocus === 'favorites'" (click)="menuFocus = toolbarButtonHelper($event, 'favorites')" (mouseover)="toolbarHoverHelper('favorites')">
+          <toolbar-button text="Favorites" [class.active]="menuFocus === 'favorites'" (click)="menuFocus = toolbarButtonHelper($event, 'favorites')" (mouseover)="toolbarHoverHelper('favorites')" [ariaLabel]="'Display favorites menu options'">
             <toolbar-menu class="top-level-menu" [class.visible]="menuFocus === 'favorites'" (click)="store.focus.set('internet-explorer')">
               <toolbar-dropout text="Personal Projects">
                 <toolbar-menu>
                   <!-- Website -->
-                  <toolbar-item left-text="Retro Desktop Portfolio" (click)="routerNavigator('retro-desktop-portfolio')" />
+                  <toolbar-item left-text="Retro Desktop Portfolio" (click)="routerNavigator('retro-desktop-portfolio')" [ariaLabel]="'Display retro desktop portfolio page'" />
 
                   <toolbar-divider />
 
                   <!-- Additional Site Programs -->
-                  <toolbar-item left-text="Calculator" (click)="routerNavigator('calculator')" />
+                  <toolbar-item left-text="Calculator" (click)="routerNavigator('calculator')" [ariaLabel]="'display calculator page'" />
 
                   <toolbar-divider />
 
                   <!-- Independent Projects -->
-                  <toolbar-item left-text="Py-Weather" (click)="routerNavigator('py-weather')" />
-                  <toolbar-item left-text="QR Maker" (click)="routerNavigator('qr-maker')" />
+                  <toolbar-item left-text="Py-Weather" (click)="routerNavigator('py-weather')" [ariaLabel]="'display py weather page'" />
+                  <toolbar-item left-text="QR Maker" (click)="routerNavigator('qr-maker')" [ariaLabel]="'display Q R maker page'" />
                 </toolbar-menu>
               </toolbar-dropout>
 
@@ -90,38 +90,38 @@
 
               <toolbar-dropout text="Prof. Experience">
                 <toolbar-menu>
-                  <toolbar-item left-text="About Me" (click)="routerNavigator('about-me')" />
+                  <toolbar-item left-text="About Me" (click)="routerNavigator('about-me')" [ariaLabel]="'display about me page'" />
                   <toolbar-divider />
-                  <toolbar-item left-text="HAX Chat Agent" (click)="routerNavigator('hax-chat-agent')" />
+                  <toolbar-item left-text="HAX Chat Agent" (click)="routerNavigator('hax-chat-agent')" [ariaLabel]="'hax chat agent'" />
                 </toolbar-menu>
               </toolbar-dropout>
 
               <toolbar-dropout text="Open Source">
                 <toolbar-menu>
                   <!-- General Contributions -->
-                  <toolbar-item left-text="Open Source Contributions" (click)="routerNavigator('open-source-contributions')" />
+                  <toolbar-item left-text="Open Source Contributions" (click)="routerNavigator('open-source-contributions')" [ariaLabel]="'display open source contributions page'" />
                   <toolbar-divider />
                   <!-- Big Contributions -->
-                  <toolbar-item left-text="HAX Chat Agent" (click)="routerNavigator('hax-chat-agent')" />
-                  <toolbar-item left-text="HAX Audit" (click)="routerNavigator('hax-audit')" />
+                  <toolbar-item left-text="HAX Chat Agent" (click)="routerNavigator('hax-chat-agent')" [ariaLabel]="'display hax chat agent page'" />
+                  <toolbar-item left-text="HAX Audit" (click)="routerNavigator('hax-audit')" [ariaLabel]="'display hax audit page'" />
                   <toolbar-divider />
                   <!-- My Open Source Projects -->
-                  <toolbar-item left-text="Calculator Library" (click)="routerNavigator('calculator')" />
-                  <toolbar-item left-text="Py-Weather" (click)="routerNavigator('py-weather')" />
-                  <toolbar-item left-text="QR Maker" (click)="routerNavigator('qr-maker')" />
+                  <toolbar-item left-text="Calculator Library" (click)="routerNavigator('calculator')" [ariaLabel]="'display calculator library page'" />
+                  <toolbar-item left-text="Py-Weather" (click)="routerNavigator('py-weather')" [ariaLabel]="'display py weather page'"  />
+                  <toolbar-item left-text="QR Maker" (click)="routerNavigator('qr-maker')" [ariaLabel]="'display Q R maker page'" />
                 </toolbar-menu>
               </toolbar-dropout>
             </toolbar-menu>
           </toolbar-button>
 
-          <toolbar-button text="Tools" [class.active]="menuFocus === 'tools'" (click)="menuFocus = toolbarButtonHelper($event, 'tools')" (mouseover)="toolbarHoverHelper('tools')">
+          <toolbar-button text="Tools" [class.active]="menuFocus === 'tools'" (click)="menuFocus = toolbarButtonHelper($event, 'tools')" (mouseover)="toolbarHoverHelper('tools')" [ariaLabel]="'Display tools menu options'">
             <toolbar-menu class="top-level-menu" [class.visible]="menuFocus === 'tools'" (click)="store.focus.set('internet-explorer')">
               <toolbar-dropout text="Mail and News">
                 <toolbar-menu>
                   <!-- TODO figure out something maybe for Read Mail -->
-                  <toolbar-item left-text="New Message..." (click)="newMessageHelper()" />
-                  <toolbar-item left-text="Send a Link..." (click)="copyURLToClipboard()" />
-                  <toolbar-item left-text="Send Page..." (click)="mailButtonHelper()" />
+                  <toolbar-item left-text="New Message..." (click)="newMessageHelper()" [ariaLabel]="'open your email client'" />
+                  <toolbar-item left-text="Send a Link..." (click)="copyURLToClipboard()" [ariaLabel]="'copy current web address'" />
+                  <toolbar-item left-text="Send Page..." (click)="mailButtonHelper()" [ariaLabel]="'open your email client with current web address prepopulated'" />
                   <!-- TODO Maybe a Show related links that auto populates search with a specific term per site -->
                   <!-- Above would require some additions to search feature (such as tag words per site, added to DNS) -->
                 </toolbar-menu>
@@ -137,25 +137,25 @@
           <div class="bar"></div>
         </div>
         <div class="explorer-buttons buttons">
-          <standard-button button-name="stop" button-hint="Display error page (refresh to undo)." (click)="routerNavigator('error')" />
-          <standard-button button-name="refresh" button-hint="Scroll to top of current page." (click)="refreshButtonHelper()" />
-          <standard-button button-name="home" button-hint='Navigate to "About Me" Page,' (click)="routerNavigator('about-me')" />
+          <standard-button button-name="stop" button-hint="Display error page (refresh to undo)." (click)="routerNavigator('error')" [ariaLabel]="'Display error page (refresh to undo).'" />
+          <standard-button button-name="refresh" button-hint="Scroll to top of current page." (click)="refreshButtonHelper()" [ariaLabel]="'Scroll to top of current page.'" />
+          <standard-button button-name="home" button-hint='Navigate to "About Me" Page.' (click)="routerNavigator('about-me')" [ariaLabel]="'Navigate to About Me Page.'" />
         </div>
         <div class="divider-container">
           <div class="divider"></div>
         </div>
         <div class="go-to-buttons buttons">
-          <standard-button button-name="search" button-hint="Search available sites." (click)="openCloseSidebar(0)" />
-          <standard-button button-name="favorites" button-hint="Display list of available sites." (click)="openCloseSidebar(1)" />
-          <standard-button button-name="history" button-hint="Display list of previously viewed sites." (click)="openCloseSidebar(2)" />
+          <standard-button button-name="search" button-hint="Search available sites." (click)="openCloseSidebar(0)" [ariaLabel]="'Search available sites.'" />
+          <standard-button button-name="favorites" button-hint="Display list of available sites." (click)="openCloseSidebar(1)" [ariaLabel]="'Display list of available sites.'" />
+          <standard-button button-name="history" button-hint="Display list of previously viewed sites." (click)="openCloseSidebar(2)" [ariaLabel]="'Display list of previously viewed sites.'" />
         </div>
         <div class="divider-container">
           <div class="divider"></div>
         </div>
         <div class="share-buttons buttons">
-          <standard-button button-name="copy" button-hint="Copy URL to current site to clipboard." (click)="copyURLToClipboard()" />
-          <standard-button button-name="mail" button-hint="Send URL to current site via Email client." (click)="mailButtonHelper()" />
-          <standard-button button-name="print" button-hint="Print current page." (click)="printButtonHelper()" />
+          <standard-button button-name="copy" button-hint="Copy URL to current site to clipboard." (click)="copyURLToClipboard()" [ariaLabel]="'Copy URL to current site to clipboard.'" />
+          <standard-button button-name="mail" button-hint="Send URL to current site via Email client." (click)="mailButtonHelper()" [ariaLabel]="'Send URL to current site via Email client.'" />
+          <standard-button button-name="print" button-hint="Print current page." (click)="printButtonHelper()" [ariaLabel]="'Print current page.'" />
         </div>
       </div>
 
@@ -173,7 +173,7 @@
             }
           </datalist>
         </div>
-        <button (mouseover)="goButtonHovered = true" (mouseleave)="goButtonHovered = false" (click)="goButtonHelper()">
+        <button (mouseover)="goButtonHovered = true" (mouseleave)="goButtonHovered = false" (click)="goButtonHelper()" [ariaLabel]="'Navigate to page typed into address bar'">
           <img [src]="goButtonHovered ? 'assets/icons/internet-explorer/go-button.webp' : 'assets/icons/internet-explorer/gray-go-button.webp'" [alt]="goButtonHovered ? 'go button' : 'gray go button'" />
           <p>Go</p>
         </button>

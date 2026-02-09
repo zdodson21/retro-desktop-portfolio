@@ -227,4 +227,45 @@ describe('InternetExplorerComponent', () => {
       });
     });
   });
+
+  describe('Accessiblity', () => {
+    describe('Toolbar buttons', () => {
+      it('must all have aria labels', () => {
+        const TOOLBAR_BUTTONS: NodeListOf<Element> = compiled.querySelectorAll('toolbar-button');
+        let allHaveAriaLabels: boolean = true;
+
+        TOOLBAR_BUTTONS.forEach((item) => {
+          if (item.ariaLabel === null || item.ariaLabel === '') allHaveAriaLabels = false;
+        });
+
+        expect(allHaveAriaLabels).toBeTruthy();
+      });
+    });
+
+    describe('Toolbar items', () => {
+      it('must all have aria labels', () => {
+        const TOOLBAR_ITEMS: NodeListOf<Element> = compiled.querySelectorAll('toolbar-item');
+        let allHaveAriaLabels: boolean = true;
+
+        TOOLBAR_ITEMS.forEach((item) => {
+          if (item.ariaLabel === null || item.ariaLabel === '') allHaveAriaLabels = false;
+        });
+
+        expect(allHaveAriaLabels).toBeTruthy();
+      });
+    });
+
+    describe('Standard buttons', () => {
+      it('must all have aria labels', () => {
+        const STANDARD_BUTTONS: NodeListOf<Element> = compiled.querySelectorAll('standard-button');
+        let allHaveAriaLabels: boolean = true;
+
+        STANDARD_BUTTONS.forEach((item) => {
+          if (item.ariaLabel === null || item.ariaLabel === '') allHaveAriaLabels = false;
+        });
+
+        expect(allHaveAriaLabels).toBeTruthy();
+      })
+    });
+  });
 });
