@@ -22,6 +22,6 @@ describe('StartSubmenuComponent', () => {
   });
 
   it('should have wrapper', () => {
-    expect(compiled.querySelector('.start-submenu-wrapper')).toBeTruthy();
+    expect(compiled.querySelector('menu')).toBeTruthy();
   });
 });

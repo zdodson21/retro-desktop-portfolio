@@ -7,11 +7,6 @@
   details {
     $spacing: 16px;
 
-    &:not(:last-child) {
-      padding-bottom: $spacing;
-      border-bottom: solid black 1px;
-    }
-
     margin-bottom: $spacing;
 
     summary {
@@ -32,8 +27,6 @@
     .img-container {
       width: 60%;
       align-content: center;
-      // display: flex;
-      // justify-content: center;
 
       img {
         display: block;
@@ -143,14 +136,6 @@
             @include set-img-size(90%);
           }
         }
-      }
-    }
-  }
-
-  &.dark-mode {
-    details {
-      &:not(:last-child) {
-        border-color: white;
       }
     }
   }

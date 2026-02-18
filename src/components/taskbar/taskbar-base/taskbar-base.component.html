@@ -2,11 +2,11 @@
   <div class="left-side">
     <taskbar-start />
   </div>
-  <div class="middle">
+  <menu class="middle">
     @for (program of windowService.openPrograms(); track program) {
       <taskbar-program [icon]="program.iconPath" [program-name]="program.programName" [focus-name]="program.focusName" />
     }
-  </div>
+  </menu>
   <div class="right-side">
     <taskbar-clock />
   </div>

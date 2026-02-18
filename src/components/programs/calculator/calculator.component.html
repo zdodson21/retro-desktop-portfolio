@@ -2,7 +2,7 @@
   <window-frame [class.scientific]="isScientific" window-title="Calculator" focus-name="calculator" window-icon="assets/icons/calculator.webp" [prevent-resizing]="systemService.isMobile() ? false : true">
     <div class="frame-contents">
       <div class="padding">
-        <div class="toolbar" (click)="menuFocus = ''">
+        <menu class="toolbar" (click)="menuFocus = ''">
           <toolbar-button text="Edit" [class.active]="menuFocus === 'edit'" (click)="menuFocus = toolbarButtonHelper($event, 'edit')" (mouseover)="toolbarHoverHelper('edit')">
             <toolbar-menu class="top-level-menu" [class.visible]="menuFocus === 'edit'" (click)="store.focus.set('calculator')">
               <toolbar-item left-text="Copy" (click)="copyOutput()" />
@@ -24,7 +24,7 @@
               </toolbar-menu>
             </toolbar-button>
           }
-        </div>
+        </menu>
 
         <div class="calculator" (click)="menuFocus = ''">
           <div class="output">

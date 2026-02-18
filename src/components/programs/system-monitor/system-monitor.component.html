@@ -1,6 +1,7 @@
 <div class="system-monitor-wrapper">
   <window-frame window-title="System Monitor" focus-name="system-monitor" window-icon="assets/icons/system-monitor.webp" [percent-height]="50" [percent-width]="50">
     <div class="frame-contents">
+      <!-- TODO rework the appearance of system-monitor -->
       <figure class="variables">
         <figcaption>Variables</figcaption>
         <ul>
@@ -17,7 +18,11 @@
             {{ systemService.viewportHeight() }}
           </li>
         </ul>
+      </figure>
 
+      <hr>
+
+      <figure>
         <figcaption>Browser Information</figcaption>
         <ul>
           <li>
@@ -37,7 +42,10 @@
             {{ systemService.userAgent }}
           </li>
         </ul>
+      </figure>
 
+        <hr>
+      <figure>
         <figcaption>Local Storage Values</figcaption>
         <ul>
           @for (item of settings.localStorageValues; track $index) {
@@ -63,6 +71,9 @@
             }
           </ul>
         </div>
+
+        <hr>
+
         <div class="minimized-programs">
           <figcaption>Minimized Programs</figcaption>
           @for (program of windowService.minimizedPrograms(); track program) {

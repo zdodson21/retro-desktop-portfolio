@@ -26,5 +26,24 @@
         }
       }
     }
+
+    .project-experience {
+      nav {
+        display: block;
+      }
+    }
+
+    .education {
+      .bachelor-degree {
+        ul {
+          li {
+            .type {
+              font-weight: bold;
+            }
+          }
+        }
+      }
+    }
   }
+
 }

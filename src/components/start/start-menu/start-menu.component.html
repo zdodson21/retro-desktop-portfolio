@@ -2,7 +2,7 @@
   <div class="win-95-bar">
     <img src="assets/windows-95-text-start-menu.webp" alt="Windows95" />
   </div>
-  <div class="right-side">
+  <menu>
     <div class="programs">
       @if (!systemService.isMobile()) {
         <start-dropout icon="assets/icons/program-folder.webp" text="Programs" [bottom]="true">
@@ -65,5 +65,5 @@
     <div class="power-options">
       <start-shutdown />
     </div>
-  </div>
+  </menu>
 </div>

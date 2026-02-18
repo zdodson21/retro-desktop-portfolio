@@ -14,56 +14,64 @@
       <a-ie href="https://github.com/haxtheweb/create/pull/7">Pull Request</a-ie>
     </nav>
   </header>
-  <main>
-    <h2>Description:</h2>
-    <p>
-      Created a read-only CLI tool to analyze web components created
-      using the <a-ie href="https://github.com/haxtheweb/create">HAXTheWeb CLI tool</a-ie>.
-      This tool will find any CSS within a web component and inform the user of any values
-      that should be changed to meet the standards of the
-      <a-ie href="https://oer.hax.psu.edu/bto108/sites/haxcellence/documentation/ddd">
-        Design, Develop, Destroy! (DDD) design system
-      </a-ie>.
-    </p>
-    <h2>Details:</h2>
-    <ul>
-      <li>
-        <em>.dddignore</em> File Type
-        <ul>
-          <li>
-            Created an interpreter for the <em>.dddignore</em> file type,
-            enabling the audit tool to create a list of any files that should not be audited.
-            Developing an interpreter was chosen over targeting JavaScript files to future proof
-            the program for the HAXTheWeb project's growth.
-          </li>
-          <li>
-            Developed a VSCode extension using the
-            <a-ie href="https://code.visualstudio.com/api/get-started/your-first-extension">Yo Code Generator</a-ie>
-            to natively support the <em>.dddignore</em> language syntax, providing highlighting for comments.
-            <ul>
-              <li>
-                <a-ie href="https://github.com/zdodson21/dddignore-vscode">Extension Repository</a-ie>
-              </li>
-              <li>
-                <a-ie href="https://marketplace.visualstudio.com/items?itemName=zdodson.dddignore">VSCode Marketplace Page</a-ie>
-              </li>
-            </ul>
-          </li>
-        </ul>
-      </li>
 
-      <li>
-        Specific suggestions are provided for numerous types of CSS values.
-        Some examples are specific CSS colors such as "red" and "yellow", or "px" values.
-        These types of values are detected, analyzed, and an applicable value is provided to the user.
-        For example, if a user sets "color: red;", they will be informed that they should instead set it to
-        "--ddd-theme-default-original87Pink", which is the closest color in the DDD design system.
-        If no specific value can be provided, the developer will be instructed to look at the documentation.
-      </li>
-      <li>
-        A return code is provided for use in CI/CD pipelines, allowing automated systems to know whether or not
-        a web component is compliant with the DDD design system.
-      </li>
-    </ul>
+  <main>
+    <section class="description">
+      <h2>Description:</h2>
+      <p>
+        Created a read-only CLI tool to analyze web components created
+        using the <a-ie href="https://github.com/haxtheweb/create">HAXTheWeb CLI tool</a-ie>.
+        This tool will find any CSS within a web component and inform the user of any values
+        that should be changed to meet the standards of the
+        <a-ie href="https://oer.hax.psu.edu/bto108/sites/haxcellence/documentation/ddd">
+          Design, Develop, Destroy! (DDD) design system
+        </a-ie>.
+      </p>
+    </section>
+
+    <hr>
+
+    <section class="details">
+      <h2>Details:</h2>
+      <ul>
+        <li>
+          <em>.dddignore</em> File Type
+          <ul>
+            <li>
+              Created an interpreter for the <em>.dddignore</em> file type,
+              enabling the audit tool to create a list of any files that should not be audited.
+              Developing an interpreter was chosen over targeting JavaScript files to future proof
+              the program for the HAXTheWeb project's growth.
+            </li>
+            <li>
+              Developed a VSCode extension using the
+              <a-ie href="https://code.visualstudio.com/api/get-started/your-first-extension">Yo Code Generator</a-ie>
+              to natively support the <em>.dddignore</em> language syntax, providing highlighting for comments.
+              <ul>
+                <li>
+                  <a-ie href="https://github.com/zdodson21/dddignore-vscode">Extension Repository</a-ie>
+                </li>
+                <li>
+                  <a-ie href="https://marketplace.visualstudio.com/items?itemName=zdodson.dddignore">VSCode Marketplace Page</a-ie>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+
+        <li>
+          Specific suggestions are provided for numerous types of CSS values.
+          Some examples are specific CSS colors such as "red" and "yellow", or "px" values.
+          These types of values are detected, analyzed, and an applicable value is provided to the user.
+          For example, if a user sets "color: red;", they will be informed that they should instead set it to
+          "--ddd-theme-default-original87Pink", which is the closest color in the DDD design system.
+          If no specific value can be provided, the developer will be instructed to look at the documentation.
+        </li>
+        <li>
+          A return code is provided for use in CI/CD pipelines, allowing automated systems to know whether or not
+          a web component is compliant with the DDD design system.
+        </li>
+      </ul>
+    </section>
   </main>
 </article>

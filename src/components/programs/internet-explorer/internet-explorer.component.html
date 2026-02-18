@@ -1,7 +1,7 @@
 <div class="internet-explorer-wrapper">
   <window-frame #windowFrame window-title="Internet Explorer" focus-name="internet-explorer" window-icon="assets/icons/html-file.webp" [percent-width]="70" [percent-height]="90">
     <div class="frame-contents">
-      <div class="toolbar" (click)="menuFocus = ''">
+      <menu class="toolbar" (click)="menuFocus = ''">
         <div class="toolbar-buttons">
           <div class="bar-container">
             <div class="bar"></div>
@@ -130,9 +130,9 @@
           </toolbar-button>
         </div>
         <img src="assets/ie-top-right.webp" alt="Windows 95 Icon" />
-      </div>
+      </menu>
 
-      <div class="standard-buttons" (click)="menuFocus = ''">
+      <menu class="standard-buttons" (click)="menuFocus = ''">
         <div class="bar-container">
           <div class="bar"></div>
         </div>
@@ -157,9 +157,9 @@
           <standard-button button-name="mail" button-hint="Send URL to current site via Email client." (click)="mailButtonHelper()" [ariaLabel]="'Send URL to current site via Email client.'" />
           <standard-button button-name="print" button-hint="Print current page." (click)="printButtonHelper()" [ariaLabel]="'Print current page.'" />
         </div>
-      </div>
+      </menu>
 
-      <div class="address-bar" (click)="menuFocus = ''">
+      <search class="address-bar" (click)="menuFocus = ''">
         <div class="bar-container">
           <div class="bar"></div>
         </div>
@@ -177,7 +177,7 @@
           <img [src]="goButtonHovered ? 'assets/icons/internet-explorer/go-button.webp' : 'assets/icons/internet-explorer/gray-go-button.webp'" [alt]="goButtonHovered ? 'go button' : 'gray go button'" />
           <p>Go</p>
         </button>
-      </div>
+      </search>
 
       <div class="main-content" (click)="menuFocus = ''" [class.sidebar-open]="IEService.sidebar()">
         <div class="sidebar" [class.sidebar-open]="IEService.sidebar()" [class.mobile]="systemService.isMobile()">
@@ -190,9 +190,9 @@
                 </div>
 
                 <div class="content">
-                  <div class="input-container">
+                  <search class="input-container">
                     <input #searchBarInput type="text" name="search-box" id="search-box" (keyup)="searchHelper()" />
-                  </div>
+                  </search>
 
                   <ul>
                     @for (result of searchResults; track $index) {
