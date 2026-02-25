@@ -103,7 +103,7 @@ describe('WindowFrameComponent', () => {
         const BUTTONS: NodeListOf<HTMLButtonElement> = compiled.querySelectorAll('button');
         let allHaveAriaLabels: boolean = true;
 
-        BUTTONS.forEach(item => {
+        BUTTONS.forEach((item) => {
           if (item.ariaLabel === null || item.ariaLabel === '') allHaveAriaLabels = false;
         });
 

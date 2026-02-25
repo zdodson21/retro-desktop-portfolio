@@ -12,7 +12,15 @@ import { DisableRightClickDirective } from '../../../directives/disable-right-cl
 
 @Component({
   selector: 'paint',
-  imports: [PaintColorOptionComponent, ToolbarButtonComponent, ToolbarDividerComponent, ToolbarItemComponent, ToolbarMenuComponent, WindowFrameComponent, DisableRightClickDirective],
+  imports: [
+    PaintColorOptionComponent,
+    ToolbarButtonComponent,
+    ToolbarDividerComponent,
+    ToolbarItemComponent,
+    ToolbarMenuComponent,
+    WindowFrameComponent,
+    DisableRightClickDirective,
+  ],
   templateUrl: './paint.component.html',
   styleUrl: './paint.component.scss',
 })

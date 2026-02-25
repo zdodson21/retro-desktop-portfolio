@@ -8,9 +8,8 @@ describe('PaintColorOptionComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [PaintColorOptionComponent]
-    })
-    .compileComponents();
+      imports: [PaintColorOptionComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(PaintColorOptionComponent);
     component = fixture.componentInstance;

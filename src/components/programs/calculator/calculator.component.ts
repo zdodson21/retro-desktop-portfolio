@@ -593,7 +593,7 @@ export class CalculatorComponent implements OnInit {
   // TODO fix deprecated .toPromise function
   private async loadWasm() {
     try {
-      const wasmBuffer = await lastValueFrom(this.http.get('wasm/calculator.wasm', { responseType: 'arraybuffer' }))
+      const wasmBuffer = await lastValueFrom(this.http.get('wasm/calculator.wasm', { responseType: 'arraybuffer' }));
 
       const module = await WebAssembly.instantiate(wasmBuffer as ArrayBuffer);
       this.wasmModule = module;

@@ -265,7 +265,7 @@ describe('InternetExplorerComponent', () => {
         });
 
         expect(allHaveAriaLabels).toBeTruthy();
-      })
+      });
     });
   });
 });
