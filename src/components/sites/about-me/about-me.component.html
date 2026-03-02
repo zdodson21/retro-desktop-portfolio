@@ -142,16 +142,7 @@
     <section class="certifications">
       <h2>Certifications</h2>
 
-      <details class="smeal-business" open>
-        <summary>Smeal College Business Fundamentals</summary>
-        <ul class="cert-dates">
-          <li>
-            <span class="bold">Issued: </span> <time datetime="2024-08">August 2024</time>
-          </li>
-          <li>
-            <span class="bold">Expires: </span> N/A
-          </li>
-        </ul>
+      <cert-block title="Smeal College Business Fundamentals" [issue-date]="{dateTimeString: 'August 2024', dateTimeFormat: '2024-08'}">
         <p>
           Met satisfactory academic requirements proving fundamental knowledge of the following subjects:
         </p>
@@ -163,7 +154,7 @@
           <li>Legal Environment of Business</li>
           <li>International Business Operations</li>
         </ul>
-      </details>
+      </cert-block>
     </section>
   </main>
 </article>

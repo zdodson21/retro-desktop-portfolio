@@ -1,0 +1,18 @@
+<details class="cert-block-wrapper" [open]="open">
+  <summary>{{ title }}</summary>
+  <ul class="cert-dates">
+    <li>
+      <span class="bold">Issued: </span> <time [dateTime]="issueDate.dateTimeFormat">{{ issueDate.dateTimeString }}</time>
+    </li>
+    <li>
+      <span class="bold">Expires: </span>
+
+      @if (expiryDate.dateTimeFormat) {
+        <time [dateTime]="expiryDate.dateTimeFormat">{{ issueDate.dateTimeString }}</time>
+      } @else {
+        N/A
+      }
+    </li>
+  </ul>
+  <ng-content/>
+</details>

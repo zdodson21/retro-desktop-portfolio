@@ -1,0 +1,11 @@
+@use "../../sites.scss" as *;
+
+.cert-block-wrapper {
+  @include set-font();
+
+  .cert-dates {
+    .bold {
+      font-weight: bold;
+    }
+  }
+}
