@@ -8,7 +8,7 @@
       <span class="bold">Expires: </span>
 
       @if (expiryDate.dateTimeFormat) {
-        <time [dateTime]="expiryDate.dateTimeFormat">{{ issueDate.dateTimeString }}</time>
+        <time [dateTime]="expiryDate.dateTimeFormat">{{ expiryDate.dateTimeString }}</time>
       } @else {
         N/A
       }
