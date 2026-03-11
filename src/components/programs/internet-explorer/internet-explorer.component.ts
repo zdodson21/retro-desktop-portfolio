@@ -5,7 +5,7 @@ import { DNS, SiteList } from '../../../interfaces/site-list';
 import { SettingsService } from '../../../services/settings/settings.service';
 import { SystemService } from '../../../services/system/system.service';
 import { AboutMeSite } from '../../sites/about-me/about-me.component';
-import { CalculatorSiteComponent } from '../../sites/calculator/calculator-site.component';
+import { CalculatorSite } from '../../sites/calculator/calculator-site.component';
 import { IeRouteComponent } from '../../sites/components/ie-route/ie-route.component';
 import { ErrorSite } from '../../sites/error-site/error-site.component';
 import { HaxAuditSite } from '../../sites/hax-audit/hax-audit.component';
@@ -29,7 +29,7 @@ import { InternetExplorerService } from './internet-explorer.service';
   selector: 'internet-explorer',
   imports: [
     AboutMeSite,
-    CalculatorSiteComponent,
+    CalculatorSite,
     CloseSidebarButtonComponent,
     ErrorSite,
     HaxAuditSite,

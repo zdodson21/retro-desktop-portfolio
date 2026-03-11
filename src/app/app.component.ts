@@ -6,12 +6,13 @@ import { ShutdownScreenComponent } from '../components/desktop/shutdown-screen/s
 import { InternetExplorerService } from '../components/programs/internet-explorer/internet-explorer.service';
 import { MsdosPromptComponent } from '../components/programs/msdos-prompt/msdos-prompt.component';
 import { AboutMeSite } from '../components/sites/about-me/about-me.component';
-import { CalculatorSiteComponent } from '../components/sites/calculator/calculator-site.component';
+import { CalculatorSite } from '../components/sites/calculator/calculator-site.component';
 import { ErrorSite } from '../components/sites/error-site/error-site.component';
 import { HaxAuditSite } from '../components/sites/hax-audit/hax-audit.component';
 import { HaxChatAgentSite } from '../components/sites/hax-chat-agent/hax-chat-agent.component';
 import { OpenSourceContributionsSite } from '../components/sites/open-source-contributions/open-source-contributions.component';
 import { PyWeatherSite } from '../components/sites/py-weather/py-weather.component';
+import { QrMakerSite } from '../components/sites/qr-maker/qr-maker.component';
 import { RetroDesktopPortfolioSite } from '../components/sites/retro-desktop-portfolio/retro-desktop-portfolio.component';
 import { SecretSite } from '../components/sites/secret-site/secret-site.component';
 import { StartMenuComponent } from '../components/start/start-menu/start-menu.component';
@@ -19,20 +20,21 @@ import { TaskbarBaseComponent } from '../components/taskbar/taskbar-base/taskbar
 import { SettingsService } from '../services/settings/settings.service';
 import { SystemService } from '../services/system/system.service';
 import { AppService } from './app.service';
-import { QrMakerSite } from '../components/sites/qr-maker/qr-maker.component';
 
 @Component({
   selector: 'app-root',
   imports: [
+    RouterOutlet,
+    
     AlertShutdownComponent,
     TaskbarBaseComponent,
     DesktopEnvironmentComponent,
     StartMenuComponent,
-    RouterOutlet,
     ShutdownScreenComponent,
     MsdosPromptComponent,
+
     AboutMeSite,
-    CalculatorSiteComponent,
+    CalculatorSite,
     ErrorSite,
     HaxAuditSite,
     HaxChatAgentSite,

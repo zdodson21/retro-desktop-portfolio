@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CalculatorSiteComponent } from './calculator-site.component';
+import { CalculatorSite } from './calculator-site.component';
 
 describe('CalculatorComponent', () => {
-  let component: CalculatorSiteComponent;
-  let fixture: ComponentFixture<CalculatorSiteComponent>;
+  let component: CalculatorSite;
+  let fixture: ComponentFixture<CalculatorSite>;
   let compiled: HTMLElement;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [CalculatorSiteComponent],
+      imports: [CalculatorSite],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(CalculatorSiteComponent);
+    fixture = TestBed.createComponent(CalculatorSite);
     component = fixture.componentInstance;
     compiled = fixture.nativeElement as HTMLElement;
     fixture.detectChanges();

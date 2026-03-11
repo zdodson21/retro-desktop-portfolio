@@ -9,7 +9,7 @@ import { InternetExplorerService } from '../../programs/internet-explorer/intern
   templateUrl: './calculator-site.component.html',
   styleUrl: './calculator-site.component.scss',
 })
-export class CalculatorSiteComponent {
+export class CalculatorSite {
   protected IEService: InternetExplorerService = inject(InternetExplorerService);
 
   protected systemService: SystemService = inject(SystemService);

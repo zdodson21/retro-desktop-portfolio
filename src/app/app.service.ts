@@ -5,5 +5,11 @@ import { Injectable, signal, WritableSignal } from '@angular/core';
 })
 export class AppService {
   public focus: WritableSignal<string> = signal('');
-  public desktopMode: WritableSignal<number> = signal(0); // 0 = desktop | 1 = shutdown | 2 = MSDOS-Prompt (when added)
+
+  /**
+   * @description Sets the desktop mode (0 = desktop | 1 = shutdown | 2 = MSDOS-Prompt)
+   * @public
+   * @type WriteableSignal<number>
+   */
+  public desktopMode: WritableSignal<number> = signal(0);
 }
