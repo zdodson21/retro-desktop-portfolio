@@ -52,3 +52,7 @@ calculator_test
 # CSS Files
 *.css
 *.css.map
+
+# Assembly Files
+*.s
+*.wat
