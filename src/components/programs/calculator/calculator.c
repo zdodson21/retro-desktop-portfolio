@@ -29,6 +29,7 @@
 #endif
 
 #include <stdbool.h>
+#include <math.h>
 
 #define EPS 1e-15
 
@@ -61,7 +62,7 @@ double divide(double dividend, double divisor) {
   /*
    * Here for safety, Divide by 0 error should be handled on front-end
    */
-  return 0;
+  return NAN;
 }
 
 EMSCRIPTEN_KEEPALIVE

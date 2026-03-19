@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdbool.h>
+#include <math.h>
 #include "helper.h"
 
 /*
@@ -91,7 +92,7 @@ bool run_divide_tests() {
   bool test[n];
 
   // Positive whole numbers
-  test[0] = test_div(5, 0, 0, true);
+  test[0] = test_div(5, 0, NAN, true);
   test[1] = test_div(5, 1, 5, false);
   test[2] = test_div(10, 2, 5, false);
   test[3] = test_div(0, 10, 0, false);

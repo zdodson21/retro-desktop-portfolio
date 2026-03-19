@@ -44,7 +44,7 @@ bool test_mult(double a, double b, double c) {
 bool test_div(double a, double b, double c, bool test_0) {
   if (b == 0) {
     if (test_0) {
-      printf(ANSI_COLOR_GREEN "Intentional Divide by 0 Error: Pass" ANSI_COLOR_RESET "\n");
+      printf(ANSI_COLOR_GREEN "Intentional Divide by 0 Error (result: %f): Pass" ANSI_COLOR_RESET "\n", divide(a, b));
       return true;
     } else {
       printf(ANSI_COLOR_RED "Unintentional Divide by 0. Set test_0 to false!" ANSI_COLOR_RESET "\n");
