@@ -37,8 +37,6 @@ export class StandardButtonComponent {
       this.prevValue = this.IEService.statusBarContent();
     }
 
-    console.log(this.prevIcon);
-
     this.IEService.statusBarIcon.set('assets/icons/windows-help.webp');
     this.IEService.statusBarContent.set(this.buttonHint);
   }

@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, inject, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, effect, ElementRef, inject, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AppService } from '../../../app/app.service';
 import { DNS, SiteList } from '../../../interfaces/site-list';
@@ -69,6 +69,7 @@ export class InternetExplorerComponent implements OnInit, AfterViewInit {
   protected searchResults: DNS = [];
   protected menuFocus: string = '';
   private readonly toolbarButtons: Array<string> = ['file', 'view', 'favorites', 'tools'];
+  private currentSite: string = this.IEService.displayedSite(); // Used for ensuring the page scrolls to top (in constructor)
 
   ngOnInit() {
     if (
@@ -119,6 +120,18 @@ export class InternetExplorerComponent implements OnInit, AfterViewInit {
     else {
       this.IEService.darkMode.set(true);
     }
+  }
+
+  constructor() {
+    effect(() => {
+      if (this.IEService.displayedSite() !== this.currentSite) {
+        setTimeout(() => {
+          this.scrollToTop();
+        }, 1);
+      }
+
+      this.currentSite = this.IEService.displayedSite();
+    });
   }
 
   /**
