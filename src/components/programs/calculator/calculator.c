@@ -159,7 +159,7 @@ double gm(double a, double b) {
  */
 EMSCRIPTEN_KEEPALIVE
 double agm(double a, double g) {
-  for (int i = 1; i <= 1000; i++) {
+  for (int i = 0; i < 1000; i++) {
     double new_a = am(a, g);
     double new_g = gm(a, g);
 
