@@ -5,6 +5,8 @@ import { Injectable, WritableSignal, signal } from '@angular/core';
 })
 export class SystemService {
   public readonly userAgent: string = navigator.userAgent;
+  
+  public readonly browserIsDarkMode: boolean = globalThis.matchMedia && globalThis.matchMedia('(prefers-color-scheme: dark)').matches;
 
   public viewportWidth: WritableSignal<number> = signal(globalThis.innerWidth);
   public viewportHeight: WritableSignal<number> = signal(globalThis.innerHeight);

@@ -76,7 +76,9 @@ export class InternetExplorerComponent implements OnInit, AfterViewInit {
       localStorage.getItem(this.settings.localStorageValues[1]) === null ||
       localStorage.getItem(this.settings.localStorageValues[1]) === ''
     ) {
-      localStorage.setItem(this.settings.localStorageValues[1], 'disabled');
+      const SET_DARK_MODE: string = this.systemService.browserIsDarkMode ? 'enabled' : 'disabled';
+
+      localStorage.setItem(this.settings.localStorageValues[1], SET_DARK_MODE);
     }
 
     if (

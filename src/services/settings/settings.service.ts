@@ -1,4 +1,4 @@
-import { Injectable, OnInit, signal, WritableSignal } from '@angular/core';
+import { Injectable, signal, WritableSignal } from '@angular/core';
 
 @Injectable({
   providedIn: 'root',
@@ -8,7 +8,7 @@ export class SettingsService {
   public customBackgroundColor: WritableSignal<string> = signal('');
 
   public readonly localStorageValues: Array<string> = [
-    /*
+    /**
      * Display "Welcome" program on web application start up.
      *
      * Possible values:
@@ -17,7 +17,7 @@ export class SettingsService {
      */
     'openWelcomeOnStartup', // 0
 
-    /*
+    /**
      * All pages in the "Internet Explorer" program will be displayed
      * using a "dark mode" theme
      *
@@ -27,7 +27,7 @@ export class SettingsService {
      */
     'internetExplorerDarkMode', // 1
 
-    /*
+    /**
      * "Array" holding values of "sites" that have been visited
      *
      * Possible values:
