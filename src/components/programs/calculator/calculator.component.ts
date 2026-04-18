@@ -52,7 +52,15 @@ export class CalculatorComponent implements OnInit {
     'TypeScript Logic Error', // 4
   ];
 
-  protected singleValOperations: Array<string> = ['sqrt', '1/x'];
+  protected singleValOperations: Set<string> = new Set([
+    'sqrt',
+    '1/x',
+    'ln', 'log',
+    'sin', 'cos', 'tan',
+    'n!',
+    'x^2', 'x^3',
+    'Exp'
+  ]);
 
   // ! Calculator Logic
 
@@ -388,7 +396,7 @@ export class CalculatorComponent implements OnInit {
       // ! Solve
 
       case '=':
-        if (!this.useOpNum && !this.singleValOperations.includes(this.operation)) {
+        if (!this.useOpNum && !this.singleValOperations.has(this.operation)) {
           this.operationNum = +this.currentDisplay;
           this.useOpNum = true;
         }
