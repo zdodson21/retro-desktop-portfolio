@@ -1,5 +1,4 @@
-@use "../../../scss/styles.scss" as *;
-@use "../../../scss/colors.scss" as *;
+@use "../start.scss";
 
 .start-subitem-wrapper {
   display: flex;
@@ -11,17 +10,17 @@
 
   img {
     width: 22px;
-    @include icon-common();
+    @include start.icon-common();
   }
 
   p {
     font-size: 15px;
     color: black;
-    @include text-common();
+    @include start.text-common();
   }
 
   &:hover {
-    background-color: $win-95-highlight;
+    background-color: start.$win-95-highlight;
 
     p {
       color: white;

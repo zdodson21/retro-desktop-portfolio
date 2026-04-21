@@ -1,22 +1,22 @@
-@use "../programs.scss" as *;
-@use "../../../scss/styles.scss" as *;
-@use "../toolbar.scss" as *;
-@use "../../../scss/colors.scss" as *;
+@use "../programs.scss";
+@use "../../../scss/styles.scss";
+@use "../toolbar.scss";
+@use "../../../scss/colors.scss";
 
 $black-border: 2px solid black;
 $white-border: 2px solid white;
 
 .paint-wrapper {
-  @include program-common();
+  @include programs.program-common();
 
   window-frame {
     width: 80%;
     height: 90%;
-    @include mobile-viewport();
+    @include programs.mobile-viewport();
 
     .frame-contents {
-      @include text-common();
-      @include frame-contents-common();
+      @include styles.text-common();
+      @include programs.frame-contents-common();
 
       .padding {
         padding: 0px 2px;
@@ -25,14 +25,14 @@ $white-border: 2px solid white;
         $bar-heights: 28px;
 
         .toolbar {
-          @include toolbar-common($bar-heights);
-          border-bottom: 2px solid $win-95-divider-top;
+          @include toolbar.toolbar-common($bar-heights);
+          border-bottom: 2px solid colors.$win-95-divider-top;
         }
 
         .paint {
           height: calc(100% - (2 * $bar-heights) - 6px);
-          border-top: 2px solid $win-95-divider-bottom;
-          border-bottom: 2px solid $win-95-divider-top;
+          border-top: 2px solid colors.$win-95-divider-bottom;
+          border-bottom: 2px solid colors.$win-95-divider-top;
 
           $bottom-height: 52px;
 
@@ -40,7 +40,7 @@ $white-border: 2px solid white;
             display: flex;
             flex-direction: row;
             height: calc(100% - $bottom-height - 6px);
-            border-bottom: 2px solid $win-95-divider-top;
+            border-bottom: 2px solid colors.$win-95-divider-top;
             justify-content: end;
 
             // Set based on width of canvas, tool area should expand when canvas area reaches its max-width (1024)
@@ -102,7 +102,7 @@ $white-border: 2px solid white;
             align-items: center;
             gap: $color-square-gap;
             height: $bottom-height;
-            border-top: 2px solid $win-95-divider-bottom;
+            border-top: 2px solid colors.$win-95-divider-bottom;
 
             @mixin set-color-box() {
               $dimension: 16px;
@@ -162,11 +162,11 @@ $white-border: 2px solid white;
 
         .status-bar {
           height: $bar-heights;
-          background-color: $win-95-grey;
+          background-color: colors.$win-95-grey;
           display: flex;
           flex-direction: row;
           font-size: 12px;
-          border-top: 2px solid $win-95-divider-bottom;
+          border-top: 2px solid colors.$win-95-divider-bottom;
 
           .description {
             align-content: center;
@@ -179,7 +179,7 @@ $white-border: 2px solid white;
             gap: 2px;
 
             img {
-              @include icon-common();
+              @include styles.icon-common();
             }
           }
         }

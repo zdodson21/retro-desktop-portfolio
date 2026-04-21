@@ -1,4 +1,4 @@
-@use "../site-component.scss" as *;
+@use "../site-component.scss";
 
 a {
   &.dark-mode {
@@ -11,6 +11,6 @@ a {
   }
 
   &.in-site {
-    font-family: $hyperlink-font;
+    font-family: site-component.$hyperlink-font;
   }
 }

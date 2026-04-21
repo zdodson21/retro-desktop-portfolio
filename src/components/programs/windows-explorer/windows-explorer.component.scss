@@ -1,17 +1,17 @@
-@use "../../../scss/styles.scss" as *;
-@use "../programs.scss" as *;
+@use "../../../scss/styles.scss";
+@use "../programs.scss";
 
 .windows-explorer-wrapper {
-  @include program-common();
+  @include programs.program-common();
 
   window-frame {
     width: 50%;
     height: 70%;
-    @include mobile-viewport();
+    @include programs.mobile-viewport();
 
     .frame-contents {
-      @include text-common();
-      @include frame-contents-common();
+      @include styles.text-common();
+      @include programs.frame-contents-common();
       background-color: white;
 
       .padding {

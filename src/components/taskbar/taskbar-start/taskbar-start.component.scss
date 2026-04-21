@@ -1,11 +1,10 @@
-@use "../taskbar.scss" as *;
-@use "../../../scss/colors.scss" as *;
+@use "../taskbar.scss";
 
 .taskbar-start-wrapper {
-  @include taskbar-item-common();
+  @include taskbar.taskbar-item-common();
   border-style: outset;
-  border-color: $taskbar-item-border-white $taskbar-item-border-black
-    $taskbar-item-border-black $taskbar-item-border-white;
+  border-color: taskbar.$taskbar-item-border-white taskbar.$taskbar-item-border-black
+    taskbar.$taskbar-item-border-black taskbar.$taskbar-item-border-white;
   padding: 2px 6px;
   align-content: center;
   margin-right: 8px;
@@ -17,18 +16,18 @@
     gap: 4px;
 
     img {
-      @include taskbar-item-icon();
+      @include taskbar.taskbar-item-icon();
     }
 
     p {
-      @include taskbar-item-text();
+      @include taskbar.taskbar-item-text();
       font-weight: bold;
     }
   }
 
   &.active {
     border-style: solid inset solid solid;
-    border-color: #000 $taskbar-item-border-white $taskbar-item-border-white
+    border-color: #000 taskbar.$taskbar-item-border-white taskbar.$taskbar-item-border-white
       #000;
     align-content: center;
 

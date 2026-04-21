@@ -1,18 +1,18 @@
-@use "../../../scss/styles.scss" as *;
-@use "../programs.scss" as *;
-@use "../../../scss/font.scss" as *;
+@use "../../../scss/styles.scss";
+@use "../programs.scss";
+@use "../../../scss/font.scss";
 
 .windows-help-wrapper {
-  @include program-common();
+  @include programs.program-common();
 
   window-frame {
     width: 50%;
     height: 60%;
-    @include mobile-viewport();
+    @include programs.mobile-viewport();
 
     .frame-contents {
-      @include text-common();
-      @include frame-contents-common();
+      @include styles.text-common();
+      @include programs.frame-contents-common();
       background-color: #f1f6b7;
 
       .padding {
@@ -26,7 +26,7 @@
           margin-bottom: 20px;
 
           h2 {
-            @include allow-user-select();
+            @include styles.allow-user-select();
             font-size: 16px;
           }
         }
@@ -48,7 +48,7 @@
             height: 100%;
 
             p {
-              @include allow-user-select();
+              @include styles.allow-user-select();
               margin-bottom: 12px;
               font-size: 14px;
             }
@@ -71,7 +71,7 @@
             }
 
             p {
-              @include font-readability();
+              @include font.font-readability();
               margin-bottom: 8px;
             }
           }

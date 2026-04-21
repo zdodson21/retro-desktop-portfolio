@@ -1,10 +1,10 @@
-@use "../toolbar.scss" as *;
+@use "../toolbar.scss";
 
 .container {
   position: relative;
 
   .toolbar-dropout-wrapper {
-    @include toolbar-menu-item-common();
+    @include toolbar.toolbar-menu-item-common();
 
     &.hovered {
       background-color: #000074;

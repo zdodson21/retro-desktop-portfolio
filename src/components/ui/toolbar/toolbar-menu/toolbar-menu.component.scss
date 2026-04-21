@@ -1,7 +1,7 @@
-@use "../../../../scss/colors.scss" as *;
+@use "../toolbar.scss";
 
 menu {
-  background-color: $win-95-grey;
+  background-color: toolbar.$win-95-grey;
   border-top: 2px white outset;
   border-right: 2px black outset;
   border-bottom: 2px black outset;

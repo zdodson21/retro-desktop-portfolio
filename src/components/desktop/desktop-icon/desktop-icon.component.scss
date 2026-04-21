@@ -1,5 +1,5 @@
-@use "../../../scss/styles.scss" as *;
-@use "../../../scss/colors.scss" as *;
+@use "../../../scss/styles.scss";
+@use "../../../scss/colors.scss";
 
 .desktop-icon-wrapper {
   display: flex;
@@ -11,19 +11,19 @@
   gap: 8px;
 
   img {
-    @include icon-common();
+    @include styles.icon-common();
     width: 45px;
     image-rendering: pixelated;
   }
 
   p {
-    @include text-common();
+    @include styles.text-common();
     text-wrap: balance;
     text-align: center;
     font-size: 16px;
     color: white;
     border: 1px dotted transparent;
-    background-color: $win-95-dark-cyan;
+    background-color: colors.$win-95-dark-cyan;
   }
 
   &.active {
@@ -34,7 +34,7 @@
 
     p {
       border-color: white;
-      background-color: $win-95-highlight;
+      background-color: colors.$win-95-highlight;
     }
   }
 }

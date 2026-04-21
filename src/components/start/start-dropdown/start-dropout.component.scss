@@ -1,15 +1,14 @@
-@use "../start.scss" as *;
-@use "../../../scss/colors.scss" as *;
+@use "../start.scss";
 
 .container {
   position: relative;
   height: 100%;
 
   .start-dropdown-wrapper {
-    @include start-menu-object();
+    @include start.start-menu-object();
 
     &.hovered {
-      background-color: $win-95-highlight;
+      background-color: start.$win-95-highlight;
     }
 
     p {

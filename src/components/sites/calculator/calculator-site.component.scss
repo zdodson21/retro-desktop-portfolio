@@ -1,7 +1,7 @@
-@use "../sites.scss" as *;
+@use "../sites.scss";
 
 .calculator-site-wrapper {
-  @include site-common();
+  @include sites.site-common();
 
   section {
     .formula-container,

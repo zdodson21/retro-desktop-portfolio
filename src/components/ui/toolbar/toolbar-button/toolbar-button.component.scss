@@ -1,11 +1,11 @@
-@use "../../../../scss/colors.scss" as *;
+@use "../toolbar.scss";
 
 .container {
   position: relative;
   height: 100%;
 
   button {
-    background-color: $win-95-grey;
+    background-color: toolbar.$win-95-grey;
     width: 100%;
     height: 100%;
     border: none;

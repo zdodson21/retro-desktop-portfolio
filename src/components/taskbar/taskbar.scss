@@ -1,4 +1,5 @@
-@use "../../scss/styles.scss" as *;
+@use "../../scss/styles.scss";
+@forward "../../scss/colors.scss";
 
 @mixin taskbar-item-common {
   display: block;
@@ -7,12 +8,12 @@
 }
 
 @mixin taskbar-item-text {
-  @include text-common();
+  @include styles.text-common();
   font-size: 18px;
   color: black;
 }
 
 @mixin taskbar-item-icon {
-  @include icon-common();
+  @include styles.icon-common();
   height: 22px;
 }

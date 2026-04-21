@@ -1,40 +1,40 @@
-@use "../../../../scss/colors.scss" as *;
-@use "../site-component.scss" as *;
+@use "../../../../scss/colors.scss";
+@use "../site-component.scss";
 
 a {
-  color: $hyperlink-unvisited;
+  color: colors.$hyperlink-unvisited;
   text-decoration: underline;
   cursor: pointer;
 
   &.dark-mode {
-    color: $hyperlink-dark-unvisited;
+    color: colors.$hyperlink-dark-unvisited;
 
     &:hover {
-      color: $hyperlink-dark-visited;
+      color: colors.$hyperlink-dark-visited;
     }
 
     &:visited {
-      color: $hyperlink-dark-visited;
+      color: colors.$hyperlink-dark-visited;
     }
   }
 
   &.in-site {
-    font-family: $hyperlink-font;
+    font-family: site-component.$hyperlink-font;
   }
 
   &.visited {
-    color: $hyperlink-dark-visited;
+    color: colors.$hyperlink-dark-visited;
   }
 
   &.not-in-site {
-    color: $hyperlink-unvisited;
+    color: colors.$hyperlink-unvisited;
 
     &:hover {
-      color: $hyperlink-visited;
+      color: colors.$hyperlink-visited;
     }
   }
 
   &:hover {
-    color: $hyperlink-visited;
+    color: colors.$hyperlink-visited;
   }
 }

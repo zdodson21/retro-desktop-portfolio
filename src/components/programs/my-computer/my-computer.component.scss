@@ -1,18 +1,18 @@
-@use "../../../scss/styles.scss" as *;
-@use "../programs.scss" as *;
-@use "../../ui/control-button.scss" as *;
+@use "../../../scss/styles.scss";
+@use "../programs.scss";
+@use "../../ui/control-button.scss";
 
 .my-computer-wrapper {
-  @include program-common();
+  @include programs.program-common();
 
   window-frame {
     width: 475px;
     height: 475px;
-    @include mobile-viewport();
+    @include programs.mobile-viewport();
 
     .frame-contents {
-      @include text-common();
-      @include frame-contents-common();
+      @include styles.text-common();
+      @include programs.frame-contents-common();
 
       .padding {
         padding: 36px 8px 8px 8px;
@@ -38,7 +38,7 @@
 
             .img-wrapper {
               img {
-                @include icon-common();
+                @include styles.icon-common();
               }
             }
           }
@@ -81,7 +81,7 @@
           height: 24px;
 
           button {
-            @include control-button-common();
+            @include control-button.control-button-common();
             width: 72px;
             height: 24px;
           }

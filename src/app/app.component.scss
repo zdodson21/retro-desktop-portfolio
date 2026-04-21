@@ -1,8 +1,7 @@
-@use "../scss/colors.scss" as *;
-@use "../scss/print.scss" as *;
+@use "../scss/colors.scss";
 
 .app-wrapper {
-  background-color: $win-95-dark-cyan;
+  background-color: colors.$win-95-dark-cyan;
   height: 100%;
   width: 100%;
   display: none;
@@ -87,5 +86,3 @@ msdos-prompt {
 .print-selection {
   display: none;
 }
-
-// @include test-print();

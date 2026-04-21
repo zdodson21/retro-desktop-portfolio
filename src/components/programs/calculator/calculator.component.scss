@@ -1,36 +1,36 @@
-@use "../../../scss/styles.scss" as *;
-@use "../programs.scss" as *;
-@use "../../../scss/colors.scss" as *;
-@use "../toolbar.scss" as *;
+@use "../../../scss/styles.scss";
+@use "../programs.scss";
+@use "../../../scss/colors.scss";
+@use "../toolbar.scss";
 
 .calculator-wrapper {
-  @include program-common();
+  @include programs.program-common();
 
   window-frame {
     width: 400px;
     height: 400px;
-    @include mobile-viewport();
+    @include programs.mobile-viewport();
 
     &.scientific {
       width: 600px;
     }
 
     .frame-contents {
-      @include text-common();
-      @include frame-contents-common();
+      @include styles.text-common();
+      @include programs.frame-contents-common();
 
       .padding {
         padding: 0px 4px;
         height: 100%;
 
         .toolbar {
-          @include toolbar-common();
-          border-bottom: 2px solid $win-95-divider-top;
+          @include toolbar.toolbar-common();
+          border-bottom: 2px solid colors.$win-95-divider-top;
         }
 
         .calculator {
           height: calc(100% - 40px);
-          border-top: 2px solid $win-95-divider-bottom;
+          border-top: 2px solid colors.$win-95-divider-bottom;
           padding: 4px;
 
           @mixin non-button-border() {
@@ -55,7 +55,7 @@
               display: block;
               width: calc(100% - 4px);
               padding: 0px 2px;
-              @include allow-user-select();
+              @include styles.allow-user-select();
             }
           }
 

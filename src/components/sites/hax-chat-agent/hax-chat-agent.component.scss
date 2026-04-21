@@ -1,8 +1,8 @@
-@use "../sites.scss" as *;
-@use "../site-images.scss" as *;
+@use "../sites.scss";
+@use "../site-images.scss";
 
 .hax-chat-agent-site-wrapper {
-  @include site-common();
+  @include sites.site-common();
 
   details {
     $spacing: 16px;
@@ -33,51 +33,51 @@
         height: auto;
 
         &[src="assets/images/chat-agent.webp"] {
-          @include set-img-size(50%);
+          @include site-images.set-img-size(50%);
         }
 
         &[src="assets/images/mobx.webp"] {
-          @include set-img-size(30%);
+          @include site-images.set-img-size(30%);
         }
 
         &[src="assets/images/chat-button.webp"] {
           width: 25%;
-          @include set-img-size(25%);
+          @include site-images.set-img-size(25%);
           @media (max-aspect-ratio: 1/1) {
             width: 65%;
           }
         }
 
         &[src="assets/images/chat-control-bar.webp"] {
-          @include set-img-size(90%);
+          @include site-images.set-img-size(90%);
         }
 
         &[src="assets/images/chat-developer-panel.webp"] {
-          @include set-img-size(90%);
+          @include site-images.set-img-size(90%);
         }
 
         &[src="assets/images/chat-input.webp"] {
-          @include set-img-size(90%);
+          @include site-images.set-img-size(90%);
         }
 
         &[src="assets/images/chat-interface.webp"] {
-          @include set-img-size(60%);
+          @include site-images.set-img-size(60%);
         }
 
         &[src="assets/images/chat-message.webp"] {
-          @include set-img-size(60%);
+          @include site-images.set-img-size(60%);
         }
 
         &[src="assets/images/chat-suggestion.webp"] {
-          @include set-img-size(90%);
+          @include site-images.set-img-size(90%);
         }
 
         &[src="assets/images/chat-agent-full-screen.webp"] {
-          @include set-img-size(35%);
+          @include site-images.set-img-size(35%);
         }
 
         &[src="assets/images/chat-log.webp"] {
-          @include set-img-size(90%);
+          @include site-images.set-img-size(90%);
         }
       }
     }
@@ -97,43 +97,43 @@
 
         img {
           &[src="assets/images/chat-agent.webp"] {
-            @include set-img-size(60%);
+            @include site-images.set-img-size(60%);
           }
 
           &[src="assets/images/mobx.webp"] {
-            @include set-img-size(40%);
+            @include site-images.set-img-size(40%);
           }
 
           &[src="assets/images/chat-control-bar.webp"] {
-            @include set-img-size(90%);
+            @include site-images.set-img-size(90%);
           }
 
           &[src="assets/images/chat-developer-panel.webp"] {
-            @include set-img-size(90%);
+            @include site-images.set-img-size(90%);
           }
 
           &[src="assets/images/chat-input.webp"] {
-            @include set-img-size(90%);
+            @include site-images.set-img-size(90%);
           }
 
           &[src="assets/images/chat-interface.webp"] {
-            @include set-img-size(60%);
+            @include site-images.set-img-size(60%);
           }
 
           &[src="assets/images/chat-message.webp"] {
-            @include set-img-size(60%);
+            @include site-images.set-img-size(60%);
           }
 
           &[src="assets/images/chat-suggestion.webp"] {
-            @include set-img-size(90%);
+            @include site-images.set-img-size(90%);
           }
 
           &[src="assets/images/chat-agent-full-screen.webp"] {
-            @include set-img-size(35%);
+            @include site-images.set-img-size(35%);
           }
 
           &[src="assets/images/chat-log.webp"] {
-            @include set-img-size(90%);
+            @include site-images.set-img-size(90%);
           }
         }
       }

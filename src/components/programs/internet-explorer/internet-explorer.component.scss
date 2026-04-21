@@ -1,7 +1,7 @@
-@use "../../../scss/styles.scss" as *;
-@use "../programs.scss" as *;
-@use "../../../scss/colors.scss" as *;
-@use "../toolbar.scss" as *;
+@use "../../../scss/styles.scss";
+@use "../programs.scss";
+@use "../../../scss/colors.scss";
+@use "../toolbar.scss";
 
 $toolbar-height: 28px;
 $standard-button-height: 56px;
@@ -24,16 +24,16 @@ $status-bar-height: 5%;
 }
 
 .internet-explorer-wrapper {
-  @include program-common();
+  @include programs.program-common();
 
   window-frame {
     width: 70%;
     height: 90%;
-    @include mobile-viewport();
+    @include programs.mobile-viewport();
 
     .frame-contents {
-      @include text-common();
-      @include frame-contents-common();
+      @include styles.text-common();
+      @include programs.frame-contents-common();
 
       @mixin hover-handling() {
         &:hover,
@@ -76,13 +76,13 @@ $status-bar-height: 5%;
         border-right: 1px white solid;
 
         .toolbar-buttons {
-          @include toolbar-common();
+          @include toolbar.toolbar-common();
           height: 100%;
           width: calc(100% - 28px);
         }
 
         img {
-          @include icon-common();
+          @include styles.icon-common();
         }
       }
 
@@ -181,7 +181,7 @@ $status-bar-height: 5%;
           justify-content: center;
           height: calc(100% - 4px);
           gap: 4px;
-          background-color: $win-95-grey;
+          background-color: colors.$win-95-grey;
           width: $button-width;
           margin: 0px 4px;
 
@@ -200,7 +200,7 @@ $status-bar-height: 5%;
 
           img {
             display: block;
-            @include icon-common();
+            @include styles.icon-common();
           }
         }
       }
@@ -308,7 +308,7 @@ $status-bar-height: 5%;
                   }
 
                   img {
-                    @include icon-common();
+                    @include styles.icon-common();
                     width: 16px;
                   }
                 }
@@ -325,7 +325,7 @@ $status-bar-height: 5%;
           border-width: 2px;
           border-color: #3f3f3f #ebebeb #ebebeb #3f3f3f;
           border-style: inset;
-          @include allow-user-select();
+          @include styles.allow-user-select();
 
           &.dark-mode {
             background-color: #202020;
@@ -360,7 +360,7 @@ $status-bar-height: 5%;
 
         img {
           width: 20px;
-          @include icon-common();
+          @include styles.icon-common();
 
           &[src="assets/icons/windows-help.webp"] {
             width: 16px;

@@ -1,24 +1,24 @@
-@use "../../../scss/styles.scss" as *;
-@use "../programs.scss" as *;
-@use "../../ui/control-button.scss" as *;
+@use "../../../scss/styles.scss";
+@use "../programs.scss";
+@use "../../ui/control-button.scss";
 
 .control-panel-wrapper {
-  @include program-common();
+  @include programs.program-common();
 
   window-frame {
     width: 30%;
     height: 80%;
-    @include mobile-viewport();
+    @include programs.mobile-viewport();
 
     .frame-contents {
-      @include text-common();
-      @include frame-contents-common();
+      @include styles.text-common();
+      @include programs.frame-contents-common();
 
       .padding {
         padding: 8px;
 
         button {
-          @include control-button-common();
+          @include control-button.control-button-common();
           width: 140px;
         }
 

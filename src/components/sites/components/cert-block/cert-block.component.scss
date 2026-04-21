@@ -1,7 +1,7 @@
-@use "../../sites.scss" as *;
+@use "../site-component.scss";
 
 .cert-block-wrapper {
-  @include set-font();
+  @include site-component.set-font();
 
   .cert-dates {
     .bold {

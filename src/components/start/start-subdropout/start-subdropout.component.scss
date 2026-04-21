@@ -1,5 +1,4 @@
-@use "../../../scss/colors.scss" as *;
-@use "../../../scss/styles.scss" as *;
+@use "../start.scss";
 
 .container {
   position: relative;
@@ -13,7 +12,7 @@
     padding: 0px 4px;
 
     &.hovered {
-      background-color: $win-95-highlight;
+      background-color: start.$win-95-highlight;
     }
 
     .left {
@@ -25,13 +24,13 @@
 
       img {
         width: 22px;
-        @include icon-common();
+        @include start.icon-common();
       }
 
       p {
         font-size: 15px;
         color: black;
-        @include text-common();
+        @include start.text-common();
 
         &.hovered {
           color: white;

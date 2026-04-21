@@ -1,7 +1,7 @@
-@use "../toolbar.scss" as *;
+@use "../toolbar.scss";
 
 .toolbar-item-wrapper {
-  @include toolbar-menu-item-common();
+  @include toolbar.toolbar-menu-item-common();
 
   &.disabled {
     p {

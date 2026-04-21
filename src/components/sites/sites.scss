@@ -1,5 +1,4 @@
-@use "../../scss/styles.scss" as *;
-@use "../../scss/font.scss" as *;
+@use "../../scss/font.scss";
 
 @mixin site-common() {
   height: calc(100% - 8px);
@@ -76,7 +75,7 @@
 @mixin set-font() {
   * {
     font-family: Georgia, "Times New Roman", Times, serif;
-    @include font-readability();
+    @include font.font-readability();
   }
 }
 

@@ -1,4 +1,4 @@
-@use "../../../scss/styles.scss" as *;
+@use "../../../scss/styles.scss";
 
 .shutdown-screen-wrapper {
   width: 100%;
@@ -7,7 +7,7 @@
   color: #e87832;
   font-size: 48px;
   text-align: center;
-  @include text-common();
+  @include styles.text-common();
 
   display: grid;
   grid-template-columns: repeat(1);

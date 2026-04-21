@@ -1,8 +1,8 @@
-@use "../../../../../scss/styles.scss" as *;
-@use "../../../../../scss/colors.scss" as *;
+@use "../../../../../scss/styles.scss";
+@use "../../../../../scss/colors.scss";
 
 button {
-  background-color: $win-95-grey;
+  background-color: colors.$win-95-grey;
   width: 100%;
   height: 100%;
   border: none;
@@ -14,7 +14,7 @@ button {
 
     img {
       display: block;
-      @include icon-common();
+      @include styles.icon-common();
     }
   }
 }

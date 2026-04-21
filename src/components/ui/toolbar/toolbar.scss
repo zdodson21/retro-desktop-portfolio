@@ -1,3 +1,6 @@
+@forward "../../../scss/colors.scss";
+@forward "../../../scss/styles.scss";
+
 @mixin toolbar-menu-item-common() {
   display: flex;
   justify-content: space-between;

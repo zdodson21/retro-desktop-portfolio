@@ -1,5 +1,5 @@
-@use "../start.scss" as *;
+@use "../start.scss";
 
 .start-shutdown-wrapper {
-  @include start-menu-object();
+  @include start.start-menu-object();
 }

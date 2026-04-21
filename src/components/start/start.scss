@@ -1,5 +1,7 @@
-@use "../../scss/styles.scss" as *;
-@use "../../scss/colors.scss" as *;
+@use "../../scss/styles.scss";
+@use "../../scss/colors.scss";
+@forward "../../scss/colors.scss";
+@forward "../../scss/styles.scss";
 
 @mixin start-menu-object {
   display: flex;
@@ -9,17 +11,17 @@
   height: 100%;
 
   img {
-    @include icon-common();
+    @include styles.icon-common();
     width: 32px;
   }
 
   p {
-    @include text-common();
+    @include styles.text-common();
   }
 
   &:hover,
   &:active {
-    background-color: $win-95-highlight;
+    background-color: colors.$win-95-highlight;
 
     p {
       color: white;

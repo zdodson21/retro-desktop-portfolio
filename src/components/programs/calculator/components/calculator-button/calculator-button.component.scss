@@ -1,25 +1,25 @@
-@use "../../../../../scss/colors.scss" as *;
+@use "../../../../../scss/colors.scss";
 
 .calculator-button-wrapper {
   p {
     &.blue {
-      color: $calculator-label-blue;
+      color: colors.$calculator-label-blue;
     }
 
     &.dark-blue {
-      color: $calculator-label-dark-blue;
+      color: colors.$calculator-label-dark-blue;
     }
 
     &.red {
-      color: $calculator-label-red;
+      color: colors.$calculator-label-red;
     }
 
     &.dark-red {
-      color: $calculator-label-dark-red;
+      color: colors.$calculator-label-dark-red;
     }
 
     &.gray {
-      color: $calculator-label-gray;
+      color: colors.$calculator-label-gray;
     }
   }
 }

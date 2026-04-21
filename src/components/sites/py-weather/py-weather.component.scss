@@ -1,15 +1,15 @@
-@use "../sites.scss" as *;
-@use "../site-images.scss" as *;
+@use "../sites.scss";
+@use "../site-images.scss";
 
 .py-weather-site-wrapper {
-  @include site-common();
+  @include sites.site-common();
 
   main {
     .details {
       .steps-taken {
         .program-creation {
           .img-container {
-            @include full-img-container(45%);
+            @include site-images.full-img-container(45%);
           }
         }
       }
