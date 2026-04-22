@@ -11,7 +11,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "test:ci": "ng test --watch=false",
+    "test:ci": "ng test --watch=false --ui=false",
     "actions": "act",
     "actions:native": "npm run build; npm run test:ci",
     "prettier": "prettier . --write",
