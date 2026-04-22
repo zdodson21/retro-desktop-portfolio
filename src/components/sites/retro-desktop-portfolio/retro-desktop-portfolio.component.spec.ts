@@ -256,18 +256,18 @@ describe('RetroDesktopPortfolioSite', () => {
       expect(hasGitHubActions).toBeTruthy();
     });
 
-    it('should contain Jasmine badge', () => {
+    it('should contain Vitest badge', () => {
       const badges = compiled.querySelectorAll('.badges img');
-      let hasJasmine = false;
+      let hasVitest = false;
 
       badges.forEach((element) => {
-        if (element.getAttribute('src')?.includes('jasmine.svg')) {
-          hasJasmine = true;
+        if (element.getAttribute('src')?.includes('vitest.svg')) {
+          hasVitest = true;
           return;
         }
       });
 
-      expect(hasJasmine).toBeTruthy();
+      expect(hasVitest).toBeTruthy();
     });
 
     it('should contain Prettier badge', () => {
