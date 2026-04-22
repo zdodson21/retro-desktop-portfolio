@@ -22,7 +22,7 @@ describe('InternetExplorerService', () => {
   });
 
   it('should be set to light mode by default', () => {
-    expect(service.darkMode()).toBeFalse();
+    expect(service.darkMode()).toBeFalsy();
   });
 
   it('should have empty browser history by default', () => {
@@ -30,7 +30,7 @@ describe('InternetExplorerService', () => {
   });
 
   it('should not have the sidebar open by default', () => {
-    expect(service.sidebar()).toBeFalse();
+    expect(service.sidebar()).toBeFalsy();
   });
 
   it('should have at least one possible site', () => {
@@ -42,7 +42,7 @@ describe('InternetExplorerService', () => {
   });
 
   it('should be set to light mode by default', () => {
-    expect(service.darkMode()).toBeFalse();
+    expect(service.darkMode()).toBeFalsy();
   });
 
   // TODO test that sites in DNS are sorted alphabetically

@@ -15,7 +15,7 @@ describe('SettingsService', () => {
   });
 
   it('should have sound disabled by default', () => {
-    expect(service.isSoundEnabled()).toBeFalse();
+    expect(service.isSoundEnabled()).toBeFalsy();
   });
 
   it('should not have a custom background color by default', () => {

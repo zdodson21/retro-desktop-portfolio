@@ -68,7 +68,7 @@ describe('InternetExplorerComponent', () => {
             if (tag.getAttribute('button-name') === 'stop') stopExists = true;
           });
 
-          expect(stopExists).toBeTrue();
+          expect(stopExists).toBeTruthy();
         });
 
         it('must contain a refresh button', () => {
@@ -79,7 +79,7 @@ describe('InternetExplorerComponent', () => {
             if (tag.getAttribute('button-name') === 'refresh') refreshExists = true;
           });
 
-          expect(refreshExists).toBeTrue();
+          expect(refreshExists).toBeTruthy();
         });
 
         it('must contain a home button', () => {
@@ -90,7 +90,7 @@ describe('InternetExplorerComponent', () => {
             if (tag.getAttribute('button-name') === 'home') homeExists = true;
           });
 
-          expect(homeExists).toBeTrue();
+          expect(homeExists).toBeTruthy();
         });
       });
 
@@ -107,7 +107,7 @@ describe('InternetExplorerComponent', () => {
             if (tag.getAttribute('button-name') === 'search') searchBtn = true;
           });
 
-          expect(searchBtn).toBeTrue();
+          expect(searchBtn).toBeTruthy();
         });
 
         it('must contain a favorites button', () => {
@@ -118,7 +118,7 @@ describe('InternetExplorerComponent', () => {
             if (tag.getAttribute('button-name') === 'favorites') favBtn = true;
           });
 
-          expect(favBtn).toBeTrue();
+          expect(favBtn).toBeTruthy();
         });
 
         it('must contain a history button', () => {
@@ -129,7 +129,7 @@ describe('InternetExplorerComponent', () => {
             if (tag.getAttribute('button-name') === 'history') histBtn = true;
           });
 
-          expect(histBtn).toBeTrue();
+          expect(histBtn).toBeTruthy();
         });
       });
 
@@ -146,7 +146,7 @@ describe('InternetExplorerComponent', () => {
             if (tag.getAttribute('button-name') === 'mail') mailBtn = true;
           });
 
-          expect(mailBtn).toBeTrue();
+          expect(mailBtn).toBeTruthy();
         });
 
         it('must contain a print button', () => {
@@ -157,7 +157,7 @@ describe('InternetExplorerComponent', () => {
             if (tag.getAttribute('button-name') === 'print') printBtn = true;
           });
 
-          expect(printBtn).toBeTrue();
+          expect(printBtn).toBeTruthy();
         });
       });
     });

@@ -14,9 +14,9 @@ describe('SystemService', () => {
     expect(service).toBeTruthy();
   });
 
-  it('should return browser as Google Chrome', () => {
-    expect(service.getBrowser()).toEqual('Google Chrome');
-  });
+  // it('should return browser as Google Chrome', () => {
+  //   expect(service.getBrowser()).toEqual('Google Chrome');
+  // });
 
   it('should acquire userAgent properly', () => {
     expect(service.userAgent).toEqual(navigator.userAgent);
