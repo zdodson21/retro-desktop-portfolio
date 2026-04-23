@@ -1,4 +1,4 @@
-@use "../../../scss/styles.scss";
+@use "../../../scss/style.scss";
 @use "../../ui/control-button.scss";
 @use "../alert.scss";
 
@@ -19,7 +19,7 @@
       align-items: baseline;
 
       img {
-        @include styles.icon-common();
+        @include style.icon-common();
         width: 48px;
         image-rendering: pixelated;
       }
@@ -33,7 +33,7 @@
 
       .options {
         p {
-          @include styles.text-common();
+          @include style.text-common();
           margin-bottom: 8px;
         }
 
@@ -42,7 +42,7 @@
         }
 
         label {
-          @include styles.text-common();
+          @include style.text-common();
           border: 1px transparent dotted;
         }
 

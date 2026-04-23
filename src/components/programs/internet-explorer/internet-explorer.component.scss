@@ -1,4 +1,4 @@
-@use "../../../scss/styles.scss";
+@use "../../../scss/style.scss";
 @use "../programs.scss";
 @use "../../../scss/color.scss";
 @use "../toolbar.scss";
@@ -32,7 +32,7 @@ $status-bar-height: 5%;
     @include programs.mobile-viewport();
 
     .frame-contents {
-      @include styles.text-common();
+      @include style.text-common();
       @include programs.frame-contents-common();
 
       @mixin hover-handling() {
@@ -82,7 +82,7 @@ $status-bar-height: 5%;
         }
 
         img {
-          @include styles.icon-common();
+          @include style.icon-common();
         }
       }
 
@@ -200,7 +200,7 @@ $status-bar-height: 5%;
 
           img {
             display: block;
-            @include styles.icon-common();
+            @include style.icon-common();
           }
         }
       }
@@ -308,7 +308,7 @@ $status-bar-height: 5%;
                   }
 
                   img {
-                    @include styles.icon-common();
+                    @include style.icon-common();
                     width: 16px;
                   }
                 }
@@ -325,7 +325,7 @@ $status-bar-height: 5%;
           border-width: 2px;
           border-color: #3f3f3f #ebebeb #ebebeb #3f3f3f;
           border-style: inset;
-          @include styles.allow-user-select();
+          @include style.allow-user-select();
 
           &.dark-mode {
             background-color: #202020;
@@ -360,7 +360,7 @@ $status-bar-height: 5%;
 
         img {
           width: 20px;
-          @include styles.icon-common();
+          @include style.icon-common();
 
           &[src="assets/icons/windows-help.webp"] {
             width: 16px;

@@ -1,4 +1,4 @@
-@use "../../../scss/styles.scss";
+@use "../../../scss/style.scss";
 @use "../programs.scss";
 
 .system-monitor-wrapper {
@@ -9,8 +9,8 @@
   }
 
   .frame-contents {
-    @include styles.text-common();
-    @include styles.allow-user-select();
+    @include style.text-common();
+    @include style.allow-user-select();
     @include programs.frame-contents-common();
     display: flex;
     flex-direction: row;

@@ -1,4 +1,4 @@
-@use "../../scss/styles.scss";
+@use "../../scss/style.scss";
 @use "../ui/control-button.scss";
 
 .window-frame-wrapper {
@@ -45,7 +45,7 @@
       width: 100%;
 
       img {
-        @include styles.icon-common();
+        @include style.icon-common();
         height: 20px;
       }
     }
@@ -61,7 +61,7 @@
         height: 20px;
 
         img {
-          @include styles.icon-common();
+          @include style.icon-common();
           width: 12px;
           height: 12px;
         }
@@ -74,7 +74,7 @@
     }
 
     p {
-      @include styles.text-common();
+      @include style.text-common();
       color: #bfbfbf;
       font-weight: bold;
     }

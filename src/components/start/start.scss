@@ -1,7 +1,7 @@
-@use "../../scss/styles.scss";
+@use "../../scss/style.scss";
 @use "../../scss/color.scss";
 @forward "../../scss/color.scss";
-@forward "../../scss/styles.scss";
+@forward "../../scss/style.scss";
 
 @mixin start-menu-object {
   display: flex;
@@ -11,12 +11,12 @@
   height: 100%;
 
   img {
-    @include styles.icon-common();
+    @include style.icon-common();
     width: 32px;
   }
 
   p {
-    @include styles.text-common();
+    @include style.text-common();
   }
 
   &:hover,

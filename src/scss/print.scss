@@ -1,4 +1,4 @@
-@mixin test-print() {
+@mixin print() {
   .print-selection {
     display: block !important;
     max-height: none !important;
@@ -13,5 +13,5 @@
 }
 
 @media print {
-  @include test-print();
+  @include print();
 }

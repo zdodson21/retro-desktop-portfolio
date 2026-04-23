@@ -1,4 +1,4 @@
-@use "../../../scss/styles.scss";
+@use "../../../scss/style.scss";
 @use "../../../scss/color.scss";
 
 .desktop-icon-wrapper {
@@ -11,13 +11,13 @@
   gap: 8px;
 
   img {
-    @include styles.icon-common();
+    @include style.icon-common();
     width: 45px;
     image-rendering: pixelated;
   }
 
   p {
-    @include styles.text-common();
+    @include style.text-common();
     text-wrap: balance;
     text-align: center;
     font-size: 16px;

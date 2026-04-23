@@ -1,4 +1,4 @@
-@use "../../../scss/styles.scss";
+@use "../../../scss/style.scss";
 @use "../programs.scss";
 @use "../../../scss/color.scss";
 @use "../toolbar.scss";
@@ -16,7 +16,7 @@
     }
 
     .frame-contents {
-      @include styles.text-common();
+      @include style.text-common();
       @include programs.frame-contents-common();
 
       .padding {
@@ -55,7 +55,7 @@
               display: block;
               width: calc(100% - 4px);
               padding: 0px 2px;
-              @include styles.allow-user-select();
+              @include style.allow-user-select();
             }
           }
 

@@ -1,4 +1,4 @@
-@use "../../../scss/styles.scss";
+@use "../../../scss/style.scss";
 @use "../programs.scss";
 @use "../../../scss/font.scss";
 
@@ -11,7 +11,7 @@
     @include programs.mobile-viewport();
 
     .frame-contents {
-      @include styles.text-common();
+      @include style.text-common();
       @include programs.frame-contents-common();
       background-color: #f1f6b7;
 
@@ -26,7 +26,7 @@
           margin-bottom: 20px;
 
           h2 {
-            @include styles.allow-user-select();
+            @include style.allow-user-select();
             font-size: 16px;
           }
         }
@@ -48,7 +48,7 @@
             height: 100%;
 
             p {
-              @include styles.allow-user-select();
+              @include style.allow-user-select();
               margin-bottom: 12px;
               font-size: 14px;
             }

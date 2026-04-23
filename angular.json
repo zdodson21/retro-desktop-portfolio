@@ -35,7 +35,7 @@
               "src/sitemap.xml"
             ],
             "styles": [
-              "src/scss/styles.scss",
+              "src/scss/style.scss",
               "src/scss/print.scss"
             ],
             "scripts": []

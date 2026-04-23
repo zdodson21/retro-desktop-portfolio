@@ -1,4 +1,4 @@
-@use "../../../scss/styles.scss";
+@use "../../../scss/style.scss";
 @use "../programs.scss";
 
 .windows-explorer-wrapper {
@@ -10,7 +10,7 @@
     @include programs.mobile-viewport();
 
     .frame-contents {
-      @include styles.text-common();
+      @include style.text-common();
       @include programs.frame-contents-common();
       background-color: white;
 

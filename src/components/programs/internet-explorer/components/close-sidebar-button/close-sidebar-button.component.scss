@@ -1,4 +1,4 @@
-@use "../../../../../scss/styles.scss";
+@use "../../../../../scss/style.scss";
 @use "../../../../../scss/color.scss";
 
 button {
@@ -11,6 +11,6 @@ button {
   width: 100%;
 
   img {
-    @include styles.icon-common();
+    @include style.icon-common();
   }
 }

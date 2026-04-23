@@ -1,7 +1,7 @@
-@use "../../../../../scss/styles.scss";
+@use "../../../../../scss/style.scss";
 
 .help-button-wrapper {
-  @include styles.text-common();
+  @include style.text-common();
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -41,7 +41,7 @@
   }
 
   p {
-    @include styles.text-common();
+    @include style.text-common();
     text-align: left;
     text-wrap: wrap;
     margin-bottom: 0;

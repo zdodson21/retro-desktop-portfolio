@@ -1,5 +1,5 @@
 @use "../programs.scss";
-@use "../../../scss/styles.scss";
+@use "../../../scss/style.scss";
 @use "../toolbar.scss";
 @use "../../../scss/color.scss";
 
@@ -15,7 +15,7 @@ $white-border: 2px solid white;
     @include programs.mobile-viewport();
 
     .frame-contents {
-      @include styles.text-common();
+      @include style.text-common();
       @include programs.frame-contents-common();
 
       .padding {
@@ -179,7 +179,7 @@ $white-border: 2px solid white;
             gap: 2px;
 
             img {
-              @include styles.icon-common();
+              @include style.icon-common();
             }
           }
         }
