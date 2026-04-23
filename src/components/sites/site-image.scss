@@ -1,3 +1,5 @@
+@forward "./site.scss";
+
 @mixin set-img-size($max-width: 100%) {
   max-width: $max-width;
   margin: 0px calc((100% - $max-width) / 2);

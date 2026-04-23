@@ -1,5 +1,5 @@
 // @use "./print.scss";
-@use "./colors.scss";
+@use "./color.scss";
 
 // ! Common
 
@@ -56,10 +56,10 @@ menu {
 
 ::-moz-selection {
   color: white;
-  background: colors.$win-95-highlight;
+  background: color.$win-95-highlight;
 }
 
 ::selection {
   color: white;
-  background: colors.$win-95-highlight;
+  background: color.$win-95-highlight;
 }

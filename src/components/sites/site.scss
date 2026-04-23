@@ -1,6 +1,6 @@
 @use "../../scss/font.scss";
 
-@mixin site-common() {
+@mixin common() {
   height: calc(100% - 8px);
   padding: 12px;
   @include set-font();
@@ -79,7 +79,7 @@
   }
 }
 
-@mixin site-mobile-support($max-width) {
+@mixin mobile-support($max-width) {
   @media (max-aspect-ratio: 1/1) {
     max-width: $max-width;
   }

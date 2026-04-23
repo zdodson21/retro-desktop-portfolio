@@ -1,5 +1,5 @@
-@use "../sites.scss";
+@use "../site.scss";
 
 .qr-maker-site-wrapper {
-  @include sites.site-common();
+  @include site.common();
 }

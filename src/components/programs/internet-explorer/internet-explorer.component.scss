@@ -1,6 +1,6 @@
 @use "../../../scss/styles.scss";
 @use "../programs.scss";
-@use "../../../scss/colors.scss";
+@use "../../../scss/color.scss";
 @use "../toolbar.scss";
 
 $toolbar-height: 28px;
@@ -181,7 +181,7 @@ $status-bar-height: 5%;
           justify-content: center;
           height: calc(100% - 4px);
           gap: 4px;
-          background-color: colors.$win-95-grey;
+          background-color: color.$win-95-grey;
           width: $button-width;
           margin: 0px 4px;
 

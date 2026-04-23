@@ -1,6 +1,6 @@
 @use "../../../scss/styles.scss";
 @use "../programs.scss";
-@use "../../../scss/colors.scss";
+@use "../../../scss/color.scss";
 @use "../toolbar.scss";
 
 .calculator-wrapper {
@@ -25,12 +25,12 @@
 
         .toolbar {
           @include toolbar.toolbar-common();
-          border-bottom: 2px solid colors.$win-95-divider-top;
+          border-bottom: 2px solid color.$win-95-divider-top;
         }
 
         .calculator {
           height: calc(100% - 40px);
-          border-top: 2px solid colors.$win-95-divider-bottom;
+          border-top: 2px solid color.$win-95-divider-bottom;
           padding: 4px;
 
           @mixin non-button-border() {

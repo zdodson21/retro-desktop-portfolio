@@ -1,4 +1,4 @@
-@use "../../scss/colors.scss";
+@use "../../scss/color.scss";
 
 // ! Programs
 @mixin program-common {
@@ -33,7 +33,7 @@
 @mixin frame-contents-common {
   width: 100%;
   height: 100%;
-  background-color: colors.$win-95-grey;
+  background-color: color.$win-95-grey;
 }
 
 @mixin mobile-viewport {

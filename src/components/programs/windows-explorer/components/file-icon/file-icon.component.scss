@@ -1,5 +1,5 @@
 @use "../../../../../scss/styles.scss";
-@use "../../../../../scss/colors.scss";
+@use "../../../../../scss/color.scss";
 
 .file-icon-wrapper {
   display: flex;
@@ -35,7 +35,7 @@
     p {
       border-color: white;
       color: white;
-      background-color: colors.$win-95-highlight;
+      background-color: color.$win-95-highlight;
     }
   }
 }

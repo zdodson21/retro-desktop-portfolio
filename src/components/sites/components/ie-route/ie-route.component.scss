@@ -1,20 +1,20 @@
-@use "../../../../scss/colors.scss";
+@use "../../../../scss/color.scss";
 @use "../site-component.scss";
 
 a {
-  color: colors.$hyperlink-unvisited;
+  color: color.$hyperlink-unvisited;
   text-decoration: underline;
   cursor: pointer;
 
   &.dark-mode {
-    color: colors.$hyperlink-dark-unvisited;
+    color: color.$hyperlink-dark-unvisited;
 
     &:hover {
-      color: colors.$hyperlink-dark-visited;
+      color: color.$hyperlink-dark-visited;
     }
 
     &:visited {
-      color: colors.$hyperlink-dark-visited;
+      color: color.$hyperlink-dark-visited;
     }
   }
 
@@ -23,18 +23,18 @@ a {
   }
 
   &.visited {
-    color: colors.$hyperlink-dark-visited;
+    color: color.$hyperlink-dark-visited;
   }
 
   &.not-in-site {
-    color: colors.$hyperlink-unvisited;
+    color: color.$hyperlink-unvisited;
 
     &:hover {
-      color: colors.$hyperlink-visited;
+      color: color.$hyperlink-visited;
     }
   }
 
   &:hover {
-    color: colors.$hyperlink-visited;
+    color: color.$hyperlink-visited;
   }
 }

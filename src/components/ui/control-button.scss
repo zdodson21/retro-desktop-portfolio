@@ -1,10 +1,10 @@
-@use "../../scss/colors.scss";
+@use "../../scss/color.scss";
 @use "../../scss/styles.scss";
 
 
 @mixin control-button-common {
   @include styles.text-common();
-  background-color: colors.$win-95-grey;
+  background-color: color.$win-95-grey;
   display: flex;
   justify-content: center;
   align-items: center;

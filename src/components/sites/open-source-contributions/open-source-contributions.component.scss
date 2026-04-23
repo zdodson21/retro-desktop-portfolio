@@ -1,5 +1,5 @@
-@use "../sites.scss";
+@use "../site.scss";
 
 .osc-site-wrapper {
-  @include sites.site-common();
+  @include site.common();
 }

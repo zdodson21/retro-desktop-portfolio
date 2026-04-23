@@ -1,7 +1,7 @@
-@use "../sites.scss";
+@use "../site.scss";
 
 .portfolio-site-wrapper {
-  @include sites.site-common();
+  @include site.common();
 
   main {
     section {

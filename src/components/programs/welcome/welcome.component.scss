@@ -1,6 +1,6 @@
 @use "../../../scss/styles.scss";
 @use "../programs.scss";
-@use "../../../scss/colors.scss";
+@use "../../../scss/color.scss";
 @use "../../ui/control-button.scss";
 @use "../../../scss/font.scss";
 
@@ -45,8 +45,8 @@
           .tip-box {
             background-color: #f1f6b7;
             border-style: solid inset inset solid;
-            border-color: colors.$taskbar-item-border-black colors.$taskbar-item-border-white
-              colors.$taskbar-item-border-white colors.$taskbar-item-border-black;
+            border-color: color.$taskbar-item-border-black color.$taskbar-item-border-white
+              color.$taskbar-item-border-white color.$taskbar-item-border-black;
             border-width: 2px;
             padding: 28px;
             display: flex;

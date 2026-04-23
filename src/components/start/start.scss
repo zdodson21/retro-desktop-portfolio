@@ -1,6 +1,6 @@
 @use "../../scss/styles.scss";
-@use "../../scss/colors.scss";
-@forward "../../scss/colors.scss";
+@use "../../scss/color.scss";
+@forward "../../scss/color.scss";
 @forward "../../scss/styles.scss";
 
 @mixin start-menu-object {
@@ -21,7 +21,7 @@
 
   &:hover,
   &:active {
-    background-color: colors.$win-95-highlight;
+    background-color: color.$win-95-highlight;
 
     p {
       color: white;
