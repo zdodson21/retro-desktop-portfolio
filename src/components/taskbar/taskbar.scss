@@ -1,19 +1,19 @@
 @use "../../scss/style.scss";
 @forward "../../scss/color.scss";
 
-@mixin taskbar-item-common {
+@mixin item-common {
   display: block;
   border-width: 2px;
   height: 24px;
 }
 
-@mixin taskbar-item-text {
+@mixin item-text {
   @include style.text-common();
   font-size: 18px;
   color: black;
 }
 
-@mixin taskbar-item-icon {
+@mixin item-icon {
   @include style.icon-common();
   height: 22px;
 }

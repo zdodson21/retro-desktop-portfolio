@@ -10,6 +10,6 @@
   height: 24px;
 
   p {
-    @include taskbar.taskbar-item-text();
+    @include taskbar.item-text();
   }
 }

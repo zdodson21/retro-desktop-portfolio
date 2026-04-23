@@ -1,7 +1,7 @@
 @use "../taskbar.scss";
 
 .taskbar-program-wrapper {
-  @include taskbar.taskbar-item-common();
+  @include taskbar.item-common();
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -14,11 +14,11 @@
   text-overflow: ellipsis;
 
   img {
-    @include taskbar.taskbar-item-icon();
+    @include taskbar.item-icon();
   }
 
   p {
-    @include taskbar.taskbar-item-text();
+    @include taskbar.item-text();
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;

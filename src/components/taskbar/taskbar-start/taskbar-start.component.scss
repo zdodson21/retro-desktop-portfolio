@@ -1,7 +1,7 @@
 @use "../taskbar.scss";
 
 .taskbar-start-wrapper {
-  @include taskbar.taskbar-item-common();
+  @include taskbar.item-common();
   border-style: outset;
   border-color: taskbar.$taskbar-item-border-white taskbar.$taskbar-item-border-black
     taskbar.$taskbar-item-border-black taskbar.$taskbar-item-border-white;
@@ -16,11 +16,11 @@
     gap: 4px;
 
     img {
-      @include taskbar.taskbar-item-icon();
+      @include taskbar.item-icon();
     }
 
     p {
-      @include taskbar.taskbar-item-text();
+      @include taskbar.item-text();
       font-weight: bold;
     }
   }

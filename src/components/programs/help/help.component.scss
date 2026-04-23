@@ -71,7 +71,7 @@
             }
 
             p {
-              @include font.font-readability();
+              @include font.readability();
               margin-bottom: 8px;
             }
           }

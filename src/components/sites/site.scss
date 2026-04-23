@@ -75,7 +75,7 @@
 @mixin set-font() {
   * {
     font-family: Georgia, "Times New Roman", Times, serif;
-    @include font.font-readability();
+    @include font.readability();
   }
 }
 

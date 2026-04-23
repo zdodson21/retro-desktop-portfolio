@@ -1,4 +1,4 @@
-@mixin font-readability() {
+@mixin readability() {
   -webkit-font-smoothing: antialiased;
   -moz-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
