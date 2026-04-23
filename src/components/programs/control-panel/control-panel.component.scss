@@ -1,18 +1,18 @@
 @use "../../../scss/style.scss";
-@use "../programs.scss";
+@use "../program.scss";
 @use "../../ui/control-button.scss";
 
 .control-panel-wrapper {
-  @include programs.program-common();
+  @include program.common();
 
   window-frame {
     width: 30%;
     height: 80%;
-    @include programs.mobile-viewport();
+    @include program.mobile-viewport();
 
     .frame-contents {
       @include style.text-common();
-      @include programs.frame-contents-common();
+      @include program.frame-contents-common();
 
       .padding {
         padding: 8px;

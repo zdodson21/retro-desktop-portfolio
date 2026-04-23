@@ -1,17 +1,17 @@
 @use "../../../scss/style.scss";
-@use "../programs.scss";
+@use "../program.scss";
 
 .system-monitor-wrapper {
-  @include programs.program-common();
+  @include program.common();
 
   window-frame {
-    @include programs.mobile-viewport();
+    @include program.mobile-viewport();
   }
 
   .frame-contents {
     @include style.text-common();
     @include style.allow-user-select();
-    @include programs.frame-contents-common();
+    @include program.frame-contents-common();
     display: flex;
     flex-direction: row;
     justify-content: center;

@@ -1,4 +1,4 @@
-@use "../programs.scss";
+@use "../program.scss";
 @use "../../../scss/style.scss";
 @use "../toolbar.scss";
 @use "../../../scss/color.scss";
@@ -7,16 +7,16 @@ $black-border: 2px solid black;
 $white-border: 2px solid white;
 
 .paint-wrapper {
-  @include programs.program-common();
+  @include program.common();
 
   window-frame {
     width: 80%;
     height: 90%;
-    @include programs.mobile-viewport();
+    @include program.mobile-viewport();
 
     .frame-contents {
       @include style.text-common();
-      @include programs.frame-contents-common();
+      @include program.frame-contents-common();
 
       .padding {
         padding: 0px 2px;

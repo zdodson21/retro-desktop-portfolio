@@ -1,5 +1,5 @@
 @use "../../../scss/style.scss";
-@use "../programs.scss";
+@use "../program.scss";
 @use "../../../scss/color.scss";
 @use "../toolbar.scss";
 
@@ -24,16 +24,16 @@ $status-bar-height: 5%;
 }
 
 .internet-explorer-wrapper {
-  @include programs.program-common();
+  @include program.common();
 
   window-frame {
     width: 70%;
     height: 90%;
-    @include programs.mobile-viewport();
+    @include program.mobile-viewport();
 
     .frame-contents {
       @include style.text-common();
-      @include programs.frame-contents-common();
+      @include program.frame-contents-common();
 
       @mixin hover-handling() {
         &:hover,
