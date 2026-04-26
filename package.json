@@ -63,6 +63,7 @@
     "@electron-forge/plugin-fuses": "^7.11.1",
     "@electron/fuses": "^1.8.0",
     "@types/jasmine": "~5.1.0",
+    "@vitest/browser-playwright": "^4.1.5",
     "@vitest/ui": "^4.1.5",
     "electron": "^36.1.0",
     "jsdom": "^29.0.2",
