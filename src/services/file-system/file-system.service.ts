@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Item } from '../../interfaces/file-types';
+import { Item } from './file-types';
 
 @Injectable({
   providedIn: 'root',
