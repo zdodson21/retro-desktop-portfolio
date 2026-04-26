@@ -15,6 +15,7 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
 import { AppService } from '../../app/app.service';
 import { SystemService } from '../../services/system/system.service';
 import { WindowService } from '../../services/window/window.service';
+import { Coordinates } from '../../interfaces/coordinates';
 
 @Component({
   selector: 'window-frame',
@@ -67,11 +68,11 @@ export class WindowFrameComponent implements AfterContentInit {
   private isResizing: boolean = false;
 
   // Size & placement
-  private offset = { x: 0, y: 0 };
+  private offset: Coordinates = { x: 0, y: 0 };
 
-  private windowCoordinates = {
-    top: 0,
-    left: 0,
+  private windowCoordinates: Coordinates = {
+    x: 0,
+    y: 0,
   };
 
   ngAfterContentInit() {
@@ -87,12 +88,12 @@ export class WindowFrameComponent implements AfterContentInit {
     // Immediately sets offset, preventing a bug when clicking on a window-frame after the page loads,
     // which would cause it to jump into the top left corner of the viewport.
     this.windowCoordinates = {
-      top: this.elementRef.nativeElement.offsetTop,
-      left: this.elementRef.nativeElement.offsetLeft,
+      x: this.elementRef.nativeElement.offsetLeft,
+      y: this.elementRef.nativeElement.offsetTop,
     };
 
-    this.elementRef.nativeElement.style.top = `${this.windowCoordinates.top}px`;
-    this.elementRef.nativeElement.style.left = `${this.windowCoordinates.left}px`;
+    this.elementRef.nativeElement.style.left = `${this.windowCoordinates.x}px`;
+    this.elementRef.nativeElement.style.top = `${this.windowCoordinates.y}px`;
   }
 
   constructor() {
@@ -139,8 +140,8 @@ export class WindowFrameComponent implements AfterContentInit {
     if (!this.isFullSize) {
       // going into full screen
       this.windowCoordinates = {
-        top: this.elementRef.nativeElement.offsetTop,
-        left: this.elementRef.nativeElement.offsetLeft,
+        x: this.elementRef.nativeElement.offsetLeft,
+        y: this.elementRef.nativeElement.offsetTop,
       };
 
       this.viewIcon = 'assets/icons/restore-button.svg';
@@ -156,8 +157,8 @@ export class WindowFrameComponent implements AfterContentInit {
 
       this.setWindowSize();
 
-      this.elementRef.nativeElement.style.top = `${this.windowCoordinates.top}px`;
-      this.elementRef.nativeElement.style.left = `${this.windowCoordinates.left}px`;
+      this.elementRef.nativeElement.style.left = `${this.windowCoordinates.x}px`;
+      this.elementRef.nativeElement.style.top = `${this.windowCoordinates.y}px`;
     }
 
     this.isFullSize = !this.isFullSize;

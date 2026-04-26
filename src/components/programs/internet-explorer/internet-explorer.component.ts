@@ -1,7 +1,6 @@
 import { AfterViewInit, Component, effect, ElementRef, inject, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AppService } from '../../../app/app.service';
-import { DNS, SiteList } from '../../../interfaces/site-list';
 import { SettingsService } from '../../../services/settings/settings.service';
 import { SystemService } from '../../../services/system/system.service';
 import { AboutMeSite } from '../../sites/about-me/about-me.component';
@@ -24,6 +23,7 @@ import { WindowFrameComponent } from '../../window-frame/window-frame.component'
 import { CloseSidebarButtonComponent } from './components/close-sidebar-button/close-sidebar-button.component';
 import { StandardButtonComponent } from './components/standard-button/standard-button.component';
 import { InternetExplorerService } from './internet-explorer.service';
+import { DNS, SiteList } from './site-list';
 
 @Component({
   selector: 'internet-explorer',

@@ -1,5 +1,5 @@
 import { Injectable, WritableSignal, signal } from '@angular/core';
-import { DNS } from '../../../interfaces/site-list';
+import { DNS } from './site-list';
 
 @Injectable({
   providedIn: 'root',

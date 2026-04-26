@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { CertDate } from '../../../../interfaces/cert-date';
+import { CertDate } from './cert-date';
 
 @Component({
   selector: 'cert-block',
