@@ -1,10 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
   selector: 'taskbar-clock',
   standalone: true,
   imports: [],
   templateUrl: './taskbar-clock.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './taskbar-clock.component.scss',
 })
 export class TaskbarClockComponent {

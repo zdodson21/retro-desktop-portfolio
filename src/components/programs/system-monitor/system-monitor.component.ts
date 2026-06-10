@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, ChangeDetectionStrategy } from '@angular/core';
 import { AppService } from '../../../app/app.service';
 import { WindowFrameComponent } from '../../window-frame/window-frame.component';
 import { SystemService } from '../../../services/system/system.service';
@@ -9,6 +9,7 @@ import { SettingsService } from '../../../services/settings/settings.service';
   selector: 'system-monitor',
   imports: [WindowFrameComponent],
   templateUrl: './system-monitor.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './system-monitor.component.scss',
 })
 export class SystemMonitorComponent {

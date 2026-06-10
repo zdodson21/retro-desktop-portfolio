@@ -10,6 +10,7 @@ import {
   signal,
   ViewChild,
   WritableSignal,
+  ChangeDetectionStrategy,
 } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { AppService } from '../../app/app.service';
@@ -21,6 +22,7 @@ import { Coordinates } from '../../interfaces/coordinates';
   selector: 'window-frame',
   imports: [],
   templateUrl: './window-frame.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './window-frame.component.scss',
 })
 export class WindowFrameComponent implements AfterContentInit {

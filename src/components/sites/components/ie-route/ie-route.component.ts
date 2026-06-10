@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, inject, Input, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, inject, Input, OnInit, ViewChild, ChangeDetectionStrategy } from '@angular/core';
 import { InternetExplorerService } from '../../../programs/internet-explorer/internet-explorer.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { SettingsService } from '../../../../services/settings/settings.service';
@@ -7,6 +7,7 @@ import { SettingsService } from '../../../../services/settings/settings.service'
   selector: 'ie-route',
   imports: [],
   templateUrl: './ie-route.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './ie-route.component.scss',
 })
 export class IeRouteComponent implements AfterViewInit, OnInit {

@@ -1,9 +1,10 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
   selector: 'calculator-button',
   imports: [],
   templateUrl: './calculator-button.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './calculator-button.component.scss',
 })
 export class CalculatorButtonComponent {

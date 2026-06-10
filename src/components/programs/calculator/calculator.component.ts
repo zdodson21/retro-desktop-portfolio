@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { AppService } from '../../../app/app.service';
 import { SystemService } from '../../../services/system/system.service';
 import { ToolbarButtonComponent } from '../../ui/toolbar/toolbar-button/toolbar-button.component';
@@ -14,6 +14,7 @@ import { lastValueFrom } from 'rxjs';
   selector: 'calculator',
   imports: [WindowFrameComponent, ToolbarButtonComponent, ToolbarItemComponent, ToolbarMenuComponent, CalculatorButtonComponent],
   templateUrl: './calculator.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './calculator.component.scss',
 })
 export class CalculatorComponent implements OnInit {
@@ -55,11 +56,15 @@ export class CalculatorComponent implements OnInit {
   protected singleValOperations: Set<string> = new Set([
     'sqrt',
     '1/x',
-    'ln', 'log',
-    'sin', 'cos', 'tan',
+    'ln',
+    'log',
+    'sin',
+    'cos',
+    'tan',
     'n!',
-    'x^2', 'x^3',
-    'Exp'
+    'x^2',
+    'x^3',
+    'Exp',
   ]);
 
   // ! Calculator Logic

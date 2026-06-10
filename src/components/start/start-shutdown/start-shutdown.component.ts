@@ -1,10 +1,11 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, ChangeDetectionStrategy } from '@angular/core';
 import { AppService } from '../../../app/app.service';
 
 @Component({
   selector: 'start-shutdown',
   imports: [],
   templateUrl: './start-shutdown.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './start-shutdown.component.scss',
 })
 export class StartShutdownComponent {

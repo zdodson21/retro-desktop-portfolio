@@ -1,8 +1,6 @@
-import { Injectable, signal, WritableSignal } from '@angular/core';
+import { Service, signal, WritableSignal } from '@angular/core';
 
-@Injectable({
-  providedIn: 'root',
-})
+@Service()
 export class AppService {
   public focus: WritableSignal<string> = signal('');
 

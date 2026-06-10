@@ -1,4 +1,4 @@
-import { Component, ElementRef, inject, OnInit, signal, ViewChild, WritableSignal } from '@angular/core';
+import { Component, ElementRef, inject, OnInit, signal, ViewChild, WritableSignal, ChangeDetectionStrategy } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { AppService } from '../../../app/app.service';
 import { SystemService } from '../../../services/system/system.service';
@@ -10,6 +10,7 @@ import { SettingsService } from '../../../services/settings/settings.service';
   selector: 'welcome',
   imports: [WindowFrameComponent],
   templateUrl: './welcome.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './welcome.component.scss',
 })
 export class WelcomeComponent implements OnInit {

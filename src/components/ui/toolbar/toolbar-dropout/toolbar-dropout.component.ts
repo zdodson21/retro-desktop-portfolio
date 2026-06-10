@@ -1,10 +1,11 @@
-import { Component, inject, Input } from '@angular/core';
+import { Component, inject, Input, ChangeDetectionStrategy } from '@angular/core';
 import { SystemService } from '../../../../services/system/system.service';
 
 @Component({
   selector: 'toolbar-dropout',
   imports: [],
   templateUrl: './toolbar-dropout.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './toolbar-dropout.component.scss',
 })
 export class ToolbarDropoutComponent {

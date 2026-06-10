@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, ChangeDetectionStrategy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { AppService } from '../../../app/app.service';
 import { WindowService } from '../../../services/window/window.service';
@@ -30,6 +30,7 @@ import { WindowsExplorerComponent } from '../windows-explorer/windows-explorer.c
     WindowsExplorerComponent,
   ],
   templateUrl: './programs-wrapper.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './programs-wrapper.component.scss',
 })
 export class ProgramsWrapperComponent {

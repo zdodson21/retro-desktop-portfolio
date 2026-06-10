@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, ChangeDetectionStrategy } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { AppService } from '../../../app/app.service';
 import { WindowFrameComponent } from '../../window-frame/window-frame.component';
@@ -9,6 +9,7 @@ import { WindowService } from '../../../services/window/window.service';
   selector: 'my-computer',
   imports: [WindowFrameComponent],
   templateUrl: './my-computer.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './my-computer.component.scss',
 })
 export class MyComputerComponent {

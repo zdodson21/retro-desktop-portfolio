@@ -1,10 +1,11 @@
 import { NgStyle } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
   selector: 'paint-color-option',
   imports: [NgStyle],
   templateUrl: './paint-color-option.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './paint-color-option.component.scss',
 })
 export class PaintColorOptionComponent {

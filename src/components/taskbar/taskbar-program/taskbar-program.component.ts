@@ -1,10 +1,11 @@
-import { Component, effect, inject, Input, signal, WritableSignal } from '@angular/core';
+import { Component, effect, inject, Input, signal, WritableSignal, ChangeDetectionStrategy } from '@angular/core';
 import { AppService } from '../../../app/app.service';
 
 @Component({
   selector: 'taskbar-program',
   imports: [],
   templateUrl: './taskbar-program.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './taskbar-program.component.scss',
 })
 export class TaskbarProgramComponent {

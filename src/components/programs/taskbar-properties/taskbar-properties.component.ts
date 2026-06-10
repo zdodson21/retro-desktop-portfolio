@@ -1,10 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { WindowFrameComponent } from '../../window-frame/window-frame.component';
 
 @Component({
   selector: 'taskbar-properties',
   imports: [WindowFrameComponent],
   templateUrl: './taskbar-properties.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './taskbar-properties.component.scss',
 })
 export class TaskbarPropertiesComponent {}

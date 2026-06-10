@@ -1,4 +1,4 @@
-import { Component, inject, Input } from '@angular/core';
+import { Component, inject, Input, ChangeDetectionStrategy } from '@angular/core';
 import { InternetExplorerService } from '../../../programs/internet-explorer/internet-explorer.service';
 import { SystemService } from '../../../../services/system/system.service';
 
@@ -6,6 +6,7 @@ import { SystemService } from '../../../../services/system/system.service';
   selector: 'a-ie',
   imports: [],
   templateUrl: './a-ie.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './a-ie.component.scss',
 })
 export class AIeComponent {

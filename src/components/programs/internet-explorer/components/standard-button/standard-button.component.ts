@@ -1,10 +1,11 @@
-import { Component, inject, Input } from '@angular/core';
+import { Component, inject, Input, ChangeDetectionStrategy } from '@angular/core';
 import { InternetExplorerService } from '../../internet-explorer.service';
 
 @Component({
   selector: 'standard-button',
   imports: [],
   templateUrl: './standard-button.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './standard-button.component.scss',
 })
 export class StandardButtonComponent {

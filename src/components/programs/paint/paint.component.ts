@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, inject, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, inject, ViewChild, ChangeDetectionStrategy } from '@angular/core';
 import { AppService } from '../../../app/app.service';
 import { Coordinates } from '../../../interfaces/coordinates';
 import { ToolbarButtonComponent } from '../../ui/toolbar/toolbar-button/toolbar-button.component';
@@ -22,6 +22,7 @@ import { DisableRightClickDirective } from '../../../directives/disable-right-cl
     DisableRightClickDirective,
   ],
   templateUrl: './paint.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './paint.component.scss',
 })
 export class PaintProgram implements AfterViewInit {

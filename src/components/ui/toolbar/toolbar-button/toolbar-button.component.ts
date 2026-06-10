@@ -1,9 +1,10 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
   selector: 'toolbar-button',
   imports: [],
   templateUrl: './toolbar-button.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './toolbar-button.component.scss',
 })
 export class ToolbarButtonComponent {

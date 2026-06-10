@@ -1,9 +1,7 @@
-import { Injectable } from '@angular/core';
+import { Service } from '@angular/core';
 import { Item } from './file-types';
 
-@Injectable({
-  providedIn: 'root',
-})
+@Service()
 export class FileSystemService {
   public fileSystem: Array<Item> = [
     {

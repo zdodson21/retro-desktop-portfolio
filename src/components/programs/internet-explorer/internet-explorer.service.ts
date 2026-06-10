@@ -1,9 +1,7 @@
-import { Injectable, WritableSignal, signal } from '@angular/core';
+import { Service, WritableSignal, signal } from '@angular/core';
 import { DNS } from './site-list';
 
-@Injectable({
-  providedIn: 'root',
-})
+@Service()
 export class InternetExplorerService {
   public statusBarIcon: WritableSignal<string> = signal('assets/icons/html-file.webp');
   public statusBarContent: WritableSignal<string> = signal('Ready');

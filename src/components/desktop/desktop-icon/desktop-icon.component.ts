@@ -1,4 +1,4 @@
-import { Component, effect, inject, Input, OnInit, signal, WritableSignal } from '@angular/core';
+import { Component, effect, inject, Input, OnInit, signal, WritableSignal, ChangeDetectionStrategy } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { AppService } from '../../../app/app.service';
 import { Programs } from '../../../interfaces/open-programs.interface';
@@ -8,6 +8,7 @@ import { WindowService } from '../../../services/window/window.service';
   selector: 'desktop-icon',
   imports: [],
   templateUrl: './desktop-icon.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './desktop-icon.component.scss',
 })
 export class DesktopIconComponent implements OnInit {

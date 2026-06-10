@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, ChangeDetectionStrategy } from '@angular/core';
 import { InternetExplorerService } from '../../programs/internet-explorer/internet-explorer.service';
 import { AIeComponent } from '../components/a-ie/a-ie.component';
 
@@ -6,6 +6,7 @@ import { AIeComponent } from '../components/a-ie/a-ie.component';
   selector: 'qr-maker',
   imports: [AIeComponent],
   templateUrl: './qr-maker.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './qr-maker.component.scss',
 })
 export class QrMakerSite {

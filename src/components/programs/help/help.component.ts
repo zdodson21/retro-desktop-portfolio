@@ -1,4 +1,4 @@
-import { Component, inject, signal, WritableSignal } from '@angular/core';
+import { Component, inject, signal, WritableSignal, ChangeDetectionStrategy } from '@angular/core';
 import { AppService } from '../../../app/app.service';
 import { IeRouteComponent } from '../../sites/components/ie-route/ie-route.component';
 import { WindowFrameComponent } from '../../window-frame/window-frame.component';
@@ -8,6 +8,7 @@ import { HelpButtonComponent } from './components/help-button/help-button.compon
   selector: 'help',
   imports: [WindowFrameComponent, HelpButtonComponent, IeRouteComponent],
   templateUrl: './help.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './help.component.scss',
 })
 export class HelpComponent {

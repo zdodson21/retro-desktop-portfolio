@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, ChangeDetectionStrategy } from '@angular/core';
 import { WindowFrameComponent } from '../../window-frame/window-frame.component';
 import { FileIconComponent } from './components/file-icon/file-icon.component';
 import { WindowsExplorerService } from './windows-explorer.service';
@@ -8,6 +8,7 @@ import { InternetExplorerService } from '../internet-explorer/internet-explorer.
   selector: 'windows-explorer',
   imports: [FileIconComponent, WindowFrameComponent],
   templateUrl: './windows-explorer.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './windows-explorer.component.scss',
 })
 export class WindowsExplorerComponent {

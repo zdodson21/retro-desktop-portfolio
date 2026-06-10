@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, effect, ElementRef, inject, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, effect, ElementRef, inject, OnInit, ViewChild, ChangeDetectionStrategy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AppService } from '../../../app/app.service';
 import { SettingsService } from '../../../services/settings/settings.service';
@@ -49,6 +49,7 @@ import { DNS, SiteList } from './site-list';
     WindowFrameComponent,
   ],
   templateUrl: './internet-explorer.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './internet-explorer.component.scss',
 })
 export class InternetExplorerComponent implements OnInit, AfterViewInit {

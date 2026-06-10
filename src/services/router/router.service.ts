@@ -1,8 +1,6 @@
-import { Injectable } from '@angular/core';
+import { Service } from '@angular/core';
 
-@Injectable({
-  providedIn: 'root',
-})
+@Service()
 export class RouterService {
   // TODO add all common router usages into functions here. Use interfaces to create objects for any inputs.
 }

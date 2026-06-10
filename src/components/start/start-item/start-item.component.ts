@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, inject } from '@angular/core';
+import { Component, Input, OnInit, inject, ChangeDetectionStrategy } from '@angular/core';
 import { AppService } from '../../../app/app.service';
 import { Programs } from '../../../interfaces/open-programs.interface';
 import { Router, ActivatedRoute, Params } from '@angular/router';
@@ -8,6 +8,7 @@ import { WindowService } from '../../../services/window/window.service';
   selector: 'start-item',
   imports: [],
   templateUrl: './start-item.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './start-item.component.scss',
 })
 export class StartItemComponent implements OnInit {

@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, ChangeDetectionStrategy } from '@angular/core';
 import { AppService } from '../../../app/app.service';
 import { StartDropoutComponent } from '../start-dropdown/start-dropout.component';
 import { StartItemComponent } from '../start-item/start-item.component';
@@ -20,6 +20,7 @@ import { environment } from '../../../environments/environment';
     StartSubmenuComponent,
   ],
   templateUrl: './start-menu.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './start-menu.component.scss',
 })
 export class StartMenuComponent {

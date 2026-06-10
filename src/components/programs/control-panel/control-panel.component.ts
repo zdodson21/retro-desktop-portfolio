@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, ChangeDetectionStrategy } from '@angular/core';
 import { WindowFrameComponent } from '../../window-frame/window-frame.component';
 import { SystemService } from '../../../services/system/system.service';
 
@@ -6,6 +6,7 @@ import { SystemService } from '../../../services/system/system.service';
   selector: 'control-panel',
   imports: [WindowFrameComponent],
   templateUrl: './control-panel.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './control-panel.component.scss',
 })
 export class ControlPanelComponent {

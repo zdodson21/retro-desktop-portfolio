@@ -1,4 +1,4 @@
-import { Component, effect, inject } from '@angular/core';
+import { Component, effect, inject, ChangeDetectionStrategy } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { AppService } from '../../../app/app.service';
 import { WindowFrameComponent } from '../../window-frame/window-frame.component';
@@ -8,6 +8,7 @@ import { SystemService } from '../../../services/system/system.service';
   selector: 'alert-shutdown',
   imports: [WindowFrameComponent, FormsModule],
   templateUrl: './alert-shutdown.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './alert-shutdown.component.scss',
 })
 export class AlertShutdownComponent {

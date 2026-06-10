@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, ChangeDetectionStrategy } from '@angular/core';
 import { AppService } from '../../../app/app.service';
 import { TaskbarClockComponent } from '../taskbar-clock/taskbar-clock.component';
 import { TaskbarProgramComponent } from '../taskbar-program/taskbar-program.component';
@@ -9,6 +9,7 @@ import { WindowService } from '../../../services/window/window.service';
   selector: 'taskbar-base',
   imports: [TaskbarClockComponent, TaskbarProgramComponent, TaskbarStartComponent],
   templateUrl: './taskbar-base.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './taskbar-base.component.scss',
 })
 export class TaskbarBaseComponent {

@@ -1,9 +1,10 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
   selector: 'start-subdropout',
   imports: [],
   templateUrl: './start-subdropout.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './start-subdropout.component.scss',
 })
 export class StartSubdropoutComponent {

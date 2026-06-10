@@ -1,9 +1,10 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
   selector: 'start-dropout',
   imports: [],
   templateUrl: './start-dropout.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './start-dropout.component.scss',
 })
 export class StartDropoutComponent {

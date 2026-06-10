@@ -1,8 +1,6 @@
-import { Injectable, WritableSignal, signal } from '@angular/core';
+import { Service, WritableSignal, signal } from '@angular/core';
 
-@Injectable({
-  providedIn: 'root',
-})
+@Service()
 export class SystemService {
   public readonly userAgent: string = navigator.userAgent;
   

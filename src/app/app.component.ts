@@ -1,4 +1,4 @@
-import { Component, HostListener, inject } from '@angular/core';
+import { Component, HostListener, inject, ChangeDetectionStrategy } from '@angular/core';
 import { ActivatedRoute, Params, Router, RouterOutlet } from '@angular/router';
 import { AlertShutdownComponent } from '../components/alerts/alert-shutdown/alert-shutdown.component';
 import { DesktopEnvironmentComponent } from '../components/desktop/desktop-environment/desktop-environment.component';
@@ -25,7 +25,7 @@ import { AppService } from './app.service';
   selector: 'app-root',
   imports: [
     RouterOutlet,
-    
+
     AlertShutdownComponent,
     TaskbarBaseComponent,
     DesktopEnvironmentComponent,
@@ -45,6 +45,7 @@ import { AppService } from './app.service';
     PyWeatherSite,
   ],
   templateUrl: './app.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './app.component.scss',
 })
 export class AppComponent {

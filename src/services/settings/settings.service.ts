@@ -1,8 +1,6 @@
-import { Injectable, signal, WritableSignal } from '@angular/core';
+import { Service, signal, WritableSignal } from '@angular/core';
 
-@Injectable({
-  providedIn: 'root',
-})
+@Service()
 export class SettingsService {
   public isSoundEnabled: WritableSignal<boolean> = signal(false);
   public customBackgroundColor: WritableSignal<string> = signal('');

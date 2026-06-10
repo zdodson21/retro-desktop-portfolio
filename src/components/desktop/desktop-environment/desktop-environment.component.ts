@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, ChangeDetectionStrategy } from '@angular/core';
 import { AppService } from '../../../app/app.service';
 import { DesktopIconComponent } from '../desktop-icon/desktop-icon.component';
 import { SystemService } from '../../../services/system/system.service';
@@ -7,6 +7,7 @@ import { SystemService } from '../../../services/system/system.service';
   selector: 'desktop-environment',
   imports: [DesktopIconComponent],
   templateUrl: './desktop-environment.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './desktop-environment.component.scss',
 })
 export class DesktopEnvironmentComponent {

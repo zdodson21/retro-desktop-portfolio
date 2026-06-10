@@ -1,4 +1,4 @@
-import { Component, effect, inject, Input, signal, WritableSignal } from '@angular/core';
+import { Component, effect, inject, Input, signal, WritableSignal, ChangeDetectionStrategy } from '@angular/core';
 import { WindowsExplorerService } from '../../windows-explorer.service';
 import { WindowService } from '../../../../../services/window/window.service';
 import { Programs } from '../../../../../interfaces/open-programs.interface';
@@ -9,6 +9,7 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
   selector: 'file-icon',
   imports: [],
   templateUrl: './file-icon.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './file-icon.component.scss',
 })
 export class FileIconComponent {

@@ -1,10 +1,11 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, ChangeDetectionStrategy } from '@angular/core';
 import { AppService } from '../../../app/app.service';
 
 @Component({
   selector: 'taskbar-start',
   imports: [],
   templateUrl: './taskbar-start.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './taskbar-start.component.scss',
 })
 export class TaskbarStartComponent {
