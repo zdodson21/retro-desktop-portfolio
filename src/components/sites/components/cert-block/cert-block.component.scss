@@ -1,9 +1,13 @@
 @use "../site-component.scss";
 
-.cert-block-wrapper {
+details {
   @include site-component.set-font();
 
+  margin-bottom: 16px;
+
   .cert-dates {
+    margin: 8px;
+
     .bold {
       font-weight: bold;
     }

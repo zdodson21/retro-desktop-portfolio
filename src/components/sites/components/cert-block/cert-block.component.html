@@ -2,13 +2,13 @@
   <summary>{{ title }}</summary>
   <ul class="cert-dates">
     <li>
-      <span class="bold">Issued: </span> <time [dateTime]="issueDate.dateTimeFormat">{{ issueDate.dateTimeString }}</time>
+      <span class="bold">Issued: </span> <time [dateTime]="issueYear + '-' + issueMonth">{{ issueEpoch| date:'MMMM yyyy' }}</time>
     </li>
     <li>
       <span class="bold">Expires: </span>
 
-      @if (expiryDate.dateTimeFormat) {
-        <time [dateTime]="expiryDate.dateTimeFormat">{{ expiryDate.dateTimeString }}</time>
+      @if (expiryDate) {
+        <time [dateTime]="expiryYear + '-' + expiryMonth">{{ expiryEpoch | date:'MMMM yyyy' }}</time>
       } @else {
         N/A
       }

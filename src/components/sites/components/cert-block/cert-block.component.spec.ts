@@ -14,7 +14,7 @@ describe('CertBlockComponent', () => {
 
     fixture = TestBed.createComponent(CertBlockComponent);
     component = fixture.componentInstance;
-    component.issueDate = {dateTimeString: 'Sample string'}
+    component.issueDate = 1772344800;
     fixture.detectChanges();
   });
 
