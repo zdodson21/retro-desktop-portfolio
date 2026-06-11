@@ -30,3 +30,4 @@ karma.conf.js
 makefile
 *.spec.ts
 *.md
+*.s
