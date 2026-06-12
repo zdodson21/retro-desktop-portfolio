@@ -15,7 +15,7 @@ export class AlertShutdownComponent {
   private store: AppService = inject(AppService);
   private systemService: SystemService = inject(SystemService);
 
-  protected formValue_e = {
+  protected readonly formValue_e = {
     SHUTDOWN: 0,
     RESTART: 1,
     MSDOS: 2,
