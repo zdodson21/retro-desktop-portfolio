@@ -65,18 +65,18 @@ export class InternetExplorerComponent implements OnInit, AfterViewInit {
   protected systemService: SystemService = inject(SystemService);
   private settings: SettingsService = inject(SettingsService);
 
-  protected readonly sidebar_e = Object.freeze({
+  protected readonly sidebar_e = {
     SEARCH: 0,
     FAVORITES: 1,
     HISTORY: 2,
-  });
-  protected sidebarContent: number = this.sidebar_e.SEARCH; // 0 = search, 1 = favorites, 2 = history // TODO make into "enum???"
+  };
+  protected sidebarContent: number = this.sidebar_e.SEARCH;
 
   protected statusBarContent: string = "Ready";
   protected goButtonHovered: boolean = false;
   protected searchResults: DNS = [];
   protected menuFocus: string = '';
-  private readonly toolbarButtons: Array<string> = ["file", "view", "favorites", "tools"];
+  private readonly toolbarButtons: Set<string> = new Set(["file", "view", "favorites", "tools"]);
   private currentSite: string = this.IEService.displayedSite(); // Used for ensuring the page scrolls to top (in constructor)
 
   ngOnInit() {
@@ -169,13 +169,13 @@ export class InternetExplorerComponent implements OnInit, AfterViewInit {
   protected toolbarButtonHelper(event: MouseEvent, button: string): string {
     event?.stopPropagation();
 
-    if (this.menuFocus === '' && this.toolbarButtons.includes(button)) return button;
+    if (this.menuFocus === '' && this.toolbarButtons.has(button)) return button;
 
     return '';
   }
 
   protected toolbarHoverHelper(button: string): void {
-    if (this.toolbarButtons.includes(this.menuFocus)) this.menuFocus = button;
+    if (this.toolbarButtons.has(this.menuFocus)) this.menuFocus = button;
   }
 
   /**

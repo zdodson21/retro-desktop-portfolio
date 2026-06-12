@@ -32,7 +32,7 @@ export class PaintProgram implements AfterViewInit {
   protected paintService: PaintService = inject(PaintService);
 
   protected menuFocus: string = '';
-  private readonly toolbarButtons: Array<string> = ['file', 'edit', 'view', 'image', 'options', 'help'];
+  private readonly toolbarButtons: Set<string> = new Set(['file', 'edit', 'view', 'image', 'options', 'help']);
 
   @ViewChild('canvas') private canvas: ElementRef<HTMLCanvasElement>;
   private ctx: CanvasRenderingContext2D;
@@ -136,7 +136,7 @@ export class PaintProgram implements AfterViewInit {
   protected toolbarButtonHelper(event: MouseEvent, button: string): string {
     event.stopPropagation();
 
-    if (this.menuFocus === '' && this.toolbarButtons.includes(button)) return button;
+    if (this.menuFocus === '' && this.toolbarButtons.has(button)) return button;
 
     return '';
   }
@@ -147,7 +147,7 @@ export class PaintProgram implements AfterViewInit {
    * @param button button label string
    */
   protected toolbarHoverHelper(button: string): void {
-    if (this.toolbarButtons.includes(this.menuFocus)) this.menuFocus = button;
+    if (this.toolbarButtons.has(this.menuFocus)) this.menuFocus = button;
   }
 
   /**

@@ -13,5 +13,7 @@
     "future": "c",
     "list": "c",
     "regex": "c"
-  }
+  },
+  "editor.parameterHints.enabled": false,
+  "angular.inlayHints.parameterHints.suppressWhenArgumentMatchesName": false,
 }

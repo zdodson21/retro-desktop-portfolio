@@ -8,16 +8,16 @@
         <div class="options">
           <p>Are you sure you want to:</p>
           <div class="option">
-            <input type="radio" name="option" id="shutdown" [value]="0" [(ngModel)]="formValue" />
+            <input type="radio" name="option" id="shutdown" [value]="formValue_e.SHUTDOWN" [(ngModel)]="formValue" />
             <label for="shutdown">Shut down the computer?</label>
           </div>
           <div class="option">
-            <input type="radio" name="option" id="restart" [value]="1" [(ngModel)]="formValue" />
+            <input type="radio" name="option" id="restart" [value]="formValue_e.RESTART" [(ngModel)]="formValue" />
             <label for="restart">Restart the computer?</label>
           </div>
           <!-- TODO when ready to integrate MSDOS-Prompt mode -->
           <!-- <div class="option">
-            <input type="radio" name="option" id="msdos-mode" [value]="2" [(ngModel)]="formValue">
+            <input type="radio" name="option" id="msdos-mode" [value]="formValue_e.MSDOS" [(ngModel)]="formValue">
             <label for="msdos-mode">Restart the computer in MS-DOS mode?</label>
           </div> -->
         </div>

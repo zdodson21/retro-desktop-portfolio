@@ -14,7 +14,13 @@ import { SystemService } from '../../../services/system/system.service';
 export class AlertShutdownComponent {
   private store: AppService = inject(AppService);
   private systemService: SystemService = inject(SystemService);
-  protected formValue: number = 0; // 0 = Shutdown, 1 = Restart, 2 = MSDOS-Prompt Mode
+
+  protected formValue_e = {
+    SHUTDOWN: 0,
+    RESTART: 1,
+    MSDOS: 2,
+  }
+  protected formValue: number = this.formValue_e.SHUTDOWN;
 
   constructor() {
     effect(() => {
@@ -29,16 +35,21 @@ export class AlertShutdownComponent {
     event.preventDefault();
 
     switch (this.formValue) {
-      case 0:
-        this.store.desktopMode.set(1);
+      case this.formValue_e.SHUTDOWN:
+        this.store.desktopMode.set(this.store.desktop_e.SHUTDOWN);
         break;
-      case 1:
+
+      case this.formValue_e.RESTART:
         globalThis.location.href = this.systemService.webAddress;
         break;
+
       // TODO uncomment below when ready to integrate MSDOS-Prompt mode
-      // case 2:
-      //   this.store.desktopMode.set(2)
+      // case this.formValue_e.MSDOS:
+      //   this.store.desktopMode.set(this.store.desktop_e.MSDOS)
       //   break;
+
+      default:
+        break;
     }
 
     this.dismissAlert();
