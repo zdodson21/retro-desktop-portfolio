@@ -37,9 +37,9 @@
             <toolbar-menu class="top-level-menu" [class.visible]="menuFocus === 'view'" (click)="store.focus.set('internet-explorer')">
               <toolbar-dropout text="Explorer Bar">
                 <toolbar-menu>
-                  <toolbar-item left-text="Search" (click)="openCloseSidebar(0, true)" [disabled]="sidebarContent === 0 && IEService.sidebar()" [ariaLabel]="'Open search menu'" />
-                  <toolbar-item left-text="Favorites" (click)="openCloseSidebar(1, true)" [disabled]="sidebarContent === 1 && IEService.sidebar()" [ariaLabel]="'Open favorites menu'" />
-                  <toolbar-item left-text="History" (click)="openCloseSidebar(2, true)" [disabled]="sidebarContent === 2 && IEService.sidebar()" [ariaLabel]="'Open history menu'" />
+                  <toolbar-item left-text="Search" (click)="openCloseSidebar(sidebar_e.SEARCH)" [disabled]="sidebarContent === sidebar_e.SEARCH" [ariaLabel]="'Open search menu'" />
+                  <toolbar-item left-text="Favorites" (click)="openCloseSidebar(sidebar_e.FAVORITES)" [disabled]="sidebarContent === sidebar_e.FAVORITES" [ariaLabel]="'Open favorites menu'" />
+                  <toolbar-item left-text="History" (click)="openCloseSidebar(sidebar_e.HISTORY)" [disabled]="sidebarContent === sidebar_e.HISTORY" [ariaLabel]="'Open history menu'" />
                 </toolbar-menu>
               </toolbar-dropout>
 
@@ -145,9 +145,9 @@
           <div class="divider"></div>
         </div>
         <div class="go-to-buttons buttons">
-          <standard-button button-name="search" button-hint="Search available sites." (click)="openCloseSidebar(0)" [ariaLabel]="'Search available sites.'" />
-          <standard-button button-name="favorites" button-hint="Display list of available sites." (click)="openCloseSidebar(1)" [ariaLabel]="'Display list of available sites.'" />
-          <standard-button button-name="history" button-hint="Display list of previously viewed sites." (click)="openCloseSidebar(2)" [ariaLabel]="'Display list of previously viewed sites.'" />
+          <standard-button button-name="search" button-hint="Search available sites." (click)="openCloseSidebar(sidebar_e.SEARCH)" [ariaLabel]="'Search available sites.'" />
+          <standard-button button-name="favorites" button-hint="Display list of available sites." (click)="openCloseSidebar(sidebar_e.FAVORITES)" [ariaLabel]="'Display list of available sites.'" />
+          <standard-button button-name="history" button-hint="Display list of previously viewed sites." (click)="openCloseSidebar(sidebar_e.HISTORY)" [ariaLabel]="'Display list of previously viewed sites.'" />
         </div>
         <div class="divider-container">
           <div class="divider"></div>
@@ -182,7 +182,7 @@
       <div class="main-content" (click)="menuFocus = ''" [class.sidebar-open]="IEService.sidebar()">
         <div class="sidebar" [class.sidebar-open]="IEService.sidebar()" [class.mobile]="systemService.isMobile()">
           @switch (sidebarContent) {
-            @case (0) {
+            @case (sidebar_e.SEARCH) {
               <div class="search sidebar-content">
                 <div class="title-bar">
                   <p>Search</p>
@@ -205,7 +205,7 @@
               </div>
             }
 
-            @case (1) {
+            @case (sidebar_e.FAVORITES) {
               <div class="favorites sidebar-content">
                 <div class="title-bar">
                   <p>Favorites</p>
@@ -225,7 +225,7 @@
               </div>
             }
 
-            @case (2) {
+            @case (sidebar_e.HISTORY) {
               <div class="history sidebar-content">
                 <div class="title-bar">
                   <p>History</p>

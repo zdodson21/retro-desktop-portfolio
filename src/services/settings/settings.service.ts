@@ -23,7 +23,7 @@ export class SettingsService {
      *   "enabled":            dark mode theming will be used
      *   "disabled" (default): dark mode theming will not be used
      */
-    'internetExplorerDarkMode', // 1
+    "internetExplorerDarkMode", // 1
 
     /**
      * "Array" holding values of "sites" that have been visited
@@ -33,6 +33,16 @@ export class SettingsService {
      *   [...]: Any sites within the sites list
      *
      */
-    'ieVisitedSites', // 2
+    "ieVisitedSites", // 2
+
+    /**
+     * Sets whether the user has pressed the favorites button in Internet
+     * explorer or not.
+     *
+     * Possible values:
+     *  "false" (default): User has not pressed favorites button before, show favorites bar on start-up
+     *  "true": User has pressed button before, do not show favorites bar on start-up
+     */
+    "pressedFavoritesButton", // 3
   ];
 }

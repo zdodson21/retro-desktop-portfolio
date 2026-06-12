@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, effect, ElementRef, inject, OnInit, ViewChild, ChangeDetectionStrategy } from '@angular/core';
+import { AfterViewInit, ChangeDetectionStrategy, Component, effect, ElementRef, inject, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AppService } from '../../../app/app.service';
 import { SettingsService } from '../../../services/settings/settings.service';
@@ -64,12 +64,19 @@ export class InternetExplorerComponent implements OnInit, AfterViewInit {
   protected IEService: InternetExplorerService = inject(InternetExplorerService);
   protected systemService: SystemService = inject(SystemService);
   private settings: SettingsService = inject(SettingsService);
-  protected sidebarContent: number = 0; // 0 = search, 1 = favorites, 2 = history
-  protected statusBarContent: string = 'Ready';
+
+  protected readonly sidebar_e = Object.freeze({
+    SEARCH: 0,
+    FAVORITES: 1,
+    HISTORY: 2,
+  });
+  protected sidebarContent: number = this.sidebar_e.SEARCH; // 0 = search, 1 = favorites, 2 = history // TODO make into "enum???"
+
+  protected statusBarContent: string = "Ready";
   protected goButtonHovered: boolean = false;
   protected searchResults: DNS = [];
   protected menuFocus: string = '';
-  private readonly toolbarButtons: Array<string> = ['file', 'view', 'favorites', 'tools'];
+  private readonly toolbarButtons: Array<string> = ["file", "view", "favorites", "tools"];
   private currentSite: string = this.IEService.displayedSite(); // Used for ensuring the page scrolls to top (in constructor)
 
   ngOnInit() {
@@ -77,7 +84,7 @@ export class InternetExplorerComponent implements OnInit, AfterViewInit {
       localStorage.getItem(this.settings.localStorageValues[1]) === null ||
       localStorage.getItem(this.settings.localStorageValues[1]) === ''
     ) {
-      const SET_DARK_MODE: string = this.systemService.browserIsDarkMode ? 'enabled' : 'disabled';
+      const SET_DARK_MODE: string = this.systemService.browserIsDarkMode ? "enabled" : "disabled";
 
       localStorage.setItem(this.settings.localStorageValues[1], SET_DARK_MODE);
     }
@@ -122,6 +129,16 @@ export class InternetExplorerComponent implements OnInit, AfterViewInit {
       this.IEService.darkMode.set(false);
     else {
       this.IEService.darkMode.set(true);
+    }
+
+    if (
+      localStorage.getItem(this.settings.localStorageValues[3]) === null ||
+      localStorage.getItem(this.settings.localStorageValues[3]) === "" ||
+      localStorage.getItem(this.settings.localStorageValues[3]) === "false"
+    ) {
+      localStorage.setItem(this.settings.localStorageValues[3], "false");
+      this.sidebarContent = this.sidebar_e.FAVORITES;
+      this.IEService.sidebar.set(true);
     }
   }
 
@@ -186,6 +203,10 @@ export class InternetExplorerComponent implements OnInit, AfterViewInit {
     } else {
       this.sidebarContent = contentNum;
       if (!this.IEService.sidebar()) this.IEService.sidebar.set(true);
+    }
+
+    if (contentNum === this.sidebar_e.FAVORITES) {
+      localStorage.setItem(this.settings.localStorageValues[3], "true");
     }
   }
 
