@@ -24,6 +24,7 @@ import { CloseSidebarButtonComponent } from './components/close-sidebar-button/c
 import { StandardButtonComponent } from './components/standard-button/standard-button.component';
 import { InternetExplorerService } from './internet-explorer.service';
 import { DNS, SiteList } from './site-list';
+import { sidebar_e } from './enum/sidebar.enum';
 
 @Component({
   selector: 'internet-explorer',
@@ -65,12 +66,8 @@ export class InternetExplorerComponent implements OnInit, AfterViewInit {
   protected systemService: SystemService = inject(SystemService);
   private settings: SettingsService = inject(SettingsService);
 
-  protected readonly sidebar_e = {
-    SEARCH: 0,
-    FAVORITES: 1,
-    HISTORY: 2,
-  };
-  protected sidebarContent: number = this.sidebar_e.SEARCH;
+  protected sidebarContent: number = sidebar_e.SEARCH;
+  protected htmlSidebar: typeof sidebar_e = sidebar_e;
 
   protected statusBarContent: string = "Ready";
   protected goButtonHovered: boolean = false;
@@ -137,7 +134,7 @@ export class InternetExplorerComponent implements OnInit, AfterViewInit {
       localStorage.getItem(this.settings.localStorageValues[3]) === "false"
     ) {
       localStorage.setItem(this.settings.localStorageValues[3], "false");
-      this.sidebarContent = this.sidebar_e.FAVORITES;
+      this.sidebarContent = sidebar_e.FAVORITES;
       this.IEService.sidebar.set(true);
     }
   }
@@ -205,7 +202,7 @@ export class InternetExplorerComponent implements OnInit, AfterViewInit {
       if (!this.IEService.sidebar()) this.IEService.sidebar.set(true);
     }
 
-    if (contentNum === this.sidebar_e.FAVORITES) {
+    if (contentNum === sidebar_e.FAVORITES) {
       localStorage.setItem(this.settings.localStorageValues[3], "true");
     }
   }

@@ -1,4 +1,4 @@
-<div class="app-wrapper" [class.visible]="this.store.desktopMode() === store.desktop_e.DESKTOP">
+<div class="app-wrapper" [class.visible]="this.store.desktopMode() === desktopMode.DESKTOP">
   <alert-shutdown [class.visible]="this.store.focus() === 'shutdown-alert'"></alert-shutdown>
   <desktop-environment>
     <router-outlet></router-outlet>
@@ -7,9 +7,9 @@
   <taskbar-base />
 </div>
 
-<shutdown-screen [class.visible]="this.store.desktopMode() === store.desktop_e.SHUTDOWN" />
+<shutdown-screen [class.visible]="this.store.desktopMode() === desktopMode.SHUTDOWN" />
 
-<msdos-prompt [class.visible]="this.store.desktopMode() === store.desktop_e.MSDOS" />
+<msdos-prompt [class.visible]="this.store.desktopMode() === desktopMode.MSDOS" />
 
 <div class="print-selection">
   @switch (IEService.displayedSite()) {

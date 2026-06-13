@@ -3,6 +3,8 @@ import { FormsModule } from '@angular/forms';
 import { AppService } from '../../../app/app.service';
 import { WindowFrameComponent } from '../../window-frame/window-frame.component';
 import { SystemService } from '../../../services/system/system.service';
+import { desktop_e } from '../../../app/enums/desktop.enum';
+import { formValue_e } from './enum/form-value.enum';
 
 @Component({
   selector: 'alert-shutdown',
@@ -15,12 +17,8 @@ export class AlertShutdownComponent {
   private store: AppService = inject(AppService);
   private systemService: SystemService = inject(SystemService);
 
-  protected readonly formValue_e = {
-    SHUTDOWN: 0,
-    RESTART: 1,
-    MSDOS: 2,
-  }
-  protected formValue: number = this.formValue_e.SHUTDOWN;
+  protected formValue: number = formValue_e.SHUTDOWN;
+  protected htmlForm: typeof formValue_e = formValue_e;
 
   constructor() {
     effect(() => {
@@ -35,17 +33,17 @@ export class AlertShutdownComponent {
     event.preventDefault();
 
     switch (this.formValue) {
-      case this.formValue_e.SHUTDOWN:
-        this.store.desktopMode.set(this.store.desktop_e.SHUTDOWN);
+      case formValue_e.SHUTDOWN:
+        this.store.desktopMode.set(desktop_e.SHUTDOWN);
         break;
 
-      case this.formValue_e.RESTART:
+      case formValue_e.RESTART:
         globalThis.location.href = this.systemService.webAddress;
         break;
 
       // TODO uncomment below when ready to integrate MSDOS-Prompt mode
-      // case this.formValue_e.MSDOS:
-      //   this.store.desktopMode.set(this.store.desktop_e.MSDOS)
+      // case formValue_e.MSDOS:
+      //   this.store.desktopMode.set(desktop_e.MSDOS)
       //   break;
 
       default:

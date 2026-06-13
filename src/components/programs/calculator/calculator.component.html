@@ -46,15 +46,15 @@
               </div>
 
               <div class="control-row">
-                <calculator-button btn-label="Back" color="dark-red" (click)="calculatorButtonHelper(calcButtons_e.BACK)" />
-                <calculator-button btn-label="CE" color="dark-red" (click)="calculatorButtonHelper(calcButtons_e.CE)" />
-                <calculator-button btn-label="C" color="dark-red" (click)="calculatorButtonHelper(calcButtons_e.C)" />
+                <calculator-button btn-label="Back" color="dark-red" (click)="calculatorButtonHelper(htmlButtons.BACK)" />
+                <calculator-button btn-label="CE" color="dark-red" (click)="calculatorButtonHelper(htmlButtons.CE)" />
+                <calculator-button btn-label="C" color="dark-red" (click)="calculatorButtonHelper(htmlButtons.C)" />
               </div>
 
-              <calculator-button class="btn-mc" btn-label="MC" color="red" (click)="calculatorButtonHelper(calcButtons_e.MC)" />
-              <calculator-button class="btn-mr" btn-label="MR" color="red" (click)="calculatorButtonHelper(calcButtons_e.MR)" />
-              <calculator-button class="btn-ms" btn-label="MS" color="red" (click)="calculatorButtonHelper(calcButtons_e.MS)" />
-              <calculator-button class="btn-m-plus" btn-label="M+" color="red" (click)="calculatorButtonHelper(calcButtons_e.MPLUS)" />
+              <calculator-button class="btn-mc" btn-label="MC" color="red" (click)="calculatorButtonHelper(htmlButtons.MC)" />
+              <calculator-button class="btn-mr" btn-label="MR" color="red" (click)="calculatorButtonHelper(htmlButtons.MR)" />
+              <calculator-button class="btn-ms" btn-label="MS" color="red" (click)="calculatorButtonHelper(htmlButtons.MS)" />
+              <calculator-button class="btn-m-plus" btn-label="M+" color="red" (click)="calculatorButtonHelper(htmlButtons.MPLUS)" />
 
               <div class="calc-buttons">
                 <calculator-button class="btn-7" btn-label="7" (click)="numberButtonHelper(7)" />
@@ -65,22 +65,22 @@
                 <calculator-button class="btn-8" btn-label="8" (click)="numberButtonHelper(8)" />
                 <calculator-button class="btn-5" btn-label="5" (click)="numberButtonHelper(5)" />
                 <calculator-button class="btn-2" btn-label="2" (click)="numberButtonHelper(2)" />
-                <calculator-button class="btn-pm" btn-label="+/-" (click)="calculatorButtonHelper(calcButtons_e.POS_NEG)" />
+                <calculator-button class="btn-pm" btn-label="+/-" (click)="calculatorButtonHelper(htmlButtons.POS_NEG)" />
 
                 <calculator-button class="btn-9" btn-label="9" (click)="numberButtonHelper(9)" />
                 <calculator-button class="btn-6" btn-label="6" (click)="numberButtonHelper(6)" />
                 <calculator-button class="btn-3" btn-label="3" (click)="numberButtonHelper(3)" />
-                <calculator-button class="btn-dot" btn-label="." (click)="calculatorButtonHelper(calcButtons_e.DECIMAL)" />
+                <calculator-button class="btn-dot" btn-label="." (click)="calculatorButtonHelper(htmlButtons.DECIMAL)" />
 
-                <calculator-button class="btn-div" btn-label="/" color="red" (click)="calculatorButtonHelper(calcButtons_e.DIVIDE)" />
-                <calculator-button class="btn-mul" btn-label="*" color="red" (click)="calculatorButtonHelper(calcButtons_e.MULTIPLY)" />
-                <calculator-button class="btn-sub" btn-label="-" color="red" (click)="calculatorButtonHelper(calcButtons_e.SUBTRACT)" />
-                <calculator-button class="btn-add" btn-label="+" color="red" (click)="calculatorButtonHelper(calcButtons_e.ADD)" />
+                <calculator-button class="btn-div" btn-label="/" color="red" (click)="calculatorButtonHelper(htmlButtons.DIVIDE)" />
+                <calculator-button class="btn-mul" btn-label="*" color="red" (click)="calculatorButtonHelper(htmlButtons.MULTIPLY)" />
+                <calculator-button class="btn-sub" btn-label="-" color="red" (click)="calculatorButtonHelper(htmlButtons.SUBTRACT)" />
+                <calculator-button class="btn-add" btn-label="+" color="red" (click)="calculatorButtonHelper(htmlButtons.ADD)" />
 
-                <calculator-button class="btn-sqrt" btn-label="sqrt" color="dark-blue" (click)="calculatorButtonHelper(calcButtons_e.SQ_RT)" />
-                <calculator-button class="btn-prct" btn-label="%" color="dark-blue" (click)="calculatorButtonHelper(calcButtons_e.PERCENT)" />
-                <calculator-button class="btn-1ovr" btn-label="1/x" color="dark-blue" (click)="calculatorButtonHelper(calcButtons_e.ONE_OVER)" />
-                <calculator-button class="btn-eql" btn-label="=" color="red" (click)="calculatorButtonHelper(calcButtons_e.EQUALS)" />
+                <calculator-button class="btn-sqrt" btn-label="sqrt" color="dark-blue" (click)="calculatorButtonHelper(htmlButtons.SQ_RT)" />
+                <calculator-button class="btn-prct" btn-label="%" color="dark-blue" (click)="calculatorButtonHelper(htmlButtons.PERCENT)" />
+                <calculator-button class="btn-1ovr" btn-label="1/x" color="dark-blue" (click)="calculatorButtonHelper(htmlButtons.ONE_OVER)" />
+                <calculator-button class="btn-eql" btn-label="=" color="red" (click)="calculatorButtonHelper(htmlButtons.EQUALS)" />
               </div>
             </div>
           }

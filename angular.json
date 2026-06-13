@@ -111,6 +111,9 @@
     "@schematics/angular:service": {
       "type": "service"
     },
+    "@schematics/angular:enum": {
+      "type": "enum"
+    },
     "@schematics/angular:guard": {
       "typeSeparator": "."
     },

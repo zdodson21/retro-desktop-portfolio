@@ -9,6 +9,12 @@ import { WindowFrameComponent } from '../../window-frame/window-frame.component'
 import { CalculatorButtonComponent } from './components/calculator-button/calculator-button.component';
 import { environment } from '../../../environments/environment';
 import { lastValueFrom } from 'rxjs';
+import { calculatorMode_e } from './enums/calculator-mode.enum';
+import { subModeDec_e } from './enums/submode-dec.enum';
+import { subModeRest_e } from './enums/submode-rest.enum';
+import { operations_e } from './enums/operations.enum';
+import { dualValueOperations_e } from './enums/dual-value-operations.enum';
+import { calcButtons_e } from './enums/calc-buttons.enum';
 
 @Component({
   selector: 'calculator',
@@ -25,53 +31,18 @@ export class CalculatorComponent implements OnInit {
   protected store: AppService = inject(AppService);
   protected systemService: SystemService = inject(SystemService);
   protected devMode: boolean = environment.devMode;
+  protected readonly htmlButtons = calcButtons_e;
 
   // ! Calculator Modes
-  protected readonly calculatorMode_e = {
-    HEX: 0,
-    DEC: 1,
-    OCT: 2,
-    BIN: 3,
-  }
-  protected mode: number = this.calculatorMode_e.HEX;
-
-  protected readonly subModeDec_e = {
-    DEG: 0,
-    RAD: 1,
-    GRAD: 2,
-  }
-  protected subModeDec: number = this.subModeDec_e.DEG;
-
-  protected readonly subModeRest_e = {
-    DWORD: 0,
-    WORD: 1,
-    BYTE: 2,
-  }
-  protected subModeRest: number = this.subModeRest_e.DWORD;
+  protected mode: number = calculatorMode_e.HEX;
+  protected subModeDec: number = subModeDec_e.DEG;
+  protected subModeRest: number = subModeRest_e.DWORD;
 
   // ! Memory
   protected memory: number | undefined; // Calculator memory
   protected seqMem: Array<number> = []; // Memory of all calculations
 
-  protected readonly operations_e = {
-    NULL: 0,
-    ADD: 1,
-    SUBTRACT: 2,
-    MULTIPLY: 3,
-    DIVIDE: 4,
-    SQ_RT: 5,
-    ONE_OVER: 6,
-    LN: 7,
-    LOG: 8,
-    SIN: 9,
-    COS: 10,
-    TAN: 11,
-    N: 12, // n!
-    SQR: 13, // x^2
-    CUBE: 14, // x^3
-    EXP: 15,
-  }
-  protected operation: number = this.operations_e.NULL; // Operation to perform
+  protected operation: number = operations_e.NULL; // Operation to perform
 
   protected operationNum: number = 0; // Number to be used in operation. Allows pressing equal repeatedly
   protected useOpNum: boolean = false;
@@ -91,17 +62,17 @@ export class CalculatorComponent implements OnInit {
   ];
 
   protected singleValOperations: Set<number> = new Set([
-    this.operations_e.SQ_RT,
-    this.operations_e.ONE_OVER,
-    this.operations_e.LN,
-    this.operations_e.LOG,
-    this.operations_e.SIN,
-    this.operations_e.COS,
-    this.operations_e.TAN,
-    this.operations_e.N,
-    this.operations_e.SQR,
-    this.operations_e.CUBE,
-    this.operations_e.EXP,
+    operations_e.SQ_RT,
+    operations_e.ONE_OVER,
+    operations_e.LN,
+    operations_e.LOG,
+    operations_e.SIN,
+    operations_e.COS,
+    operations_e.TAN,
+    operations_e.N,
+    operations_e.SQR,
+    operations_e.CUBE,
+    operations_e.EXP,
   ]);
 
   // ! Calculator Logic
@@ -305,42 +276,6 @@ export class CalculatorComponent implements OnInit {
 
   // ! DOM || Calculator Logic
 
-  protected readonly calcButtons_e = {
-    // ? Controls
-    BACK: 0,
-    CE: 1, // Clears current entry on display
-    C: 2, // Clears entire calculation
-
-    // ? Memory
-    MC: 3, // Memory Clear
-    MR: 4, // Memory Recall
-    MS: 5, // Memory Save
-    MPLUS: 6, // Add to Memory Value
-
-    // ? Dual Value Operations
-    ADD: 7,
-    SUBTRACT: 8,
-    MULTIPLY: 9,
-    DIVIDE: 10,
-
-    // ? Single Value Operations
-    SQ_RT: 11,
-    PERCENT: 12,
-    ONE_OVER: 13,
-
-    // ? Solve
-    EQUALS: 14,
-
-    // ? VALUE MODIFIERS
-    POS_NEG: 15,
-    DECIMAL: 16,
-
-    // ! Scientific Mode
-
-    // ? VARIABLES:
-    PI: 17
-  }
-
   /**
    * @description called by all buttons on click. Handles interpretation of button press for any non numbers
    * @param input calculator button numbers of strings (operators)
@@ -349,7 +284,7 @@ export class CalculatorComponent implements OnInit {
     switch (input) {
       // ! Clearing controls
 
-      case this.calcButtons_e.BACK:
+      case calcButtons_e.BACK:
         let string = this.currentDisplay.toString();
         if (!this.errorDisplayed()) {
           if (this.currentDisplay.toString().length === 1) {
@@ -360,14 +295,14 @@ export class CalculatorComponent implements OnInit {
         }
         break;
 
-      case this.calcButtons_e.CE:
+      case calcButtons_e.CE:
         this.currentDisplay = 0;
         this.displayInitState = true;
         break;
 
-      case this.calcButtons_e.C:
+      case calcButtons_e.C:
         this.seqMem = [];
-        this.operation = this.operations_e.NULL;
+        this.operation = operations_e.NULL;
         this.calcPerformed = false;
         this.currentDisplay = 0;
         this.displayInitState = true;
@@ -375,19 +310,19 @@ export class CalculatorComponent implements OnInit {
 
       // ! Memory Controls
 
-      case this.calcButtons_e.MC:
+      case calcButtons_e.MC:
         this.memory = undefined;
         break;
 
-      case this.calcButtons_e.MR:
+      case calcButtons_e.MR:
         if (typeof this.memory === 'number') this.currentDisplay = this.memory;
         break;
 
-      case this.calcButtons_e.MS:
+      case calcButtons_e.MS:
         if (!this.errorDisplayed()) this.memory = +this.currentDisplay;
         break;
 
-      case this.calcButtons_e.MPLUS:
+      case calcButtons_e.MPLUS:
         if (typeof this.memory === 'undefined') {
           this.memory = +this.currentDisplay;
         } else {
@@ -398,9 +333,9 @@ export class CalculatorComponent implements OnInit {
 
       // ! Arithmetic Operations
 
-      case this.calcButtons_e.ADD:
+      case calcButtons_e.ADD:
         this.useOpNum = false;
-        this.operation = this.operations_e.ADD;
+        this.operation = operations_e.ADD;
 
         if (!this.errorDisplayed()) this.seqMem.push(+this.currentDisplay);
 
@@ -409,9 +344,9 @@ export class CalculatorComponent implements OnInit {
 
         break;
 
-      case this.calcButtons_e.SUBTRACT:
+      case calcButtons_e.SUBTRACT:
         this.useOpNum = false;
-        this.operation = this.operations_e.SUBTRACT;
+        this.operation = operations_e.SUBTRACT;
 
         if (!this.errorDisplayed()) this.seqMem.push(+this.currentDisplay);
 
@@ -420,9 +355,9 @@ export class CalculatorComponent implements OnInit {
 
         break;
 
-      case this.calcButtons_e.MULTIPLY:
+      case calcButtons_e.MULTIPLY:
         this.useOpNum = false;
-        this.operation = this.operations_e.MULTIPLY;
+        this.operation = operations_e.MULTIPLY;
 
         if (!this.errorDisplayed()) this.seqMem.push(+this.currentDisplay);
 
@@ -431,9 +366,9 @@ export class CalculatorComponent implements OnInit {
 
         break;
 
-      case this.calcButtons_e.DIVIDE:
+      case calcButtons_e.DIVIDE:
         this.useOpNum = false;
-        this.operation = this.operations_e.DIVIDE;
+        this.operation = operations_e.DIVIDE;
 
         if (!this.errorDisplayed()) this.seqMem.push(+this.currentDisplay);
 
@@ -444,16 +379,16 @@ export class CalculatorComponent implements OnInit {
 
       // ! Single Value Operations
 
-      case this.calcButtons_e.SQ_RT:
+      case calcButtons_e.SQ_RT:
         this.useOpNum = false;
-        this.operation = this.operations_e.SQ_RT;
+        this.operation = operations_e.SQ_RT;
 
         if (!this.errorDisplayed()) this.seqMem.push(+this.currentDisplay);
         if (this.seqMem.length > 0) this.performOperation(this.operation);
 
         break;
 
-      case this.calcButtons_e.PERCENT:
+      case calcButtons_e.PERCENT:
         this.useOpNum = false;
 
         if (this.seqMem.length > 0 && !this.errorDisplayed()) {
@@ -462,9 +397,9 @@ export class CalculatorComponent implements OnInit {
 
         break;
 
-      case this.calcButtons_e.ONE_OVER:
+      case calcButtons_e.ONE_OVER:
         this.useOpNum = false;
-        this.operation = this.operations_e.ONE_OVER;
+        this.operation = operations_e.ONE_OVER;
 
         if (!this.errorDisplayed()) this.seqMem.push(+this.currentDisplay);
         if (this.seqMem.length > 0) this.performOperation(this.operation);
@@ -473,7 +408,7 @@ export class CalculatorComponent implements OnInit {
 
       // ! Solve
 
-      case this.calcButtons_e.EQUALS:
+      case calcButtons_e.EQUALS:
         if (!this.useOpNum && !this.singleValOperations.has(this.operation)) {
           this.operationNum = +this.currentDisplay;
           this.useOpNum = true;
@@ -491,11 +426,11 @@ export class CalculatorComponent implements OnInit {
 
       // ! Value Modifiers
 
-      case this.calcButtons_e.POS_NEG: // Switch between positive and negative
+      case calcButtons_e.POS_NEG: // Switch between positive and negative
         if (!this.errorDisplayed()) this.currentDisplay = -+this.currentDisplay;
         break;
 
-      case this.calcButtons_e.DECIMAL:
+      case calcButtons_e.DECIMAL:
         if (this.displayInitState) {
           this.currentDisplay = '0' + '.';
           this.displayInitState = false;
@@ -507,7 +442,7 @@ export class CalculatorComponent implements OnInit {
 
       // ! Variables
 
-      case this.calcButtons_e.PI:
+      case calcButtons_e.PI:
         this.currentDisplay = 3.14159265359;
         this.displayInitState = false;
         break;
@@ -529,7 +464,7 @@ export class CalculatorComponent implements OnInit {
   protected numberButtonHelper(input: number): void {
     if (this.calcPerformed) {
       this.operationNum = 0;
-      this.operation = this.operations_e.NULL;
+      this.operation = operations_e.NULL;
       this.calcPerformed = false;
     }
 
@@ -549,23 +484,23 @@ export class CalculatorComponent implements OnInit {
     switch (operation) {
       // ! Standard Operations
 
-      case this.operations_e.ADD:
-        this.dualValueHelper(this.dualValueOperations_e.ADD);
+      case operations_e.ADD:
+        this.dualValueHelper(dualValueOperations_e.ADD);
         break;
 
-      case this.operations_e.SUBTRACT:
-        this.dualValueHelper(this.dualValueOperations_e.SUBTRACT);
+      case operations_e.SUBTRACT:
+        this.dualValueHelper(dualValueOperations_e.SUBTRACT);
         break;
 
-      case this.operations_e.MULTIPLY:
-        this.dualValueHelper(this.dualValueOperations_e.MULTIPLIY);
+      case operations_e.MULTIPLY:
+        this.dualValueHelper(dualValueOperations_e.MULTIPLY);
         break;
 
-      case this.operations_e.DIVIDE:
-        this.dualValueHelper(this.dualValueOperations_e.DIVIDE);
+      case operations_e.DIVIDE:
+        this.dualValueHelper(dualValueOperations_e.DIVIDE);
         break;
 
-      case this.operations_e.ONE_OVER:
+      case operations_e.ONE_OVER:
         let quotient: number | string = this.oneOver(this.seqMem[this.seqMem.length - 1]);
 
         if (typeof quotient === 'number') this.seqMem.push(quotient);
@@ -575,7 +510,7 @@ export class CalculatorComponent implements OnInit {
 
         break;
 
-      case this.operations_e.SQ_RT:
+      case operations_e.SQ_RT:
         let solution: number | string = this.sqRoot(this.seqMem[this.seqMem.length - 1]);
 
         if (typeof solution === 'number') this.seqMem.push(solution);
@@ -588,18 +523,12 @@ export class CalculatorComponent implements OnInit {
       // ! Scientific Operations
 
       default:
-        if (operation !== this.operations_e.NULL) this.currentDisplay = this.errors[4];
+        if (operation !== operations_e.NULL) this.currentDisplay = this.errors[4];
     }
 
     this.displayInitState = true;
   }
 
-  protected readonly dualValueOperations_e = {
-    ADD: 0,
-    SUBTRACT: 1,
-    MULTIPLIY: 2,
-    DIVIDE: 3,
-  }
   /**
    * @description determines and performs operations that require two values
    * @param operation operation to perform (ex: add, subtract, multiply, divide, etc.)
@@ -610,19 +539,19 @@ export class CalculatorComponent implements OnInit {
     let solution: number | string;
 
     switch (operation) {
-      case this.dualValueOperations_e.ADD:
+      case dualValueOperations_e.ADD:
         solution = this.add(VALUE_1, VALUE_2);
         break;
 
-      case this.dualValueOperations_e.SUBTRACT:
+      case dualValueOperations_e.SUBTRACT:
         solution = this.subtract(VALUE_1, VALUE_2);
         break;
 
-      case this.dualValueOperations_e.MULTIPLIY:
+      case dualValueOperations_e.MULTIPLY:
         solution = this.multiply(VALUE_1, VALUE_2);
         break;
 
-      case this.dualValueOperations_e.DIVIDE:
+      case dualValueOperations_e.DIVIDE:
         solution = this.divide(VALUE_1, VALUE_2);
         break;
 

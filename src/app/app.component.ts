@@ -20,6 +20,7 @@ import { TaskbarBaseComponent } from '../components/taskbar/taskbar-base/taskbar
 import { SettingsService } from '../services/settings/settings.service';
 import { SystemService } from '../services/system/system.service';
 import { AppService } from './app.service';
+import { desktop_e } from './enums/desktop.enum';
 
 @Component({
   selector: 'app-root',
@@ -56,6 +57,8 @@ export class AppComponent {
 
   private router: Router = inject(Router);
   private route: ActivatedRoute = inject(ActivatedRoute);
+
+  protected desktopMode: typeof desktop_e = desktop_e;
 
   constructor() {
     let openWelcome: string | null = localStorage.getItem(this.settings.localStorageValues[0]);
