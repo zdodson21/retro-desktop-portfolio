@@ -464,7 +464,7 @@ export class InternetExplorerComponent implements OnInit, AfterViewInit {
       let currIcon: string = this.IEService.statusBarIcon();
       let currContent: string = this.IEService.statusBarContent();
 
-      let copyIconPath: string = 'assets/icons/internet-explorer/copy-button.svg';
+      let copyIconPath: string = 'assets/icons/internet-explorer/copy-button.webp';
 
       this.IEService.statusBarIcon.set(copyIconPath);
       this.IEService.statusBarContent.set(this.IEService.copyText);
