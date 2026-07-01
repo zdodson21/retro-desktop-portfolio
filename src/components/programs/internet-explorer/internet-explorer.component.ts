@@ -321,10 +321,10 @@ export class InternetExplorerComponent implements OnInit, AfterViewInit {
       } else if (newTitle === 'Cannot find webpage') {
         this.windowFrame.title = newTitle;
       } else {
-        newTitle = newTitle.replace('-', ' ');
+        newTitle = newTitle.replaceAll('-', ' ');
 
-        const WORDS = newTitle.split(' ');
-        const CAPITALIZED = WORDS.map((word) => (word ? word[0].toUpperCase() + word.slice(1) : ''));
+        const WORDS: Array<string> = newTitle.split(' ');
+        const CAPITALIZED: Array<string> = WORDS.map((word) => (word ? word[0].toUpperCase() + word.slice(1) : ''));
         newTitle = CAPITALIZED.join(' ');
 
         this.windowFrame.title = `${newTitle} - Internet Explorer`;

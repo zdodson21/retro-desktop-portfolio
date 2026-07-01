@@ -21,11 +21,11 @@
       <p>
         Created a read-only CLI tool to analyze web components created
         using the <a-ie href="https://github.com/haxtheweb/create">HAXTheWeb CLI tool</a-ie>.
-        This tool will find any CSS within a web component and inform the user of any values
+        This tool will find any CSS within a HAX web component and inform the user of any values
         that should be changed to meet the standards of the
         <a-ie href="https://oer.hax.psu.edu/bto108/sites/haxcellence/documentation/ddd">
           Design, Develop, Destroy! (DDD) design system
-        </a-ie>.
+        </a-ie>. If applicable, this tool will also provide specific suggested changes.
       </p>
     </section>
 
@@ -46,7 +46,7 @@
             <li>
               Developed a VSCode extension using the
               <a-ie href="https://code.visualstudio.com/api/get-started/your-first-extension">Yo Code Generator</a-ie>
-              to natively support the <em>.dddignore</em> language syntax, providing highlighting for comments.
+              to natively support the <em>.dddignore</em> language syntax, providing syntax highlighting for comments.
               <ul>
                 <li>
                   <a-ie href="https://github.com/zdodson21/dddignore-vscode">Extension Repository</a-ie>
@@ -63,8 +63,8 @@
           Specific suggestions are provided for numerous types of CSS values.
           Some examples are specific CSS colors such as "red" and "yellow", or "px" values.
           These types of values are detected, analyzed, and an applicable value is provided to the user.
-          For example, if a user sets "color: red;", they will be informed that they should instead set it to
-          "--ddd-theme-default-original87Pink", which is the closest color in the DDD design system.
+          For example, if a user sets <code>color: red;</code> in CSS, they will be informed that they should instead set it to
+          <code>--ddd-theme-default-original87Pink</code>, which is the closest color in the DDD design system.
           If no specific value can be provided, the developer will be instructed to look at the documentation.
         </li>
         <li>

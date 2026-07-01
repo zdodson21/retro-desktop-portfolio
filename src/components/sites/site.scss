@@ -47,6 +47,13 @@
     }
   }
 
+  code {
+    border: 1px black solid;
+    padding: 0px 2px;
+    border-radius: 5px;
+    font-family: monospace;
+  }
+
   &.dark-mode {
     * {
       color: white;
@@ -68,6 +75,10 @@
       img {
         border-color: white;
       }
+    }
+
+    code {
+      border-color: white;
     }
   }
 }
