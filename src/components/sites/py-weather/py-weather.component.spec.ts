@@ -58,6 +58,20 @@ describe('PyWeatherComponent', () => {
       expect(hasJinja).toBeTruthy();
     });
 
+    it('should contain Chartjs badge', () => {
+      const badges = compiled.querySelectorAll('.badges img');
+      let hasChartJS = false;
+
+      badges.forEach((element) => {
+        if (element.getAttribute('src')?.includes('chartjs.svg')) {
+          hasChartJS = true;
+          return;
+        }
+      });
+
+      expect(hasChartJS).toBeTruthy();
+    });
+
     it('should contain Bash badge', () => {
       const badges = compiled.querySelectorAll('.badges img');
       let hasBash = false;
