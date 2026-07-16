@@ -252,6 +252,14 @@ npm run forge:mac
 
 ---
 
+## AI Usage Disclosure
+
+As stated above, this website is a place for me to try new things. This included things like Electron, Docker, WebAssembly, etc. This also includes generative AI. I would like to disclose here that very limited sections of this website were programmed using generative AI agents, and generative AI was only used for logic code, not content. The numerous generative AI related folders were generated with the `ng generate ai-config` command, and have not been touched since.
+
+I personally define the term *vibe-coding* as coding by relying solely upon generative AI agents without auditing the code it generates, or without knowledge of what the code does. Using that definition, this website is NOT vibe-coded.
+
+---
+
 ## Is This Repository Open Source?
 
 No. Because this is my portfolio web application, which contains numerous aspects (such as pictures and descriptions) of my life and projects, this repository is not open source. It is "code-available", meaning anyone can view the code to see how all the pieces function, but no one is permitted to copy, modify, or redistribute this code without my permission.
