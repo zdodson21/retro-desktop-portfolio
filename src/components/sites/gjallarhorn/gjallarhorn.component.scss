@@ -1,0 +1,5 @@
+@use "../site.scss";
+
+.gjallarhorn-site-wrapper {
+  @include site.common();
+}

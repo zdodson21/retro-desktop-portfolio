@@ -1,6 +1,6 @@
-import { Component, inject, Input, ChangeDetectionStrategy } from '@angular/core';
-import { InternetExplorerService } from '../../../programs/internet-explorer/internet-explorer.service';
+import { ChangeDetectionStrategy, Component, inject, Input } from '@angular/core';
 import { SystemService } from '../../../../services/system/system.service';
+import { InternetExplorerService } from '../../../programs/internet-explorer/internet-explorer.service';
 
 @Component({
   selector: 'a-ie',
@@ -93,7 +93,12 @@ export class AIeComponent {
   }
 
   private checkSpecialString(): boolean {
-    if (this.href.includes('github.com')) {
+    // TODO this could probably be done better with a map
+
+    if (this.href.includes('developer.android.com')) {
+      this.IEService.statusBarIcon.set('assets/icons/android.svg');
+      return true;
+    } else if (this.href.includes('github.com')) {
       this.IEService.statusBarIcon.set('assets/icons/github-mark.svg');
       return true;
     } else if (this.href.includes('linkedin.com')) {

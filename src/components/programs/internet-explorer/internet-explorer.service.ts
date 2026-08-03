@@ -80,6 +80,15 @@ export class InternetExplorerService {
       ],
     },
     {
+      domain: 'gjallarhorn',
+      tld: 'net',
+      tags: [
+        'android',
+        'kotlin',
+        'android studio'
+      ],
+    },
+    {
       domain: 'open-source-contributions',
       tld: 'os',
       tags: [

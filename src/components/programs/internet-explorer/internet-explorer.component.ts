@@ -25,6 +25,7 @@ import { StandardButtonComponent } from './components/standard-button/standard-b
 import { InternetExplorerService } from './internet-explorer.service';
 import { DNS, SiteList } from './site-list';
 import { sidebar_e } from './enum/sidebar.enum';
+import { GjallarhornSite } from '../../sites/gjallarhorn/gjallarhorn.component';
 
 @Component({
   selector: 'internet-explorer',
@@ -33,6 +34,7 @@ import { sidebar_e } from './enum/sidebar.enum';
     CalculatorSite,
     CloseSidebarButtonComponent,
     ErrorSite,
+    GjallarhornSite,
     HaxAuditSite,
     HaxChatAgentSite,
     IeRouteComponent,

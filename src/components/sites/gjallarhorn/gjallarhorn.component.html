@@ -1,0 +1,70 @@
+<!-- prettier-ignore -->
+<article class="gjallarhorn-site-wrapper" [class.dark-mode]="IEService.darkMode()">
+  <header>
+    <h1>Gjallarhorn (coming soon...)</h1>
+    <div class="badges">
+      <img src="assets/badges/android-studio.svg" alt="android studio badge">
+      <img src="assets/badges/kotlin.svg" alt="kotlin badge">
+      <img src="assets/badges/android.svg" alt="android badge">
+      <img src="assets/badges/sqlite.svg" alt="sqlite badge">
+    </div>
+    <nav>
+      <a-ie href="https://github.com/zdodson21/gjallarhorn">Project Repository</a-ie>
+    </nav>
+  </header>
+
+  <main>
+    <section class="description">
+      <h2>Description:</h2>
+      <p>
+        The Android operating system has what (in my eyes) is a problem. When a user's device is
+        connected to an external speaker with an Aux cord, the Android operating system will automatically
+        decrease the output volume if it "thinks" it is too loud. This is understandable in a way in the context
+        of using headphones, but becomes an inconvenience when attempting to set the Android device's volume to
+        the maximum setting, then setting the output volume with an external speaker to an acceptable level, only
+        for the system to think the volume is "too high", because all it can see is the maxed out device volume.
+      </p>
+      <br>
+      <p>
+        <em>Gjallarhorn</em> aims to fix this problem by allowing users to set a specified amount of time in which
+        <em>Gjallarhorn</em> is allowed to revert media volume changes.
+      </p>
+    </section>
+
+    <section class="details">
+      <h2>Details:</h2>
+      <ul>
+        <li>
+          Created an Android application with Kotlin and Jetpack Compose to consume information
+          from Android APIs, enabling Gjallarhorn to counteract system-level audio API inconveniences
+        </li>
+        <li>
+          Studied the <a-ie href="https://developer.android.com/courses/android-basics-compose/course">Android Basics with Compose</a-ie>,
+          practicing what I learned by developing Gjallarhorn in conjunction with my course progression.
+        </li>
+        <li>
+          Implemented the Room SQLite database library to store app activation dates, Jetpack DataStore
+          to store user preferences, and WorkManager to handle background tasks such as restoring volume
+          if decreased by the Android operating system.
+        </li>
+      </ul>
+    </section>
+
+    <section class="Remaining Steps">
+      <h2>Remaining Steps:</h2>
+      <ul>
+        <li>
+          Set up a service or WorkManager to run for the alloted amount of time, checking periodically for media volume to decrease.
+          If the volume decreases, then Gjallarhorn will automatically revert the device's media volume.
+        </li>
+        <li>
+          Ensure the application's receivers are registered and unregistered upon Gjallarhorn's activation and deactivation
+          (respectively).
+        </li>
+        <li>
+          Release app on GitHub.
+        </li>
+      </ul>
+    </section>
+  </main>
+</article>
