@@ -8,9 +8,8 @@ describe('CertBlockComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [CertBlockComponent]
-    })
-    .compileComponents();
+      imports: [CertBlockComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(CertBlockComponent);
     component = fixture.componentInstance;

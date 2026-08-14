@@ -1,7 +1,6 @@
 @use "../../scss/color.scss";
 @use "../../scss/style.scss";
 
-
 @mixin control-button-common {
   @include style.text-common();
   background-color: color.$win-95-grey;

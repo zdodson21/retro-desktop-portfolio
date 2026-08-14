@@ -71,11 +71,11 @@ export class InternetExplorerComponent implements OnInit, AfterViewInit {
   protected sidebarContent: number = sidebar_e.SEARCH;
   protected htmlSidebar: typeof sidebar_e = sidebar_e;
 
-  protected statusBarContent: string = "Ready";
+  protected statusBarContent: string = 'Ready';
   protected goButtonHovered: boolean = false;
   protected searchResults: DNS = [];
   protected menuFocus: string = '';
-  private readonly toolbarButtons: Set<string> = new Set(["file", "view", "favorites", "tools"]);
+  private readonly toolbarButtons: Set<string> = new Set(['file', 'view', 'favorites', 'tools']);
   private currentSite: string = this.IEService.displayedSite(); // Used for ensuring the page scrolls to top (in constructor)
 
   ngOnInit() {
@@ -83,7 +83,7 @@ export class InternetExplorerComponent implements OnInit, AfterViewInit {
       localStorage.getItem(this.settings.localStorageValues[1]) === null ||
       localStorage.getItem(this.settings.localStorageValues[1]) === ''
     ) {
-      const SET_DARK_MODE: string = this.systemService.browserIsDarkMode ? "enabled" : "disabled";
+      const SET_DARK_MODE: string = this.systemService.browserIsDarkMode ? 'enabled' : 'disabled';
 
       localStorage.setItem(this.settings.localStorageValues[1], SET_DARK_MODE);
     }
@@ -132,10 +132,10 @@ export class InternetExplorerComponent implements OnInit, AfterViewInit {
 
     if (
       localStorage.getItem(this.settings.localStorageValues[3]) === null ||
-      localStorage.getItem(this.settings.localStorageValues[3]) === "" ||
-      localStorage.getItem(this.settings.localStorageValues[3]) === "false"
+      localStorage.getItem(this.settings.localStorageValues[3]) === '' ||
+      localStorage.getItem(this.settings.localStorageValues[3]) === 'false'
     ) {
-      localStorage.setItem(this.settings.localStorageValues[3], "false");
+      localStorage.setItem(this.settings.localStorageValues[3], 'false');
       this.sidebarContent = sidebar_e.FAVORITES;
       this.IEService.sidebar.set(true);
     }
@@ -205,7 +205,7 @@ export class InternetExplorerComponent implements OnInit, AfterViewInit {
     }
 
     if (contentNum === sidebar_e.FAVORITES) {
-      localStorage.setItem(this.settings.localStorageValues[3], "true");
+      localStorage.setItem(this.settings.localStorageValues[3], 'true');
     }
   }
 

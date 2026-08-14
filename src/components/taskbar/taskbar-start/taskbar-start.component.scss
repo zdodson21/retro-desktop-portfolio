@@ -3,8 +3,9 @@
 .taskbar-start-wrapper {
   @include taskbar.item-common();
   border-style: outset;
-  border-color: taskbar.$taskbar-item-border-white taskbar.$taskbar-item-border-black
-    taskbar.$taskbar-item-border-black taskbar.$taskbar-item-border-white;
+  border-color: taskbar.$taskbar-item-border-white
+    taskbar.$taskbar-item-border-black taskbar.$taskbar-item-border-black
+    taskbar.$taskbar-item-border-white;
   padding: 2px 6px;
   align-content: center;
   margin-right: 8px;
@@ -27,8 +28,8 @@
 
   &.active {
     border-style: solid inset solid solid;
-    border-color: #000 taskbar.$taskbar-item-border-white taskbar.$taskbar-item-border-white
-      #000;
+    border-color: #000 taskbar.$taskbar-item-border-white
+      taskbar.$taskbar-item-border-white #000;
     align-content: center;
 
     .contents {

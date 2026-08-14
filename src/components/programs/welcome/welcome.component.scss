@@ -45,8 +45,9 @@
           .tip-box {
             background-color: #f1f6b7;
             border-style: solid inset inset solid;
-            border-color: color.$taskbar-item-border-black color.$taskbar-item-border-white
-              color.$taskbar-item-border-white color.$taskbar-item-border-black;
+            border-color: color.$taskbar-item-border-black
+              color.$taskbar-item-border-white color.$taskbar-item-border-white
+              color.$taskbar-item-border-black;
             border-width: 2px;
             padding: 28px;
             display: flex;

@@ -119,14 +119,11 @@ export class ProgramsWrapperComponent {
         });
       }
 
-      if (
-        'licenses' in params &&
-        !this.windowService.openPrograms().some((programs) => programs.focusName === 'licenses')
-      ) {
+      if ('licenses' in params && !this.windowService.openPrograms().some((programs) => programs.focusName === 'licenses')) {
         this.windowService.openPrograms().push({
           programName: 'Licenses',
           focusName: 'licenses',
-          iconPath: 'assets/icons/mail-text.webp'
+          iconPath: 'assets/icons/mail-text.webp',
         });
       }
 

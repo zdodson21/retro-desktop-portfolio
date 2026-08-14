@@ -31,5 +31,5 @@ export enum calcButtons_e {
   // ! Scientific Mode
 
   // ? VARIABLES:
-  PI
+  PI,
 }

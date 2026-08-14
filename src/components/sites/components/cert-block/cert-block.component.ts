@@ -3,9 +3,7 @@ import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'cert-block',
-  imports: [
-    DatePipe
-  ],
+  imports: [DatePipe],
   templateUrl: './cert-block.component.html',
   changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './cert-block.component.scss',

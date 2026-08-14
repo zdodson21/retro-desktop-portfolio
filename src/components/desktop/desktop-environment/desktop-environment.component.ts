@@ -2,7 +2,7 @@ import { Component, inject, ChangeDetectionStrategy } from '@angular/core';
 import { AppService } from '../../../app/app.service';
 import { DesktopIconComponent } from '../desktop-icon/desktop-icon.component';
 import { SystemService } from '../../../services/system/system.service';
-import { environment } from "../../../environments/environment"
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'desktop-environment',

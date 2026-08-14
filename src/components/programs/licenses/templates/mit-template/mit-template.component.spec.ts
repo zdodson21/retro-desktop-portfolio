@@ -1,17 +1,17 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MitTemplateComponent } from './mit-template.component';
+import { MitTemplate } from './mit-template.component';
 
-describe('MitTemplateComponent', () => {
-  let component: MitTemplateComponent;
-  let fixture: ComponentFixture<MitTemplateComponent>;
+describe('MitTemplate', () => {
+  let component: MitTemplate;
+  let fixture: ComponentFixture<MitTemplate>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [MitTemplateComponent],
+      imports: [MitTemplate],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(MitTemplateComponent);
+    fixture = TestBed.createComponent(MitTemplate);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
