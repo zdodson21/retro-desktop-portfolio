@@ -1,0 +1,33 @@
+@use "../program.scss";
+@use "../../../scss/style.scss";
+
+.licenses-wrapper {
+  @include program.common();
+
+  window-frame {
+    width: 50%;
+    height: 60%;
+    @include program.mobile-viewport();
+
+    .frame-contents {
+      @include style.text-common();
+      @include program.frame-contents-common();
+
+      .padding {
+        padding: 4px;
+        height: calc(100% - 8px);
+        overflow-y: scroll;
+
+        hr {
+          margin: 8px 0px;
+        }
+
+        section {
+          h2 {
+            margin-bottom: 16px;
+          }
+        }
+      }
+    }
+  }
+}

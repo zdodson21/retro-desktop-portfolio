@@ -13,6 +13,7 @@ import { SystemMonitorComponent } from '../system-monitor/system-monitor.compone
 import { TaskbarPropertiesComponent } from '../taskbar-properties/taskbar-properties.component';
 import { WelcomeComponent } from '../welcome/welcome.component';
 import { WindowsExplorerComponent } from '../windows-explorer/windows-explorer.component';
+import { LicensesComponent } from '../licenses/licenses.component';
 
 @Component({
   selector: 'app-programs-wrapper',
@@ -21,6 +22,7 @@ import { WindowsExplorerComponent } from '../windows-explorer/windows-explorer.c
     ControlPanelComponent,
     HelpComponent,
     InternetExplorerComponent,
+    LicensesComponent,
     MyComputerComponent,
     PaintProgram,
     ProgramMenuComponent,
@@ -54,6 +56,7 @@ export class ProgramsWrapperComponent {
     controlPanel: false,
     help: false,
     internetExplorer: false,
+    licenses: false,
     myComputer: false,
     paint: false,
     programMenu: false,
@@ -69,6 +72,7 @@ export class ProgramsWrapperComponent {
       this.programs.controlPanel = 'control-panel' in params;
       this.programs.help = 'help' in params;
       this.programs.internetExplorer = 'internet-explorer' in params;
+      this.programs.licenses = 'licenses' in params;
       this.programs.myComputer = 'my-computer' in params;
       this.programs.paint = 'paint' in params;
       this.programs.programMenu = 'program-menu' in params;
@@ -112,6 +116,17 @@ export class ProgramsWrapperComponent {
           programName: 'Internet Explorer',
           focusName: 'internet-explorer',
           iconPath: 'assets/icons/internet-explorer.webp',
+        });
+      }
+
+      if (
+        'licenses' in params &&
+        !this.windowService.openPrograms().some((programs) => programs.focusName === 'licenses')
+      ) {
+        this.windowService.openPrograms().push({
+          programName: 'Licenses',
+          focusName: 'licenses',
+          iconPath: 'assets/icons/mail-text.webp'
         });
       }
 
